@@ -492,37 +492,28 @@
     </footer>
 
     <!-- Mobile Bottom Navigation Bar -->
-    <nav aria-label="Mobilnavigation" class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
-        <!-- Home -->
-        <button onclick="switchNavTab('home')" id="nav-home" class="flex flex-col items-center gap-1 text-[#00e785] transition">
-            <i class="fa-solid fa-house text-base"></i>
-            <span class="text-[10px] font-medium">Hjem</span>
-        </button>
-
-        <!-- Casino -->
-        <a href="./casino.html" id="nav-casino" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-dice text-base"></i>
-            <span class="text-[10px] font-medium">Casino</span>
-        </a>
-
-        <!-- Live Casino -->
-        <button onclick="switchNavTab('live')" id="nav-live" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-video text-base"></i>
-            <span class="text-[10px] font-medium">Live</span>
-        </button>
-
-        <!-- Search -->
-        <button onclick="toggleSearchModal()" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-magnifying-glass text-base"></i>
-            <span class="text-[10px] font-medium">Søg</span>
-        </button>
-
-        <!-- Menu -->
-        <button onclick="openMenuDrawer()" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-bars text-base"></i>
-            <span class="text-[10px] font-medium">Menu</span>
-        </button>
-    </nav>
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-[#00e785] transition">
+        <i class="fa-solid fa-house text-base"></i>
+        <span class="text-[10px] font-medium">Hjem</span>
+    </a>
+    <a href="casino.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+        <i class="fa-solid fa-dice text-base"></i>
+        <span class="text-[10px] font-medium">Casino</span>
+    </a>
+    <a href="campaign.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+        <i class="fa-solid fa-gift text-base"></i>
+        <span class="text-[10px] font-medium">Kampagner</span>
+    </a>
+    <a href="#" onclick="toggleSearchModal(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+        <i class="fa-solid fa-magnifying-glass text-base"></i>
+        <span class="text-[10px] font-medium">Søg</span>
+    </a>
+    <a href="#" onclick="openMenuDrawer(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+        <i class="fa-solid fa-bars text-base"></i>
+        <span class="text-[10px] font-medium">Menu</span>
+    </a>
+</nav>
 
     <!-- Modals & Drawers -->
 
