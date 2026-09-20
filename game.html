@@ -1,112 +1,33 @@
 <!DOCTYPE html>
-<html lang="da" class="dark">
+<html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NordicPlay - Sweet Bonanza (Demo)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: { extend: { colors: { nordic: { dark:'#0b1311', card:'#12201c', cardHover:'#182b26', border:'#1f3831', green:'#00e785', greenHover:'#00c772' } }, fontFamily:{ sans:['Inter','sans-serif'] } } }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        ::-webkit-scrollbar { display:none; }
-        .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
-        body { background-color:#0b1311; color:#fff; font-family:'Inter',sans-serif; -webkit-tap-highlight-color:transparent; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Spil - Fuld skærm</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.container{position:relative;width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+iframe{width:100%;height:100%;border:none;display:block}
+.fullscreen-btn{position:absolute;top:15px;right:15px;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 12px;border-radius:6px;cursor:pointer;font-size:14px;z-index:9999;backdrop-filter:blur(4px)}
+.fullscreen-btn:active{background:rgba(255,255,255,.2)}
+</style>
 </head>
-<body class="bg-[#0b1311] text-white min-h-screen pb-28 select-none">
-<header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
-<div class="flex items-center gap-2.5">
-<a href="casino.html" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition"><i class="fa-solid fa-arrow-left text-sm"></i></a>
-<div class="flex items-center gap-2">
-<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)] flex-shrink-0"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i></div>
-<div class="leading-tight"><span class="font-extrabold tracking-tight text-xs bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">SWEET BONANZA</span><div class="text-[8px] text-[#00e785] tracking-wider uppercase font-semibold">Pragmatic Play (Officiel Demo)</div></div>
-</div></div>
-<div class="flex items-center gap-1.5">
-<button onclick="toggleFavoriteGame(this)" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
-<button onclick="toggleFullscreen()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition" title="Fuld skærm"><i class="fa-solid fa-expand text-xs"></i></button>
-</div></header>
-
-<main class="px-3 pt-3 flex flex-col gap-4">
-<div id="game-wrapper" class="relative w-full rounded-2xl overflow-hidden border border-[#1f3831] shadow-2xl bg-black aspect-[16/10] min-h-[480px]">
-<iframe id="pragmatic-iframe" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw" class="w-full h-full border-0" allow="autoplay; fullscreen; screen-wake-lock" allowfullscreen></iframe>
+<body>
+<div class="container" id="gameContainer">
+<iframe id="gameFrame" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+<button class="fullscreen-btn" onclick="toggleFullScreen()">Fuld skærm</button>
 </div>
-
-<div class="grid grid-cols-2 gap-2">
-<button onclick="toggleFullscreen()" class="bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] p-3 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold text-gray-200 transition"><i class="fa-solid fa-expand text-[#00e785]"></i> Fuld skærm</button>
-<button onclick="alert('Rapporter problem sendt til support')" class="bg-[#12201c] border border-[#1f3831] hover:border-red-500/50 p-3 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold text-gray-200 transition"><i class="fa-solid fa-triangle-exclamation text-yellow-500"></i> Rapportér problem</button>
-</div>
-
-<div class="flex gap-2 overflow-x-auto no-scrollbar border-b border-[#1f3831] pb-2">
-<button onclick="switchTab('related')" id="tab-related" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#00e785] text-[#0b1311] flex-shrink-0 transition">Relaterede spil</button>
-<button onclick="switchTab('info')" id="tab-info" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 flex-shrink-0 transition">Spilinformation</button>
-<button onclick="switchTab('rtp')" id="tab-rtp" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 flex-shrink-0 transition">RTP & Volatilitet</button>
-</div>
-
-<div id="content-related" class="tab-content flex flex-col gap-3">
-<h2 class="font-bold text-xs text-gray-400 uppercase tracking-wider">Prøv også disse favoritter</h2>
-<div class="grid grid-cols-2 gap-3">
-<div onclick="location.href='game.html'" class="bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="relative aspect-[4/3] bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-purple-900 to-pink-900"></div><span class="relative font-black text-white text-xs uppercase">Sugar Rush</span></div><div class="p-2.5"><h3 class="font-bold text-xs truncate">Sugar Rush</h3><p class="text-[10px] text-gray-400">Pragmatic Play</p></div></div>
-<div onclick="location.href='game.html'" class="bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="relative aspect-[4/3] bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-yellow-900 to-blue-900"></div><span class="relative font-black text-white text-xs uppercase">Gates of Olympus</span></div><div class="p-2.5"><h3 class="font-bold text-xs truncate">Gates of Olympus</h3><p class="text-[10px] text-gray-400">Pragmatic Play</p></div></div>
-</div></div>
-
-<div id="content-info" class="tab-content hidden bg-[#12201c] border border-[#1f3831] rounded-2xl p-4 text-xs text-gray-300 leading-relaxed flex flex-col gap-3">
-<h3 class="font-bold text-white text-sm">Om Sweet Bonanza</h3>
-<p>Sweet Bonanza er et farverigt og populært slot fra Pragmatic Play med tumble-funktion, multipliers og masser af gratis spins. Oplev søde gevinster og høje multiplikatorer i dette underholdende spilunivers.</p>
-<div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#1f3831] text-[11px]"><div><span class="text-gray-400">Spiltype:</span> Video Slot</div><div><span class="text-gray-400">Paylines:</span> Tumble (All Ways)</div><div><span class="text-gray-400">Udbyder:</span> Pragmatic Play</div><div><span class="text-gray-400">Lanceret:</span> 2019</div></div>
-</div>
-
-<div id="content-rtp" class="tab-content hidden bg-[#12201c] border border-[#1f3831] rounded-2xl p-4 text-xs text-gray-300 leading-relaxed flex flex-col gap-3">
-<h3 class="font-bold text-white text-sm">Statistik & Data</h3>
-<div class="flex flex-col gap-2">
-<div class="flex justify-between items-center bg-black/30 p-2.5 rounded-xl border border-white/5"><span class="text-gray-400">Teoretisk tilbagebetaling (RTP)</span><span class="font-bold text-[#00e785]">96.51%</span></div>
-<div class="flex justify-between items-center bg-black/30 p-2.5 rounded-xl border border-white/5"><span class="text-gray-400">Volatilitet</span><span class="font-bold text-yellow-400">Høj (Medium-Høj)</span></div>
-<div class="flex justify-between items-center bg-black/30 p-2.5 rounded-xl border border-white/5"><span class="text-gray-400">Maks gevinst</span><span class="font-bold text-white">21.100x indsats</span></div>
-</div></div>
-</main>
-
-<footer class="mt-12 px-4 pt-8 pb-10 border-t border-[#1f3831] bg-[#070e0c] text-xs text-gray-400">
-<div class="flex items-center justify-center gap-6 mb-6"><span class="font-bold text-white border border-gray-700 px-2.5 py-1 rounded-md text-xs">18+</span><span class="font-bold text-gray-300">StopSpillet</span><span class="font-bold text-gray-300">ROFUS</span></div>
-<p class="text-center text-[11px] text-gray-400 leading-relaxed mb-4">Licenseret og reguleret i EU. Spil ansvarligt. Er du afhængig? Kontakt StopSpillet på tlf. 70 22 28 25 eller besøg stopspillet.dk.</p>
-<p class="text-center text-[10px] text-gray-500">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
-</footer>
-
-<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
-<a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-medium">Hjem</span></a>
-<a href="casino.html" class="flex flex-col items-center gap-1 text-[#00e785] transition"><i class="fa-solid fa-dice text-base"></i><span class="text-[10px] font-medium">Casino</span></a>
-<a href="campaign.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-gift text-base"></i><span class="text-[10px] font-medium">Kampagner</span></a>
-<a href="#" onclick="toggleSearchModal(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-base"></i><span class="text-[10px] font-medium">Søg</span></a>
-<a href="#" onclick="openMenuDrawer(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-bars text-base"></i><span class="text-[10px] font-medium">Menu</span></a>
-</nav>
-
-<div id="search-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex-col p-4">
-<div class="flex items-center justify-between mb-4"><div class="flex items-center gap-2 flex-1 bg-[#12201c] border border-[#1f3831] rounded-xl px-3 py-2.5"><i class="fa-solid fa-magnifying-glass text-gray-400"></i><input type="text" placeholder="Søg efter spil..." class="bg-transparent text-white text-sm outline-none w-full"></div><button onclick="toggleSearchModal()" class="ml-3 text-sm font-bold text-[#00e785]">Annuller</button></div>
-</div>
-
-<div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
-<div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto">
-<div>
-<div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]"><i class="fa-solid fa-gamepad text-xs font-bold"></i></div><span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span></div><button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button></div>
-<ul class="space-y-2 text-sm font-medium">
-<li><a href="index.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c]"><i class="fa-solid fa-house text-[#00e785] w-5"></i> Hjem</a></li>
-<li><a href="casino.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c]"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Casino & Bordspil</a></li>
-<li><a href="campaign.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c]"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner</a></li>
-</ul></div>
-<div class="pt-6 border-t border-[#1f3831]"><p class="text-[10px] text-gray-600">NordicPlay mobile v7.0</p></div>
-</div></div>
-
 <script>
-function toggleFullscreen(){const el=document.getElementById('pragmatic-iframe');if(el.requestFullscreen)el.requestFullscreen();else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();else if(el.msRequestFullscreen)el.msRequestFullscreen();}
-function switchTab(tabKey){document.querySelectorAll('.tab-content').forEach(el=>el.classList.add('hidden'));document.getElementById('content-'+tabKey).classList.remove('hidden');['related','info','rtp'].forEach(k=>{const btn=document.getElementById('tab-'+k);btn.className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 flex-shrink-0 transition";});const activeBtn=document.getElementById('tab-'+tabKey);activeBtn.className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#00e785] text-[#0b1311] flex-shrink-0 transition";}
-function toggleFavoriteGame(btn){const icon=btn.querySelector('i');if(icon.classList.contains('fa-regular')){icon.classList.remove('fa-regular');icon.classList.add('fa-solid','text-[#00e785]');}else{icon.classList.remove('fa-solid','text-[#00e785]');icon.classList.add('fa-regular');}}
-function toggleSearchModal(){const m=document.getElementById('search-modal');m.classList.toggle('hidden');m.classList.toggle('flex');}
-function openMenuDrawer(){const d=document.getElementById('menu-drawer');d.classList.remove('hidden');d.classList.add('flex');}
-function closeMenuDrawer(){const d=document.getElementById('menu-drawer');d.classList.remove('flex');d.classList.add('hidden');}
+function toggleFullScreen(){
+var docElm=document.documentElement;
+if(!document.fullscreenElement&&!document.webkitFullscreenElement){
+if(docElm.requestFullscreen)docElm.requestFullscreen();
+else if(docElm.webkitRequestFullscreen)docElm.webkitRequestFullscreen();
+}else{
+if(document.exitFullscreen)document.exitFullscreen();
+else if(document.webkitExitFullscreen)document.webkitExitFullscreen();
+}}
 </script>
 </body>
 </html>
