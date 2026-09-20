@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Spil - Fuld skærm</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.container{position:relative;width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
-iframe{width:100%;height:100%;border:none;display:block}
-.fullscreen-btn{position:absolute;top:15px;right:15px;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 12px;border-radius:6px;cursor:pointer;font-size:14px;z-index:9999;backdrop-filter:blur(4px)}
-.fullscreen-btn:active{background:rgba(255,255,255,.2)}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Spil - Fuld skærm</title>
+    <style>
+        * { box-sizing:border-box; margin:0; padding:0; }
+        html, body {
+            width:100%; height:100%; overflow:hidden; background-color:#000000;
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        }
+        .container {
+            position:relative; width:100vw; height:100vh; display:flex;
+            flex-direction:column; justify-content:center; align-items:center;
+        }
+        iframe { width:100%; height:100%; border:none; display:block; }
+        .fullscreen-btn {
+            position:absolute; top:15px; right:15px; background:rgba(0,0,0,.6);
+            color:#fff; border:1px solid rgba(255,255,255,.3); padding:8px 12px;
+            border-radius:6px; cursor:pointer; font-size:14px; z-index:9999;
+            backdrop-filter:blur(4px);
+        }
+        .fullscreen-btn:active { background:rgba(255,255,255,.2); }
+    </style>
 </head>
 <body>
-<div class="container" id="gameContainer">
-<iframe id="gameFrame" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
-<button class="fullscreen-btn" onclick="toggleFullScreen()">Fuld skærm</button>
-</div>
-<script>
-function toggleFullScreen(){
-var docElm=document.documentElement;
-if(!document.fullscreenElement&&!document.webkitFullscreenElement){
-if(docElm.requestFullscreen)docElm.requestFullscreen();
-else if(docElm.webkitRequestFullscreen)docElm.webkitRequestFullscreen();
-}else{
-if(document.exitFullscreen)document.exitFullscreen();
-else if(document.webkitExitFullscreen)document.webkitExitFullscreen();
-}}
-</script>
+    <div class="container" id="gameContainer">
+        <iframe id="gameFrame" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        <button class="fullscreen-btn" onclick="toggleFullScreen()">Fuld skærm</button>
+    </div>
+    <script>
+        function toggleFullScreen() {
+            var container = document.getElementById('gameContainer');
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
+        }
+    </script>
 </body>
 </html>
