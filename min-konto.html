@@ -84,18 +84,18 @@ body{display:flex;min-height:100vh}
     background: #00ffcc;
     font-weight: 600;
 }
-.content{flex:1;padding:34px;min-width:0}
+.content{margin-left:240px;min-height:100vh;padding:34px;min-width:0}
 .content-card{max-width:900px;background:#0b1713;border:1px solid #1b342c;border-radius:18px;padding:28px}
 .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#00e785;font-weight:800}
 h1{margin:6px 0 8px;font-size:28px}
 .subtitle{margin:0;color:#84958f;font-size:13px}
 @media(max-width:700px){
  body{display:block}
- .sidebar{width:100%;min-height:auto;border-right:0;border-bottom:1px solid #1b342c;padding:14px 12px}
+ .sidebar{position:relative;left:auto;top:auto;bottom:auto;width:100%;min-height:auto;border-right:0;border-bottom:1px solid #1b342c;padding:14px 12px}
  .user-profile{margin-bottom:12px}
  .menu-list{display:grid;grid-template-columns:1fr 1fr;gap:5px}
  .menu-item{min-height:42px;font-size:11px;padding:0 9px}
- .content{padding:16px 12px}
+ .content{margin-left:0;padding:16px 12px}
  .content-card{padding:20px}
  h1{font-size:23px}
 }
