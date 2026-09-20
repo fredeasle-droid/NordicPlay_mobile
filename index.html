@@ -705,24 +705,17 @@
         }
 
         function switchNavTab(tab) {
-            ['home', 'casino', 'live'].forEach(t => {
-                const el = document.getElementById('nav-' + t);
-                if (el) {
-                    if (t === tab) {
-                        el.classList.add('text-[#00e785]');
-                        el.classList.remove('text-gray-400');
-                    } else {
-                        el.classList.remove('text-[#00e785]');
-                        el.classList.add('text-gray-400');
-                    }
-                }
-            });
+            if (tab === 'casino') {
+                window.location.href = 'casino.html';
+                return;
+            }
+            if (tab === 'home') {
+                window.location.href = 'index.html';
+                return;
+            }
             if (tab === 'live') {
-                showToast('Åbner Live Casino lobby');
-            } else if (tab === 'casino') {
-                showToast('Åbner Casino spil oversigt');
-            } else {
-                showToast('Du er på forsiden');
+                showToast('Live Casino kommer snart');
+                return;
             }
         }
 
