@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NordicPlay - Min konto</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #070a0a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px; background-color: #0b1010; padding: 20px 12px;
+            display: flex; flex-direction: column; gap: 20px;
+            border-right: 1px solid rgba(255,255,255,.05);
+        }
+        .user-profile {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            background: rgba(255,255,255,.03); border-radius: 12px;
+        }
+        .avatar {
+            width: 40px; height: 40px; background: #142828; color: #00ffcc;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 14px;
+        }
+        .user-info .name { display:block; font-size:14px; font-weight:600; }
+        .user-info .member-since { display:block; color:#8a9999; font-size:11px; }
+        .menu-list { display:flex; flex-direction:column; gap:4px; }
+        .menu-item {
+            display:flex; align-items:center; gap:12px; padding:12px 14px;
+            color:#a0b3b3; text-decoration:none; font-size:14px; border-radius:10px;
+            transition:all .2s ease;
+        }
+        .menu-item:hover { color:#fff; background:rgba(255,255,255,.05); }
+        .menu-item.active { color:#000; background:#00ffcc; font-weight:600; }
+        .main-content {
+            flex:1; padding:30px; background-color:#070a0a; overflow-y:auto;
+        }
+        .welcome-banner {
+            background:linear-gradient(135deg,#142828 0%,#0b1414 100%);
+            border-radius:16px; padding:30px; margin-bottom:25px;
+            border:1px solid rgba(0,255,204,.1);
+        }
+        .welcome-banner h1 { font-size:28px; margin-bottom:8px; color:#fff; }
+        .welcome-banner h1 span { color:#00ffcc; }
+        .welcome-banner p { color:#8a9999; font-size:14px; }
+        .dashboard-cards {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:15px; margin-bottom:25px;
+        }
+        .card {
+            background-color:#0b1010; border:1px solid rgba(255,255,255,.06);
+            border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:10px;
+        }
+        .card-title { color:#8a9999; font-size:13px; }
+        .card-value { font-size:20px; font-weight:700; color:#fff; }
+        .action-btn {
+            background-color:#00ffcc; color:#000; border:none; padding:10px;
+            border-radius:8px; font-weight:600; cursor:pointer; text-align:center;
+            text-decoration:none; font-size:13px; margin-top:5px;
+        }
+        .action-btn.secondary {
+            background-color:rgba(255,255,255,.06); color:#fff;
+            border:1px solid rgba(255,255,255,.1);
+        }
+        @media (max-width: 900px) {
+            body { display:block; }
+            .sidebar { width:100%; border-right:0; border-bottom:1px solid rgba(255,255,255,.05); }
+            .menu-list { display:grid; grid-template-columns:repeat(2,1fr); }
+            .main-content { padding:18px; }
+            .dashboard-cards { grid-template-columns:repeat(2,1fr); }
+        }
+        @media (max-width: 520px) {
+            .dashboard-cards { grid-template-columns:1fr; }
+            .welcome-banner { padding:22px; }
+            .welcome-banner h1 { font-size:24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="user-profile">
+            <div class="avatar">FM</div>
+            <div class="user-info">
+                <span class="name">Frederik M.</span>
+                <span class="member-since">Medlem siden 2025</span>
+            </div>
+        </div>
+        <nav class="menu-list">
+            <a href="min-konto.html" class="menu-item active">Min konto</a>
+            <a href="saldo.html" class="menu-item">Saldo</a>
+            <a href="indbetaling.html" class="menu-item">Indbetaling</a>
+            <a href="udbetaling.html" class="menu-item">Udbetaling</a>
+            <a href="transaktioner.html" class="menu-item">Transaktioner</a>
+            <a href="bonuser.html" class="menu-item">Bonuser</a>
+            <a href="mine-spil.html" class="menu-item">Mine spil</a>
+            <a href="favoritter.html" class="menu-item">Favoritter</a>
+            <a href="ansvarligt-spil.html" class="menu-item">Ansvarligt spil</a>
+            <a href="indstillinger.html" class="menu-item">Indstillinger</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="welcome-banner">
+            <h1>Velkommen tilbage, <span>Frederik!</span></h1>
+            <p>Spil. Nyd. Vind. Sammen.</p>
+        </div>
+        <div class="dashboard-cards">
+            <div class="card"><span class="card-title">Saldo</span><span class="card-value">1.250,00 kr.</span><a href="indbetaling.html" class="action-btn">Indbetaling</a></div>
+            <div class="card"><span class="card-title">Aktiv bonus</span><span class="card-value">200,00 kr.</span><a href="bonuser.html" class="action-btn secondary">Se bonuser</a></div>
+            <div class="card"><span class="card-title">Samlet udbetalt</span><span class="card-value">4.320,00 kr.</span><a href="udbetaling.html" class="action-btn secondary">Udbetaling</a></div>
+            <div class="card"><span class="card-title">Loyalitetsniveau</span><span class="card-value">Bronze</span><span style="font-size:11px;color:#8a9999;">1.680 point til Silver</span></div>
+        </div>
+    </div>
+</body>
+</html>
