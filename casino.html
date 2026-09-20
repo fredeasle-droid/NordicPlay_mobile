@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NordicPlay - Casino & Bordspil</title>
+    <title>NordicPlay - Casino & Slots</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -49,75 +49,94 @@
 
     <div class="sticky top-[49px] z-40 bg-[#0b1311]/95 border-b border-[#1f3831] px-3 py-2.5 overflow-x-auto no-scrollbar">
         <div class="flex items-center gap-2 w-max">
-            <button onclick="filterCategory('all')" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)]">
-                <i class="fa-solid fa-fire"></i> Alle Spil
+            <button onclick="switchCategory('slots')" id="btn-slots" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)] transition">
+                <i class="fa-solid fa-fire"></i> Slots
             </button>
-            <button onclick="filterCategory('live')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5">
+            <button onclick="switchCategory('live')" id="btn-live" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
                 <i class="fa-solid fa-video text-cyan-400"></i> Live Casino
             </button>
-            <button onclick="filterCategory('roulette')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5">
+            <button onclick="switchCategory('roulette')" id="btn-roulette" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
                 <i class="fa-solid fa-circle-dot text-yellow-400"></i> Roulette
             </button>
-            <button onclick="filterCategory('blackjack')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5">
+            <button onclick="switchCategory('blackjack')" id="btn-blackjack" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
                 <i class="fa-solid fa-clone text-emerald-400"></i> Blackjack
-            </button>
-            <button onclick="filterCategory('poker')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5">
-                <i class="fa-solid fa-dice text-purple-400"></i> Bordspil
             </button>
         </div>
     </div>
 
-    <main class="px-4 pt-4">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#12201c] via-[#0f2d24] to-[#071713] border border-[#1f3831] p-5 shadow-xl mb-4">
+    <main class="px-3 pt-3">
+        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#12201c] via-[#0f2d24] to-[#071713] border border-[#1f3831] p-4 shadow-xl mb-4">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#00e785]/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="relative z-10 flex flex-col gap-2">
-                <div class="inline-flex items-center gap-2 bg-black/40 px-2.5 py-1 rounded-full border border-white/10 w-fit text-[11px] text-cyan-400 font-medium">
-                    <i class="fa-solid fa-dice"></i> Casino & Live Dealer
+                <div class="inline-flex items-center gap-2 bg-black/40 px-2.5 py-0.5 rounded-full border border-white/10 w-fit text-[10px] text-[#00e785] font-medium">
+                    <i class="fa-solid fa-shield-halved"></i> 100% Sikker oplevelse
                 </div>
-                <h1 class="text-xl font-black uppercase tracking-tight text-white">
-                    Eksklusivt <span class="text-[#00e785]">Casino</span>
+                <h1 class="text-xl font-black uppercase tracking-tight text-white leading-none">
+                    Spændende <span class="text-[#00e785]">Slots & Casino</span>
                 </h1>
-                <p class="text-xs text-gray-300">Vælg en kategori ovenfor eller udforsk spillene herunder.</p>
+                <p class="text-[11px] text-gray-300">Udforsk hundredvis af spil og vind store gevinster.</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
-            <div onclick="alert('Starter Lightning Roulette')" class="bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition">
-                <div class="relative aspect-[4/3] bg-gray-800"><img src="https://placehold.co/280x210/182b26/00e785?text=Roulette" class="w-full h-full object-cover"></div>
-                <div class="p-2.5"><h3 class="font-bold text-xs text-white">Lightning Roulette</h3><p class="text-[10px] text-cyan-400">Live Dealer • Roulette</p></div>
+        <div id="section-slots" class="category-section">
+            <div class="flex items-center justify-between mb-2 px-1">
+                <h2 class="font-bold text-xs uppercase text-gray-300 tracking-wider">Populære Slots (3 pr. række)</h2>
             </div>
-            <div onclick="alert('Starter Infinite Blackjack')" class="bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition">
-                <div class="relative aspect-[4/3] bg-gray-800"><img src="https://placehold.co/280x210/182b26/00e785?text=Blackjack" class="w-full h-full object-cover"></div>
-                <div class="p-2.5"><h3 class="font-bold text-xs text-white">Infinite Blackjack</h3><p class="text-[10px] text-emerald-400">Live Dealer • Blackjack</p></div>
+            <div class="grid grid-cols-3 gap-2">
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Bonanza" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Sweet Bonanza</h3><p class="text-[9px] text-gray-400">Pragmatic</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Olympus" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Gates of Olympus</h3><p class="text-[9px] text-gray-400">Pragmatic</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Big+Bass" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Big Bass</h3><p class="text-[9px] text-gray-400">Pragmatic</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Book+Dead" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Book of Dead</h3><p class="text-[9px] text-gray-400">Play'n GO</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Sugar+Rush" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Sugar Rush</h3><p class="text-[9px] text-gray-400">Pragmatic</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Le+Bandit" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Le Bandit</h3><p class="text-[9px] text-gray-400">Hacksaw</p></div></div>
             </div>
-            <div onclick="alert('Starter Immersive Roulette')" class="bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition">
-                <div class="relative aspect-[4/3] bg-gray-800"><img src="https://placehold.co/280x210/182b26/00e785?text=Immersive+Roulette" class="w-full h-full object-cover"></div>
-                <div class="p-2.5"><h3 class="font-bold text-xs text-white">Immersive Roulette</h3><p class="text-[10px] text-yellow-400">Roulette</p></div>
+        </div>
+
+        <div id="section-live" class="category-section hidden">
+            <div class="flex items-center justify-between mb-2 px-1"><h2 class="font-bold text-xs uppercase text-cyan-400 tracking-wider">Live Casino Spil</h2></div>
+            <div class="grid grid-cols-3 gap-2">
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00ffff?text=Live+Roulette" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Live Roulette</h3><p class="text-[9px] text-cyan-400">Evolution</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00ffff?text=Crazy+Time" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Crazy Time</h3><p class="text-[9px] text-cyan-400">Evolution</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00ffff?text=Monopoly" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Monopoly Live</h3><p class="text-[9px] text-cyan-400">Evolution</p></div></div>
             </div>
-            <div onclick="alert('Starter Casino Holdem')" class="bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition">
-                <div class="relative aspect-[4/3] bg-gray-800"><img src="https://placehold.co/280x210/182b26/00e785?text=Casino+Holdem" class="w-full h-full object-cover"></div>
-                <div class="p-2.5"><h3 class="font-bold text-xs text-white">Casino Hold'em</h3><p class="text-[10px] text-purple-400">Bordspil</p></div>
+        </div>
+
+        <div id="section-roulette" class="category-section hidden">
+            <div class="flex items-center justify-between mb-2 px-1"><h2 class="font-bold text-xs uppercase text-yellow-400 tracking-wider">Roulette</h2></div>
+            <div class="grid grid-cols-3 gap-2">
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/ffd700?text=Lightning" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Lightning</h3><p class="text-[9px] text-yellow-400">Roulette</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/ffd700?text=Immersive" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Immersive</h3><p class="text-[9px] text-yellow-400">Roulette</p></div></div>
+            </div>
+        </div>
+
+        <div id="section-blackjack" class="category-section hidden">
+            <div class="flex items-center justify-between mb-2 px-1"><h2 class="font-bold text-xs uppercase text-emerald-400 tracking-wider">Blackjack</h2></div>
+            <div class="grid grid-cols-3 gap-2">
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/50c878?text=Infinite+BJ" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Infinite BJ</h3><p class="text-[9px] text-emerald-400">Blackjack</p></div></div>
+                <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/50c878?text=VIP+BJ" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">VIP Blackjack</h3><p class="text-[9px] text-emerald-400">Blackjack</p></div></div>
             </div>
         </div>
     </main>
 
     <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around">
-        <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-house text-base"></i>
-            <span class="text-[10px]">Hjem</span>
-        </a>
-        <a href="casino.html" class="flex flex-col items-center gap-1 text-[#00e785]">
-            <i class="fa-solid fa-dice text-base"></i>
-            <span class="text-[10px]">Casino</span>
-        </a>
-        <a href="slots.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-fire text-base"></i>
-            <span class="text-[10px]">Slots</span>
-        </a>
+        <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-house text-base"></i><span class="text-[10px]">Hjem</span></a>
+        <a href="casino.html" class="flex flex-col items-center gap-1 text-[#00e785]"><i class="fa-solid fa-dice text-base"></i><span class="text-[10px]">Casino</span></a>
+        <a href="slots.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-fire text-base"></i><span class="text-[10px]">Slots</span></a>
     </nav>
 
     <script>
-        function filterCategory(cat) {
-            alert('Filter valgt: ' + cat);
+        function switchCategory(cat) {
+            document.querySelectorAll('.category-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('section-' + cat).classList.remove('hidden');
+
+            ['slots', 'live', 'roulette', 'blackjack'].forEach(c => {
+                const btn = document.getElementById('btn-' + c);
+                btn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition";
+            });
+
+            const activeBtn = document.getElementById('btn-' + cat);
+            activeBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)] transition";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
