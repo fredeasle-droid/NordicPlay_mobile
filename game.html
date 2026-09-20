@@ -26,23 +26,26 @@
             margin:0 auto;
         }
 
-        /* Normal game size inside the NordicPlay design */
         .game-frame-wrap {
             position:relative;
             width:100%;
             height:70vh;
             max-height:700px;
             min-height:0;
-            background:#000;
+            background:#0b1311;
             border:1px solid #1f3831;
             border-radius:16px;
             overflow:hidden;
             box-shadow:0 12px 40px rgba(0,0,0,.45);
         }
 
+        /* Pragmatic Play's mobile game is narrower than the surrounding
+           NordicPlay card. Matching the visible game width removes the
+           black pillar bars on the sides. */
         .game-frame-wrap iframe {
-            width:100%;
+            width:87%;
             height:100%;
+            margin:0 auto;
             border:0;
             display:block;
             background:#000;
@@ -63,7 +66,6 @@
             backdrop-filter:blur(8px);
         }
 
-        /* CSS fullscreen fallback for iPhone/Safari */
         .game-frame-wrap.css-fullscreen {
             position:fixed;
             inset:0;
@@ -75,6 +77,13 @@
             min-height:0;
             border:0;
             border-radius:0;
+            margin:0;
+            background:#000;
+        }
+
+        .game-frame-wrap.css-fullscreen iframe {
+            width:100%;
+            height:100%;
             margin:0;
         }
 
@@ -97,6 +106,14 @@
             min-height:0;
             border:0;
             border-radius:0;
+            background:#000;
+        }
+
+        .game-frame-wrap:fullscreen iframe,
+        .game-frame-wrap:-webkit-full-screen iframe {
+            width:100%;
+            height:100%;
+            margin:0;
         }
 
         .fullscreen-btn:active { transform:scale(.97); }
@@ -190,7 +207,6 @@
     <script>
         const container = document.getElementById('gameContainer');
         const button = document.getElementById('fullscreenButton');
-
         let cssFullscreen = false;
 
         function setButtonFullscreen(on) {
@@ -224,8 +240,6 @@
                 return;
             }
 
-            /* First try the native API. If Safari/iOS refuses it, use the
-               CSS fullscreen fallback so the game still expands reliably. */
             try {
                 if (container.requestFullscreen) {
                     await container.requestFullscreen();
@@ -237,9 +251,7 @@
                     setButtonFullscreen(true);
                     return;
                 }
-            } catch(e) {
-                /* Native fullscreen unavailable — use CSS mode below. */
-            }
+            } catch(e) {}
 
             enterCssFullscreen();
         }
