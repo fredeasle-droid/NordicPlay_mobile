@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="da" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NordicPlay - Spil med omtanke</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        nordic: {
+                            dark: '#0b1311',
+                            card: '#12201c',
+                            cardHover: '#182b26',
+                            border: '#1f3831',
+                            green: '#00e785',
+                            greenHover: '#00c772',
+                            accent: '#1b332c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #0b1311;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#0b1311] text-white min-h-screen pb-24 select-none">
+
+    <!-- Sticky Header with Clean Mobile Layout -->
+    <header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
+        <!-- Left side: Hamburger menu & Logo -->
+        <div class="flex items-center gap-2.5">
+            <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition">
+                <i class="fa-solid fa-bars text-sm"></i>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)] flex-shrink-0">
+                    <i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i>
+                </div>
+                <div class="leading-tight">
+                    <span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">NORDIC<span class="text-[#00e785]">PLAY</span></span>
+                    <div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side: Actions (Search, Login, Signup) -->
+        <div class="flex items-center gap-1.5">
+            <button onclick="toggleSearchModal()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition">
+                <i class="fa-solid fa-magnifying-glass text-xs"></i>
+            </button>
+            <button onclick="openModal('login')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#12201c] border border-[#1f3831] text-gray-200 hover:border-[#00e785] transition">
+                Log ind
+            </button>
+            <button onclick="openModal('signup')" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#0b1311] hover:bg-[#00c772] shadow-[0_0_12px_rgba(0,231,133,0.3)] transition">
+                Opret
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner (Viking theme matching desktop) -->
+    <section class="px-4 pt-4 pb-2">
+        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#12201c] via-[#0f2d24] to-[#071713] border border-[#1f3831] p-5 shadow-xl">
+            <!-- Background glow & Viking ambient art styling -->
+            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#00e785]/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 flex flex-col gap-3">
+                <div class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 w-fit text-[11px] text-gray-300 font-medium">
+                    <span class="text-[#00e785]"><i class="fa-solid fa-shield-halved"></i></span> 100% Dansk Kundeservice
+                </div>
+                
+                <h1 class="text-2xl font-black uppercase tracking-tight leading-none text-white">
+                    100 Gratis <span class="text-[#00e785]">Free Spins</span>
+                </h1>
+                <p class="text-xs text-gray-300 font-medium">
+                    Å 1 kr. stykket + <span class="text-[#00e785] font-bold">200 kr.</span> velkomstbonus uden indbetaling!
+                </p>
+
+                <!-- CTA Button -->
+                <button onclick="openModal('signup')" class="mt-1 w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-[#00e785] to-emerald-400 text-[#0b1311] hover:opacity-95 shadow-[0_0_20px_rgba(0,231,133,0.4)] flex items-center justify-center gap-2 transition active:scale-[0.98]">
+                    <span>OPRET GRATIS KONTO</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-3 gap-2 pt-2 mt-1 border-t border-white/10 text-[10px] text-gray-400 text-center font-medium">
+                    <div class="flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-bolt text-[#00e785]"></i> 1 min udbetaling
+                    </div>
+                    <div class="flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-lock text-[#00e785]"></i> Sikre betalinger
+                    </div>
+                    <div class="flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-heart text-[#00e785]"></i> 18+ ROFUS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 10 Games Section -->
+    <section class="mt-6">
+        <div class="px-4 flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-amber-400 text-base"><i class="fa-solid fa-trophy"></i></span>
+                <h2 class="font-bold text-base tracking-wide text-white">Top 10</h2>
+                <span class="text-xs text-gray-400 font-normal">De mest populære spil lige nu</span>
+            </div>
+            <button onclick="showToast('Viser alle Top 10 spil')" class="text-xs font-semibold text-[#00e785] hover:underline flex items-center gap-1">
+                Se alle <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+        </div>
+
+        <!-- Horizontal Scrollable Container -->
+        <div id="scroll-top10" onscroll="updateDots('scroll-top10', 'dots-top10')" class="flex gap-3 overflow-x-auto no-scrollbar px-4 pb-1 snap-x">
+            <!-- Game Card 1 -->
+            <div onclick="playGame('Book of Dead')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Book+of+Dead" alt="Book of Dead" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
+                        <i class="fa-regular fa-heart text-xs"></i>
+                    </div>
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.21%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Book of Dead</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Play'n GO</p>
+                </div>
+            </div>
+
+            <!-- Game Card 2 -->
+            <div onclick="playGame('Sweet Bonanza')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Sweet+Bonanza" alt="Sweet Bonanza" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
+                        <i class="fa-regular fa-heart text-xs"></i>
+                    </div>
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.51%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Sweet Bonanza</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Pragmatic Play</p>
+                </div>
+            </div>
+
+            <!-- Game Card 3 -->
+            <div onclick="playGame('Big Bass Bonanza')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Big+Bass" alt="Big Bass Bonanza" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
+                        <i class="fa-regular fa-heart text-xs"></i>
+                    </div>
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.71%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Big Bass Bonanza</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Pragmatic Play</p>
+                </div>
+            </div>
+
+            <!-- Game Card 4 -->
+            <div onclick="playGame('Le Bandit')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Le+Bandit" alt="Le Bandit" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
+                        <i class="fa-regular fa-heart text-xs"></i>
+                    </div>
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.03%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Le Bandit</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Hacksaw Gaming</p>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Dots -->
+        <div class="flex justify-center items-center gap-1.5 mt-2" id="dots-top10">
+            <span class="w-2 h-2 rounded-full bg-[#00e785] transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-600 transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-600 transition-all"></span>
+        </div>
+    </section>
+
+    <!-- Populære spil Section -->
+    <section class="mt-6">
+        <div class="px-4 flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-orange-500 text-base"><i class="fa-solid fa-fire"></i></span>
+                <h2 class="font-bold text-base tracking-wide text-white">Populære spil</h2>
+            </div>
+            <button onclick="showToast('Viser alle populære spil')" class="text-xs font-semibold text-[#00e785] hover:underline flex items-center gap-1">
+                Se alle <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+        </div>
+
+        <div id="scroll-pop" onscroll="updateDots('scroll-pop', 'dots-pop')" class="flex gap-3 overflow-x-auto no-scrollbar px-4 pb-1 snap-x">
+            <!-- Game 1 -->
+            <div onclick="playGame('Wanted Dead')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Wanted+Dead" alt="Wanted Dead" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.55%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Wanted Dead</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Hacksaw Gaming</p>
+                </div>
+            </div>
+
+            <!-- Game 2 -->
+            <div onclick="playGame('Sugar Rush 1000')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Sugar+Rush" alt="Sugar Rush" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.42%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Sugar Rush 1000</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Pragmatic Play</p>
+                </div>
+            </div>
+
+            <!-- Game 3 -->
+            <div onclick="playGame('Zeus vs Hades')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Zeus+vs+Hades" alt="Zeus vs Hades" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.38%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Zeus vs Hades</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Pragmatic Play</p>
+                </div>
+            </div>
+
+            <!-- Game 4 -->
+            <div onclick="playGame('Dork Unit')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Dork+Unit" alt="Dork Unit" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">
+                        RTP 96.81%
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Dork Unit</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Hacksaw Gaming</p>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Dots -->
+        <div class="flex justify-center items-center gap-1.5 mt-2" id="dots-pop">
+            <span class="w-2 h-2 rounded-full bg-[#00e785] transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-600 transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-600 transition-all"></span>
+        </div>
+    </section>
+
+    <!-- Extra Row: Bordspil & Live Favoritter -->
+    <section class="mt-6">
+        <div class="px-4 flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-cyan-400 text-base"><i class="fa-solid fa-gem"></i></span>
+                <h2 class="font-bold text-base tracking-wide text-white">Bordspil & Live Favoritter</h2>
+            </div>
+            <button onclick="showToast('Viser alle bordspil')" class="text-xs font-semibold text-[#00e785] hover:underline flex items-center gap-1">
+                Se alle <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+        </div>
+
+        <div id="scroll-table" onscroll="updateDots('scroll-table', 'dots-table')" class="flex gap-3 overflow-x-auto no-scrollbar px-4 pb-1 snap-x">
+            <!-- Game 1 -->
+            <div onclick="playGame('Lightning Roulette')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Roulette" alt="Roulette" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-cyan-400">
+                        Live Dealer
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Lightning Roulette</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Evolution</p>
+                </div>
+            </div>
+
+            <!-- Game 2 -->
+            <div onclick="playGame('Infinite Blackjack')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Blackjack" alt="Blackjack" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-cyan-400">
+                        Live Dealer
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Infinite Blackjack</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Evolution</p>
+                </div>
+            </div>
+
+            <!-- Game 3 -->
+            <div onclick="playGame('Immersive Roulette')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Immersive" alt="Immersive Roulette" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-cyan-400">
+                        Live Dealer
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Immersive Roulette</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Evolution</p>
+                </div>
+            </div>
+
+            <!-- Game 4 -->
+            <div onclick="playGame('Baccarat Lobby')" class="min-w-[140px] w-[140px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition">
+                <div class="relative aspect-[4/3] bg-gray-800 overflow-hidden">
+                    <img src="https://placehold.co/280x210/182b26/00e785?text=Baccarat" alt="Baccarat Lobby" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-cyan-400">
+                        Live Dealer
+                    </div>
+                </div>
+                <div class="p-2.5">
+                    <h3 class="font-bold text-xs truncate text-white">Baccarat Lobby</h3>
+                    <p class="text-[10px] text-gray-400 truncate">Evolution</p>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Dots -->
+        <div class="flex justify-center items-center gap-1.5 mt-2" id="dots-table">
+            <span class="w-2 h-2 rounded-full bg-[#00e785] transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-600 transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-600 transition-all"></span>
+        </div>
+    </section>
+
+    <!-- Category Cards Section (Live Casino, Blackjack, Drop & Wins, etc.) -->
+    <section class="mt-6 px-4">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-yellow-400 text-base"><i class="fa-solid fa-crown"></i></span>
+            <h2 class="font-bold text-base tracking-wide text-white">Udforsk vores kategorier</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+            <!-- Live Casino Card -->
+            <div onclick="switchTab('live')" class="relative rounded-2xl overflow-hidden border border-[#1f3831] bg-gradient-to-br from-[#182b26] to-[#0b1311] p-4 flex flex-col justify-between h-32 cursor-pointer group hover:border-[#00e785] transition">
+                <div class="absolute right-0 bottom-0 opacity-25 group-hover:opacity-40 transition">
+                    <i class="fa-solid fa-video text-6xl text-[#00e785]"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] text-[#00e785] font-bold uppercase tracking-wider">Ægte dealere</span>
+                    <h3 class="font-black text-sm text-white">LIVE CASINO</h3>
+                </div>
+                <button class="w-fit px-3 py-1 bg-[#00e785] text-[#0b1311] text-xs font-bold rounded-lg group-hover:bg-[#00c772] transition">
+                    SPIL NU
+                </button>
+            </div>
+
+            <!-- Blackjack Card -->
+            <div onclick="playGame('Blackjack')" class="relative rounded-2xl overflow-hidden border border-[#1f3831] bg-gradient-to-br from-[#182b26] to-[#0b1311] p-4 flex flex-col justify-between h-32 cursor-pointer group hover:border-[#00e785] transition">
+                <div class="absolute right-0 bottom-0 opacity-25 group-hover:opacity-40 transition">
+                    <i class="fa-solid fa-diamond text-6xl text-[#00e785]"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] text-gray-300 font-bold uppercase tracking-wider">Klassisk spil</span>
+                    <h3 class="font-black text-sm text-white">BLACKJACK</h3>
+                </div>
+                <button class="w-fit px-3 py-1 bg-[#00e785] text-[#0b1311] text-xs font-bold rounded-lg group-hover:bg-[#00c772] transition">
+                    SPIL NU
+                </button>
+            </div>
+
+            <!-- Pragmatic Drops & Wins -->
+            <div onclick="playGame('Drops & Wins')" class="relative rounded-2xl overflow-hidden border border-[#1f3831] bg-gradient-to-br from-[#182b26] to-[#0b1311] p-4 flex flex-col justify-between h-32 cursor-pointer group hover:border-[#00e785] transition">
+                <div class="absolute right-0 bottom-0 opacity-25 group-hover:opacity-40 transition">
+                    <i class="fa-solid fa-gift text-6xl text-[#00e785]"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] text-yellow-400 font-bold uppercase tracking-wider">Store præmier</span>
+                    <h3 class="font-black text-sm text-white">DROPS & WINS</h3>
+                </div>
+                <button class="w-fit px-3 py-1 bg-[#00e785] text-[#0b1311] text-xs font-bold rounded-lg group-hover:bg-[#00c772] transition">
+                    SPIL NU
+                </button>
+            </div>
+
+            <!-- Henvis en ven -->
+            <div onclick="showToast('Del dit link og få 100 kr.')" class="relative rounded-2xl overflow-hidden border border-[#1f3831] bg-gradient-to-br from-[#182b26] to-[#0b1311] p-4 flex flex-col justify-between h-32 cursor-pointer group hover:border-[#00e785] transition">
+                <div class="absolute right-0 bottom-0 opacity-25 group-hover:opacity-40 transition">
+                    <i class="fa-solid fa-user-plus text-6xl text-[#00e785]"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] text-gray-300 font-bold uppercase tracking-wider">Få 100 kr.</span>
+                    <h3 class="font-black text-sm text-white">HENVIS VEN</h3>
+                </div>
+                <button class="w-fit px-3 py-1 bg-[#12201c] border border-[#00e785] text-[#00e785] text-xs font-bold rounded-lg hover:bg-[#00e785] hover:text-[#0b1311] transition">
+                    LÆS MERE
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Populære udbydere (Providers slider) -->
+    <section class="mt-8 mb-6">
+        <div class="px-4 mb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-[#00e785] text-base"><i class="fa-solid fa-network-wired"></i></span>
+                <h2 class="font-bold text-base tracking-wide text-white">Populære udbydere</h2>
+            </div>
+        </div>
+
+        <!-- Providers Horizontal Slider matching desktop mockup -->
+        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pb-2">
+            <!-- Pragmatic Play -->
+            <div onclick="showToast('Filtrerer efter Pragmatic Play')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">PRAGMATIC</span>
+            </div>
+            <!-- Play'n GO -->
+            <div onclick="showToast('Filtrerer efter Play\'n GO')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">PLAY'N GO</span>
+            </div>
+            <!-- Hacksaw Gaming -->
+            <div onclick="showToast('Filtrerer efter Hacksaw Gaming')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">HACKSAW</span>
+            </div>
+            <!-- Evolution -->
+            <div onclick="showToast('Filtrerer efter Evolution')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">EVOLUTION</span>
+            </div>
+            <!-- Nolimit City -->
+            <div onclick="showToast('Filtrerer efter Nolimit City')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">NOLIMIT</span>
+            </div>
+            <!-- Relax Gaming -->
+            <div onclick="showToast('Filtrerer efter Relax Gaming')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">RELAX GAMING</span>
+            </div>
+            <!-- Big Time Gaming -->
+            <div onclick="showToast('Filtrerer efter Big Time Gaming')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group">
+                <span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">BTG GAMING</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer info & compliance -->
+    <footer class="mt-10 px-4 pt-6 pb-8 border-t border-[#1f3831] bg-[#070e0c] text-xs text-gray-400">
+        <div class="flex items-center justify-center gap-6 mb-6">
+            <span class="font-bold text-white border border-gray-700 px-2 py-1 rounded">18+</span>
+            <span class="font-bold text-gray-300 hover:text-white cursor-pointer" onclick="showToast('StopSpillet link')">StopSpillet</span>
+            <span class="font-bold text-gray-300 hover:text-white cursor-pointer" onclick="showToast('ROFUS selvudelukkelse')">ROFUS</span>
+        </div>
+        <p class="text-center text-[11px] text-gray-500 leading-relaxed mb-4">
+            Licenseret og reguleret i EU. Spil ansvarligt. Er du afhængig? Kontakt StopSpillet på tlf. 70 22 28 25 eller besøg stopspillet.dk.
+        </p>
+        <p class="text-center text-[10px] text-gray-600">
+            © 2026 NordicPlay. Alle rettigheder forbeholdes.
+        </p>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav aria-label="Mobilnavigation" class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
+        <!-- Home -->
+        <button onclick="switchNavTab('home')" id="nav-home" class="flex flex-col items-center gap-1 text-[#00e785] transition">
+            <i class="fa-solid fa-house text-base"></i>
+            <span class="text-[10px] font-medium">Hjem</span>
+        </button>
+
+        <!-- Casino -->
+        <button onclick="switchNavTab('casino')" id="nav-casino" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-dice text-base"></i>
+            <span class="text-[10px] font-medium">Casino</span>
+        </button>
+
+        <!-- Live Casino -->
+        <button onclick="switchNavTab('live')" id="nav-live" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-video text-base"></i>
+            <span class="text-[10px] font-medium">Live</span>
+        </button>
+
+        <!-- Search -->
+        <button onclick="toggleSearchModal()" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-magnifying-glass text-base"></i>
+            <span class="text-[10px] font-medium">Søg</span>
+        </button>
+
+        <!-- Menu -->
+        <button onclick="openMenuDrawer()" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-bars text-base"></i>
+            <span class="text-[10px] font-medium">Menu</span>
+        </button>
+    </nav>
+
+    <!-- Modals & Drawers -->
+
+    <!-- Auth Modal (Login/Signup) -->
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-[#12201c] border border-[#1f3831] rounded-2xl w-full max-w-sm p-6 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="auth-modal-content">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex-col p-4">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2 flex-1 bg-[#12201c] border border-[#1f3831] rounded-xl px-3 py-2.5">
+                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                <input type="text" id="search-input" placeholder="Søg efter spil, udbydere..." class="bg-transparent text-white text-sm outline-none w-full" oninput="handleSearch(this.value)">
+            </div>
+            <button onclick="toggleSearchModal()" class="ml-3 text-sm font-bold text-[#00e785] px-2 py-1">Annuller</button>
+        </div>
+        <div id="search-results" class="flex-1 overflow-y-auto space-y-2">
+            <div class="text-xs text-gray-400 p-2">Prøv at søge på "Book of Dead", "Sweet Bonanza" eller "Roulette".</div>
+        </div>
+    </div>
+
+    <!-- Menu Drawer (Slide-out from left side) -->
+    <div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
+        <div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
+            <div>
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]">
+                            <i class="fa-solid fa-gamepad text-xs font-bold"></i>
+                        </div>
+                        <span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span>
+                    </div>
+                    <button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#12201c] flex items-center justify-center">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                </div>
+                <ul class="space-y-2 text-sm font-medium">
+                    <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Alle Spil');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Alle Spil</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer(); switchTab('live');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-video text-[#00e785] w-5"></i> Live Casino</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Spilleautomater');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-fire text-[#00e785] w-5"></i> Spilleautomater</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Kampagner & Bonus');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner & Bonus</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Kundeservice 24/7');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-headset text-[#00e785] w-5"></i> Kundeservice (24/7)</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Om os & Vilkår');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-circle-info text-[#00e785] w-5"></i> Om os & Vilkår</a></li>
+                </ul>
+            </div>
+            <div class="pt-6 border-t border-[#1f3831] space-y-3">
+                <div class="flex items-center justify-between text-xs text-gray-400">
+                    <span>Sprog: Dansk</span>
+                    <span class="text-[#00e785] font-bold">18+ ROFUS</span>
+                </div>
+                <p class="text-[10px] text-gray-600">NordicPlay mobile v2.6</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#12201c] border border-[#00e785] text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-[#00e785]"></i>
+        <span id="toast-msg">Handlingen lykkedes</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const msgEl = document.getElementById('toast-msg');
+            msgEl.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+            }, 2500);
+        }
+
+        function updateDots(containerId, dotsId) {
+            const container = document.getElementById(containerId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!container || !dotsContainer) return;
+
+            const scrollLeft = container.scrollLeft;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            if (maxScroll <= 0) return;
+
+            const percentage = scrollLeft / maxScroll;
+            const dots = dotsContainer.children;
+            const activeIndex = Math.min(dots.length - 1, Math.round(percentage * (dots.length - 1)));
+
+            for (let i = 0; i < dots.length; i++) {
+                if (i === activeIndex) {
+                    dots[i].classList.remove('w-1.5', 'bg-gray-600');
+                    dots[i].classList.add('w-2', 'bg-[#00e785]');
+                } else {
+                    dots[i].classList.remove('w-2', 'bg-[#00e785]');
+                    dots[i].classList.add('w-1.5', 'bg-gray-600');
+                }
+            }
+        }
+
+        function openModal(type) {
+            const modal = document.getElementById('auth-modal');
+            const content = document.getElementById('auth-modal-content');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            if (type === 'login') {
+                content.innerHTML = `
+                    <h2 class="text-lg font-bold text-white mb-4">Log ind på NordicPlay</h2>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-[11px] text-gray-400 block mb-1 font-medium">E-mail eller brugernavn</label>
+                            <input type="email" placeholder="navn@eksempel.dk" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]">
+                        </div>
+                        <div>
+                            <label class="text-[11px] text-gray-400 block mb-1 font-medium">Adgangskode</label>
+                            <input type="password" placeholder="••••••••" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]">
+                        </div>
+                        <button onclick="closeModal(); showToast('Du er nu logget ind!');" class="w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl text-sm shadow-[0_0_15px_rgba(0,231,133,0.3)] mt-2">
+                            LOG IND
+                        </button>
+                    </div>
+                `;
+            } else {
+                content.innerHTML = `
+                    <h2 class="text-lg font-bold text-white mb-2">Opret gratis konto</h2>
+                    <p class="text-xs text-gray-400 mb-4">Få 100 Free Spins + 200 kr. ved tilmelding</p>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-[11px] text-gray-400 block mb-1 font-medium">E-mailadresse</label>
+                            <input type="email" placeholder="navn@eksempel.dk" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]">
+                        </div>
+                        <div>
+                            <label class="text-[11px] text-gray-400 block mb-1 font-medium">Vælg adgangskode</label>
+                            <input type="password" placeholder="••••••••" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]">
+                        </div>
+                        <button onclick="closeModal(); showToast('Konto oprettet! Velkommen til NordicPlay');" class="w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl text-sm shadow-[0_0_15px_rgba(0,231,133,0.3)] mt-2">
+                            OPRET KONTO NU
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('auth-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function toggleSearchModal() {
+            const modal = document.getElementById('search-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.getElementById('search-input').focus();
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        function openMenuDrawer() {
+            const drawer = document.getElementById('menu-drawer');
+            drawer.classList.remove('hidden');
+            drawer.classList.add('flex');
+        }
+
+        function closeMenuDrawer() {
+            const drawer = document.getElementById('menu-drawer');
+            drawer.classList.remove('flex');
+            drawer.classList.add('hidden');
+        }
+
+        function switchNavTab(tab) {
+            ['home', 'casino', 'live'].forEach(t => {
+                const el = document.getElementById('nav-' + t);
+                if (el) {
+                    if (t === tab) {
+                        el.classList.add('text-[#00e785]');
+                        el.classList.remove('text-gray-400');
+                    } else {
+                        el.classList.remove('text-[#00e785]');
+                        el.classList.add('text-gray-400');
+                    }
+                }
+            });
+            if (tab === 'live') {
+                showToast('Åbner Live Casino lobby');
+            } else if (tab === 'casino') {
+                showToast('Åbner Casino spil oversigt');
+            } else {
+                showToast('Du er på forsiden');
+            }
+        }
+
+        function switchTab(tab) {
+            switchNavTab(tab);
+        }
+
+        function playGame(name) {
+            showToast('Starter spil: ' + name + '...');
+        }
+
+        function handleSearch(query) {
+            const results = document.getElementById('search-results');
+            if (!query.trim()) {
+                results.innerHTML = '<div class="text-xs text-gray-400 p-2">Indtast søgeord...</div>';
+                return;
+            }
+            const games = ['Book of Dead', 'Sweet Bonanza', 'Big Bass Bonanza', 'Le Bandit', 'Wanted Dead', 'Sugar Rush 1000', 'Zeus vs Hades', 'Dork Unit', 'Blackjack', 'Lightning Roulette', 'Infinite Blackjack'];
+            const filtered = games.filter(g => g.toLowerCase().includes(query.toLowerCase()));
+            
+            if (filtered.length === 0) {
+                results.innerHTML = '<div class="text-xs text-gray-400 p-2">Ingen spil fundet for "' + query + '"</div>';
+            } else {
+                results.innerHTML = filtered.map(g => `
+                    <div onclick="toggleSearchModal(); playGame('${g}');" class="p-3 bg-[#12201c] border border-[#1f3831] rounded-xl flex items-center justify-between cursor-pointer hover:border-[#00e785] transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#00e785]/20 flex items-center justify-center text-[#00e785]">
+                                <i class="fa-solid fa-dice"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">${g}</h4>
+                                <p class="text-[10px] text-gray-400">Casino Spil • RTP 96.%</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                    </div>
+                `).join('');
+            }
+        }
+    </script>
+</body>
+</html>
