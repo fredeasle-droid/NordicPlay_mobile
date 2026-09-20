@@ -5,43 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Spil</title>
     <style>
-        * { box-sizing:border-box; margin:0; padding:0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         html, body {
-            width:100%; height:100%; overflow:hidden; background-color:#121212;
-            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-            display:flex; justify-content:center; align-items:center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Gendannet til de oprindelige indstillinger fra første demo */
         .container {
-            position:relative; width:100%; max-width:450px; height:80vh; max-height:800px;
-            border-radius:12px; overflow:hidden; background-color:#000;
-            box-shadow:0 8px 24px rgba(0,0,0,.5);
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            height: 100%;
+            max-height: 850px;
+            border-radius: 0;
+            overflow: hidden;
+            background-color: #000000;
         }
-        iframe { width:100%; height:100%; border:none; display:block; }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
         .fullscreen-btn {
-            position:absolute; top:15px; right:15px; background:rgba(0,0,0,.6);
-            color:#fff; border:1px solid rgba(255,255,255,.3); padding:8px 12px;
-            border-radius:6px; cursor:pointer; font-size:14px; z-index:9999;
-            backdrop-filter:blur(4px);
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 9999;
+            backdrop-filter: blur(4px);
         }
-        .fullscreen-btn:active { background:rgba(255,255,255,.2); }
+
+        .fullscreen-btn:active {
+            background: rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 <body>
+
     <div class="container" id="gameContainer">
+        <!-- Husk at rette 'src' til dit faktiske spil/iframe link -->
         <iframe id="gameFrame" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        
         <button class="fullscreen-btn" onclick="toggleFullScreen()">Fuld skærm</button>
     </div>
+
     <script>
         function toggleFullScreen() {
             var container = document.getElementById('gameContainer');
+
             if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                if (container.requestFullscreen) container.requestFullscreen();
-                else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) { /* Safari */
+                    container.webkitRequestFullscreen();
+                }
             } else {
-                if (document.exitFullscreen) document.exitFullscreen();
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
             }
         }
     </script>
+
 </body>
 </html>
