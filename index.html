@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="da" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>NordicPlay - Spil med omtanke</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}body{background:#0b1311;color:#fff;font-family:Inter,sans-serif;-webkit-tap-highlight-color:transparent}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NordicPlay - Spil med omtanke</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        nordic: {
+                            dark: '#0b1311',
+                            card: '#12201c',
+                            cardHover: '#182b26',
+                            border: '#1f3831',
+                            green: '#00e785',
+                            greenHover: '#00c772',
+                            accent: '#1b332c'
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        ::-webkit-scrollbar { display:none; }
+        .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+        body { background-color:#0b1311; color:#fff; font-family:'Inter',sans-serif; -webkit-tap-highlight-color:transparent; }
+    </style>
 </head>
 <body class="bg-[#0b1311] text-white min-h-screen pb-24 select-none">
 
@@ -108,28 +133,43 @@
 <button onclick="openMenuDrawer()" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-bars"></i><span class="text-[10px]">Menu</span></button>
 </nav>
 
-<div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4"><div class="bg-[#12201c] border border-[#1f3831] rounded-2xl w-full max-w-sm p-6 relative"><button onclick="closeModal()" class="absolute top-4 right-4"><i class="fa-solid fa-xmark"></i></button><div id="auth-modal-content"></div></div></div>
-<div id="search-modal" class="fixed inset-0 z-50 bg-black/90 hidden flex-col p-4"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-2 flex-1 bg-[#12201c] border border-[#1f3831] rounded-xl px-3 py-2.5"><i class="fa-solid fa-magnifying-glass text-gray-400"></i><input type="text" placeholder="Søg efter spil..." class="bg-transparent text-white text-sm outline-none w-full"></div><button onclick="toggleSearchModal()" class="ml-3 text-sm font-bold text-[#00e785]">Annuller</button></div></div>
-<div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start"><div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6"><div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]"><span class="font-extrabold text-base">NORDIC<span class="text-[#00e785]">PLAY</span></span><button onclick="closeMenuDrawer()"><i class="fa-solid fa-xmark"></i></button></div><ul class="space-y-2 text-sm font-medium">
+<div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+<div class="bg-[#12201c] border border-[#1f3831] rounded-2xl w-full max-w-sm p-6 relative shadow-2xl">
+<button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+<div id="auth-modal-content"></div></div></div>
+<div id="search-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex-col p-4">
+<div class="flex items-center justify-between mb-4"><div class="flex items-center gap-2 flex-1 bg-[#12201c] border border-[#1f3831] rounded-xl px-3 py-2.5">
+<i class="fa-solid fa-magnifying-glass text-gray-400"></i><input type="text" id="search-input" placeholder="Søg efter spil, udbydere..." class="bg-transparent text-white text-sm outline-none w-full" oninput="handleSearch(this.value)"></div>
+<button onclick="toggleSearchModal()" class="ml-3 text-sm font-bold text-[#00e785] px-2 py-1">Annuller</button></div>
+<div id="search-results" class="flex-1 overflow-y-auto space-y-2"><div class="text-xs text-gray-400 p-2">Prøv at søge på "Book of Dead", "Sweet Bonanza" eller "Roulette".</div></div></div>
+<div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
+<div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl">
+<div><div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]">
+<div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]"><i class="fa-solid fa-gamepad text-xs font-bold"></i></div>
+<span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span></div>
+<button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#12201c] flex items-center justify-center"><i class="fa-solid fa-xmark text-sm"></i></button></div>
+<ul class="space-y-2 text-sm font-medium">
 <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Alle Spil');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Alle Spil</a></li>
 <li><a href="#" onclick="closeMenuDrawer(); switchTab('live');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-video text-[#00e785] w-5"></i> Live Casino</a></li>
 <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Spilleautomater');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-fire text-[#00e785] w-5"></i> Spilleautomater</a></li>
-<li><a href="campaign.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner & Bonus</a></li>
+<li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Kampagner & Bonus');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner & Bonus</a></li>
 <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Kundeservice 24/7');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-headset text-[#00e785] w-5"></i> Kundeservice (24/7)</a></li>
 <li><a href="#" onclick="closeMenuDrawer(); showToast('Åbner Om os & Vilkår');" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-circle-info text-[#00e785] w-5"></i> Om os & Vilkår</a></li>
-</ul></div></div>
-<div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#12201c] border border-[#00e785] text-white px-4 py-2.5 rounded-xl opacity-0 pointer-events-none"><span id="toast-msg"></span></div>
+</ul></div>
+<div class="pt-6 border-t border-[#1f3831] space-y-3"><div class="flex items-center justify-between text-xs text-gray-400"><span>Sprog: Dansk</span><span class="text-[#00e785] font-bold">18+ ROFUS</span></div><p class="text-[10px] text-gray-600">NordicPlay mobile v2.6</p></div>
+</div></div><div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#12201c] border border-[#00e785] text-white px-4 py-2.5 rounded-xl opacity-0 pointer-events-none"><span id="toast-msg"></span></div>
 
 <script>
-function showToast(m){const t=document.getElementById("toast");document.getElementById("toast-msg").textContent=m;t.classList.remove("opacity-0","pointer-events-none");t.classList.add("opacity-100");setTimeout(()=>{t.classList.remove("opacity-100");t.classList.add("opacity-0","pointer-events-none")},2500)}
-function openModal(type){const m=document.getElementById("auth-modal");m.classList.remove("hidden");m.classList.add("flex");document.getElementById("auth-modal-content").innerHTML="<h2 class='text-lg font-bold mb-2'>"+(type==="login"?"Log ind":"Opret konto")+"</h2><button onclick='closeModal();showToast(\"Handlingen lykkedes!\")' class='w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl'>Fortsæt</button>"}
-function closeModal(){const m=document.getElementById("auth-modal");m.classList.remove("flex");m.classList.add("hidden")}
-function toggleSearchModal(){const m=document.getElementById("search-modal");m.classList.toggle("hidden");m.classList.toggle("flex")}
-function openMenuDrawer(){const d=document.getElementById("menu-drawer");d.classList.remove("hidden");d.classList.add("flex")}
-function closeMenuDrawer(){const d=document.getElementById("menu-drawer");d.classList.remove("flex");d.classList.add("hidden")}
-function switchNavTab(tab){['home','casino','live'].forEach(t=>{const el=document.getElementById('nav-'+t);if(el){if(t===tab){el.classList.add('text-[#00e785]');el.classList.remove('text-gray-400')}else{el.classList.remove('text-[#00e785]');el.classList.add('text-gray-400')}}});if(tab==='casino')location.href='casino.html';else if(tab==='live')showToast('Åbner Live Casino lobby');else showToast('Du er på forsiden')}
-function updateDots(containerId,dotsId){const container=document.getElementById(containerId),dotsContainer=document.getElementById(dotsId);if(!container||!dotsContainer)return;const max=container.scrollWidth-container.clientWidth;if(max<=0)return;const idx=Math.min(dotsContainer.children.length-1,Math.round((container.scrollLeft/max)*(dotsContainer.children.length-1)));[...dotsContainer.children].forEach((d,i)=>{d.classList.toggle('bg-[#00e785]',i===idx);d.classList.toggle('bg-gray-600',i!==idx)})}
+function showToast(msg){const toast=document.getElementById('toast'),msgEl=document.getElementById('toast-msg');msgEl.textContent=msg;toast.classList.remove('opacity-0','pointer-events-none','-translate-y-2');toast.classList.add('opacity-100','translate-y-0');setTimeout(()=>{toast.classList.remove('opacity-100','translate-y-0');toast.classList.add('opacity-0','pointer-events-none','-translate-y-2')},2500)}
+function updateDots(containerId,dotsId){const container=document.getElementById(containerId),dotsContainer=document.getElementById(dotsId);if(!container||!dotsContainer)return;const maxScroll=container.scrollWidth-container.clientWidth;if(maxScroll<=0)return;const activeIndex=Math.min(dotsContainer.children.length-1,Math.round((container.scrollLeft/maxScroll)*(dotsContainer.children.length-1)));[...dotsContainer.children].forEach((d,i)=>{d.classList.toggle('w-2',i===activeIndex);d.classList.toggle('bg-[#00e785]',i===activeIndex);d.classList.toggle('w-1.5',i!==activeIndex);d.classList.toggle('bg-gray-600',i!==activeIndex)})}
+function openModal(type){const modal=document.getElementById('auth-modal'),content=document.getElementById('auth-modal-content');modal.classList.remove('hidden');modal.classList.add('flex');content.innerHTML=type==='login'?'<h2 class="text-lg font-bold text-white mb-4">Log ind på NordicPlay</h2><div class="space-y-3"><input type="email" placeholder="navn@eksempel.dk" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white"><input type="password" placeholder="••••••••" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white"><button onclick="closeModal();showToast(\'Du er nu logget ind!\')" class="w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl">LOG IND</button></div>':'<h2 class="text-lg font-bold text-white mb-2">Opret gratis konto</h2><p class="text-xs text-gray-400 mb-4">Få 100 Free Spins + 200 kr. ved tilmelding</p><div class="space-y-3"><input type="email" placeholder="navn@eksempel.dk" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white"><input type="password" placeholder="••••••••" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white"><button onclick="closeModal();showToast(\'Konto oprettet! Velkommen til NordicPlay\')" class="w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl">OPRET KONTO NU</button></div>'}
+function closeModal(){const m=document.getElementById('auth-modal');m.classList.remove('flex');m.classList.add('hidden')}
+function toggleSearchModal(){const m=document.getElementById('search-modal');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.classList.add('flex');document.getElementById('search-input').focus()}else{m.classList.remove('flex');m.classList.add('hidden')}}
+function openMenuDrawer(){const d=document.getElementById('menu-drawer');d.classList.remove('hidden');d.classList.add('flex')}
+function closeMenuDrawer(){const d=document.getElementById('menu-drawer');d.classList.remove('flex');d.classList.add('hidden')}
+function switchNavTab(tab){['home','casino','live'].forEach(t=>{const el=document.getElementById('nav-'+t);if(el){if(t===tab){el.classList.add('text-[#00e785]');el.classList.remove('text-gray-400')}else{el.classList.remove('text-[#00e785]');el.classList.add('text-gray-400')}}});if(tab==='live')showToast('Åbner Live Casino lobby');else if(tab==='casino')showToast('Åbner Casino spil oversigt');else showToast('Du er på forsiden')}
 function switchTab(tab){switchNavTab(tab)}
-function playGame(n){showToast("Starter spil: "+n+"...")}
+function playGame(name){showToast('Starter spil: '+name+'...')}
+function handleSearch(query){const results=document.getElementById('search-results');if(!query.trim()){results.innerHTML='<div class="text-xs text-gray-400 p-2">Indtast søgeord...</div>';return}const games=['Book of Dead','Sweet Bonanza','Big Bass Bonanza','Le Bandit','Wanted Dead','Sugar Rush 1000','Zeus vs Hades','Dork Unit','Blackjack','Lightning Roulette','Infinite Blackjack'],filtered=games.filter(g=>g.toLowerCase().includes(query.toLowerCase()));results.innerHTML=filtered.length?filtered.map(g=>'<div onclick="toggleSearchModal();playGame(\''+g+'\')" class="p-3 bg-[#12201c] border border-[#1f3831] rounded-xl flex items-center justify-between cursor-pointer"><span class="text-xs font-bold text-white">'+g+'</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i></div>').join(''):'<div class="text-xs text-gray-400 p-2">Ingen spil fundet for "'+query+'"</div>'}
 </script>
 </body></html>
