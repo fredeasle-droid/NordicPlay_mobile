@@ -19,23 +19,27 @@
         }
         body { padding-bottom:72px; }
         ::-webkit-scrollbar { display:none; }
+
         .game-shell {
             width:100%;
             max-width:480px;
             margin:0 auto;
         }
+
+        /* Normal game size inside the NordicPlay design */
         .game-frame-wrap {
             position:relative;
             width:100%;
-            height:85vh;
-            max-height:850px;
-            min-height:500px;
+            height:70vh;
+            max-height:700px;
+            min-height:0;
             background:#000;
             border:1px solid #1f3831;
             border-radius:16px;
             overflow:hidden;
             box-shadow:0 12px 40px rgba(0,0,0,.45);
         }
+
         .game-frame-wrap iframe {
             width:100%;
             height:100%;
@@ -43,6 +47,7 @@
             display:block;
             background:#000;
         }
+
         .fullscreen-btn {
             position:absolute;
             top:12px;
@@ -57,15 +62,33 @@
             font-weight:700;
             backdrop-filter:blur(8px);
         }
-        .game-frame-wrap:fullscreen {
+
+        /* CSS fullscreen fallback for iPhone/Safari */
+        .game-frame-wrap.css-fullscreen {
+            position:fixed;
+            inset:0;
+            z-index:99999;
             width:100vw;
-            height:100vh;
+            height:100dvh;
             max-width:none;
             max-height:none;
             min-height:0;
             border:0;
             border-radius:0;
+            margin:0;
         }
+
+        body.css-game-fullscreen {
+            overflow:hidden;
+            padding:0;
+        }
+
+        body.css-game-fullscreen > header,
+        body.css-game-fullscreen > nav {
+            display:none !important;
+        }
+
+        .game-frame-wrap:fullscreen,
         .game-frame-wrap:-webkit-full-screen {
             width:100vw;
             height:100vh;
@@ -75,6 +98,7 @@
             border:0;
             border-radius:0;
         }
+
         .fullscreen-btn:active { transform:scale(.97); }
     </style>
 </head>
@@ -118,10 +142,12 @@
             <iframe
                 id="gameFrame"
                 src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw"
+                allow="fullscreen"
                 allowfullscreen="true"
                 webkitallowfullscreen="true"
                 mozallowfullscreen="true">
             </iframe>
+
             <button id="fullscreenButton" class="fullscreen-btn" onclick="toggleFullScreen()">
                 <i class="fa-solid fa-expand mr-1"></i> Fuld skærm
             </button>
@@ -165,38 +191,70 @@
         const container = document.getElementById('gameContainer');
         const button = document.getElementById('fullscreenButton');
 
-        function isFullscreen() {
-            return document.fullscreenElement === container ||
-                   document.webkitFullscreenElement === container;
+        let cssFullscreen = false;
+
+        function setButtonFullscreen(on) {
+            button.innerHTML = on
+                ? '<i class="fa-solid fa-compress mr-1"></i> Gå tilbage'
+                : '<i class="fa-solid fa-expand mr-1"></i> Fuld skærm';
         }
 
-        function updateFullscreenButton() {
-            if (isFullscreen()) {
-                button.innerHTML = '<i class="fa-solid fa-compress mr-1"></i> Gå tilbage';
-            } else {
-                button.innerHTML = '<i class="fa-solid fa-expand mr-1"></i> Fuld skærm';
+        function enterCssFullscreen() {
+            cssFullscreen = true;
+            container.classList.add('css-fullscreen');
+            document.body.classList.add('css-game-fullscreen');
+            setButtonFullscreen(true);
+        }
+
+        function exitCssFullscreen() {
+            cssFullscreen = false;
+            container.classList.remove('css-fullscreen');
+            document.body.classList.remove('css-game-fullscreen');
+            setButtonFullscreen(false);
+        }
+
+        async function toggleFullScreen() {
+            if (cssFullscreen || document.fullscreenElement === container || document.webkitFullscreenElement === container) {
+                if (document.fullscreenElement && document.exitFullscreen) {
+                    try { await document.exitFullscreen(); } catch(e) {}
+                } else if (document.webkitFullscreenElement && document.webkitExitFullscreen) {
+                    try { document.webkitExitFullscreen(); } catch(e) {}
+                }
+                exitCssFullscreen();
+                return;
             }
-        }
 
-        function toggleFullScreen() {
-            if (!isFullscreen()) {
+            /* First try the native API. If Safari/iOS refuses it, use the
+               CSS fullscreen fallback so the game still expands reliably. */
+            try {
                 if (container.requestFullscreen) {
-                    container.requestFullscreen();
-                } else if (container.webkitRequestFullscreen) {
+                    await container.requestFullscreen();
+                    setButtonFullscreen(true);
+                    return;
+                }
+                if (container.webkitRequestFullscreen) {
                     container.webkitRequestFullscreen();
+                    setButtonFullscreen(true);
+                    return;
                 }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                }
+            } catch(e) {
+                /* Native fullscreen unavailable — use CSS mode below. */
             }
+
+            enterCssFullscreen();
         }
 
-        document.addEventListener('fullscreenchange', updateFullscreenButton);
-        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
-        updateFullscreenButton();
+        document.addEventListener('fullscreenchange', () => {
+            const active = document.fullscreenElement === container;
+            if (!active && !cssFullscreen) setButtonFullscreen(false);
+        });
+
+        document.addEventListener('webkitfullscreenchange', () => {
+            const active = document.webkitFullscreenElement === container;
+            if (!active && !cssFullscreen) setButtonFullscreen(false);
+        });
+
+        setButtonFullscreen(false);
     </script>
 </body>
 </html>
