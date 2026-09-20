@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071713"/><stop offset=".55" stop-color="#103b2c"/><stop offset="1" stop-color="#020806"/></linearGradient>
+  <radialGradient id="moon"><stop stop-color="#d9ffec" stop-opacity=".9"/><stop offset="1" stop-color="#70e8ad" stop-opacity="0"/></radialGradient>
+  <linearGradient id="mount" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#244f40"/><stop offset="1" stop-color="#07110e"/></linearGradient>
+  <linearGradient id="gold"><stop stop-color="#ffe7a0"/><stop offset="1" stop-color="#b98b36"/></linearGradient>
+</defs>
+<rect width="1200" height="780" fill="url(#bg)"/>
+<circle cx="880" cy="180" r="190" fill="url(#moon)"/>
+<circle cx="880" cy="180" r="62" fill="#dfffea" opacity=".72"/>
+<path d="M0 490 L190 330 310 445 470 245 625 450 790 300 1010 470 1200 350 V780 H0Z" fill="url(#mount)"/>
+<path d="M0 570 L250 430 420 545 650 390 860 560 1060 430 1200 520 V780 H0Z" fill="#06100d" opacity=".92"/>
+<path d="M0 650 Q310 560 600 650 T1200 630 V780 H0Z" fill="#020605"/>
+<g transform="translate(650 470)">
+  <path d="M-280 120 Q-80 170 180 125 L115 175 Q-70 205-235 165Z" fill="#070b09"/>
+  <path d="M-255 112 Q-60 140 155 112 L105 145 Q-60 168-220 142Z" fill="url(#gold)" opacity=".7"/>
+  <path d="M-35 115 V-120" stroke="#c8a85b" stroke-width="9"/>
+  <path d="M-25 -112 Q105 -55 120 75 Q30 35-25 15Z" fill="#0b2119" stroke="#d2b36b" stroke-width="4"/>
+  <path d="M-47 -95 Q-120 -30-100 55 Q-35 28-47 -95Z" fill="#00e785" opacity=".2"/>
+  <path d="M-275 115 L-350 72 L-280 75" fill="#0a1713" stroke="#c8a85b" stroke-width="4"/>
+  <path d="M155 112 L235 72 L170 78" fill="#0a1713" stroke="#c8a85b" stroke-width="4"/>
+</g>
+<text x="64" y="112" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="4">NORDICPLAY</text>
+<text x="66" y="150" fill="#00e785" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">SPIL MED OMTANKE</text>
+</svg>
