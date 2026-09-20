@@ -75,24 +75,6 @@
         </div>
     </header>
 
-    <!-- KATEGORIER LIGE UNDER HEADEREN (Placeret præcis som på mock-up) -->
-    <div class="sticky top-[49px] z-40 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 overflow-x-auto no-scrollbar">
-        <div class="flex gap-2 w-max">
-            <button onclick="switchCategory('slots')" id="cat-slots" class="px-4 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)] transition">
-                <i class="fa-solid fa-fire text-xs"></i> Slots
-            </button>
-            <button onclick="switchCategory('live')" id="cat-live" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-video text-cyan-400 text-xs"></i> Live Casino
-            </button>
-            <button onclick="switchCategory('roulette')" id="cat-roulette" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-circle-dot text-yellow-400 text-xs"></i> Roulette
-            </button>
-            <button onclick="switchCategory('blackjack')" id="cat-blackjack" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-clone text-emerald-400 text-xs"></i> Blackjack
-            </button>
-        </div>
-    </div>
-
     <!-- Main Content -->
     <main class="px-4 pt-4">
         
@@ -111,6 +93,24 @@
                         Udforsk vores store udvalg af over 20+ spilleautomater.
                     </p>
                 </div>
+            </div>
+        </section>
+
+        <!-- KATEGORIER LIGE UNDER HERO-BANNERET (Placeret nede på siden) -->
+        <section class="mt-4">
+            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                <button onclick="switchCategory('slots')" id="cat-slots" class="px-4 py-2 rounded-xl text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-2 shadow-[0_0_12px_rgba(0,231,133,0.3)] flex-shrink-0 transition">
+                    <i class="fa-solid fa-fire text-sm"></i> Slots
+                </button>
+                <button onclick="switchCategory('live')" id="cat-live" class="px-4 py-2 rounded-xl text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-2 flex-shrink-0 transition">
+                    <i class="fa-solid fa-video text-cyan-400 text-sm"></i> Live Casino
+                </button>
+                <button onclick="switchCategory('roulette')" id="cat-roulette" class="px-4 py-2 rounded-xl text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-2 flex-shrink-0 transition">
+                    <i class="fa-solid fa-circle-dot text-yellow-400 text-sm"></i> Roulette
+                </button>
+                <button onclick="switchCategory('blackjack')" id="cat-blackjack" class="px-4 py-2 rounded-xl text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-2 flex-shrink-0 transition">
+                    <i class="fa-solid fa-clone text-emerald-400 text-sm"></i> Blackjack
+                </button>
             </div>
         </section>
 
@@ -508,11 +508,11 @@
 
             ['slots', 'live', 'roulette', 'blackjack'].forEach(c => {
                 const btn = document.getElementById('cat-' + c);
-                btn.className = "px-4 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition";
+                btn.className = "px-4 py-2 rounded-xl text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-2 flex-shrink-0 transition";
             });
 
             const activeBtn = document.getElementById('cat-' + cat);
-            activeBtn.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)] transition";
+            activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-2 shadow-[0_0_12px_rgba(0,231,133,0.3)] flex-shrink-0 transition";
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
