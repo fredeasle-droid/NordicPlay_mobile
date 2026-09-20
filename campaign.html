@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="da" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NordicPlay - Kampagner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{nordic:{dark:'#0b1311',card:'#12201c',border:'#1f3831',green:'#00e785',greenHover:'#00c772'}}},fontFamily:{sans:['Inter','sans-serif']}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}body{background:#0b1311;color:#fff;font-family:Inter,sans-serif;-webkit-tap-highlight-color:transparent}</style>
+</head>
+<body class="bg-[#0b1311] text-white min-h-screen pb-24">
+<header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<a href="index.html" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200"><i class="fa-solid fa-chevron-left text-sm"></i></a>
+<a href="index.html" class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs"></i></div>
+<div class="leading-tight"><span class="font-extrabold tracking-tight text-sm">NORDIC<span class="text-[#00e785]">PLAY</span></span><div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div></div>
+</a></div>
+<button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center"><i class="fa-solid fa-bars text-sm"></i></button>
+</header>
+
+<main class="px-4 pt-4">
+<section class="relative overflow-hidden rounded-2xl border border-[#1f3831] bg-gradient-to-br from-[#12201c] via-[#0f2d24] to-[#071713] p-5 shadow-xl">
+<div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-[#00e785]/10 blur-3xl"></div>
+<div class="relative">
+<div class="inline-flex items-center gap-2 bg-black/40 px-2.5 py-1 rounded-full border border-white/10 text-[11px] text-yellow-400 font-medium"><i class="fa-solid fa-gift"></i> Kampagner & bonus</div>
+<h1 class="mt-3 text-3xl font-black tracking-tight">Aktuelle <span class="text-[#00e785]">kampagner</span></h1>
+<p class="mt-2 text-xs text-gray-300 leading-relaxed">Se dine kampagner samlet ét sted. Vælg en kampagne for at se detaljer og vilkår.</p>
+</div>
+</section>
+
+<section class="mt-5 space-y-4">
+<article class="relative overflow-hidden rounded-2xl border border-[#00e785]/40 bg-gradient-to-br from-[#16372b] to-[#0d1c17] shadow-lg">
+<div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-[#00e785]/15 blur-2xl"></div>
+<div class="relative p-5">
+<div class="flex items-center justify-between"><span class="text-[10px] font-bold uppercase tracking-wider text-[#00e785]">Velkomstkampagne</span><span class="rounded-full bg-[#00e785]/15 px-2 py-1 text-[10px] font-bold text-[#00e785]">NY</span></div>
+<h2 class="mt-2 text-2xl font-black">100 Gratis <span class="text-[#00e785]">Free Spins</span></h2>
+<p class="mt-2 text-xs text-gray-300">En velkomstkampagne designet til nye NordicPlay-konti.</p>
+<div class="mt-4 grid grid-cols-3 gap-2">
+<div class="rounded-xl bg-black/25 p-2.5 text-center"><div class="text-sm font-black text-white">100</div><div class="text-[9px] text-gray-400">Free Spins</div></div>
+<div class="rounded-xl bg-black/25 p-2.5 text-center"><div class="text-sm font-black text-white">200 kr.</div><div class="text-[9px] text-gray-400">Bonus</div></div>
+<div class="rounded-xl bg-black/25 p-2.5 text-center"><div class="text-sm font-black text-white">18+</div><div class="text-[9px] text-gray-400">Ansvarligt</div></div>
+</div>
+<button onclick="showToast('Åbner velkomstkampagne')" class="mt-4 w-full rounded-xl bg-[#00e785] py-3 text-sm font-bold text-[#0b1311]">SE KAMPAGNEN</button>
+</div></article>
+
+<article class="rounded-2xl border border-[#1f3831] bg-[#12201c] overflow-hidden">
+<div class="h-2 bg-gradient-to-r from-purple-500 via-fuchsia-400 to-[#00e785]"></div>
+<div class="p-5">
+<span class="text-[10px] font-bold uppercase tracking-wider text-purple-300">Ugentlig kampagne</span>
+<h2 class="mt-2 text-xl font-black">Reload & bonus</h2>
+<p class="mt-2 text-xs text-gray-400 leading-relaxed">Hold øje med nye ugentlige kampagner, bonusser og særlige spilaktiviteter.</p>
+<button onclick="showToast('Kampagnen åbnes snart')" class="mt-4 w-full rounded-xl border border-[#1f3831] bg-[#0b1311] py-3 text-xs font-bold text-white">SE DETALJER</button>
+</div></article>
+
+<article class="rounded-2xl border border-[#1f3831] bg-[#12201c] overflow-hidden">
+<div class="h-2 bg-gradient-to-r from-amber-500 via-orange-400 to-red-500"></div>
+<div class="p-5">
+<span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">Spil & præmier</span>
+<h2 class="mt-2 text-xl font-black">Drops & events</h2>
+<p class="mt-2 text-xs text-gray-400 leading-relaxed">Særlige events kan fremhæve udvalgte slots, live casino og tidsbegrænsede kampagner.</p>
+<button onclick="showToast('Events åbnes snart')" class="mt-4 w-full rounded-xl border border-[#1f3831] bg-[#0b1311] py-3 text-xs font-bold text-white">SE EVENTS</button>
+</div></article>
+</section>
+
+<section class="mt-6 rounded-2xl border border-[#1f3831] bg-[#0d1916] p-4">
+<div class="flex gap-3"><div class="w-9 h-9 rounded-full bg-[#00e785]/10 text-[#00e785] flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-circle-info"></i></div><div><h3 class="text-sm font-bold">Kampagnevilkår</h3><p class="mt-1 text-[11px] text-gray-400 leading-relaxed">De konkrete betingelser for en kampagne skal vises på kampagnens detaljeside, før en kampagne aktiveres.</p></div></div>
+</section>
+</main>
+
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
+<a href="index.html" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-house text-base"></i><span class="text-[10px]">Hjem</span></a>
+<a href="casino.html" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-dice text-base"></i><span class="text-[10px]">Casino</span></a>
+<a href="casino.html" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-fire text-base"></i><span class="text-[10px]">Slots</span></a>
+<a href="index.html#search-modal" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-magnifying-glass text-base"></i><span class="text-[10px]">Søg</span></a>
+<button onclick="openMenu()" class="flex flex-col items-center gap-1 text-[#00e785]"><i class="fa-solid fa-bars text-base"></i><span class="text-[10px]">Menu</span></button>
+</nav>
+
+<div id="menu" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden">
+<div class="h-full w-4/5 max-w-xs bg-[#0b1311] border-r border-[#1f3831] p-6">
+<div class="flex items-center justify-between pb-4 border-b border-[#1f3831]"><span class="font-extrabold">NORDIC<span class="text-[#00e785]">PLAY</span></span><button onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></button></div>
+<ul class="mt-5 space-y-2 text-sm">
+<li><a href="index.html" class="block rounded-xl p-3 hover:bg-[#12201c]">Hjem</a></li>
+<li><a href="casino.html" class="block rounded-xl p-3 hover:bg-[#12201c]">Casino & Bordspil</a></li>
+<li><a href="campaign.html" class="block rounded-xl bg-[#12201c] text-[#00e785] p-3">Kampagner & Bonus</a></li>
+</ul>
+</div></div>
+<div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[60] bg-[#12201c] border border-[#00e785] px-4 py-2.5 rounded-xl text-xs font-semibold opacity-0 pointer-events-none transition">Handling udført</div>
+<script>
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.remove('opacity-0','pointer-events-none');setTimeout(()=>t.classList.add('opacity-0','pointer-events-none'),2200)}
+function openMenu(){document.getElementById('menu').classList.remove('hidden')}
+function closeMenu(){document.getElementById('menu').classList.add('hidden')}
+</script>
+</body></html>
