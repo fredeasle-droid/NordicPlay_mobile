@@ -32,18 +32,16 @@
             height:70vh;
             max-height:700px;
             min-height:0;
-            background:#0b1311;
-            border:1px solid #1f3831;
-            border-radius:16px;
+            background:#000;
+            border:0;
+            border-radius:0;
             overflow:hidden;
-            box-shadow:0 12px 40px rgba(0,0,0,.45);
+            box-shadow:none;
         }
 
-        /* Pragmatic Play's mobile game is narrower than the surrounding
-           NordicPlay card. Matching the visible game width removes the
-           black pillar bars on the sides. */
+        /* Let the game fill the complete NordicPlay game area. */
         .game-frame-wrap iframe {
-            width:87%;
+            width:100%;
             height:100%;
             margin:0 auto;
             border:0;
