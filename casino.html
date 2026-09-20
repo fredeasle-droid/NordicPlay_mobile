@@ -139,14 +139,46 @@
 </div>
 
 <div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
-    <div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto">
-        <div><div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]"><i class="fa-solid fa-gamepad text-xs font-bold"></i></div><span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span></div><button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button></div>
-        <ul class="space-y-2 text-sm font-medium"><li><a href="index.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c]"><i class="fa-solid fa-house text-[#00e785] w-5"></i> Hjem</a></li><li><a href="casino.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c]"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Casino & Bordspil</a></li><li><a href="slots.html" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c]"><i class="fa-solid fa-fire text-[#00e785] w-5"></i> Spilleautomater (Slots)</a></li></ul></div>
-        <div class="pt-6 border-t border-[#1f3831]"><p class="text-[10px] text-gray-600">NordicPlay mobile v3.6</p></div>
+        <div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
+            <div>
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]">
+                            <i class="fa-solid fa-gamepad text-xs font-bold"></i>
+                        </div>
+                        <span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span>
+                    </div>
+                    <button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#12201c] flex items-center justify-center">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                </div>
+                <ul class="space-y-2 text-sm font-medium">
+                    <li><a href="min-konto.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-user text-[#00e785] w-5"></i> Min konto</a></li>
+                    <li><a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Alle Spil</a></li>
+                    <li><a href="casino.html#live" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-video text-[#00e785] w-5"></i> Live Casino</a></li>
+                    <li><a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-fire text-[#00e785] w-5"></i> Spilleautomater</a></li>
+                    <li><a href="campaign.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner & Bonus</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-headset text-[#00e785] w-5"></i> Kundeservice (24/7)</a></li>
+                    <li><a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-circle-info text-[#00e785] w-5"></i> Om os & Vilkår</a></li>
+                </ul>
+            </div>
+            <div class="pt-6 border-t border-[#1f3831] space-y-3">
+                <div class="flex items-center justify-between text-xs text-gray-400">
+                    <span>Sprog: Dansk</span>
+                    <span class="text-[#00e785] font-bold">18+ ROFUS</span>
+                </div>
+                <p class="text-[10px] text-gray-600">NordicPlay mobile v2.6</p>
+            </div>
+        </div>
     </div>
-</div>
 
-<script>
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#12201c] border border-[#00e785] text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-[#00e785]"></i>
+        <span id="toast-msg">Handlingen lykkedes</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->\n<script>
 const games = [
 ["Sweet Bonanza","Pragmatic Play","96.5%","from-pink-900/80 to-purple-900/80"],
 ["Gates of Olympus","Pragmatic Play","96.5%","from-yellow-900/80 to-blue-900/80"],
