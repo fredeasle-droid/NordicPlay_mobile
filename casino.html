@@ -49,18 +49,10 @@
 
     <div class="sticky top-[49px] z-40 bg-[#0b1311]/95 border-b border-[#1f3831] px-3 py-2.5 overflow-x-auto no-scrollbar">
         <div class="flex items-center gap-2 w-max">
-            <button onclick="switchCategory('slots')" id="btn-slots" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)] transition">
-                <i class="fa-solid fa-fire"></i> Slots
-            </button>
-            <button onclick="switchCategory('live')" id="btn-live" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-video text-cyan-400"></i> Live Casino
-            </button>
-            <button onclick="switchCategory('roulette')" id="btn-roulette" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-circle-dot text-yellow-400"></i> Roulette
-            </button>
-            <button onclick="switchCategory('blackjack')" id="btn-blackjack" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-clone text-emerald-400"></i> Blackjack
-            </button>
+            <button onclick="switchCategory('slots')" id="btn-slots" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,231,133,0.3)] transition"><i class="fa-solid fa-fire"></i> Slots</button>
+            <button onclick="switchCategory('live')" id="btn-live" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition"><i class="fa-solid fa-video text-cyan-400"></i> Live Casino</button>
+            <button onclick="switchCategory('roulette')" id="btn-roulette" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition"><i class="fa-solid fa-circle-dot text-yellow-400"></i> Roulette</button>
+            <button onclick="switchCategory('blackjack')" id="btn-blackjack" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-1.5 transition"><i class="fa-solid fa-clone text-emerald-400"></i> Blackjack</button>
         </div>
     </div>
 
@@ -68,20 +60,14 @@
         <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#12201c] via-[#0f2d24] to-[#071713] border border-[#1f3831] p-4 shadow-xl mb-4">
             <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#00e785]/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="relative z-10 flex flex-col gap-2">
-                <div class="inline-flex items-center gap-2 bg-black/40 px-2.5 py-0.5 rounded-full border border-white/10 w-fit text-[10px] text-[#00e785] font-medium">
-                    <i class="fa-solid fa-shield-halved"></i> 100% Sikker oplevelse
-                </div>
-                <h1 class="text-xl font-black uppercase tracking-tight text-white leading-none">
-                    Spændende <span class="text-[#00e785]">Slots & Casino</span>
-                </h1>
+                <div class="inline-flex items-center gap-2 bg-black/40 px-2.5 py-0.5 rounded-full border border-white/10 w-fit text-[10px] text-[#00e785] font-medium"><i class="fa-solid fa-shield-halved"></i> 100% Sikker oplevelse</div>
+                <h1 class="text-xl font-black uppercase tracking-tight text-white leading-none">Spændende <span class="text-[#00e785]">Slots & Casino</span></h1>
                 <p class="text-[11px] text-gray-300">Udforsk hundredvis af spil og vind store gevinster.</p>
             </div>
         </div>
 
         <div id="section-slots" class="category-section">
-            <div class="flex items-center justify-between mb-2 px-1">
-                <h2 class="font-bold text-xs uppercase text-gray-300 tracking-wider">Populære Slots (3 pr. række)</h2>
-            </div>
+            <div class="flex items-center justify-between mb-2 px-1"><h2 class="font-bold text-xs uppercase text-gray-300 tracking-wider">Populære Slots</h2></div>
             <div class="grid grid-cols-3 gap-2">
                 <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Bonanza" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Sweet Bonanza</h3><p class="text-[9px] text-gray-400">Pragmatic</p></div></div>
                 <div onclick="alert('Starter spil')" class="bg-[#12201c] border border-[#1f3831] rounded-lg overflow-hidden cursor-pointer hover:border-[#00e785] transition"><div class="aspect-square bg-gray-800"><img src="https://placehold.co/200x200/182b26/00e785?text=Olympus" class="w-full h-full object-cover"></div><div class="p-1.5"><h3 class="font-bold text-[10px] truncate text-white">Gates of Olympus</h3><p class="text-[9px] text-gray-400">Pragmatic</p></div></div>
