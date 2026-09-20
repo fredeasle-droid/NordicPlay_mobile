@@ -1,25 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" preserveAspectRatio="xMidYMid slice">
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071713"/><stop offset=".55" stop-color="#103b2c"/><stop offset="1" stop-color="#020806"/></linearGradient>
-  <radialGradient id="moon"><stop stop-color="#d9ffec" stop-opacity=".9"/><stop offset="1" stop-color="#70e8ad" stop-opacity="0"/></radialGradient>
-  <linearGradient id="mount" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#244f40"/><stop offset="1" stop-color="#07110e"/></linearGradient>
-  <linearGradient id="gold"><stop stop-color="#ffe7a0"/><stop offset="1" stop-color="#b98b36"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06120e"/><stop offset=".52" stop-color="#0d3a2b"/><stop offset="1" stop-color="#020705"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#dfffea" stop-opacity=".95"/><stop offset=".45" stop-color="#a9f2ca" stop-opacity=".32"/><stop offset="1" stop-color="#71e7a8" stop-opacity="0"/></radialGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0a8"/><stop offset=".5" stop-color="#d5aa4e"/><stop offset="1" stop-color="#7b5a22"/></linearGradient>
+<linearGradient id="cloak" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#163d31"/><stop offset="1" stop-color="#020907"/></linearGradient>
+<filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
 </defs>
 <rect width="1200" height="780" fill="url(#bg)"/>
-<circle cx="880" cy="180" r="190" fill="url(#moon)"/>
-<circle cx="880" cy="180" r="62" fill="#dfffea" opacity=".72"/>
-<path d="M0 490 L190 330 310 445 470 245 625 450 790 300 1010 470 1200 350 V780 H0Z" fill="url(#mount)"/>
-<path d="M0 570 L250 430 420 545 650 390 860 560 1060 430 1200 520 V780 H0Z" fill="#06100d" opacity=".92"/>
-<path d="M0 650 Q310 560 600 650 T1200 630 V780 H0Z" fill="#020605"/>
-<g transform="translate(650 470)">
-  <path d="M-280 120 Q-80 170 180 125 L115 175 Q-70 205-235 165Z" fill="#070b09"/>
-  <path d="M-255 112 Q-60 140 155 112 L105 145 Q-60 168-220 142Z" fill="url(#gold)" opacity=".7"/>
-  <path d="M-35 115 V-120" stroke="#c8a85b" stroke-width="9"/>
-  <path d="M-25 -112 Q105 -55 120 75 Q30 35-25 15Z" fill="#0b2119" stroke="#d2b36b" stroke-width="4"/>
-  <path d="M-47 -95 Q-120 -30-100 55 Q-35 28-47 -95Z" fill="#00e785" opacity=".2"/>
-  <path d="M-275 115 L-350 72 L-280 75" fill="#0a1713" stroke="#c8a85b" stroke-width="4"/>
-  <path d="M155 112 L235 72 L170 78" fill="#0a1713" stroke="#c8a85b" stroke-width="4"/>
+<ellipse cx="910" cy="180" rx="220" ry="210" fill="url(#glow)" filter="url(#blur)"/>
+<circle cx="910" cy="180" r="58" fill="#dfffea" opacity=".82"/>
+<path d="M0 470 150 325 270 430 430 250 585 455 755 310 925 465 1080 350 1200 425V780H0Z" fill="#183a30"/>
+<path d="M0 555 190 410 365 535 560 385 760 555 945 420 1200 520V780H0Z" fill="#07130f"/>
+<path d="M0 665Q280 565 565 655T1200 640V780H0Z" fill="#020605"/>
+<!-- longship -->
+<path d="M625 555 Q810 625 1035 552 L965 625 Q805 678 690 625Z" fill="#080d0a" stroke="url(#gold)" stroke-width="5"/>
+<path d="M665 555 Q820 585 1000 553" fill="none" stroke="#d2ae5b" stroke-width="7" opacity=".7"/>
+<path d="M820 552V205" stroke="#cba74f" stroke-width="9"/>
+<path d="M832 215 Q1010 280 1015 510 Q930 475 832 425Z" fill="#102d23" stroke="url(#gold)" stroke-width="5"/>
+<path d="M805 235 Q715 315 740 450 Q802 405 805 235Z" fill="#00e785" opacity=".18"/>
+<path d="M640 555 555 510 625 515" fill="#0b1712" stroke="#c8a85b" stroke-width="5"/>
+<path d="M1035 552 1115 505 1050 515" fill="#0b1712" stroke="#c8a85b" stroke-width="5"/>
+<!-- Viking -->
+<g transform="translate(850 330)">
+<path d="M-20 15 Q-5 -65 70 -70 Q135 -58 142 18 L118 58 30 58Z" fill="#111b17" stroke="#caa44e" stroke-width="4"/>
+<path d="M18 -58 Q55 -105 105 -65 L125 -20 88 -35 55 -20Z" fill="#263b32"/>
+<path d="M12 -42  -45 -72  -18 -5 15 5Z" fill="#d1ad55" opacity=".8"/>
+<path d="M115 -44 165 -70 142 -5 115 5Z" fill="#d1ad55" opacity=".8"/>
+<circle cx="55" cy="-20" r="7" fill="#00e785"/><circle cx="92" cy="-20" r="7" fill="#00e785"/>
+<path d="M48 12 Q78 32 108 12" fill="none" stroke="#caa44e" stroke-width="5"/>
+<path d="M10 58 Q72 25 132 62 L160 245 0 245Z" fill="url(#cloak)" stroke="#244e40" stroke-width="5"/>
+<path d="M5 92 Q-35 165-15 230" fill="none" stroke="#caa44e" stroke-width="8"/>
+<path d="M130 92 Q175 165 155 230" fill="none" stroke="#caa44e" stroke-width="8"/>
+<path d="M35 242 0 365" stroke="#151f1b" stroke-width="24"/><path d="M112 242 150 365" stroke="#151f1b" stroke-width="24"/>
 </g>
-<text x="64" y="112" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="4">NORDICPLAY</text>
-<text x="66" y="150" fill="#00e785" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">SPIL MED OMTANKE</text>
+<!-- readable promo copy baked into image -->
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="58" y="90" fill="#fff" font-size="27" font-weight="800" letter-spacing="4">NORDICPLAY</text>
+<text x="60" y="122" fill="#00e785" font-size="14" font-weight="700" letter-spacing="3">SPIL MED OMTANKE</text>
+<text x="60" y="245" fill="#fff" font-size="50" font-weight="900">100 GRATIS</text>
+<text x="60" y="300" fill="#00e785" font-size="52" font-weight="900">FREE SPINS</text>
+<text x="62" y="340" fill="#dce8e2" font-size="21" font-weight="600">Å 1 KR. STYKKET</text>
+<text x="62" y="388" fill="#fff" font-size="20" font-weight="700">+ 200 KR. VELKOMSTBONUS</text>
+<text x="62" y="418" fill="#a9bab2" font-size="16">UDEN INDBETALING</text>
+<rect x="60" y="465" width="310" height="62" rx="31" fill="#00e785"/>
+<text x="215" y="505" text-anchor="middle" fill="#06120e" font-size="18" font-weight="900">OPRET GRATIS KONTO</text>
+</g>
 </svg>
