@@ -86,6 +86,18 @@
             object-fit: contain;
             opacity: .92;
         }
+        .provider-logo[data-label]::after {
+            content: attr(data-label);
+            display: none;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .02em;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .provider-logo.logo-fallback img { display: none; }
+        .provider-logo.logo-fallback::after { display: block; }
         .provider-fade {
             position: absolute;
             inset: 0;
@@ -400,32 +412,32 @@
         <div class="relative overflow-hidden">
             <div class="provider-track gap-3 px-4">
                 <div class="flex gap-3">
-                    <button onclick="showToast('Filtrerer efter Pragmatic Play')" class="provider-logo"><img src="https://img.logokit.com/pragmaticplay.com" alt="Pragmatic Play"></button>
-                    <button onclick="showToast('Filtrerer efter Play\'n GO')" class="provider-logo"><img src="https://img.logokit.com/playngo.com" alt="Play'n GO"></button>
-                    <button onclick="showToast('Filtrerer efter Hacksaw Gaming')" class="provider-logo"><img src="https://img.logokit.com/hacksawgaming.com" alt="Hacksaw Gaming"></button>
-                    <button onclick="showToast('Filtrerer efter Evolution')" class="provider-logo"><img src="https://img.logokit.com/evolution.com" alt="Evolution"></button>
-                    <button onclick="showToast('Filtrerer efter Nolimit City')" class="provider-logo"><img src="https://img.logokit.com/nolimitcity.com" alt="Nolimit City"></button>
-                    <button onclick="showToast('Filtrerer efter Relax Gaming')" class="provider-logo"><img src="https://img.logokit.com/relax-gaming.com" alt="Relax Gaming"></button>
-                    <button onclick="showToast('Filtrerer efter Big Time Gaming')" class="provider-logo"><img src="https://img.logokit.com/bigtimegaming.com" alt="Big Time Gaming"></button>
-                    <button onclick="showToast('Filtrerer efter NetEnt')" class="provider-logo"><img src="https://img.logokit.com/netent.com" alt="NetEnt"></button>
-                    <button onclick="showToast('Filtrerer efter Play'n Tech')" class="provider-logo"><img src="https://img.logokit.com/playtech.com" alt="Playtech"></button>
-                    <button onclick="showToast('Filtrerer efter Quickspin')" class="provider-logo"><img src="https://img.logokit.com/quickspin.com" alt="Quickspin"></button>
-                    <button onclick="showToast('Filtrerer efter Yggdrasil')" class="provider-logo"><img src="https://img.logokit.com/yggdrasilgaming.com" alt="Yggdrasil"></button>
-                    <button onclick="showToast('Filtrerer efter ELK Studios')" class="provider-logo"><img src="https://img.logokit.com/elkstudios.com" alt="ELK Studios"></button>
+                    <button onclick="showToast('Filtrerer efter Pragmatic Play')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/pragmatic-play-logo.svg" alt="Pragmatic Play" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Play\'n GO')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/play-n-go-logo.svg" alt="Play'n GO" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Hacksaw Gaming')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/hacksaw-gaming-logo.svg" alt="Hacksaw Gaming" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Evolution')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/evolution-logo.svg" alt="Evolution" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Nolimit City')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/nolimit-city-logo.svg" alt="Nolimit City" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Relax Gaming')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/relax-gaming-logo.svg" alt="Relax Gaming" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Big Time Gaming')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/big-time-gaming-logo.svg" alt="Big Time Gaming" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter NetEnt')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/netent-logo.svg" alt="NetEnt" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Play'n Tech')" class="provider-logo" data-label="Pragmatic Play"><img src="https://companieslogo.com/img/orig/PTEC.L_BIG-4118f7d2.svg" alt="Playtech" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Quickspin')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/quickspin-logo.svg" alt="Quickspin" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter Yggdrasil')" class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/yggdrasil-gaming-logo.svg" alt="Yggdrasil" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
+                    <button onclick="showToast('Filtrerer efter ELK Studios')" class="provider-logo" data-label="Pragmatic Play"><img src="https://img.logokit.com/elk-studios.com" alt="ELK Studios" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></button>
                 </div>
                 <div class="flex gap-3" aria-hidden="true">
-                    <div class="provider-logo"><img src="https://img.logokit.com/pragmaticplay.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/playngo.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/hacksawgaming.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/evolution.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/nolimitcity.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/relax-gaming.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/bigtimegaming.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/netent.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/playtech.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/quickspin.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/yggdrasilgaming.com" alt=""></div>
-                    <div class="provider-logo"><img src="https://img.logokit.com/elkstudios.com" alt=""></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/pragmatic-play-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/play-n-go-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/hacksaw-gaming-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/evolution-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/nolimit-city-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/relax-gaming-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/big-time-gaming-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/netent-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://companieslogo.com/img/orig/PTEC.L_BIG-4118f7d2.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/quickspin-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://tiles.flush.com/t/yggdrasil-gaming-logo.svg" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
+                    <div class="provider-logo" data-label="Pragmatic Play"><img src="https://img.logokit.com/elk-studios.com" alt="" loading="eager" onerror="this.parentElement.classList.add('logo-fallback')"></div>
                 </div>
             </div>
             <div class="provider-fade"></div>
