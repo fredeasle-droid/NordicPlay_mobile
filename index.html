@@ -47,6 +47,55 @@
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
+        @keyframes providerMarquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .provider-track {
+            width: max-content;
+            display: flex;
+            animation: providerMarquee 34s linear infinite;
+            will-change: transform;
+        }
+        .provider-track:hover,
+        .provider-track:active {
+            animation-play-state: paused;
+        }
+        .provider-logo {
+            width: 132px;
+            height: 58px;
+            flex: 0 0 132px;
+            background: linear-gradient(180deg, rgba(18,32,28,.96), rgba(10,20,17,.96));
+            border: 1px solid #1f3831;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+        .provider-logo:hover {
+            border-color: #00e785;
+            transform: translateY(-1px);
+        }
+        .provider-logo img {
+            max-width: 100%;
+            max-height: 30px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: .92;
+        }
+        .provider-fade {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, #0b1311 0%, transparent 8%, transparent 92%, #0b1311 100%);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .provider-track { animation: none; }
+        }
     </style>
 </head>
 <body class="bg-[#0b1311] text-white min-h-screen pb-24 select-none">
@@ -340,17 +389,47 @@
         </div>
     </section>
 
-    <!-- Populære udbydere (Providers slider) -->
+    <!-- Populære udbydere (Auto-scrolling real provider logos) -->
     <section class="mt-8 mb-6">
-        <div class="px-4 mb-3"><div class="flex items-center gap-2"><span class="text-[#00e785] text-base"><i class="fa-solid fa-network-wired"></i></span><h2 class="font-bold text-base tracking-wide text-white">Populære udbydere</h2></div></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pb-2">
-            <div onclick="showToast('Filtrerer efter Pragmatic Play')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">PRAGMATIC</span></div>
-            <div onclick="showToast('Filtrerer efter Play\'n GO')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">PLAY'N GO</span></div>
-            <div onclick="showToast('Filtrerer efter Hacksaw Gaming')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">HACKSAW</span></div>
-            <div onclick="showToast('Filtrerer efter Evolution')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">EVOLUTION</span></div>
-            <div onclick="showToast('Filtrerer efter Nolimit City')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">NOLIMIT</span></div>
-            <div onclick="showToast('Filtrerer efter Relax Gaming')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">RELAX GAMING</span></div>
-            <div onclick="showToast('Filtrerer efter Big Time Gaming')" class="min-w-[120px] h-14 bg-[#12201c] border border-[#1f3831] hover:border-[#00e785] rounded-xl flex items-center justify-center p-3 cursor-pointer transition flex-shrink-0 group"><span class="font-black text-xs text-gray-300 group-hover:text-[#00e785] tracking-tight">BTG GAMING</span></div>
+        <div class="px-4 mb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-[#00e785] text-base"><i class="fa-solid fa-network-wired"></i></span>
+                <h2 class="font-bold text-base tracking-wide text-white">Populære udbydere</h2>
+            </div>
+        </div>
+
+        <div class="relative overflow-hidden">
+            <div class="provider-track gap-3 px-4">
+                <div class="flex gap-3">
+                    <button onclick="showToast('Filtrerer efter Pragmatic Play')" class="provider-logo"><img src="https://cdn.simpleicons.org/pragmaticplay/ffffff" alt="Pragmatic Play"></button>
+                    <button onclick="showToast('Filtrerer efter Play\'n GO')" class="provider-logo"><img src="https://cdn.simpleicons.org/playngo/ffffff" alt="Play'n GO"></button>
+                    <button onclick="showToast('Filtrerer efter Hacksaw Gaming')" class="provider-logo"><img src="https://cdn.simpleicons.org/hacksawgaming/ffffff" alt="Hacksaw Gaming"></button>
+                    <button onclick="showToast('Filtrerer efter Evolution')" class="provider-logo"><img src="https://cdn.simpleicons.org/evolution/ffffff" alt="Evolution"></button>
+                    <button onclick="showToast('Filtrerer efter Nolimit City')" class="provider-logo"><img src="https://cdn.simpleicons.org/nolimitcity/ffffff" alt="Nolimit City"></button>
+                    <button onclick="showToast('Filtrerer efter Relax Gaming')" class="provider-logo"><img src="https://cdn.simpleicons.org/relaxgaming/ffffff" alt="Relax Gaming"></button>
+                    <button onclick="showToast('Filtrerer efter Big Time Gaming')" class="provider-logo"><img src="https://cdn.simpleicons.org/bigtimegaming/ffffff" alt="Big Time Gaming"></button>
+                    <button onclick="showToast('Filtrerer efter NetEnt')" class="provider-logo"><img src="https://cdn.simpleicons.org/netent/ffffff" alt="NetEnt"></button>
+                    <button onclick="showToast('Filtrerer efter Play'n Tech')" class="provider-logo"><img src="https://cdn.simpleicons.org/playtech/ffffff" alt="Playtech"></button>
+                    <button onclick="showToast('Filtrerer efter Quickspin')" class="provider-logo"><img src="https://cdn.simpleicons.org/quickspin/ffffff" alt="Quickspin"></button>
+                    <button onclick="showToast('Filtrerer efter Yggdrasil')" class="provider-logo"><img src="https://cdn.simpleicons.org/yggdrasil/ffffff" alt="Yggdrasil"></button>
+                    <button onclick="showToast('Filtrerer efter ELK Studios')" class="provider-logo"><img src="https://cdn.simpleicons.org/elkstudios/ffffff" alt="ELK Studios"></button>
+                </div>
+                <div class="flex gap-3" aria-hidden="true">
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/pragmaticplay/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/playngo/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/hacksawgaming/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/evolution/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/nolimitcity/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/relaxgaming/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/bigtimegaming/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/netent/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/playtech/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/quickspin/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/yggdrasil/ffffff" alt=""></div>
+                    <div class="provider-logo"><img src="https://cdn.simpleicons.org/elkstudios/ffffff" alt=""></div>
+                </div>
+            </div>
+            <div class="provider-fade"></div>
         </div>
     </section>
 
