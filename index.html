@@ -51,6 +51,25 @@
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
+        .hero-edge {
+            position: relative;
+            margin-top: -1px;
+        }
+        .hero-edge::before {
+            content: "";
+            position: absolute;
+            top: -54px;
+            left: 0;
+            right: 0;
+            height: 90px;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(to bottom, #0b1311 0%, rgba(11,19,17,.82) 18%, rgba(11,19,17,.25) 58%, transparent 100%);
+        }
+        .hero-edge img {
+            display: block;
+            width: 100%;
+        }
         .provider-track {
             width: max-content;
             display: flex;
@@ -144,8 +163,8 @@
     </header>
 
     <!-- Hero Banner (Uden dobbelt kant) -->
-    <section class="pt-3 pb-2">
-        <div class="relative w-full overflow-hidden shadow-[0_0_24px_rgba(0,231,133,0.12)] bg-[#071713]">
+    <section class="pt-0 pb-2">
+        <div class="hero-edge w-full overflow-hidden shadow-[0_0_24px_rgba(0,231,133,0.12)] bg-[#071713]">
             <img src="image/IMG_4038.png" alt="NordicPlay hero" class="block w-full h-auto">
             
             <span class="sr-only">100 gratis free spins, 1 kr. stykket, plus 200 kr. velkomstbonus uden indbetaling.</span>
