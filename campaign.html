@@ -1,337 +1,241 @@
 <!DOCTYPE html>
 <html lang="da" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NordicPlay - Kampagner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        nordic: {
-                            dark: '#0b1311',
-                            card: '#12201c',
-                            cardHover: '#182b26',
-                            border: '#1f3831',
-                            green: '#00e785',
-                            greenHover: '#00c772',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        ::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        body {
-            background-color: #0b1311;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NordicPlay - Kampagner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#090f0d;color:#fff;font-family:Inter,sans-serif}
+body{-webkit-tap-highlight-color:transparent;padding-bottom:86px}
+::-webkit-scrollbar{display:none}
+.no-scrollbar{scrollbar-width:none;-ms-overflow-style:none}
+.track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 1px 5px}
+.track>*{flex:0 0 auto;scroll-snap-align:start}
+.feature-track>*{width:88%}
+.small-track>*{width:72%}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.section-title{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.arrow-btn{width:30px;height:30px;border-radius:10px;background:#141a18;border:1px solid #29312e;color:#d9dfdc;display:flex;align-items:center;justify-content:center}
+.arrow-btn:active{transform:scale(.96)}
+.dot{width:5px;height:5px;border-radius:999px;background:#46504b}
+.dot.active{width:18px;background:#00e785}
+</style>
 </head>
-<body class="bg-[#0b1311] text-white min-h-screen pb-28 select-none">
+<body>
 
-    <header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#26302d] px-3 py-2.5 flex items-center justify-between gap-2">
-        <div class="flex items-center gap-2.5">
-            <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#151b19] border border-[#26302d] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition">
-                <i class="fa-solid fa-bars text-sm"></i>
-            </button>
+<header class="sticky top-0 z-50 bg-[#090f0d]/95 backdrop-blur-xl border-b border-[#202824] px-3 py-2.5 flex items-center justify-between gap-2">
+  <div class="flex items-center gap-2.5">
+    <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#131917] border border-[#252d29] flex items-center justify-center text-gray-200">
+      <i class="fa-solid fa-bars text-sm"></i>
+    </button>
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center">
+        <i class="fa-solid fa-gamepad text-[#07100d] text-xs"></i>
+      </div>
+      <div class="leading-tight">
+        <span class="font-black tracking-tight text-sm">NORDIC<span class="text-[#00e785]">PLAY</span></span>
+        <div class="text-[8px] text-gray-500 tracking-wider uppercase font-semibold">Spil med omtanke</div>
+      </div>
+    </a>
+  </div>
+  <div class="flex items-center gap-1.5">
+    <button onclick="toggleSearchModal()" class="w-8 h-8 rounded-lg bg-[#131917] border border-[#252d29] flex items-center justify-center text-gray-300">
+      <i class="fa-solid fa-magnifying-glass text-xs"></i>
+    </button>
+    <button onclick="alert('Log ind')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#131917] border border-[#252d29] text-gray-200">Log ind</button>
+    <button onclick="alert('Opret')" class="px-3 py-1.5 rounded-lg text-[11px] font-black bg-[#00e785] text-[#07100d]">Opret</button>
+  </div>
+</header>
 
-            <a href="index.html" class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-none flex-shrink-0">
-                    <i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i>
-                </div>
+<main class="px-3 pt-3 space-y-6">
 
-                <div class="leading-tight">
-                    <span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">
-                        NORDIC<span class="text-[#00e785]">PLAY</span>
-                    </span>
-                    <div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">
-                        Spil med omtanke
-                    </div>
-                </div>
-            </a>
+  <!-- HERO -->
+  <section>
+    <div class="relative overflow-hidden rounded-2xl border border-[#252d29] bg-[#111715]">
+      <img src="image/07_eksklusive-tilbud.png" alt="Eksklusive tilbud" class="w-full aspect-[16/8.2] object-cover">
+    </div>
+  </section>
+
+  <!-- BONUS CODE -->
+  <section>
+    <div class="flex items-center gap-3 rounded-xl bg-[#111715] border border-[#252d29] px-3 py-2.5">
+      <div class="w-8 h-8 rounded-lg bg-[#18211e] flex items-center justify-center flex-shrink-0">
+        <i class="fa-solid fa-ticket text-[#00e785] text-xs"></i>
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Har du en bonuskode?</div>
+        <input id="promo-code-input" type="text" placeholder="Indtast kode" class="w-full bg-transparent text-xs text-white outline-none uppercase placeholder:normal-case mt-0.5">
+      </div>
+      <button onclick="activatePromoCode()" class="bg-[#00e785] text-[#07100d] font-black text-[10px] px-3.5 py-2 rounded-lg">Aktiver</button>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section>
+    <div class="section-head">
+      <div class="flex items-center gap-2">
+        <span class="text-[#00e785]"><i class="fa-solid fa-crown text-xs"></i></span>
+        <h2 class="section-title">Fremhævede kampagner</h2>
+      </div>
+      <div class="flex gap-1.5">
+        <button class="arrow-btn" onclick="slide('featured',-1)"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>
+        <button class="arrow-btn" onclick="slide('featured',1)"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+      </div>
+    </div>
+
+    <div id="featured" class="track feature-track no-scrollbar">
+      <article class="overflow-hidden rounded-2xl border border-[#252d29] bg-[#111715]">
+        <img src="image/04_200-procent-velkomstbonus.png" alt="200 procent velkomstbonus" class="w-full aspect-[16/9] object-cover">
+        <div class="px-3.5 py-3">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-black">200% velkomstbonus</h3>
+              <p class="text-[10px] text-gray-500 mt-0.5">Få mere ud af din første indbetaling</p>
+            </div>
+            <button onclick="alert('200% Velkomstbonus aktiveret!')" class="bg-[#00e785] text-[#07100d] text-[10px] font-black px-3 py-2 rounded-lg whitespace-nowrap">Se tilbud</button>
+          </div>
         </div>
+      </article>
 
-        <div class="flex items-center gap-1.5">
-            <button onclick="toggleSearchModal()" class="w-8 h-8 rounded-lg bg-[#151b19] border border-[#26302d] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition relative">
-                <i class="fa-solid fa-magnifying-glass text-xs"></i>
-            </button>
-
-            <button onclick="alert('Log ind')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#151b19] border border-[#26302d] text-gray-200 hover:border-[#59635f] transition">
-                Log ind
-            </button>
-
-            <button onclick="alert('Opret')" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#0b1311] hover:bg-[#16a06f] shadow-none transition">
-                Opret
-            </button>
+      <article class="overflow-hidden rounded-2xl border border-[#252d29] bg-[#111715]">
+        <img src="image/01_20-gratis-spins-hver-onsdag.png" alt="20 gratis spins hver onsdag" class="w-full aspect-[16/9] object-cover">
+        <div class="px-3.5 py-3">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-black">20 gratis spins hver onsdag</h3>
+              <p class="text-[10px] text-gray-500 mt-0.5">Ny bonus hver uge</p>
+            </div>
+            <button onclick="alert('Onsdagsbonus aktiveret!')" class="bg-[#00e785] text-[#07100d] text-[10px] font-black px-3 py-2 rounded-lg whitespace-nowrap">Se tilbud</button>
+          </div>
         </div>
-    </header>
+      </article>
+    </div>
 
-    <main class="px-4 pt-4 flex flex-col gap-6">
+    <div class="flex justify-center gap-1.5 mt-2">
+      <span class="dot active"></span><span class="dot"></span>
+    </div>
+  </section>
 
-<section><div class="relative w-full aspect-[3/2] rounded-2xl overflow-hidden border border-[#26302d] shadow-lg group cursor-pointer" onclick="alert('Eksklusive tilbud aktiveret')"><img src="image/07_eksklusive-tilbud.png" alt="Eksklusive Tilbud" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div></section>
+  <!-- MORE -->
+  <section>
+    <div class="section-head">
+      <div class="flex items-center gap-2">
+        <span class="text-gray-400"><i class="fa-solid fa-bolt text-xs"></i></span>
+        <h2 class="section-title">Flere kampagner</h2>
+      </div>
+      <div class="flex gap-1.5">
+        <button class="arrow-btn" onclick="slide('more',-1)"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>
+        <button class="arrow-btn" onclick="slide('more',1)"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+      </div>
+    </div>
 
-<section><div class="bg-[#151b19] border border-[#26302d] rounded-2xl p-4 shadow-lg"><div class="flex items-center gap-2 mb-2 text-xs font-bold text-white"><i class="fa-solid fa-ticket text-[#00e785]"></i>Har du en bonuskode?</div><div class="flex gap-2"><input type="text" id="promo-code-input" placeholder="Indtast kampagnekode..." class="bg-[#0b1311] border border-[#26302d] text-white text-xs rounded-xl px-3.5 py-2.5 outline-none flex-1 focus:border-[#00e785] transition uppercase placeholder:normal-case font-medium"><button onclick="activatePromoCode()" class="bg-[#00e785] text-[#0b1311] font-bold text-xs px-4 py-2.5 rounded-xl hover:bg-[#16a06f] transition shadow-none">Aktiver</button></div></div></section>
+    <div id="more" class="track small-track no-scrollbar">
+      <article class="overflow-hidden rounded-xl border border-[#252d29] bg-[#111715]">
+        <img src="image/05_100-gratis-spins-200-kr-bonus.png" alt="100 gratis spins og 200 kr bonus" class="w-full aspect-[16/10] object-cover">
+        <div class="px-3 py-2.5"><h3 class="text-xs font-black">100 gratis spins</h3><p class="text-[9px] text-gray-500 mt-1">+ 200 kr bonus</p></div>
+      </article>
+      <article class="overflow-hidden rounded-xl border border-[#252d29] bg-[#111715]">
+        <img src="image/06_cashback-hver-uge.png" alt="Cashback hver uge" class="w-full aspect-[16/10] object-cover">
+        <div class="px-3 py-2.5"><h3 class="text-xs font-black">Cashback hver uge</h3><p class="text-[9px] text-gray-500 mt-1">Få en del tilbage</p></div>
+      </article>
+      <article class="overflow-hidden rounded-xl border border-[#252d29] bg-[#111715]">
+        <img src="image/03_ugens-vindere-leaderboard.png" alt="Ugens vindere leaderboard" class="w-full aspect-[16/10] object-cover">
+        <div class="px-3 py-2.5"><h3 class="text-xs font-black">Ugens vindere</h3><p class="text-[9px] text-gray-500 mt-1">Leaderboard</p></div>
+      </article>
+      <article class="overflow-hidden rounded-xl border border-[#252d29] bg-[#111715]">
+        <img src="image/02_eksklusiv-vip-club.png" alt="Eksklusiv VIP Club" class="w-full aspect-[16/10] object-cover">
+        <div class="px-3 py-2.5"><h3 class="text-xs font-black">Eksklusiv VIP Club</h3><p class="text-[9px] text-gray-500 mt-1">VIP-fordele</p></div>
+      </article>
+    </div>
+  </section>
 
-<section><div class="flex items-center gap-2 mb-3"><span class="text-gray-300 text-sm"><i class="fa-solid fa-crown"></i></span><h2 class="font-black text-sm uppercase tracking-wide text-white">Vores største kampagner</h2></div><div class="flex flex-col gap-5">
-
-<div class="bg-gradient-to-br from-[#151b19] to-[#0c1110] border border-[#26302d] rounded-2xl overflow-hidden shadow-lg"><div class="relative w-full aspect-[3/2] overflow-hidden group cursor-pointer" onclick="alert('200% Bonus aktiveret!')"><img src="image/04_200-procent-velkomstbonus.png" alt="200% Velkomstbonus" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div><div class="border-t border-[#26302d] bg-black/20"><button onclick="toggleTerms('terms-200')" class="w-full px-4 py-2.5 text-[11px] text-gray-400 flex items-center justify-between hover:text-white transition"><span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[#00e785]"></i>Læs kampagnebetingelser</span><i id="icon-terms-200" class="fa-solid fa-chevron-down text-xs transition-transform"></i></button><div id="terms-200" class="hidden px-4 pb-3 text-[10px] text-gray-400 leading-relaxed border-t border-[#26302d]/40 pt-2">Min. indbetaling er 100 kr. Gennemspilningskrav er 10x (indbetaling + bonus) inden for 60 dage. Gælder kun for nye spillere bosat i Danmark. 18+ | Spil ansvarligt | StopSpillet.dk | ROFUS.</div></div></div>
-
-<div class="bg-gradient-to-br from-[#151b19] to-[#0c1110] border border-[#26302d] rounded-2xl overflow-hidden shadow-lg"><div class="relative w-full aspect-[3/2] overflow-hidden group cursor-pointer" onclick="alert('100 Gratis Spins aktiveret!')"><img src="image/05_100-gratis-spins-200-kr-bonus.png" alt="100 Gratis Spins + 200 kr" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div><div class="border-t border-[#26302d] bg-black/20"><button onclick="toggleTerms('terms-100spins')" class="w-full px-4 py-2.5 text-[11px] text-gray-400 flex items-center justify-between hover:text-white transition"><span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[#00e785]"></i>Læs kampagnebetingelser</span><i id="icon-terms-100spins" class="fa-solid fa-chevron-down text-xs transition-transform"></i></button><div id="terms-100spins" class="hidden px-4 pb-3 text-[10px] text-gray-400 leading-relaxed border-t border-[#26302d]/40 pt-2">Gælder ved oprettelse. Gratis spins tildeles til udvalgte spilleautomater. 18+ | Spil ansvarligt | StopSpillet.dk | ROFUS.</div></div></div>
-
-</div></section>
-
-<section><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><span class="text-[#00e785] text-sm"><i class="fa-solid fa-bolt"></i></span><h2 class="font-black text-sm uppercase tracking-wide text-white">Aktuelle kampagner</h2></div><span class="text-xs text-gray-400 font-medium cursor-pointer hover:text-white">Se alle →</span></div><div class="grid grid-cols-2 gap-4">
-<div onclick="alert('Viser Onsdagsbonus')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/01_20-gratis-spins-hver-onsdag.png" alt="20 Gratis Spins Hver Onsdag" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-<div onclick="alert('Viser Cashback')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/06_cashback-hver-uge.png" alt="Cashback Hver Uge" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-<div onclick="alert('Viser Leaderboard')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/03_ugens-vindere-leaderboard.png" alt="Ugens Vindere Leaderboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-<div onclick="alert('Viser VIP Club')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/02_eksklusiv-vip-club.png" alt="Eksklusiv VIP Club" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-</div></section>
-
-<section><div class="relative w-full aspect-[16/7] rounded-2xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition" onclick="alert('Henvis en ven aktiveret')"><img src="image/08_inviter-en-ven-100-kr.png" alt="Inviter En Ven" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div></section>
+  <!-- REFERRAL -->
+  <section>
+    <div onclick="alert('Inviter en ven aktiveret')" class="relative overflow-hidden rounded-2xl border border-[#252d29] cursor-pointer">
+      <img src="image/08_inviter-en-ven-100-kr.png" alt="Inviter en ven og få 100 kr" class="w-full aspect-[16/5.2] object-cover">
+    </div>
+  </section>
 
 </main>
 
-    <!-- FOOTER -->
-    <footer class="mt-12 px-4 pt-8 pb-10 border-t border-[#26302d] bg-[#070e0c] text-xs text-gray-400">
+<footer class="mt-10 px-4 pt-7 pb-8 border-t border-[#202824] bg-[#070c0a] text-center">
+  <div class="flex items-center justify-center gap-5 mb-4">
+    <span class="font-bold text-white border border-[#39413e] px-2.5 py-1 rounded-md text-xs">18+</span>
+    <span class="font-bold text-gray-300 text-xs">StopSpillet</span>
+    <span class="font-bold text-gray-300 text-xs">ROFUS</span>
+  </div>
+  <p class="text-[10px] text-gray-500 leading-relaxed">Spil ansvarligt. Er du afhængig? Kontakt StopSpillet på tlf. 70 22 28 25.</p>
+  <p class="text-[9px] text-gray-600 mt-3">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
+</footer>
 
-        <div class="flex items-center justify-center gap-6 mb-6">
-            <span class="font-bold text-white border border-[#39413e] px-2.5 py-1 rounded-md text-xs">
-                18+
-            </span>
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#090f0d]/96 backdrop-blur-xl border-t border-[#202824] px-2 py-2 flex items-center justify-around">
+  <a href="index.html" class="flex flex-col items-center gap-1 text-gray-500"><i class="fa-solid fa-house text-sm"></i><span class="text-[9px]">Hjem</span></a>
+  <a href="casino.html" class="flex flex-col items-center gap-1 text-gray-500"><i class="fa-solid fa-dice text-sm"></i><span class="text-[9px]">Casino</span></a>
+  <a href="campaign.html" class="flex flex-col items-center gap-1 text-[#00e785]"><i class="fa-solid fa-gift text-sm"></i><span class="text-[9px] font-semibold">Kampagner</span></a>
+  <a href="#" onclick="toggleSearchModal();return false" class="flex flex-col items-center gap-1 text-gray-500"><i class="fa-solid fa-magnifying-glass text-sm"></i><span class="text-[9px]">Søg</span></a>
+  <a href="#" onclick="openMenuDrawer();return false" class="flex flex-col items-center gap-1 text-gray-500"><i class="fa-solid fa-bars text-sm"></i><span class="text-[9px]">Menu</span></a>
+</nav>
 
-            <span class="font-bold text-gray-300">
-                StopSpillet
-            </span>
-
-            <span class="font-bold text-gray-300">
-                ROFUS
-            </span>
-        </div>
-
-        <p class="text-center text-[11px] text-gray-400 leading-relaxed mb-4">
-            Licenseret og reguleret i EU. Spil ansvarligt. Er du afhængig? Kontakt StopSpillet på tlf. 70 22 28 25 eller besøg stopspillet.dk.
-        </p>
-
-        <p class="text-center text-[10px] text-gray-500">
-            © 2026 NordicPlay. Alle rettigheder forbeholdes.
-        </p>
-
-    </footer>
-
-    <!-- BUNDMENU -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#26302d] px-2 py-2 flex items-center justify-around shadow-2xl">
-
-        <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-house text-base"></i>
-            <span class="text-[10px] font-medium">Hjem</span>
-        </a>
-
-        <a href="casino.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-dice text-base"></i>
-            <span class="text-[10px] font-medium">Casino</span>
-        </a>
-
-        <a href="campaign.html" class="flex flex-col items-center gap-1 text-[#00e785] transition">
-            <i class="fa-solid fa-gift text-base"></i>
-            <span class="text-[10px] font-medium">Kampagner</span>
-        </a>
-
-        <a href="#" onclick="toggleSearchModal(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-magnifying-glass text-base"></i>
-            <span class="text-[10px] font-medium">Søg</span>
-        </a>
-
-        <a href="#" onclick="openMenuDrawer(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
-            <i class="fa-solid fa-bars text-base"></i>
-            <span class="text-[10px] font-medium">Menu</span>
-        </a>
-
-    </nav>
-
-    <!-- SØGE MODAL -->
-    <div id="search-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex-col p-4">
-
-        <div class="flex items-center justify-between mb-4">
-
-            <div class="flex items-center gap-2 flex-1 bg-[#151b19] border border-[#26302d] rounded-xl px-3 py-2.5">
-
-                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
-
-                <input
-                    type="text"
-                    placeholder="Søg efter bonusser..."
-                    class="bg-transparent text-white text-sm outline-none w-full"
-                >
-
-            </div>
-
-            <button
-                onclick="toggleSearchModal()"
-                class="ml-3 text-sm font-bold text-[#00e785]"
-            >
-                Annuller
-            </button>
-
-        </div>
+<div id="search-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex-col p-4">
+  <div class="flex items-center gap-2">
+    <div class="flex-1 flex items-center gap-2 bg-[#131917] border border-[#252d29] rounded-xl px-3 py-2.5">
+      <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+      <input type="text" placeholder="Søg efter bonusser..." class="bg-transparent text-white text-sm outline-none w-full">
     </div>
+    <button onclick="toggleSearchModal()" class="text-xs font-bold text-[#00e785]">Annuller</button>
+  </div>
+</div>
 
-    <!-- MENU DRAWER -->
-    <div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
-
-        <div class="bg-[#0b1311] border-r border-[#26302d] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
-
-            <div>
-
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#26302d]">
-
-                    <div class="flex items-center gap-2">
-
-                        <div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]">
-                            <i class="fa-solid fa-gamepad text-xs font-bold"></i>
-                        </div>
-
-                        <span class="font-extrabold text-base text-white">
-                            NORDIC<span class="text-[#00e785]">PLAY</span>
-                        </span>
-
-                    </div>
-
-                    <button
-                        onclick="closeMenuDrawer()"
-                        class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#151b19] flex items-center justify-center"
-                    >
-                        <i class="fa-solid fa-xmark text-sm"></i>
-                    </button>
-
-                </div>
-
-                <ul class="space-y-2 text-sm font-medium">
-
-                    <li>
-                        <a href="min-konto.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-user text-[#00e785] w-5"></i>
-                            Min konto
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-dice text-[#00e785] w-5"></i>
-                            Alle Spil
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="casino.html#live" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-video text-[#00e785] w-5"></i>
-                            Live Casino
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-fire text-[#00e785] w-5"></i>
-                            Spilleautomater
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="campaign.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-gift text-[#00e785] w-5"></i>
-                            Kampagner & Bonus
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-headset text-[#00e785] w-5"></i>
-                            Kundeservice (24/7)
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
-                            <i class="fa-solid fa-circle-info text-[#00e785] w-5"></i>
-                            Om os & Vilkår
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="pt-6 border-t border-[#26302d] space-y-3">
-
-                <div class="flex items-center justify-between text-xs text-gray-400">
-                    <span>Sprog: Dansk</span>
-                    <span class="text-[#00e785] font-bold">18+ ROFUS</span>
-                </div>
-
-                <p class="text-[10px] text-gray-600">
-                    NordicPlay mobile v2.6
-                </p>
-
-            </div>
-        </div>
+<div id="menu-drawer" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden">
+  <div class="bg-[#090f0d] border-r border-[#252d29] w-4/5 max-w-xs h-full p-5 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-4 mb-4 border-b border-[#202824]">
+        <span class="font-black text-base">NORDIC<span class="text-[#00e785]">PLAY</span></span>
+        <button onclick="closeMenuDrawer()" class="w-8 h-8 rounded-full bg-[#131917] text-gray-400"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul class="space-y-1 text-sm">
+        <li><a href="min-konto.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-user text-[#00e785] w-5"></i>Min konto</a></li>
+        <li><a href="casino.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-dice text-[#00e785] w-5"></i>Alle spil</a></li>
+        <li><a href="casino.html#live" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-video text-[#00e785] w-5"></i>Live Casino</a></li>
+        <li><a href="casino.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-fire text-[#00e785] w-5"></i>Spilleautomater</a></li>
+        <li><a href="campaign.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-gift text-[#00e785] w-5"></i>Kampagner & Bonus</a></li>
+        <li><a href="#" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-headset text-[#00e785] w-5"></i>Kundeservice</a></li>
+        <li><a href="#" class="flex items-center gap-3 p-3 rounded-xl text-gray-200"><i class="fa-solid fa-circle-info text-[#00e785] w-5"></i>Om os & Vilkår</a></li>
+      </ul>
     </div>
+    <div class="border-t border-[#202824] pt-4 text-[10px] text-gray-600">NordicPlay mobile v2.7</div>
+  </div>
+</div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        function toggleTerms(id) {
-            const el = document.getElementById(id);
-            const icon = document.getElementById('icon-' + id);
-
-            if(el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                icon.classList.add('rotate-180');
-            } else {
-                el.classList.add('hidden');
-                icon.classList.remove('rotate-180');
-            }
-        }
-
-        function activatePromoCode() {
-            const input = document.getElementById('promo-code-input');
-            const code = input.value.trim();
-
-            if(code === "") {
-                alert('Indtast venligst en bonuskode.');
-            } else {
-                alert('Bonuskode "' + code + '" blev aktiveret!');
-                input.value = "";
-            }
-        }
-
-        function toggleSearchModal() {
-            const m = document.getElementById('search-modal');
-            m.classList.toggle('hidden');
-            m.classList.toggle('flex');
-        }
-
-        function openMenuDrawer() {
-            const d = document.getElementById('menu-drawer');
-            d.classList.remove('hidden');
-            d.classList.add('flex');
-        }
-
-        function closeMenuDrawer() {
-            const d = document.getElementById('menu-drawer');
-            d.classList.remove('flex');
-            d.classList.add('hidden');
-        }
-    </script>
-
+<script>
+function slide(id,dir){
+  const el=document.getElementById(id);
+  const amount=el.clientWidth*(id==='featured'?0.92:0.76);
+  el.scrollBy({left:dir*amount,behavior:'smooth'});
+}
+function activatePromoCode(){
+  const input=document.getElementById('promo-code-input');
+  const code=input.value.trim();
+  if(!code){alert('Indtast venligst en bonuskode.');return}
+  alert('Bonuskode "'+code+'" blev aktiveret!');
+  input.value='';
+}
+function toggleSearchModal(){
+  const m=document.getElementById('search-modal');
+  m.classList.toggle('hidden');m.classList.toggle('flex');
+}
+function openMenuDrawer(){
+  const d=document.getElementById('menu-drawer');
+  d.classList.remove('hidden');d.classList.add('flex');
+}
+function closeMenuDrawer(){
+  const d=document.getElementById('menu-drawer');
+  d.classList.remove('flex');d.classList.add('hidden');
+}
+</script>
 </body>
 </html>
