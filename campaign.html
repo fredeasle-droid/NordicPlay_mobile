@@ -21,8 +21,8 @@
 .np-footer-title{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px}
 .np-footer-title span:last-child{color:#aab5b0;font-size:9px;font-weight:600}
 .np-footer-title i{color:#00e785;margin-right:4px}
-.np-payments{display:flex;gap:7px;overflow:hidden}
-.np-payments span{min-width:max-content;height:40px;padding:0 12px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#f4f7f5}
+.np-payments{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;width:100%;padding:1px 0 3px;box-sizing:border-box}
+.np-payments span{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#f4f7f5;overflow:hidden}
 .np-safety{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .np-safety>div{min-height:72px;padding:10px;border:1px solid #173c30;background:#0b1915;border-radius:12px}
 .np-safety i{color:#00e785;font-size:17px;margin-bottom:5px}
@@ -36,7 +36,7 @@
 .np-brand strong{display:block;font-size:20px;letter-spacing:-.04em;color:#fff}.np-brand strong span{color:#00e785}.np-brand small{display:block;color:#00e785;font-size:6px;font-weight:800;letter-spacing:.18em}
 .np-legal,.np-copy{text-align:center;color:#68766f;font-size:8px;line-height:1.5;margin:5px 20px}.np-legal span{color:#81918a}.np-copy{font-size:7px;color:#4d5a55;margin-top:10px}
 @media(max-width:360px){.np-trust strong{font-size:10px}.np-footer-title{font-size:12px}}
-<style>.np-payments span{min-width:74px;height:42px;padding:0 12px}.np-payments img{display:none}.np-pay-logo{min-width:74px;height:42px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center}.np-pay-logo svg{width:100%;height:27px;display:block}.np-pay-logo.mc svg{height:30px}.np-pay-logo.mp svg{height:27px}</style></style></style>
+<style>.np-payments span{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px}.np-payments img{display:none}.np-pay-logo{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center}.np-pay-logo svg{width:82px;height:27px;display:block;max-width:100%;flex:0 0 auto}.np-pay-logo.mc svg{height:30px}.np-pay-logo.mp svg{height:27px}</style></style>
 </head>
 <body>
 <header class="sticky top-0 z-50 bg-[#090f0d]/95 backdrop-blur-xl border-b border-[#202824] px-3 py-2.5 flex items-center justify-between gap-2">
