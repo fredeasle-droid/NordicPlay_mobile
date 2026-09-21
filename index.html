@@ -126,7 +126,34 @@
         @media (prefers-reduced-motion: reduce) {
             .provider-track { animation: none; }
         }
-    </style>
+    <style>
+.np-footer{margin-top:40px;background:#07100d;border-top:1px solid #17352b;color:#d7dfdb;padding-bottom:18px}
+.np-trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #17352b}
+.np-trust>div{padding:24px 8px 22px;text-align:center;border-right:1px solid #17352b}
+.np-trust>div:last-child{border-right:0}
+.np-trust i{display:block;color:#00e785;font-size:25px;margin-bottom:9px}
+.np-trust strong{display:block;font-size:11px;color:#fff}
+.np-trust span{display:block;font-size:8px;color:#84918c;margin-top:3px}
+.np-footer-block{padding:22px 16px;border-bottom:1px solid #17352b}
+.np-footer-title{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px}
+.np-footer-title span:last-child{color:#aab5b0;font-size:9px;font-weight:600}
+.np-footer-title i{color:#00e785;margin-right:4px}
+.np-payments{display:flex;gap:7px;overflow:hidden}
+.np-payments span{min-width:max-content;height:40px;padding:0 12px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#f4f7f5}
+.np-safety{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.np-safety>div{min-height:72px;padding:10px;border:1px solid #173c30;background:#0b1915;border-radius:12px}
+.np-safety i{color:#00e785;font-size:17px;margin-bottom:5px}
+.np-safety b{display:inline-flex;width:25px;height:25px;border:2px solid #00e785;border-radius:50%;align-items:center;justify-content:center;font-size:8px;color:#00e785;margin-bottom:5px}
+.np-safety strong{display:block;color:#fff;font-size:10px}
+.np-safety small{display:block;color:#7f8d87;font-size:8px;margin-top:2px}
+.np-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;padding:20px 14px 10px}
+.np-footer-links a{color:#aab5b0;font-size:9px;text-decoration:none}
+.np-brand{display:flex;align-items:center;justify-content:center;gap:9px;padding:8px 16px 12px}
+.np-brand-mark{width:30px;height:30px;border-radius:9px;background:#00e785;color:#07100d;display:flex;align-items:center;justify-content:center;font-size:22px}
+.np-brand strong{display:block;font-size:20px;letter-spacing:-.04em;color:#fff}.np-brand strong span{color:#00e785}.np-brand small{display:block;color:#00e785;font-size:6px;font-weight:800;letter-spacing:.18em}
+.np-legal,.np-copy{text-align:center;color:#68766f;font-size:8px;line-height:1.5;margin:5px 20px}.np-legal span{color:#81918a}.np-copy{font-size:7px;color:#4d5a55;margin-top:10px}
+@media(max-width:360px){.np-trust strong{font-size:10px}.np-footer-title{font-size:12px}}
+</style></style>
 </head>
 <body class="bg-[#0b1311] text-white min-h-screen pb-24 select-none">
 
@@ -467,15 +494,31 @@
         </div>
     </section>
 
-    <footer class="mt-10 px-4 pt-6 pb-8 border-t border-[#1f3831] bg-[#070e0c] text-xs text-gray-400">
-        <div class="flex items-center justify-center gap-6 mb-6">
-            <span class="font-bold text-white border border-gray-700 px-2 py-1 rounded">18+</span>
-            <span class="font-bold text-gray-300 hover:text-white cursor-pointer" onclick="showToast('StopSpillet link')">StopSpillet</span>
-            <span class="font-bold text-gray-300 hover:text-white cursor-pointer" onclick="showToast('ROFUS selvudelukkelse')">ROFUS</span>
-        </div>
-        <p class="text-center text-[11px] text-gray-500 leading-relaxed mb-4">Licenseret og reguleret i EU. Spil ansvarligt. Er du afhængig? Kontakt StopSpillet på tlf. 70 22 28 25 eller besøg stopspillet.dk.</p>
-        <p class="text-center text-[10px] text-gray-600">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
-    </footer>
+    <footer class="np-footer">
+  <div class="np-trust">
+    <div><i class="fa-solid fa-shield-halved"></i><strong>Sikker betaling</strong><span>Trygt & sikkert</span></div>
+    <div><i class="fa-solid fa-headset"></i><strong>Dansk support</strong><span>Hurtig hjælp</span></div>
+    <div><i class="fa-solid fa-crown"></i><strong>Spil med omtanke</strong><span>Ansvarligt spil</span></div>
+    <div><i class="fa-solid fa-gem"></i><strong>Stort spiludvalg</strong><span>Hundredvis af spil</span></div>
+  </div>
+  <div class="np-footer-block">
+    <div class="np-footer-title"><span>Betalingsmetoder</span><span><i class="fa-solid fa-lock"></i> Sikker betaling</span></div>
+    <div class="np-payments"><span>VISA</span><span>Mastercard</span><span>MobilePay</span><span>Apple Pay</span><span>G Pay</span></div>
+  </div>
+  <div class="np-footer-block">
+    <div class="np-footer-title"><span>Licens & sikkerhed</span><span><i class="fa-solid fa-shield-check"></i> Spil ansvarligt</span></div>
+    <div class="np-safety">
+      <div><i class="fa-solid fa-landmark"></i><strong>Licensinformation</strong><small>Se vores licens- og virksomhedsoplysninger</small></div>
+      <div><b>18+</b><strong>Kun for voksne</strong><small>Spil ansvarligt</small></div>
+      <div><i class="fa-solid fa-user-shield"></i><strong>ROFUS</strong><small>Selvudelukkelse</small></div>
+      <div><i class="fa-solid fa-life-ring"></i><strong>StopSpillet</strong><small>Hjælp ved spilproblemer</small></div>
+    </div>
+  </div>
+  <div class="np-footer-links"><a href="ansvarligt-spil.html">Ansvarligt spil</a><a href="#">Vilkår og betingelser</a><a href="#">Privatlivspolitik</a><a href="#">Kontakt</a></div>
+  <div class="np-brand"><span class="np-brand-mark">✦</span><div><strong>NORDIC<span>PLAY</span></strong><small>SPIL MED OMTANKE</small></div></div>
+  <p class="np-legal">Spil ansvarligt. 18+. Hvis spil ikke længere føles som underholdning, så søg hjælp. <span>ROFUS.dk · StopSpillet.dk</span></p>
+  <p class="np-copy">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
+</footer>
 
 <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
     <a href="index.html" class="flex flex-col items-center gap-1 text-[#00e785] transition"><i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-medium">Hjem</span></a>
