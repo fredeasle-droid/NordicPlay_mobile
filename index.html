@@ -217,9 +217,7 @@
             <div onclick="playGame('Book of Dead')" class="min-w-[140px] w-[140px] h-[190px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition relative">
                 <div class="absolute inset-0 bg-gray-800 overflow-hidden">
                     <img src="https://cache.xcdn.tech/media/assets/Book_of_Dead_Slot_6fd909efd7.jpg" alt="Book of Dead" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
-                        <i class="fa-regular fa-heart text-xs"></i>
-                    </div>
+                    <button onclick="event.stopPropagation();toggleFavorite(this,'Book of Dead')" aria-label="Favorit" class="absolute top-1.5 right-1.5 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
                     <div class="absolute top-1.5 left-1.5 bg-black/75 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">RTP 96.21%
                     </div>
                 </div>
@@ -233,9 +231,7 @@
             <div onclick="playGame('Sweet Bonanza')" class="min-w-[140px] w-[140px] h-[190px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition relative">
                 <div class="absolute inset-0 bg-gray-800 overflow-hidden">
                     <img src="https://casinodays2.imgix.net/games/sweet-bonanza.jpg?w=752" alt="Sweet Bonanza" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
-                        <i class="fa-regular fa-heart text-xs"></i>
-                    </div>
+                    <button onclick="event.stopPropagation();toggleFavorite(this,'Sweet Bonanza')" aria-label="Favorit" class="absolute top-1.5 right-1.5 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
                     <div class="absolute top-1.5 left-1.5 bg-black/75 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">RTP 96.51%
                     </div>
                 </div>
@@ -249,9 +245,7 @@
             <div onclick="playGame('Big Bass Bonanza')" class="min-w-[140px] w-[140px] h-[190px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition relative">
                 <div class="absolute inset-0 bg-gray-800 overflow-hidden">
                     <img src="https://static.datapump.cc/cdn-cgi/image/width%3D3840%2Cformat%3Dauto%2Cquality%3D75/t/big-bass-bonanza" alt="Big Bass Bonanza" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
-                        <i class="fa-regular fa-heart text-xs"></i>
-                    </div>
+                    <button onclick="event.stopPropagation();toggleFavorite(this,'Big Bass Bonanza')" aria-label="Favorit" class="absolute top-1.5 right-1.5 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
                     <div class="absolute top-1.5 left-1.5 bg-black/75 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">RTP 96.71%
                     </div>
                 </div>
@@ -265,9 +259,7 @@
             <div onclick="playGame('Le Bandit')" class="min-w-[140px] w-[140px] h-[190px] bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden snap-start flex-shrink-0 group cursor-pointer hover:border-[#00e785]/50 transition relative">
                 <div class="absolute inset-0 bg-gray-800 overflow-hidden">
                     <img src="https://www.888casino.es/blog/sites/newblog.888casino.es/files/inline-images/Captura%20de%20pantalla%20%28553%29%20%281%29%20%281%29.jpg" alt="Le Bandit" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-red-500 transition">
-                        <i class="fa-regular fa-heart text-xs"></i>
-                    </div>
+                    <button onclick="event.stopPropagation();toggleFavorite(this,'Le Bandit')" aria-label="Favorit" class="absolute top-1.5 right-1.5 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
                     <div class="absolute top-1.5 left-1.5 bg-black/75 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-[#00e785]">RTP 96.03%
                     </div>
                 </div>
@@ -571,6 +563,7 @@
     </div>
 
     <script>
+        function toggleFavorite(btn,name){const icon=btn.querySelector('i');let f=JSON.parse(localStorage.getItem('nordicplayFavorites')||'[]');if(f.includes(name)){f=f.filter(x=>x!==name);icon.classList.remove('fa-solid','text-[#00e785]');icon.classList.add('fa-regular')}else{f.push(name);icon.classList.remove('fa-regular');icon.classList.add('fa-solid','text-[#00e785]')}localStorage.setItem('nordicplayFavorites',JSON.stringify(f));}
         function showToast(msg) {
             const toast = document.getElementById('toast');
             const msgEl = document.getElementById('toast-msg');
