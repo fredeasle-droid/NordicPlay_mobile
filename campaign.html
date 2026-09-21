@@ -42,14 +42,14 @@
 </head>
 <body class="bg-[#0b1311] text-white min-h-screen pb-28 select-none">
 
-    <header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
+    <header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#26302d] px-3 py-2.5 flex items-center justify-between gap-2">
         <div class="flex items-center gap-2.5">
-            <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition">
+            <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#151b19] border border-[#26302d] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition">
                 <i class="fa-solid fa-bars text-sm"></i>
             </button>
 
             <a href="index.html" class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)] flex-shrink-0">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-none flex-shrink-0">
                     <i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i>
                 </div>
 
@@ -65,15 +65,15 @@
         </div>
 
         <div class="flex items-center gap-1.5">
-            <button onclick="toggleSearchModal()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition relative">
+            <button onclick="toggleSearchModal()" class="w-8 h-8 rounded-lg bg-[#151b19] border border-[#26302d] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition relative">
                 <i class="fa-solid fa-magnifying-glass text-xs"></i>
             </button>
 
-            <button onclick="alert('Log ind')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#12201c] border border-[#1f3831] text-gray-200 hover:border-[#00e785] transition">
+            <button onclick="alert('Log ind')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#151b19] border border-[#26302d] text-gray-200 hover:border-[#59635f] transition">
                 Log ind
             </button>
 
-            <button onclick="alert('Opret')" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#0b1311] hover:bg-[#00c772] shadow-[0_0_12px_rgba(0,231,133,0.3)] transition">
+            <button onclick="alert('Opret')" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#0b1311] hover:bg-[#16a06f] shadow-none transition">
                 Opret
             </button>
         </div>
@@ -81,34 +81,34 @@
 
     <main class="px-4 pt-4 flex flex-col gap-6">
 
-<section><div class="relative w-full aspect-[3/2] rounded-2xl overflow-hidden border border-[#1f3831] shadow-lg group cursor-pointer" onclick="alert('Eksklusive tilbud aktiveret')"><img src="image/07_eksklusive-tilbud.png" alt="Eksklusive Tilbud" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div></section>
+<section><div class="relative w-full aspect-[3/2] rounded-2xl overflow-hidden border border-[#26302d] shadow-lg group cursor-pointer" onclick="alert('Eksklusive tilbud aktiveret')"><img src="image/07_eksklusive-tilbud.png" alt="Eksklusive Tilbud" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div></section>
 
-<section><div class="bg-[#12201c] border border-[#1f3831] rounded-2xl p-4 shadow-lg"><div class="flex items-center gap-2 mb-2 text-xs font-bold text-white"><i class="fa-solid fa-ticket text-[#00e785]"></i>Har du en bonuskode?</div><div class="flex gap-2"><input type="text" id="promo-code-input" placeholder="Indtast kampagnekode..." class="bg-[#0b1311] border border-[#1f3831] text-white text-xs rounded-xl px-3.5 py-2.5 outline-none flex-1 focus:border-[#00e785] transition uppercase placeholder:normal-case font-medium"><button onclick="activatePromoCode()" class="bg-[#00e785] text-[#0b1311] font-bold text-xs px-4 py-2.5 rounded-xl hover:bg-[#00c772] transition shadow-[0_0_10px_rgba(0,231,133,0.3)]">Aktiver</button></div></div></section>
+<section><div class="bg-[#151b19] border border-[#26302d] rounded-2xl p-4 shadow-lg"><div class="flex items-center gap-2 mb-2 text-xs font-bold text-white"><i class="fa-solid fa-ticket text-[#00e785]"></i>Har du en bonuskode?</div><div class="flex gap-2"><input type="text" id="promo-code-input" placeholder="Indtast kampagnekode..." class="bg-[#0b1311] border border-[#26302d] text-white text-xs rounded-xl px-3.5 py-2.5 outline-none flex-1 focus:border-[#00e785] transition uppercase placeholder:normal-case font-medium"><button onclick="activatePromoCode()" class="bg-[#00e785] text-[#0b1311] font-bold text-xs px-4 py-2.5 rounded-xl hover:bg-[#16a06f] transition shadow-none">Aktiver</button></div></div></section>
 
-<section><div class="flex items-center gap-2 mb-3"><span class="text-yellow-400 text-sm"><i class="fa-solid fa-crown"></i></span><h2 class="font-black text-sm uppercase tracking-wide text-white">Vores største kampagner</h2></div><div class="flex flex-col gap-4">
+<section><div class="flex items-center gap-2 mb-3"><span class="text-gray-300 text-sm"><i class="fa-solid fa-crown"></i></span><h2 class="font-black text-sm uppercase tracking-wide text-white">Vores største kampagner</h2></div><div class="flex flex-col gap-5">
 
-<div class="bg-gradient-to-br from-[#12201c] to-[#0a1714] border border-[#1f3831] rounded-2xl overflow-hidden shadow-lg"><div class="relative w-full aspect-[3/2] overflow-hidden group cursor-pointer" onclick="alert('200% Bonus aktiveret!')"><img src="image/04_200-procent-velkomstbonus.png" alt="200% Velkomstbonus" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div><div class="border-t border-[#1f3831] bg-black/20"><button onclick="toggleTerms('terms-200')" class="w-full px-4 py-2.5 text-[11px] text-gray-400 flex items-center justify-between hover:text-white transition"><span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[#00e785]"></i>Læs kampagnebetingelser</span><i id="icon-terms-200" class="fa-solid fa-chevron-down text-xs transition-transform"></i></button><div id="terms-200" class="hidden px-4 pb-3 text-[10px] text-gray-400 leading-relaxed border-t border-[#1f3831]/40 pt-2">Min. indbetaling er 100 kr. Gennemspilningskrav er 10x (indbetaling + bonus) inden for 60 dage. Gælder kun for nye spillere bosat i Danmark. 18+ | Spil ansvarligt | StopSpillet.dk | ROFUS.</div></div></div>
+<div class="bg-gradient-to-br from-[#151b19] to-[#0c1110] border border-[#26302d] rounded-2xl overflow-hidden shadow-lg"><div class="relative w-full aspect-[3/2] overflow-hidden group cursor-pointer" onclick="alert('200% Bonus aktiveret!')"><img src="image/04_200-procent-velkomstbonus.png" alt="200% Velkomstbonus" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div><div class="border-t border-[#26302d] bg-black/20"><button onclick="toggleTerms('terms-200')" class="w-full px-4 py-2.5 text-[11px] text-gray-400 flex items-center justify-between hover:text-white transition"><span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[#00e785]"></i>Læs kampagnebetingelser</span><i id="icon-terms-200" class="fa-solid fa-chevron-down text-xs transition-transform"></i></button><div id="terms-200" class="hidden px-4 pb-3 text-[10px] text-gray-400 leading-relaxed border-t border-[#26302d]/40 pt-2">Min. indbetaling er 100 kr. Gennemspilningskrav er 10x (indbetaling + bonus) inden for 60 dage. Gælder kun for nye spillere bosat i Danmark. 18+ | Spil ansvarligt | StopSpillet.dk | ROFUS.</div></div></div>
 
-<div class="bg-gradient-to-br from-[#12201c] to-[#0a1714] border border-[#1f3831] rounded-2xl overflow-hidden shadow-lg"><div class="relative w-full aspect-[3/2] overflow-hidden group cursor-pointer" onclick="alert('100 Gratis Spins aktiveret!')"><img src="image/05_100-gratis-spins-200-kr-bonus.png" alt="100 Gratis Spins + 200 kr" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div><div class="border-t border-[#1f3831] bg-black/20"><button onclick="toggleTerms('terms-100spins')" class="w-full px-4 py-2.5 text-[11px] text-gray-400 flex items-center justify-between hover:text-white transition"><span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[#00e785]"></i>Læs kampagnebetingelser</span><i id="icon-terms-100spins" class="fa-solid fa-chevron-down text-xs transition-transform"></i></button><div id="terms-100spins" class="hidden px-4 pb-3 text-[10px] text-gray-400 leading-relaxed border-t border-[#1f3831]/40 pt-2">Gælder ved oprettelse. Gratis spins tildeles til udvalgte spilleautomater. 18+ | Spil ansvarligt | StopSpillet.dk | ROFUS.</div></div></div>
+<div class="bg-gradient-to-br from-[#151b19] to-[#0c1110] border border-[#26302d] rounded-2xl overflow-hidden shadow-lg"><div class="relative w-full aspect-[3/2] overflow-hidden group cursor-pointer" onclick="alert('100 Gratis Spins aktiveret!')"><img src="image/05_100-gratis-spins-200-kr-bonus.png" alt="100 Gratis Spins + 200 kr" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div><div class="border-t border-[#26302d] bg-black/20"><button onclick="toggleTerms('terms-100spins')" class="w-full px-4 py-2.5 text-[11px] text-gray-400 flex items-center justify-between hover:text-white transition"><span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[#00e785]"></i>Læs kampagnebetingelser</span><i id="icon-terms-100spins" class="fa-solid fa-chevron-down text-xs transition-transform"></i></button><div id="terms-100spins" class="hidden px-4 pb-3 text-[10px] text-gray-400 leading-relaxed border-t border-[#26302d]/40 pt-2">Gælder ved oprettelse. Gratis spins tildeles til udvalgte spilleautomater. 18+ | Spil ansvarligt | StopSpillet.dk | ROFUS.</div></div></div>
 
 </div></section>
 
-<section><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><span class="text-[#00e785] text-sm"><i class="fa-solid fa-bolt"></i></span><h2 class="font-black text-sm uppercase tracking-wide text-white">Aktuelle kampagner</h2></div><span class="text-xs text-gray-400 font-medium cursor-pointer hover:text-white">Se alle →</span></div><div class="grid grid-cols-2 gap-3">
-<div onclick="alert('Viser Onsdagsbonus')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#1f3831] shadow-lg cursor-pointer group hover:border-[#00e785] transition"><img src="image/01_20-gratis-spins-hver-onsdag.png" alt="20 Gratis Spins Hver Onsdag" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-<div onclick="alert('Viser Cashback')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#1f3831] shadow-lg cursor-pointer group hover:border-[#00e785] transition"><img src="image/06_cashback-hver-uge.png" alt="Cashback Hver Uge" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-<div onclick="alert('Viser Leaderboard')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#1f3831] shadow-lg cursor-pointer group hover:border-[#00e785] transition"><img src="image/03_ugens-vindere-leaderboard.png" alt="Ugens Vindere Leaderboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
-<div onclick="alert('Viser VIP Club')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#1f3831] shadow-lg cursor-pointer group hover:border-[#00e785] transition"><img src="image/02_eksklusiv-vip-club.png" alt="Eksklusiv VIP Club" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
+<section><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><span class="text-[#00e785] text-sm"><i class="fa-solid fa-bolt"></i></span><h2 class="font-black text-sm uppercase tracking-wide text-white">Aktuelle kampagner</h2></div><span class="text-xs text-gray-400 font-medium cursor-pointer hover:text-white">Se alle →</span></div><div class="grid grid-cols-2 gap-4">
+<div onclick="alert('Viser Onsdagsbonus')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/01_20-gratis-spins-hver-onsdag.png" alt="20 Gratis Spins Hver Onsdag" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
+<div onclick="alert('Viser Cashback')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/06_cashback-hver-uge.png" alt="Cashback Hver Uge" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
+<div onclick="alert('Viser Leaderboard')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/03_ugens-vindere-leaderboard.png" alt="Ugens Vindere Leaderboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
+<div onclick="alert('Viser VIP Club')" class="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition"><img src="image/02_eksklusiv-vip-club.png" alt="Eksklusiv VIP Club" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div>
 </div></section>
 
-<section><div class="relative w-full aspect-[3/2] rounded-2xl overflow-hidden border border-[#1f3831] shadow-lg cursor-pointer group hover:border-[#00e785] transition" onclick="alert('Henvis en ven aktiveret')"><img src="image/08_inviter-en-ven-100-kr.png" alt="Inviter En Ven" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div></section>
+<section><div class="relative w-full aspect-[16/7] rounded-2xl overflow-hidden border border-[#26302d] shadow-lg cursor-pointer group hover:border-[#59635f] transition" onclick="alert('Henvis en ven aktiveret')"><img src="image/08_inviter-en-ven-100-kr.png" alt="Inviter En Ven" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"></div></section>
 
 </main>
 
     <!-- FOOTER -->
-    <footer class="mt-12 px-4 pt-8 pb-10 border-t border-[#1f3831] bg-[#070e0c] text-xs text-gray-400">
+    <footer class="mt-12 px-4 pt-8 pb-10 border-t border-[#26302d] bg-[#070e0c] text-xs text-gray-400">
 
         <div class="flex items-center justify-center gap-6 mb-6">
-            <span class="font-bold text-white border border-gray-700 px-2.5 py-1 rounded-md text-xs">
+            <span class="font-bold text-white border border-[#39413e] px-2.5 py-1 rounded-md text-xs">
                 18+
             </span>
 
@@ -132,7 +132,7 @@
     </footer>
 
     <!-- BUNDMENU -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#26302d] px-2 py-2 flex items-center justify-around shadow-2xl">
 
         <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition">
             <i class="fa-solid fa-house text-base"></i>
@@ -166,7 +166,7 @@
 
         <div class="flex items-center justify-between mb-4">
 
-            <div class="flex items-center gap-2 flex-1 bg-[#12201c] border border-[#1f3831] rounded-xl px-3 py-2.5">
+            <div class="flex items-center gap-2 flex-1 bg-[#151b19] border border-[#26302d] rounded-xl px-3 py-2.5">
 
                 <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
 
@@ -191,11 +191,11 @@
     <!-- MENU DRAWER -->
     <div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
 
-        <div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
+        <div class="bg-[#0b1311] border-r border-[#26302d] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
 
             <div>
 
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#26302d]">
 
                     <div class="flex items-center gap-2">
 
@@ -211,7 +211,7 @@
 
                     <button
                         onclick="closeMenuDrawer()"
-                        class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#12201c] flex items-center justify-center"
+                        class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#151b19] flex items-center justify-center"
                     >
                         <i class="fa-solid fa-xmark text-sm"></i>
                     </button>
@@ -221,49 +221,49 @@
                 <ul class="space-y-2 text-sm font-medium">
 
                     <li>
-                        <a href="min-konto.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="min-konto.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-user text-[#00e785] w-5"></i>
                             Min konto
                         </a>
                     </li>
 
                     <li>
-                        <a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-dice text-[#00e785] w-5"></i>
                             Alle Spil
                         </a>
                     </li>
 
                     <li>
-                        <a href="casino.html#live" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="casino.html#live" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-video text-[#00e785] w-5"></i>
                             Live Casino
                         </a>
                     </li>
 
                     <li>
-                        <a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-fire text-[#00e785] w-5"></i>
                             Spilleautomater
                         </a>
                     </li>
 
                     <li>
-                        <a href="campaign.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="campaign.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-gift text-[#00e785] w-5"></i>
                             Kampagner & Bonus
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-headset text-[#00e785] w-5"></i>
                             Kundeservice (24/7)
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition">
+                        <a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#151b19] transition">
                             <i class="fa-solid fa-circle-info text-[#00e785] w-5"></i>
                             Om os & Vilkår
                         </a>
@@ -272,7 +272,7 @@
                 </ul>
             </div>
 
-            <div class="pt-6 border-t border-[#1f3831] space-y-3">
+            <div class="pt-6 border-t border-[#26302d] space-y-3">
 
                 <div class="flex items-center justify-between text-xs text-gray-400">
                     <span>Sprog: Dansk</span>
