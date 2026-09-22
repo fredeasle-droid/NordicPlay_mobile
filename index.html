@@ -523,9 +523,9 @@
     <a href="#" onclick="openMenuDrawer(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-bars text-base"></i><span class="text-[10px] font-medium">Menu</span></a>
 </nav>
 
-    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-[#12201c] border border-[#1f3831] rounded-2xl w-full max-w-sm p-6 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div id="auth-modal-box" class="bg-[#071713]/95 border border-[#00e785]/25 rounded-2xl w-full max-w-[360px] p-5 relative shadow-[0_0_40px_rgba(0,231,133,.12)]">
+            <button onclick="closeModal()" aria-label="Luk" class="absolute top-3 right-3 w-8 h-8 rounded-full text-gray-300 hover:text-white hover:bg-white/5 flex items-center justify-center"><i class="fa-solid fa-xmark text-base"></i></button>
             <div id="auth-modal-content"></div>
         </div>
     </div>
@@ -599,17 +599,61 @@
                 }
             }
         }
-        function openModal(type) {
-            const modal = document.getElementById('auth-modal');
-            const content = document.getElementById('auth-modal-content');
-            modal.classList.remove('hidden'); modal.classList.add('flex');
-            if (type === 'login') {
-                content.innerHTML = '<h2 class="text-lg font-bold text-white mb-4">Log ind på NordicPlay</h2><div class="space-y-3"><div><label class="text-[11px] text-gray-400 block mb-1 font-medium">E-mail eller brugernavn</label><input type="email" placeholder="navn@eksempel.dk" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]"></div><div><label class="text-[11px] text-gray-400 block mb-1 font-medium">Adgangskode</label><input type="password" placeholder="••••••••" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]"></div><button onclick="closeModal(); showToast(\'Du er nu logget ind!\');" class="w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl text-sm shadow-[0_0_15px_rgba(0,231,133,0.3)] mt-2">LOG IND</button></div>';
-            } else {
-                content.innerHTML = '<h2 class="text-lg font-bold text-white mb-2">Opret gratis konto</h2><p class="text-xs text-gray-400 mb-4">Få 100 Free Spins + 200 kr. ved tilmelding</p><div class="space-y-3"><div><label class="text-[11px] text-gray-400 block mb-1 font-medium">E-mailadresse</label><input type="email" placeholder="navn@eksempel.dk" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]"></div><div><label class="text-[11px] text-gray-400 block mb-1 font-medium">Vælg adgangskode</label><input type="password" placeholder="••••••••" class="w-full bg-[#0b1311] border border-[#1f3831] rounded-xl px-3 py-2.5 text-sm text-white outline-none focus:border-[#00e785]"></div><button onclick="closeModal(); showToast(\'Konto oprettet! Velkommen til NordicPlay\');" class="w-full py-3 bg-[#00e785] text-[#0b1311] font-bold rounded-xl text-sm shadow-[0_0_15px_rgba(0,231,133,0.3)] mt-2">OPRET KONTO NU</button></div>';
-            }
+        function authLogo(){return '<div class="flex justify-center mb-4"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-[#00e8ff] text-[#071713] flex items-center justify-center font-black text-xl shadow-[0_0_15px_rgba(0,232,255,.25)]">✤</div><span class="font-bold text-base tracking-tight text-white">NORDIC<span class="text-[#00e8ff]">PLAY</span></span></div></div>';}
+        function authInput(label,placeholder,type='text',id=''){return '<div><label class="text-[10px] text-gray-300 block mb-1.5 font-semibold">'+label+'</label><div class="relative"><input id="'+id+'" type="'+type+'" placeholder="'+placeholder+'" class="w-full h-10 bg-[#0b1915] border border-[#245044] rounded-lg px-3 pr-10 text-xs text-white placeholder-gray-500 outline-none focus:border-[#00e785] transition"></div></div>';}
+        function renderLogin(error=false){
+            const content=document.getElementById('auth-modal-content');
+            content.innerHTML=authLogo()+
+            '<div class="text-center mb-4"><h2 class="text-lg font-extrabold text-white">Velkommen tilbage</h2><p class="text-[11px] text-gray-400 mt-1">Log ind på din konto</p></div>'+
+            '<div class="grid grid-cols-2 gap-1.5 p-1 bg-[#0b1915] rounded-xl border border-[#1f3831] mb-4"><button class="py-2 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#071713]">Log ind</button><button onclick="openModal(\'signup\')" class="py-2 rounded-lg text-[11px] font-semibold text-gray-300">Opret konto</button></div>'+
+            (error?'<div class="mb-3 rounded-lg border border-red-400/30 bg-red-500/10 p-2.5 text-center"><div class="text-red-300 text-[11px] font-bold">Forkert login</div><div class="text-[10px] text-gray-400 mt-0.5">E-mail/brugernavn eller adgangskode er ikke korrekt. Prøv igen.</div></div>':'')+
+            '<div class="space-y-3">'+
+            authInput('E-mail eller brugernavn','Din e-mail eller brugernavn','text','login-email')+
+            '<div><label class="text-[10px] text-gray-300 block mb-1.5 font-semibold">Adgangskode</label><div class="relative"><input id="login-password" type="password" placeholder="Din adgangskode" class="w-full h-10 bg-[#0b1915] border border-[#245044] rounded-lg px-3 pr-10 text-xs text-white placeholder-gray-500 outline-none focus:border-[#00e785] transition"><button type="button" onclick="toggleAuthPassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"><i id="auth-eye" class="fa-regular fa-eye text-xs"></i></button></div></div>'+
+            '<button onclick="renderForgot()" class="text-[10px] font-semibold text-[#00e8ff] hover:underline">Glemt adgangskode?</button>'+
+            '<button onclick="submitLogin()" class="w-full h-10 rounded-lg bg-[#00e785] text-[#071713] font-extrabold text-xs shadow-[0_0_18px_rgba(0,231,133,.25)]">Log ind</button>'+
+            '<div class="flex items-center gap-2 text-[9px] text-gray-500"><span class="h-px bg-[#1f3831] flex-1"></span><span>Eller fortsæt med</span><span class="h-px bg-[#1f3831] flex-1"></span></div>'+
+            '<div class="grid grid-cols-3 gap-2"><button class="h-9 rounded-lg bg-[#0b1915] border border-[#1f3831] text-white text-sm font-bold">G</button><button class="h-9 rounded-lg bg-[#0b1915] border border-[#1f3831] text-white text-sm"><i class="fa-brands fa-apple"></i></button><button class="h-9 rounded-lg bg-[#0b1915] border border-[#1f3831] text-white text-sm"><i class="fa-brands fa-facebook-f"></i></button></div>'+
+            '<p class="text-center text-[9px] text-gray-500 pt-1">Har du ikke en konto? <button onclick="openModal(\'signup\')" class="text-[#00e8ff] font-semibold">Opret konto</button></p>'+
+            '</div>';
         }
+        function submitLogin(){renderLoginLoading();}
+        function renderLoginLoading(){
+            document.getElementById('auth-modal-content').innerHTML=authLogo()+
+            '<div class="py-10 text-center"><div class="mx-auto mb-5 w-14 h-14 rounded-full border-4 border-[#1f3831] border-t-[#00e785] animate-spin"></div><h2 class="text-base font-extrabold text-white">Logger dig ind...</h2><p class="text-[11px] text-gray-400 mt-2 leading-relaxed">Vent venligst, mens vi verificerer<br>dine oplysninger.</p></div>';
+            setTimeout(renderLoginSuccess,900);
+        }
+        function renderLoginSuccess(){
+            document.getElementById('auth-modal-content').innerHTML=authLogo()+
+            '<div class="py-6 text-center"><div class="mx-auto mb-5 w-14 h-14 rounded-full border-4 border-[#00e785] flex items-center justify-center shadow-[0_0_25px_rgba(0,231,133,.35)]"><i class="fa-solid fa-check text-[#00e785] text-2xl"></i></div><h2 class="text-base font-extrabold text-white">Velkommen tilbage!</h2><p class="text-[11px] text-gray-400 mt-2">Du er nu logget ind på din konto.</p><button onclick="finishLogin()" class="w-full h-10 mt-6 rounded-lg bg-[#00e785] text-[#071713] font-extrabold text-xs">Fortsæt</button></div>';
+        }
+        function finishLogin(){localStorage.setItem('nordicplayLoggedIn','true');closeModal();}
+        function renderLoginError(){renderLogin(true);}
+        function renderForgot(){
+            document.getElementById('auth-modal-content').innerHTML=authLogo()+
+            '<div class="text-center mb-5"><h2 class="text-lg font-extrabold text-white">Glemt adgangskode?</h2><p class="text-[11px] text-gray-400 mt-2 leading-relaxed">Indtast din e-mail, så sender vi et link<br>til at nulstille din adgangskode.</p></div>'+
+            '<div class="space-y-3">'+authInput('E-mail','Din e-mail','email','forgot-email')+
+            '<button onclick="sendResetLink()" class="w-full h-10 rounded-lg bg-[#00e785] text-[#071713] font-extrabold text-xs">Send link</button>'+
+            '<button onclick="renderLogin()" class="w-full text-left text-[10px] text-gray-300 pt-1">← Tilbage til login</button></div>';
+        }
+        function sendResetLink(){
+            document.getElementById('auth-modal-content').innerHTML=authLogo()+
+            '<div class="py-4 text-center"><div class="mx-auto mb-4 w-12 h-12 rounded-xl bg-[#00e785] text-[#071713] flex items-center justify-center"><i class="fa-solid fa-envelope text-xl"></i></div><h2 class="text-base font-extrabold text-white">Link sendt!</h2><p class="text-[11px] text-gray-400 mt-2 leading-relaxed">Vi har sendt et link til<br><span class="text-white">din e-mail</span></p><p class="text-[10px] text-gray-400 mt-3">Tjek din indbakke (og spam-mappe),<br>og følg linket for at nulstille din adgangskode.</p><button onclick="renderLogin()" class="w-full h-10 mt-5 rounded-lg border border-[#00e785]/40 text-[#00e785] font-bold text-xs">Tilbage til login</button></div>';
+        }
+        function renderReset(){
+            document.getElementById('auth-modal-content').innerHTML=authLogo()+
+            '<div class="text-center mb-4"><h2 class="text-lg font-extrabold text-white">Nulstil din adgangskode</h2><p class="text-[11px] text-gray-400 mt-1">Indtast og bekræft din nye adgangskode.</p></div>'+
+            '<div class="space-y-3">'+authInput('Ny adgangskode','Min nye adgangskode','password','new-password')+authInput('Bekræft ny adgangskode','Gentag din adgangskode','password','confirm-password')+
+            '<button onclick="renderUpdated()" class="w-full h-10 rounded-lg bg-[#00e785] text-[#071713] font-extrabold text-xs">Nulstil adgangskode</button></div>';
+        }
+        function renderUpdated(){
+            document.getElementById('auth-modal-content').innerHTML=authLogo()+
+            '<div class="py-6 text-center"><div class="mx-auto mb-5 w-14 h-14 rounded-full border-4 border-[#00e785] flex items-center justify-center shadow-[0_0_25px_rgba(0,231,133,.35)]"><i class="fa-solid fa-check text-[#00e785] text-2xl"></i></div><h2 class="text-base font-extrabold text-white">Adgangskode opdateret!</h2><p class="text-[11px] text-gray-400 mt-2 leading-relaxed">Din adgangskode er blevet nulstillet.<br>Du kan nu logge ind med din nye adgangskode.</p><button onclick="renderLogin()" class="w-full h-10 mt-6 rounded-lg bg-[#00e785] text-[#071713] font-extrabold text-xs">Log ind</button></div>';
+        }
+        function toggleAuthPassword(){const p=document.getElementById('login-password');const i=document.getElementById('auth-eye');if(!p)return;p.type=p.type==='password'?'text':'password';i.classList.toggle('fa-eye');i.classList.toggle('fa-eye-slash');}
         function closeModal() { const modal = document.getElementById('auth-modal'); modal.classList.remove('flex'); modal.classList.add('hidden'); }
+        function openModal(type) { const modal=document.getElementById('auth-modal'); modal.classList.remove('hidden'); modal.classList.add('flex'); if(type==='login') renderLogin(); else renderSignup(); }
+        function renderSignup(){ const content=document.getElementById('auth-modal-content'); content.innerHTML=authLogo()+'<div class="text-center mb-4"><h2 class="text-lg font-extrabold text-white">Opret gratis konto</h2><p class="text-[11px] text-gray-400 mt-1">Opret din NordicPlay-konto</p></div><div class="space-y-3">'+authInput('E-mailadresse','navn@eksempel.dk','email','signup-email')+authInput('Vælg adgangskode','••••••••','password','signup-password')+'<button onclick="renderLoginSuccess()" class="w-full h-10 rounded-lg bg-[#00e785] text-[#071713] font-extrabold text-xs">Opret konto</button><button onclick="renderLogin()" class="w-full text-[10px] text-[#00e8ff]">← Tilbage til login</button></div>'; }
         function toggleSearchModal() { const modal = document.getElementById('search-modal'); if (modal.classList.contains('hidden')) { modal.classList.remove('hidden'); modal.classList.add('flex'); document.getElementById('search-input').focus(); } else { modal.classList.remove('flex'); modal.classList.add('hidden'); } }
         function openMenuDrawer() { const drawer = document.getElementById('menu-drawer'); drawer.classList.remove('hidden'); drawer.classList.add('flex'); }
         function closeMenuDrawer() { const drawer = document.getElementById('menu-drawer'); drawer.classList.remove('flex'); drawer.classList.add('hidden'); }
