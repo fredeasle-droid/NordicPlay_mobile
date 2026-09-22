@@ -617,7 +617,7 @@
             '<p class="text-center text-[9px] text-gray-500 pt-1">Har du ikke en konto? <button onclick="openModal(\'signup\')" class="text-[#00e8ff] font-semibold">Opret konto</button></p>'+
             '</div>';
         }
-        function submitLogin(){renderLoginLoading();}
+        function submitLogin(){const e=document.getElementById('login-email')?.value.trim();const p=document.getElementById('login-password')?.value.trim();if(!e||!p){renderLogin(true);return;}renderLoginLoading();}
         function renderLoginLoading(){
             document.getElementById('auth-modal-content').innerHTML=authLogo()+
             '<div class="py-10 text-center"><div class="mx-auto mb-5 w-14 h-14 rounded-full border-4 border-[#1f3831] border-t-[#00e785] animate-spin"></div><h2 class="text-base font-extrabold text-white">Logger dig ind...</h2><p class="text-[11px] text-gray-400 mt-2 leading-relaxed">Vent venligst, mens vi verificerer<br>dine oplysninger.</p></div>';
