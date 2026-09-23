@@ -13,21 +13,8 @@ html,body{margin:0;background:#020806;color:#fff;font-family:Inter,-apple-system
 a{text-decoration:none;color:inherit}
 .app{max-width:520px;min-height:100vh;margin:auto;background:#07130f;padding-bottom:78px;overflow:hidden}
 .head{height:64px;padding:9px 13px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #17372c;background:rgba(7,19,15,.97);position:sticky;top:0;z-index:30;backdrop-filter:blur(14px)}
-.hero{margin:8px 9px 10px;min-height:154px;border:1px solid #1d5b47;border-radius:16px;overflow:hidden;position:relative;background:radial-gradient(circle at 78% 45%,rgba(0,231,133,.22),transparent 35%),linear-gradient(145deg,#0d3024,#071711 72%)}
-.hero-copy{position:relative;z-index:3;padding:19px 14px;width:68%}
-.hero h1{font-size:21px;line-height:1.02;margin:0 0 7px;font-weight:950;letter-spacing:-.04em}
-.hero h1 span{color:#00e785}
-.hero p{font-size:8px;line-height:1.45;color:#a4b7b0;margin:0;max-width:245px}
-.hero-art{position:absolute;right:-5px;top:9px;width:48%;height:136px}
-.phone{position:absolute;right:24px;top:5px;width:72px;height:126px;border:3px solid #b8fff0;border-radius:14px;background:#07130f;box-shadow:0 0 25px rgba(0,231,133,.22);transform:rotate(7deg);overflow:hidden}
-.phone:before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:22px;height:3px;border-radius:99px;background:#274d40}
-.phone-screen{padding:18px 7px 7px}
-.tx-mini{height:14px;border-radius:4px;background:#0d2a20;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;font-size:5px;color:#9ab0a8}
-.tx-mini b{color:#00e785}
-.coin{position:absolute;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:900;color:#07130f;background:#00e785;box-shadow:0 0 15px rgba(0,231,133,.3)}
-.c1{width:30px;height:30px;right:1px;top:8px}.c2{width:22px;height:22px;right:86px;bottom:4px;background:#d6b35c}.c3{width:18px;height:18px;right:10px;bottom:13px;background:#00cdb4}
-.check{position:absolute;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#07130f;border:1px solid #00e785;color:#00e785;font-size:10px}
-.k1{right:82px;top:45px}.k2{right:1px;top:76px}
+.hero{margin:8px 9px 10px;border:1px solid #1d5b47;border-radius:16px;overflow:hidden;position:relative;background:#0b2119;aspect-ratio:1167/358}
+.hero-banner{display:block;width:100%;height:100%;object-fit:cover}
 .controls{padding:0 9px}
 .filter{display:flex;gap:6px;overflow-x:auto;padding:0 0 3px;scrollbar-width:none}.filter::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;padding:8px 11px;border:1px solid #1b4437;background:#0b1e17;border-radius:10px;color:#91a49d;font-size:8px;font-weight:800}
@@ -74,21 +61,7 @@ a{text-decoration:none;color:inherit}
 </header>
 
 <section class="hero">
-  <div class="hero-copy">
-    <h1><span>Transaktioner</span></h1>
-    <p>Fuld overblik over dine indbetalinger, udbetalinger, spil og bonusser – samlet ét sted.</p>
-  </div>
-  <div class="hero-art" aria-hidden="true">
-    <div class="phone"><div class="phone-screen">
-      <div class="tx-mini"><span>Indbetaling</span><b>+1.000</b></div>
-      <div class="tx-mini"><span>Spil</span><span>-20</span></div>
-      <div class="tx-mini"><span>Bonus</span><b>+100</b></div>
-      <div class="tx-mini"><span>Udbetaling</span><span>-2.500</span></div>
-      <div class="tx-mini"><span>Spil</span><span>-50</span></div>
-    </div></div>
-    <div class="coin c1">✓</div><div class="coin c2">kr</div><div class="coin c3">+</div>
-    <div class="check k1"><i class="fa-solid fa-check"></i></div><div class="check k2"><i class="fa-solid fa-check"></i></div>
-  </div>
+  <img class="hero-banner" src="image/transaktioner-hero.jpg" alt="NordicPlay transaktioner">
 </section>
 
 <section class="controls">
