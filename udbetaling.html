@@ -1,20 +1,130 @@
-<!doctype html><html lang="da"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NordicPlay - Udbetaling</title>
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07130f">
+<title>NordicPlay – Udbetaling</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#06110d;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px}.header{height:58px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;background:#0b1311;border-bottom:1px solid #17382d}.logo{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none}.mark{width:36px;height:36px;border-radius:11px;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:15px}.brand{font-size:17px;font-weight:900;letter-spacing:-.05em}.brand span{color:#00e785}.tag{font-size:6px;color:#8b9b94;letter-spacing:.14em;margin-top:1px}.actions{display:flex;gap:7px}.headbtn{width:34px;height:34px;border-radius:9px;border:1px solid #1c4034;background:#10201a;color:#fff;font-size:15px}.page{max-width:520px;margin:auto;padding-bottom:76px}.hero{height:190px;position:relative;overflow:hidden;background:#07150f}.hero img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#06110d 100%)}.hero-text{position:absolute;left:16px;bottom:16px;z-index:2}.hero-title{font-size:25px;line-height:1.05;font-weight:900}.hero-sub{font-size:10px;color:#d0d9d5;margin-top:5px;max-width:290px}.section{margin:0 16px;padding:15px;background:#071711;border:1px solid #174638;border-radius:15px}.section+.section{margin-top:0;border-top:0;border-radius:0 0 15px 15px}.title{font-size:18px;font-weight:900;margin-bottom:12px}.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.method{height:112px;border:1px solid #173e31;border-radius:12px;background:#0a1c16;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative}.method.active{border:2px solid #5be88a;background:#0c211a}.bank{font-size:28px}.name{font-size:13px;font-weight:850}.time{font-size:11px;color:#aab7b2}.logoimg{width:86px;height:32px;object-fit:contain}.check{position:absolute;right:7px;top:7px;width:24px;height:24px;border-radius:50%;background:#64e48d;color:#06110d;display:grid;place-items:center;font-size:11px}.amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.amount{height:48px;border-radius:10px;border:1px solid #174638;background:#0a1d17;color:#fff;font-size:13px}.amount.active{background:#00e785;color:#06110d;border-color:#00e785;font-weight:900}.other{height:46px;width:100%;margin-top:8px;border:1px solid #174638;border-radius:10px;background:#0a1d17;color:#aebbb6;text-align:left;padding:0 13px;font-size:11px}.account{margin:0 16px;background:#071711;border:1px solid #174638;border-top:0;border-radius:0 0 15px 15px;padding:15px}.accountrow{height:62px;border:1px solid #174638;background:#0a1d17;border-radius:11px;display:flex;align-items:center;padding:0 10px;gap:9px}.accicon{width:38px;height:38px;border-radius:50%;background:#0d3427;color:#00e785;display:grid;place-items:center;font-size:17px}.acc strong{display:block;font-size:12px}.acc small{color:#899a93;font-size:10px}.change{margin-left:auto;border:1px solid #235141;background:#0b2019;color:#e4ebe8;border-radius:9px;padding:8px 9px;font-size:10px}.safe{margin-top:9px;border:1px solid #174638;border-radius:11px;background:#0a1d17;padding:10px;display:flex;gap:9px;align-items:center}.safe i{color:#00e785;font-size:22px}.safe strong{font-size:11px}.safe span{display:block;color:#9aa9a3;font-size:9px;margin-top:2px;line-height:1.3}.cta{height:50px;width:100%;margin-top:10px;border:0;border-radius:11px;background:#00e785;color:#06110d;font-size:14px;font-weight:950}.bottom{position:fixed;left:0;right:0;bottom:0;height:72px;background:#07120ef7;border-top:1px solid #17382d;display:grid;grid-template-columns:repeat(5,1fr);z-index:20}.bottom a{color:#9aa8a3;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:9px;font-weight:800}.bottom i{font-size:16px}.bottom .active{background:#63e68d;color:#06110d;margin:6px;border-radius:13px}.drawer{display:none;position:fixed;inset:0;background:#000b;z-index:50}.drawer.open{display:block}.panel{width:280px;height:100%;background:#0b1311;padding:18px}.panel a{display:block;color:#fff;text-decoration:none;padding:11px;border-radius:8px;font-size:12px}.close{float:right;background:#12201c;color:#fff;border:1px solid #1f3831;border-radius:8px;width:32px;height:32px}
-</style></head><body>
-<header class="header"><a class="logo" href="index.html"><div class="mark">🎮</div><div><div class="brand">NORDIC<span>PLAY</span></div><div class="tag">SPIL MED OM T A N K E ·</div></div></a><div class="actions"><button class="headbtn">⌕</button><button class="headbtn" onclick="openMenu()">☰</button></div></header>
+*{box-sizing:border-box}
+html,body{margin:0;background:#020806;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{text-decoration:none;color:inherit}
+.app{max-width:520px;min-height:100vh;margin:auto;background:#07130f;padding-bottom:78px;overflow:hidden}
+.page{padding:9px}
+.hero{height:150px;border:1px solid #1d5b47;border-radius:16px;overflow:hidden;position:relative;background:#0b2119;margin-bottom:9px}
+.hero img{width:100%;height:100%;display:block;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,24,17,.18),rgba(5,24,17,.2) 42%,rgba(5,24,17,.75) 100%);pointer-events:none}
+.hero-copy{position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:2;max-width:55%}
+.hero-copy h1{font-size:22px;line-height:1.05;margin:0;font-weight:950}
+.hero-copy p{font-size:9px;line-height:1.35;color:#d0ddd7;margin:6px 0 0}
+.card{border:1px solid #193f32;border-radius:14px;background:#091b15;padding:13px;margin-bottom:9px}
+.title{font-size:15px;font-weight:900;margin-bottom:10px}
+.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.method{height:86px;border:1px solid #1b4436;border-radius:11px;background:#0c2119;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;position:relative}
+.method.active{border:2px solid #00e785;background:#0d261d}
+.method img{width:78px;height:28px;object-fit:contain}
+.bank-icon{font-size:23px;color:#00e785}
+.method-name{font-size:10px;font-weight:850}
+.method-time{font-size:8px;color:#91a49b}
+.check{position:absolute;right:6px;top:6px;width:20px;height:20px;border-radius:50%;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:9px}
+.amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.amount{height:43px;border-radius:10px;border:1px solid #1b4436;background:#0c2119;color:#fff;font-size:11px;font-weight:700}
+.amount.active{background:#00e785;color:#06110d;border-color:#00e785}
+.other{height:42px;width:100%;margin-top:7px;border:1px solid #1b4436;border-radius:10px;background:#0c2119;color:#aebbb6;text-align:left;padding:0 11px;font-size:10px}
+.account-row{min-height:58px;border:1px solid #1b4436;background:#0c2119;border-radius:11px;display:flex;align-items:center;padding:8px;gap:8px}
+.acc-icon{width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:#0d3427;color:#00e785;display:grid;place-items:center}
+.acc strong{display:block;font-size:10px}.acc small{color:#899a93;font-size:8px}
+.change{margin-left:auto;border:1px solid #235141;background:#0b2019;color:#e4ebe8;border-radius:8px;padding:7px 8px;font-size:8px}
+.safe{margin-top:8px;border:1px solid #174638;border-radius:10px;background:#0a1d17;padding:9px;display:flex;gap:8px;align-items:center}
+.safe i{color:#00e785;font-size:17px}.safe strong{font-size:9px}.safe span{display:block;color:#9aa9a3;font-size:8px;margin-top:2px;line-height:1.3}
+.cta{height:45px;width:100%;margin-top:8px;border:0;border-radius:10px;background:#00e785;color:#06110d;font-size:12px;font-weight:950}
+.foot{margin-top:18px;padding:18px 9px;border-top:1px solid #17362b;background:#06100c;text-align:center}
+.foot-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 13px}
+.foot-links a{font-size:7px;color:#83948e}.copy2{font-size:7px;color:#4f625a;margin:10px 0 0}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:68px;background:rgba(6,16,12,.98);border-top:1px solid #1b3b31;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);padding:5px}
+.bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#9aaba5;font-size:7px;font-weight:700;border-radius:12px}
+.bottom i{font-size:17px}.bottom .active{background:linear-gradient(180deg,#0bdc88,#00b96e);color:#03110b}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
+  <div class="flex items-center gap-2.5">
+    <button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200"><i class="fa-solid fa-bars text-sm"></i></button>
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i></div>
+      <div class="leading-tight"><span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">NORDIC<span class="text-[#00e785]">PLAY</span></span><div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div></div>
+    </div>
+  </div>
+  <div class="flex items-center gap-1.5">
+    <button class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300"><i class="fa-solid fa-magnifying-glass text-xs"></i></button>
+    <button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300"><i class="fa-solid fa-bars text-sm"></i></button>
+  </div>
+</header>
+
 <main class="page">
-<section class="hero"><img src="image/nordicplay-home-hero-compressed.jpg" alt="NordicPlay"><div class="hero-text"><div class="hero-title">Udbetaling</div><div class="hero-sub">Hurtig, sikker og nem udbetaling af dine gevinster.</div></div></section>
-<section class="section"><div class="title">Vælg udbetalingsmetode</div><div class="method-grid">
-<button class="method active" onclick="method(this)"><span class="check">✓</span><div class="bank">♜</div><div class="name">Bankoverførsel</div><div class="time">1–3 hverdage</div></button>
-<button class="method" onclick="method(this)"><img class="logoimg" src="image/payment-trustly.svg"><div class="time">Inden for 24t</div></button>
-<button class="method" onclick="method(this)"><img class="logoimg" src="image/payment-skrill.svg"><div class="time">Inden for 24t</div></button>
-<button class="method" onclick="method(this)"><img class="logoimg" src="image/payment-neteller.svg"><div class="time">Inden for 24t</div></button>
-</div></section>
-<section class="section"><div class="title">Vælg beløb</div><div class="amounts"><button class="amount">100 kr.</button><button class="amount">500 kr.</button><button class="amount active">1.000 kr.</button><button class="amount">2.500 kr.</button><button class="amount">5.000 kr.</button><button class="amount">10.000 kr.</button></div><button class="other">✎ &nbsp; Andet beløb (min. 100 kr.)</button></section>
-<section class="account"><div class="title">Modtagende konto</div><div class="accountrow"><div class="accicon">▥</div><div class="acc"><strong>Dansk bankkonto</strong><small>•••• 3456</small></div><button class="change">Ændre konto ›</button></div><div class="safe"><i>♢</i><div><strong>Sikker udbetaling</strong><span>Udbetalinger behandles sikkert og sendes normalt inden for 1–3 hverdage.</span></div></div><button class="cta">Anmod om udbetaling ›</button></section>
+<section class="hero">
+  <img src="image/udbetaling-hero.jpg" alt="NordicPlay udbetaling">
+  <div class="hero-copy"><h1>Udbetaling</h1><p>Hurtig, sikker og nem udbetaling af dine gevinster.</p></div>
+</section>
+
+<section class="card">
+  <div class="title">Vælg udbetalingsmetode</div>
+  <div class="method-grid">
+    <button class="method active" onclick="method(this)"><span class="check">✓</span><div class="bank-icon"><i class="fa-solid fa-building-columns"></i></div><div class="method-name">Bankoverførsel</div><div class="method-time">1–3 hverdage</div></button>
+    <button class="method" onclick="method(this)"><img src="image/payment-trustly.svg" alt="Trustly"><div class="method-time">Inden for 24t</div></button>
+    <button class="method" onclick="method(this)"><img src="image/payment-skrill.svg" alt="Skrill"><div class="method-time">Inden for 24t</div></button>
+    <button class="method" onclick="method(this)"><img src="image/payment-neteller.svg" alt="Neteller"><div class="method-time">Inden for 24t</div></button>
+  </div>
+</section>
+
+<section class="card">
+  <div class="title">Vælg beløb</div>
+  <div class="amounts">
+    <button class="amount">100 kr.</button><button class="amount">500 kr.</button><button class="amount active">1.000 kr.</button>
+    <button class="amount">2.500 kr.</button><button class="amount">5.000 kr.</button><button class="amount">10.000 kr.</button>
+  </div>
+  <button class="other"><i class="fa-solid fa-pen mr-1"></i> Andet beløb (min. 100 kr.)</button>
+</section>
+
+<section class="card">
+  <div class="title">Modtagende konto</div>
+  <div class="account-row">
+    <div class="acc-icon"><i class="fa-solid fa-building-columns"></i></div>
+    <div class="acc"><strong>Dansk bankkonto</strong><small>•••• 3456</small></div>
+    <button class="change">Ændre konto ›</button>
+  </div>
+  <div class="safe"><i class="fa-solid fa-shield-halved"></i><div><strong>Sikker udbetaling</strong><span>Udbetalinger behandles sikkert og sendes normalt inden for 1–3 hverdage.</span></div></div>
+  <button class="cta">Anmod om udbetaling <i class="fa-solid fa-arrow-right ml-1"></i></button>
+</section>
 </main>
-<nav class="bottom"><a href="index.html"><i>⌂</i><span>Hjem</span></a><a href="casino.html"><i>⚄</i><span>Casino</span></a><a href="campaign.html"><i>🎁</i><span>Kampagner</span></a><a class="active" href="min-konto.html"><i>♙</i><span>Min konto</span></a><a href="#" onclick="openMenu();return false"><i>☰</i><span>Menu</span></a></nav>
-<div id="drawer" class="drawer" onclick="if(event.target===this)closeMenu()"><div class="panel"><button class="close" onclick="closeMenu()">×</button><h3>NORDIC<span style="color:#00e785">PLAY</span></h3><a href="min-konto.html">Min konto</a><a href="saldo.html">Saldo</a><a href="indbetaling.html">Indbetaling</a><a href="udbetaling.html">Udbetaling</a><a href="transaktioner.html">Transaktioner</a><a href="favoritter.html">Favoritter</a><a href="indstillinger.html">Indstillinger</a></div></div>
-<script>function method(b){document.querySelectorAll('.method').forEach(x=>x.classList.remove('active'));b.classList.add('active')}function openMenu(){document.getElementById('drawer').classList.add('open')}function closeMenu(){document.getElementById('drawer').classList.remove('open')}</script>
-</body></html>
+
+<footer class="foot">
+<div class="foot-links"><a href="ansvarligt-spil.html">Ansvarligt spil</a><a href="vilkaar.html">Vilkår og betingelser</a><a href="privatliv.html">Privatlivspolitik</a><a href="kontakt.html">Kontakt</a></div>
+<p class="copy2">18+ · Spil med omtanke · © 2026 NordicPlay</p>
+</footer>
+
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
+  <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-medium">Hjem</span></a>
+  <a href="casino.html" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-dice text-base"></i><span class="text-[10px] font-medium">Casino</span></a>
+  <a href="campaign.html" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-gift text-base"></i><span class="text-[10px] font-medium">Kampagner</span></a>
+  <a href="min-konto.html" class="flex flex-col items-center justify-center gap-1 text-[#07130f] bg-[#00e785] rounded-[18px] min-w-[96px] h-[58px] -mt-4"><i class="fa-regular fa-user text-[20px]"></i><span class="text-[10px] font-semibold">Min konto</span></a>
+  <a href="#" onclick="openMenu();return false" class="flex flex-col items-center gap-1 text-gray-400"><i class="fa-solid fa-bars text-base"></i><span class="text-[10px] font-medium">Menu</span></a>
+</nav>
+
+<div id="drawer" class="fixed inset-0 z-50 hidden bg-black/80">
+<div class="w-[86%] max-w-[390px] h-full bg-[#091712] border-r border-[#1c4034] p-5 overflow-y-auto">
+<div class="flex justify-between items-center pb-4 border-b border-[#1b392f]"><b class="text-lg">NORDIC<span class="text-[#00e785]">PLAY</span></b><button onclick="closeMenu()" class="w-9 h-9 rounded-xl bg-[#10231c]"><i class="fa-solid fa-xmark"></i></button></div>
+<div class="mt-5 space-y-2">
+<a href="min-konto.html" class="block p-3 rounded-xl text-gray-200">Min konto</a><a href="saldo.html" class="block p-3 rounded-xl text-gray-200">Saldo</a><a href="indbetaling.html" class="block p-3 rounded-xl text-gray-200">Indbetaling</a><a href="udbetaling.html" class="block p-3 rounded-xl bg-[#0e2a21] text-[#00e785]">Udbetaling</a><a href="transaktioner.html" class="block p-3 rounded-xl text-gray-200">Transaktioner</a><a href="campaign.html" class="block p-3 rounded-xl text-gray-200">Bonuser</a><a href="mine-spil.html" class="block p-3 rounded-xl text-gray-200">Mine spil</a><a href="favoritter.html" class="block p-3 rounded-xl text-gray-200">Favoritter</a><a href="ansvarligt-spil.html" class="block p-3 rounded-xl text-gray-200">Ansvarligt spil</a><a href="indstillinger.html" class="block p-3 rounded-xl text-gray-200">Indstillinger</a>
+</div></div></div>
+<script>
+function openMenu(){document.getElementById('drawer').classList.remove('hidden')}
+function closeMenu(){document.getElementById('drawer').classList.add('hidden')}
+function method(btn){document.querySelectorAll('.method').forEach(x=>{x.classList.remove('active');const c=x.querySelector('.check');if(c)c.remove()});btn.classList.add('active');if(!btn.querySelector('.check')){const c=document.createElement('span');c.className='check';c.textContent='✓';btn.appendChild(c)}}
+</script>
+</div>
+</body>
+</html>
