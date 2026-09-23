@@ -27,9 +27,18 @@
 </head>
 <body>
 <div class="app">
-<header class="np-head">
-<a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-gamepad"></i></div><div><div class="brand-name">NORDIC<span>PLAY</span></div><div class="brand-sub">SPIL MED OMTANKE</div></div></a>
-<div class="head-actions"><button class="head-btn" aria-label="Søg"><i class="fa-solid fa-magnifying-glass"></i></button><button class="head-btn" onclick="openMenu()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button><button class="lang"><span class="flag">✚</span> DK <i class="fa-solid fa-chevron-down" style="font-size:9px"></i></button></div>
+<header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
+  <div class="flex items-center gap-2.5">
+    <button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition"><i class="fa-solid fa-bars text-sm"></i></button>
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)] flex-shrink-0"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i></div>
+      <div class="leading-tight"><span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">NORDIC<span class="text-[#00e785]">PLAY</span></span><div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div></div>
+    </div>
+  </div>
+  <div class="flex items-center gap-1.5">
+    <button onclick="return false" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></button>
+    <button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition"><i class="fa-solid fa-bars text-sm"></i></button>
+  </div>
 </header>
 
 <section class="hero">
@@ -67,7 +76,13 @@
 <div class="np-brand"><span class="np-brand-mark">✦</span><div><strong>NORDIC<span>PLAY</span></strong><small>SPIL MED OMTANKE</small></div></div><p class="np-legal">Spil ansvarligt. 18+. ROFUS.dk · StopSpillet.dk</p><p class="np-copy">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
 </footer>
 
-<nav class="bottom"><a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a><a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a><a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a><a href="min-konto.html" class="active"><i class="fa-solid fa-user"></i><span>Min konto</span></a><a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a></nav>
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0b1311]/95 backdrop-blur-lg border-t border-[#1f3831] px-2 py-2 flex items-center justify-around shadow-2xl">
+  <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-medium">Hjem</span></a>
+  <a href="casino.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-dice text-base"></i><span class="text-[10px] font-medium">Casino</span></a>
+  <a href="campaign.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-gift text-base"></i><span class="text-[10px] font-medium">Kampagner</span></a>
+  <a href="min-konto.html" class="flex flex-col items-center justify-center gap-1 text-[#07130f] bg-[#00e785] rounded-[18px] min-w-[96px] h-[58px] -mt-4 shadow-[0_0_18px_rgba(0,231,133,.18)] transition"><i class="fa-regular fa-user text-[20px]"></i><span class="text-[10px] font-semibold">Min konto</span></a>
+  <a href="#" onclick="openMenu(); return false;" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition"><i class="fa-solid fa-bars text-base"></i><span class="text-[10px] font-medium">Menu</span></a>
+</nav>
 
 <div id="drawer" class="drawer" onclick="if(event.target===this)closeMenu()"><div class="drawer-inner"><div class="flex justify-between items-center pb-4 border-b border-[#1b392f]"><b class="text-lg">NORDIC<span class="text-[#00e785]">PLAY</span></b><button onclick="closeMenu()" class="w-9 h-9 rounded-xl bg-[#10231c]"><i class="fa-solid fa-xmark"></i></button></div><div class="mt-5 space-y-2"><a href="min-konto.html" class="block p-3 rounded-xl text-gray-200">Min konto</a><a href="saldo.html" class="block p-3 rounded-xl text-gray-200">Saldo</a><a href="indbetaling.html" class="block p-3 rounded-xl text-gray-200">Indbetaling</a><a href="udbetaling.html" class="block p-3 rounded-xl text-gray-200">Udbetaling</a><a href="transaktioner.html" class="block p-3 rounded-xl text-gray-200">Transaktioner</a><a href="campaign.html" class="block p-3 rounded-xl text-gray-200">Bonuser</a><a href="mine-spil.html" class="block p-3 rounded-xl text-gray-200">Mine spil</a><a href="favoritter.html" class="block p-3 rounded-xl text-gray-200">Favoritter</a><a href="ansvarligt-spil.html" class="block p-3 rounded-xl bg-[#0e2a21] text-[#00e785]">Ansvarligt spil</a><a href="indstillinger.html" class="block p-3 rounded-xl text-gray-200">Indstillinger</a></div></div></div>
 <script>function openMenu(){document.getElementById('drawer').classList.add('open')}function closeMenu(){document.getElementById('drawer').classList.remove('open')}</script>
