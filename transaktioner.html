@@ -1,59 +1,167 @@
-<!doctype html><html lang="da"><head><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NordicPlay - Transaktioner</title><style>
-*{box-sizing:border-box}body{margin:0;background:#06110d;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{text-decoration:none}.app{min-height:100vh;background:#06110d}.topbar{height:58px;background:#07140f;border-bottom:1px solid #16342a;display:flex;align-items:center;padding:0 22px;gap:25px;position:sticky;top:0;z-index:10}.logo{font-weight:900;letter-spacing:-.5px;font-size:15px}.logo b{color:#00ffcc}.toplinks{display:flex;gap:18px;font-size:10px;color:#8ca29b}.toplinks a{color:inherit}.topright{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:10px}.balance{background:#0d2b22;border:1px solid #1a4a3c;color:#00ffcc;padding:7px 10px;border-radius:8px;font-weight:800}.flag{font-size:14px}.shell{display:flex;min-height:calc(100vh - 58px)}.sidebar{width:235px;flex:0 0 235px;background:#07120e;border-right:1px solid #17352b;padding:15px 10px}.profile{padding:10px;background:#0c1d18;border:1px solid #17352b;border-radius:11px;display:flex;gap:9px;align-items:center}.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#17342d;color:#00ffcc;font-size:11px;font-weight:900}.name{font-size:11px;font-weight:800}.small{font-size:8px;color:#71857f}.nav{margin-top:14px;display:flex;flex-direction:column;gap:2px}.nav a{padding:8px 10px;color:#849b94;border-radius:7px;font-size:10px}.nav a:hover{background:#10251f;color:#fff}.nav a.active{background:#00ffcc;color:#00100c;font-weight:900}.sidepromo{margin-top:18px;border:1px solid #17473a;border-radius:11px;padding:10px;background:linear-gradient(145deg,#102b22,#07150f)}.sidepromo b{font-size:10px}.sidepromo p{font-size:8px;color:#78918a;line-height:1.4}.content{flex:1;min-width:0;padding:20px 24px;background:#06110d}.title{font-size:22px;font-weight:900}.sub{font-size:10px;color:#81958f;margin-top:3px}.hero{min-height:145px;border-radius:15px;border:1px solid #1b493b;background:linear-gradient(105deg,#0c2a21 0%,#092019 45%,#07140f 100%);position:relative;overflow:hidden;margin-bottom:13px;padding:25px}.hero:after{content:"";position:absolute;right:-60px;top:-100px;width:330px;height:300px;background:radial-gradient(circle,rgba(0,255,204,.18),transparent 62%)}.hero h1{font-size:25px;margin:0 0 6px;position:relative;z-index:1}.hero h1 span{color:#00ffcc}.hero p{font-size:10px;color:#9bb0aa;max-width:470px;position:relative;z-index:1}.hero .hero-img{position:absolute;right:0;top:0;width:42%;height:100%;object-fit:cover;opacity:.48;mask-image:linear-gradient(to right,transparent,black 35%)}.btn{display:inline-block;border:0;background:#00ffcc;color:#00100c;padding:8px 13px;border-radius:8px;font-size:9px;font-weight:900}.btn.dark{background:#0c201a;border:1px solid #1b3d32;color:#d6e2de}.panel{background:#091913;border:1px solid #17372d;border-radius:11px;padding:13px}.grid{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.label{font-size:8px;color:#718983}.value{font-size:16px;font-weight:900;margin-top:5px}.green{color:#00ffcc}.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #143027;font-size:9px}.row:last-child{border:0}.pill{font-size:7px;padding:4px 7px;border-radius:20px;background:#103027;color:#00ffcc}.section-head{display:flex;justify-content:space-between;align-items:center;margin:15px 0 8px}.section-head b{font-size:12px}.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}.tab{padding:6px 9px;border:1px solid #17382e;background:#0a1b16;border-radius:7px;color:#819790;font-size:8px}.tab.active{background:#00ffcc;color:#00100c;font-weight:900}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.game{background:#0b1c17;border:1px solid #17372d;border-radius:9px;overflow:hidden}.game img{display:block;width:100%;aspect-ratio:1.35;object-fit:cover}.game .gp{padding:7px;font-size:8px}.game .gp small{display:block;color:#70857f;margin-top:3px;font-size:7px}.iconbox{width:30px;height:30px;border-radius:8px;background:#0e2a21;color:#00ffcc;display:grid;place-items:center}.activity{display:flex;flex-direction:column}.footer{margin-top:22px;border-top:1px solid #17342a;padding:14px 4px;color:#627a72;font-size:7px;display:flex;justify-content:space-between}.payments{color:#9ab0aa;font-size:8px}@media(max-width:900px){.toplinks{display:none}.sidebar{width:190px;flex-basis:190px}.g4{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.topbar{padding:0 12px;height:52px}.shell{display:block}.sidebar{width:100%;border-right:0;border-bottom:1px solid #17352b;padding:10px}.nav{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.sidepromo{display:none}.content{padding:12px}.topright .balance{display:none}.hero{padding:19px;min-height:135px}.hero h1{font-size:20px}.hero .hero-img{width:48%}.g3,.g2{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.footer{display:block;line-height:1.7}}<style>.np-footer{margin-top:40px;background:#07100d;border-top:1px solid #17352b;color:#d7dfdb;padding-bottom:18px}.np-trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #17352b}.np-trust>div{padding:24px 8px 22px;text-align:center;border-right:1px solid #17352b}.np-trust>div:last-child{border-right:0}.np-trust i{display:block;color:#00e785;font-size:25px;margin-bottom:9px}.np-trust strong{display:block;font-size:11px;color:#fff}.np-trust span{display:block;font-size:8px;color:#84918c;margin-top:3px}.np-footer-block{padding:22px 16px;border-bottom:1px solid #17352b}.np-footer-title{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px}.np-footer-title span:last-child{color:#aab5b0;font-size:9px;font-weight:600}.np-footer-title i{color:#00e785;margin-right:4px}.np-payments{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;width:100%;padding:1px 0 3px;box-sizing:border-box}.np-payments span{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#f4f7f5;overflow:hidden}.np-safety{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.np-safety>div{min-height:72px;padding:10px;border:1px solid #173c30;background:#0b1915;border-radius:12px}.np-safety i{color:#00e785;font-size:17px;margin-bottom:5px}.np-safety b{display:inline-flex;width:25px;height:25px;border:2px solid #00e785;border-radius:50%;align-items:center;justify-content:center;font-size:8px;color:#00e785;margin-bottom:5px}.np-safety strong{display:block;color:#fff;font-size:10px}.np-safety small{display:block;color:#7f8d87;font-size:8px;margin-top:2px}.np-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;padding:20px 14px 10px}.np-footer-links a{color:#aab5b0;font-size:9px;text-decoration:none}.np-brand{display:flex;align-items:center;justify-content:center;gap:9px;padding:8px 16px 12px}.np-brand-mark{width:30px;height:30px;border-radius:9px;background:#00e785;color:#07100d;display:flex;align-items:center;justify-content:center;font-size:22px}.np-brand strong{display:block;font-size:20px;letter-spacing:-.04em;color:#fff}.np-brand strong span{color:#00e785}.np-brand small{display:block;color:#00e785;font-size:6px;font-weight:800;letter-spacing:.18em}.np-legal,.np-copy{text-align:center;color:#68766f;font-size:8px;line-height:1.5;margin:5px 20px}.np-copy{font-size:7px;color:#4d5a55;margin-top:10px}<style>.np-payments span{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px}.np-payments img{display:none}.np-pay-logo{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center}.np-pay-logo svg{width:82px;height:27px;display:block;max-width:100%;flex:0 0 auto}.np-pay-logo.mc svg{height:30px}.np-pay-logo.mp svg{height:27px}</style></style></head><body><header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-2.5">
-        <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition"><i class="fa-solid fa-bars text-sm"></i></button>
-        <a href="index.html" class="flex items-center gap-2">
-            <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)] flex-shrink-0"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i></div>
-            <div class="leading-tight"><span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">NORDIC<span class="text-[#00e785]">PLAY</span></span><div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div></div>
-        </a>
-    </div>
-    <div class="flex items-center gap-1.5">
-        <button onclick="toggleSearchModal()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300 hover:text-[#00e785] transition relative"><i class="fa-solid fa-magnifying-glass text-xs"></i></button>
-        <button onclick="alert('Log ind')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#12201c] border border-[#1f3831] text-gray-200 hover:border-[#00e785] transition">Log ind</button>
-        <button onclick="alert('Opret')" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#0b1311] hover:bg-[#00c772] shadow-[0_0_12px_rgba(0,231,133,0.3)] transition">Opret</button>
-    </div>
-</header><div class="shell"><aside class="sidebar"><div class="profile"><div class="avatar">FM</div><div><div class="name">Frederik M.</div><div class="small">Medlem siden 2025</div></div></div><nav class="nav">
-<a class="" href="min-konto.html">⌂ &nbsp; Min konto</a><a class="" href="saldo.html">◉ &nbsp; Saldo</a><a class="" href="indbetaling.html">＋ &nbsp; Indbetaling</a><a class="" href="udbetaling.html">↗ &nbsp; Udbetaling</a><a class="active" href="transaktioner.html">≡ &nbsp; Transaktioner</a><a class="" href="campaign.html">✦ &nbsp; Bonuser</a><a class="" href="mine-spil.html">◆ &nbsp; Mine spil</a><a class="" href="favoritter.html">♡ &nbsp; Favoritter</a><a class="" href="ansvarligt-spil.html">✓ &nbsp; Ansvarligt spil</a><a class="" href="indstillinger.html">⚙ &nbsp; Indstillinger</a></nav><div class="sidepromo"><b>EKSKLUSIVE TILBUD</b><p>Tilbud og kampagner samlet ét sted.</p><a class="btn" href="campaign.html">Se kampagner</a></div></aside><main class="content"><div class="hero"><img class="hero-img" src="https://static.qasino.fun/images/games/1284.png"><h1><span>Transaktioner</span></h1><p>Se alle dine indbetalinger, udbetalinger og spil samlet ét sted.</p></div><div class="grid g4"><div class="panel"><div class="label">Indbetalinger</div><div class="value">5.200,00 kr.</div></div><div class="panel"><div class="label">Udbetalinger</div><div class="value">3.750,00 kr.</div></div><div class="panel"><div class="label">Spil</div><div class="value">-4.320,00 kr.</div></div><div class="panel"><div class="label">Netto</div><div class="value green">4.860,00 kr.</div></div></div><div class="section-head"><b>Alle transaktioner</b><a class="btn dark">Eksportér</a></div><div class="panel"><div class="tabs"><span class="tab active">Alle</span><span class="tab">Indbetalinger</span><span class="tab">Udbetalinger</span><span class="tab">Spil</span></div><div class="row"><span>20. sep. · Indbetaling · VISA</span><span class="green">+500,00 kr.</span></div><div class="row"><span>19. sep. · Spil · Sweet Bonanza</span><span class="">-125,00 kr.</span></div><div class="row"><span>18. sep. · Udbetaling · Bank</span><span class="green">+750,00 kr.</span></div><div class="row"><span>17. sep. · Spil · Big Bass Bonanza</span><span class="">-300,00 kr.</span></div><div class="row"><span>16. sep. · Indbetaling · Trustly</span><span class="green">+1.000,00 kr.</span></div><div class="row"><span>15. sep. · Spil · Gates of Olympus</span><span class="">-450,00 kr.</span></div><div class="row"><span>14. sep. · Udbetaling · Skrill</span><span class="green">+1.200,00 kr.</span></div></div><footer class="np-footer"><div class="np-trust"><div><i class="fa-solid fa-shield-halved"></i><strong>Sikker betaling</strong><span>Trygt & sikkert</span></div><div><i class="fa-solid fa-headset"></i><strong>Dansk support</strong><span>Hurtig hjælp</span></div><div><i class="fa-solid fa-crown"></i><strong>Spil med omtanke</strong><span>Ansvarligt spil</span></div><div><i class="fa-solid fa-gem"></i><strong>Stort spiludvalg</strong><span>Hundredvis af spil</span></div></div><div class="np-footer-block"><div class="np-footer-title"><span>Betalingsmetoder</span><span><i class="fa-solid fa-lock"></i> Sikker betaling</span></div><div class="np-payments"><span class="np-pay-logo visa"><svg viewBox="0 0 90 30"><text x="2" y="22" font-family="Arial,sans-serif" font-size="22" font-weight="900" font-style="italic" fill="#1434CB">VISA</text></svg></span><span class="np-pay-logo mc"><svg viewBox="0 0 60 36"><circle cx="23" cy="18" r="13" fill="#EB001B"/><circle cx="37" cy="18" r="13" fill="#F79E1B"/><path d="M30 8.2a13 13 0 0 1 0 19.6 13 13 0 0 1 0-19.6z" fill="#FF5F00"/></svg></span><span class="np-pay-logo mp"><svg viewBox="0 0 112 30"><rect x="1" y="1" width="28" height="28" rx="8" fill="#5A78FF"/><path d="M10 11.5c2.5-2.5 6.5-2.5 9 0l4 4-4 4-4-4-4 4-4-4z" fill="#fff"/><text x="34" y="20" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#5A78FF">MobilePay</text></svg></span><span class="np-pay-logo ap"><svg viewBox="0 0 92 30"><text x="2" y="21" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">Pay</text></svg></span><span class="np-pay-logo gp"><svg viewBox="0 0 105 30"><text x="2" y="21" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#4285F4">G</text><text x="21" y="21" font-family="Arial,sans-serif" font-size="16" font-weight="500" fill="#fff">Pay</text></svg></span></div></div><div class="np-footer-block"><div class="np-footer-title"><span>Licens & sikkerhed</span><span><i class="fa-solid fa-shield-halved"></i> Spil ansvarligt</span></div><div class="np-safety"><div><i class="fa-solid fa-landmark"></i><strong>Licensinformation</strong><small>Licens- og virksomhedsoplysninger</small></div><div><b>18+</b><strong>Kun for voksne</strong><small>Spil ansvarligt</small></div><div><i class="fa-solid fa-user-shield"></i><strong>ROFUS</strong><small>Selvudelukkelse</small></div><div><i class="fa-solid fa-life-ring"></i><strong>StopSpillet</strong><small>Hjælp ved spilproblemer</small></div></div></div><div class="np-footer-links"><a href="ansvarligt-spil.html">Ansvarligt spil</a><a href="vilkaar.html">Vilkår og betingelser</a><a href="privatliv.html">Privatlivspolitik</a><a href="kontakt.html">Kontakt</a></div><div class="np-brand"><span class="np-brand-mark">✦</span><div><strong>NORDIC<span>PLAY</span></strong><small>SPIL MED OM TANK E</small></div></div><p class="np-legal">Spil ansvarligt. 18+. ROFUS.dk · StopSpillet.dk</p><p class="np-copy">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p></footer></main></div><div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
-        <div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
-            <div>
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]">
-                    <div class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]">
-                            <i class="fa-solid fa-gamepad text-xs font-bold"></i>
-                        </div>
-                        <span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span>
-                    </div>
-                    <button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#12201c] flex items-center justify-center">
-                        <i class="fa-solid fa-xmark text-sm"></i>
-                    </button>
-                </div>
-                <ul class="space-y-2 text-sm font-medium">
-                    <li><a href="min-konto.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-user text-[#00e785] w-5"></i> Min konto</a></li>
-                    <li><a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Alle Spil</a></li>
-                    <li><a href="casino.html#live" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-video text-[#00e785] w-5"></i> Live Casino</a></li>
-                    <li><a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-fire text-[#00e785] w-5"></i> Spilleautomater</a></li>
-                    <li><a href="campaign.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner & Bonus</a></li>
-                    <li><a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-headset text-[#00e785] w-5"></i> Kundeservice (24/7)</a></li>
-                    <li><a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-circle-info text-[#00e785] w-5"></i> Om os & Vilkår</a></li>
-                </ul>
-            </div>
-            <div class="pt-6 border-t border-[#1f3831] space-y-3">
-                <div class="flex items-center justify-between text-xs text-gray-400">
-                    <span>Sprog: Dansk</span>
-                    <span class="text-[#00e785] font-bold">18+ ROFUS</span>
-                </div>
-                <p class="text-[10px] text-gray-600">NordicPlay mobile v2.6</p>
-            </div>
-        </div>
-    </div>
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07130f">
+<title>NordicPlay – Transaktioner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#020806;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{text-decoration:none;color:inherit}
+.app{max-width:520px;min-height:100vh;margin:auto;background:#07130f;padding-bottom:78px;overflow:hidden}
+.head{height:64px;padding:9px 13px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #17372c;background:rgba(7,19,15,.97);position:sticky;top:0;z-index:30;backdrop-filter:blur(14px)}
+.hero{margin:8px 9px 10px;min-height:154px;border:1px solid #1d5b47;border-radius:16px;overflow:hidden;position:relative;background:radial-gradient(circle at 78% 45%,rgba(0,231,133,.22),transparent 35%),linear-gradient(145deg,#0d3024,#071711 72%)}
+.hero-copy{position:relative;z-index:3;padding:19px 14px;width:68%}
+.hero h1{font-size:21px;line-height:1.02;margin:0 0 7px;font-weight:950;letter-spacing:-.04em}
+.hero h1 span{color:#00e785}
+.hero p{font-size:8px;line-height:1.45;color:#a4b7b0;margin:0;max-width:245px}
+.hero-art{position:absolute;right:-5px;top:9px;width:48%;height:136px}
+.phone{position:absolute;right:24px;top:5px;width:72px;height:126px;border:3px solid #b8fff0;border-radius:14px;background:#07130f;box-shadow:0 0 25px rgba(0,231,133,.22);transform:rotate(7deg);overflow:hidden}
+.phone:before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:22px;height:3px;border-radius:99px;background:#274d40}
+.phone-screen{padding:18px 7px 7px}
+.tx-mini{height:14px;border-radius:4px;background:#0d2a20;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;font-size:5px;color:#9ab0a8}
+.tx-mini b{color:#00e785}
+.coin{position:absolute;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:900;color:#07130f;background:#00e785;box-shadow:0 0 15px rgba(0,231,133,.3)}
+.c1{width:30px;height:30px;right:1px;top:8px}.c2{width:22px;height:22px;right:86px;bottom:4px;background:#d6b35c}.c3{width:18px;height:18px;right:10px;bottom:13px;background:#00cdb4}
+.check{position:absolute;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#07130f;border:1px solid #00e785;color:#00e785;font-size:10px}
+.k1{right:82px;top:45px}.k2{right:1px;top:76px}
+.controls{padding:0 9px}
+.filter{display:flex;gap:6px;overflow-x:auto;padding:0 0 3px;scrollbar-width:none}.filter::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:8px 11px;border:1px solid #1b4437;background:#0b1e17;border-radius:10px;color:#91a49d;font-size:8px;font-weight:800}
+.tab.active{background:#00e785;color:#04110c;border-color:#00e785}
+.period-row{display:flex;gap:7px;margin:9px 0 10px}
+.select,.export{height:38px;border:1px solid #1b4437;background:#0b1e17;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:8px;font-weight:800;color:#d6e1dc}
+.select{flex:1;justify-content:space-between;padding:0 11px}
+.export{padding:0 11px;color:#00e785}
+.panel{border:1px solid #193d31;border-radius:14px;overflow:hidden;background:#091b15}
+.panel-head{padding:12px 11px;border-bottom:1px solid #17362b;display:flex;justify-content:space-between;align-items:center}
+.panel-head b{font-size:11px}.panel-head span{font-size:7px;color:#7f938c}
+.tx{min-height:65px;padding:9px 10px;display:flex;align-items:center;gap:9px;border-bottom:1px solid #17362b}
+.tx:last-child{border-bottom:0}
+.tx-icon{width:34px;height:34px;flex:0 0 34px;border-radius:10px;display:grid;place-items:center;background:#0d2a21;color:#00e785;font-size:13px}
+.tx-icon.out{color:#ffbd70;background:#2a2115}.tx-icon.game{color:#a9b7ff;background:#151b2d}.tx-icon.bonus{color:#ffd45c;background:#2a2413}
+.tx-copy{min-width:0;flex:1}.tx-title{font-size:9px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tx-date{font-size:7px;color:#7f938c;margin-top:3px}.status{display:inline-flex;font-size:6px;font-weight:900;padding:3px 6px;border-radius:99px;margin-top:4px;background:#0d3025;color:#00e785}.status.pending{background:#302715;color:#ffc875}
+.tx-amount{text-align:right;font-size:9px;font-weight:900;white-space:nowrap}.plus{color:#00e785}.minus{color:#f0e5df}
+.more{width:100%;height:39px;border:1px solid #1d5b47;border-radius:10px;background:#0b2119;color:#00e785;font-size:8px;font-weight:900;margin-top:9px}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
+.sum{padding:11px 8px;border:1px solid #193d31;background:#091b15;border-radius:12px}.sum-label{font-size:6px;color:#778b84;line-height:1.2}.sum-value{font-size:10px;font-weight:900;margin-top:5px}.sum-value.green{color:#00e785}
+.np-footer{margin-top:18px;background:#07100d;border-top:1px solid #17352b;color:#d7dfdb;padding-bottom:18px}
+.np-trust{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:1px solid #17352b}.np-trust>div{padding:18px 7px;text-align:center;border-right:1px solid #17352b;border-bottom:1px solid #17352b}.np-trust>div:nth-child(2n){border-right:0}.np-trust i{display:block;color:#00e785;font-size:20px;margin-bottom:6px}.np-trust strong{display:block;font-size:9px}.np-trust span{display:block;font-size:7px;color:#84918c;margin-top:2px}
+.np-footer-block{padding:18px 10px;border-bottom:1px solid #17352b}.np-footer-title{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:800;margin-bottom:11px}.np-footer-title span:last-child{color:#aab5b0;font-size:7px}.np-footer-title i{color:#00e785}
+.np-payments{display:flex;gap:7px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none}.np-payments::-webkit-scrollbar{display:none}.np-pay-logo{flex:0 0 104px;width:104px;height:52px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 10px}.np-pay-logo svg{width:82px;height:27px;display:block}
+.np-safety{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.np-safety>div{min-height:66px;padding:9px;border:1px solid #173c30;background:#0b1915;border-radius:11px}.np-safety i{color:#00e785;font-size:14px;margin-bottom:4px}.np-safety b{display:flex;width:23px;height:23px;border:2px solid #00e785;border-radius:50%;align-items:center;justify-content:center;font-size:7px;color:#00e785;margin-bottom:4px}.np-safety strong{display:block;font-size:8px}.np-safety small{display:block;color:#7f8d87;font-size:7px;margin-top:2px}.np-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;padding:17px 10px 8px}.np-footer-links a{color:#aab5b0;font-size:7px}.np-brand{display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px 9px}.np-brand-mark{width:27px;height:27px;border-radius:8px;background:#00e785;color:#07100d;display:flex;align-items:center;justify-content:center;font-size:19px}.np-brand strong{font-size:17px}.np-brand strong span{color:#00e785}.np-brand small{display:block;color:#00e785;font-size:5px;letter-spacing:.15em}.np-legal,.np-copy{text-align:center;color:#68766f;font-size:7px;line-height:1.45;margin:4px 15px}.np-copy{font-size:6px;color:#4d5a55;margin-top:8px}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:68px;background:rgba(6,16,12,.98);border-top:1px solid #1b3b31;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);padding:5px}.bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#9aaba5;font-size:7px;font-weight:700;border-radius:12px}.bottom i{font-size:17px}.bottom .active{background:linear-gradient(180deg,#0bdc88,#00b96e);color:#03110b}
+@media(min-width:521px){body{background:#020806}.app{box-shadow:0 0 70px rgba(0,0,0,.45)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
+  <div class="flex items-center gap-2.5">
+    <button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200"><i class="fa-solid fa-bars text-sm"></i></button>
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)]"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i></div>
+      <div class="leading-tight"><span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">NORDIC<span class="text-[#00e785]">PLAY</span></span><div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div></div>
+    </a>
+  </div>
+  <div class="flex items-center gap-1.5">
+    <button class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300"><i class="fa-solid fa-magnifying-glass text-xs"></i></button>
+    <button onclick="openMenu()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300"><i class="fa-solid fa-bars text-sm"></i></button>
+  </div>
+</header>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#12201c] border border-[#00e785] text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-[#00e785]"></i>
-        <span id="toast-msg">Handlingen lykkedes</span>
-    </div>
+<section class="hero">
+  <div class="hero-copy">
+    <h1><span>Transaktioner</span></h1>
+    <p>Fuld overblik over dine indbetalinger, udbetalinger, spil og bonusser – samlet ét sted.</p>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="phone"><div class="phone-screen">
+      <div class="tx-mini"><span>Indbetaling</span><b>+1.000</b></div>
+      <div class="tx-mini"><span>Spil</span><span>-20</span></div>
+      <div class="tx-mini"><span>Bonus</span><b>+100</b></div>
+      <div class="tx-mini"><span>Udbetaling</span><span>-2.500</span></div>
+      <div class="tx-mini"><span>Spil</span><span>-50</span></div>
+    </div></div>
+    <div class="coin c1">✓</div><div class="coin c2">kr</div><div class="coin c3">+</div>
+    <div class="check k1"><i class="fa-solid fa-check"></i></div><div class="check k2"><i class="fa-solid fa-check"></i></div>
+  </div>
+</section>
 
-    <!-- JavaScript Application Logic -->\n<script>
-function openMenuDrawer(){const d=document.getElementById('menu-drawer');if(d){d.classList.remove('hidden');d.classList.add('flex');}}
-function closeMenuDrawer(){const d=document.getElementById('menu-drawer');if(d){d.classList.remove('flex');d.classList.add('hidden');}}
-</script></body></html>
+<section class="controls">
+  <div class="filter">
+    <button class="tab active" onclick="setFilter(this)">Alle</button>
+    <button class="tab" onclick="setFilter(this)">Indbetalinger</button>
+    <button class="tab" onclick="setFilter(this)">Udbetalinger</button>
+    <button class="tab" onclick="setFilter(this)">Spil</button>
+    <button class="tab" onclick="setFilter(this)">Bonusser</button>
+  </div>
+  <div class="period-row">
+    <button class="select"><span><i class="fa-regular fa-calendar" style="color:#00e785;margin-right:5px"></i>Seneste 30 dage</span><i class="fa-solid fa-chevron-down" style="font-size:7px"></i></button>
+    <button class="export" onclick="exportTransactions()"><i class="fa-solid fa-file-arrow-down"></i> Eksporter</button>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><b>Transaktioner</b><span>Seneste aktivitet</span></div>
+    <div class="tx" data-type="Indbetalinger"><div class="tx-icon"><i class="fa-solid fa-arrow-down"></i></div><div class="tx-copy"><div class="tx-title">Indbetaling</div><div class="tx-date">20. sep. 2026 · 14:32</div><span class="status">Gennemført</span></div><div class="tx-amount plus">+ 1.000,00 kr.</div></div>
+    <div class="tx" data-type="Spil"><div class="tx-icon game"><i class="fa-solid fa-dice"></i></div><div class="tx-copy"><div class="tx-title">Spil – Book of Dead</div><div class="tx-date">20. sep. 2026 · 13:54</div><span class="status">Gennemført</span></div><div class="tx-amount minus">- 20,00 kr.</div></div>
+    <div class="tx" data-type="Bonusser"><div class="tx-icon bonus"><i class="fa-solid fa-gift"></i></div><div class="tx-copy"><div class="tx-title">Bonus tildelt</div><div class="tx-date">19. sep. 2026 · 10:12</div><span class="status">Gennemført</span></div><div class="tx-amount plus">+ 100,00 kr.</div></div>
+    <div class="tx" data-type="Udbetalinger"><div class="tx-icon out"><i class="fa-solid fa-arrow-up"></i></div><div class="tx-copy"><div class="tx-title">Udbetaling</div><div class="tx-date">18. sep. 2026 · 16:20</div><span class="status pending">Under behandling</span></div><div class="tx-amount minus">- 2.500,00 kr.</div></div>
+    <div class="tx" data-type="Spil"><div class="tx-icon game"><i class="fa-solid fa-dice"></i></div><div class="tx-copy"><div class="tx-title">Spil – Gates of Olympus</div><div class="tx-date">18. sep. 2026 · 14:11</div><span class="status">Gennemført</span></div><div class="tx-amount minus">- 50,00 kr.</div></div>
+    <div class="tx" data-type="Indbetalinger"><div class="tx-icon"><i class="fa-solid fa-arrow-down"></i></div><div class="tx-copy"><div class="tx-title">Indbetaling</div><div class="tx-date">17. sep. 2026 · 09:15</div><span class="status">Gennemført</span></div><div class="tx-amount plus">+ 500,00 kr.</div></div>
+  </div>
+  <button class="more" onclick="showMore()">Vis flere transaktioner</button>
+
+  <div class="summary">
+    <div class="sum"><div class="sum-label">Total indbetalinger</div><div class="sum-value green">5.250,00 kr.</div></div>
+    <div class="sum"><div class="sum-label">Total udbetalinger</div><div class="sum-value">2.500,00 kr.</div></div>
+    <div class="sum"><div class="sum-label">Total spil</div><div class="sum-value">1.340,00 kr.</div></div>
+  </div>
+</section>
+
+<footer class="np-footer">
+  <div class="np-trust"><div><i class="fa-solid fa-shield-halved"></i><strong>Sikker betaling</strong><span>Trygt & sikkert</span></div><div><i class="fa-solid fa-headset"></i><strong>Dansk support</strong><span>Hurtig hjælp</span></div><div><i class="fa-solid fa-crown"></i><strong>Spil med omtanke</strong><span>Ansvarligt spil</span></div><div><i class="fa-solid fa-gem"></i><strong>Stort spiludvalg</strong><span>Hundredvis af spil</span></div></div>
+  <div class="np-footer-block"><div class="np-footer-title"><span>Betalingsmetoder</span><span><i class="fa-solid fa-lock"></i> Sikker betaling</span></div><div class="np-payments">
+    <div class="np-pay-logo"><img src="image/payment-visa.svg" alt="Visa" style="max-width:82px;max-height:27px"></div>
+    <div class="np-pay-logo"><img src="image/payment-mastercard.svg" alt="Mastercard" style="max-width:82px;max-height:30px"></div>
+    <div class="np-pay-logo"><img src="image/payment-applepay.svg" alt="Apple Pay" style="max-width:82px;max-height:27px"></div>
+    <div class="np-pay-logo"><img src="image/payment-googlepay.svg" alt="Google Pay" style="max-width:82px;max-height:27px"></div>
+    <div class="np-pay-logo"><img src="image/payment-trustly.svg" alt="Trustly" style="max-width:82px;max-height:27px"></div>
+    <div class="np-pay-logo"><img src="image/payment-skrill.svg" alt="Skrill" style="max-width:82px;max-height:27px"></div>
+    <div class="np-pay-logo"><img src="image/payment-neteller.svg" alt="Neteller" style="max-width:82px;max-height:27px"></div>
+  </div></div>
+  <div class="np-footer-block"><div class="np-footer-title"><span>Licens & sikkerhed</span><span><i class="fa-solid fa-shield-halved"></i> Spil ansvarligt</span></div><div class="np-safety"><div><i class="fa-solid fa-landmark"></i><strong>Licensinformation</strong><small>Licens- og virksomhedsoplysninger</small></div><div><b>18+</b><strong>Kun for voksne</strong><small>Spil ansvarligt</small></div><div><i class="fa-solid fa-user-shield"></i><strong>ROFUS</strong><small>Selvudelukkelse</small></div><div><i class="fa-solid fa-life-ring"></i><strong>StopSpillet</strong><small>Hjælp ved spilproblemer</small></div></div></div>
+  <div class="np-footer-links"><a href="ansvarligt-spil.html">Ansvarligt spil</a><a href="vilkaar.html">Vilkår og betingelser</a><a href="privatliv.html">Privatlivspolitik</a><a href="kontakt.html">Kontakt</a></div>
+  <div class="np-brand"><span class="np-brand-mark">✦</span><div><strong>NORDIC<span>PLAY</span></strong><small>SPIL MED OM TANK E</small></div></div>
+  <p class="np-legal">Spil ansvarligt. 18+. ROFUS.dk · StopSpillet.dk</p><p class="np-copy">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
+</footer>
+
+<nav class="bottom">
+  <a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a>
+  <a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a>
+  <a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a>
+  <a href="min-konto.html" class="active"><i class="fa-regular fa-user"></i><span>Min konto</span></a>
+  <a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a>
+</nav>
+
+<div id="drawer" class="fixed inset-0 z-50 hidden bg-black/80">
+ <div class="w-[86%] max-w-[390px] h-full bg-[#091712] border-r border-[#1c4034] p-5 overflow-y-auto">
+  <div class="flex justify-between items-center pb-4 border-b border-[#1b392f]"><b class="text-lg">NORDIC<span class="text-[#00e785]">PLAY</span></b><button onclick="closeMenu()" class="w-9 h-9 rounded-xl bg-[#10231c]"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="mt-5 space-y-2">
+   <a href="min-konto.html" class="block p-3 rounded-xl text-gray-200">Min konto</a><a href="saldo.html" class="block p-3 rounded-xl text-gray-200">Saldo</a><a href="indbetaling.html" class="block p-3 rounded-xl text-gray-200">Indbetaling</a><a href="udbetaling.html" class="block p-3 rounded-xl text-gray-200">Udbetaling</a><a href="transaktioner.html" class="block p-3 rounded-xl bg-[#0e2a21] text-[#00e785]">Transaktioner</a><a href="campaign.html" class="block p-3 rounded-xl text-gray-200">Bonuser</a><a href="mine-spil.html" class="block p-3 rounded-xl text-gray-200">Mine spil</a><a href="favoritter.html" class="block p-3 rounded-xl text-gray-200">Favoritter</a><a href="ansvarligt-spil.html" class="block p-3 rounded-xl text-gray-200">Ansvarligt spil</a><a href="indstillinger.html" class="block p-3 rounded-xl text-gray-200">Indstillinger</a>
+  </div>
+ </div>
+</div>
+<script>
+function openMenu(){document.getElementById('drawer').classList.remove('hidden')}
+function closeMenu(){document.getElementById('drawer').classList.add('hidden')}
+function setFilter(btn){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.textContent.trim();document.querySelectorAll('.tx').forEach(x=>x.style.display=(f==='Alle'||x.dataset.type===f)?'flex':'none')}
+function showMore(){const b=document.querySelector('.more');b.textContent='Alle transaktioner er vist';b.disabled=true;b.style.opacity='.55'}
+function exportTransactions(){alert('Eksport af transaktioner bliver tilgængelig, når kontoen er koblet til betalings- og kontosystemet.')}
+</script>
+</div>
+</body>
+</html>
