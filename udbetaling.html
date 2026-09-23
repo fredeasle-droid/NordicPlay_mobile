@@ -1,98 +1,28 @@
 <!doctype html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NordicPlay - Udbetaling</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#06110d;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit}
-.header{height:112px;background:#06110d;border-bottom:1px solid #15372b;display:flex;align-items:center;justify-content:space-between;padding:0 55px}.logo{display:flex;align-items:center;gap:18px}.mark{width:84px;height:84px;border-radius:22px;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:36px}.brand{font-size:37px;font-weight:950;letter-spacing:-.055em}.brand span{color:#00e785}.tag{font-size:13px;color:#9aa9a3;letter-spacing:.16em;margin-top:2px}.head-actions{display:flex;gap:12px}.head-btn{width:58px;height:58px;border:1px solid #153d30;border-radius:16px;background:#0b1b15;color:#fff;display:grid;place-items:center;font-size:28px}
-.page{max-width:1024px;margin:auto;padding-bottom:92px}.hero img{display:block;width:100%;height:auto}.section{margin:0 38px;background:#071510;border:1px solid #164638;border-radius:22px;padding:25px 27px}.methods{margin-top:-4px;border-top-left-radius:22px;border-top-right-radius:22px}.section+.section{margin-top:0;border-top:0;border-radius:0 0 22px 22px}.section-title{font-size:29px;font-weight:900;margin-bottom:20px}.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.method{height:138px;border:1px solid #173e31;background:#091b15;border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:#fff}.method.active{border:2px solid #00e785;background:#0a2119}.bank-icon{font-size:38px}.method-logo{height:31px;max-width:145px;object-fit:contain}.method-name{font-size:18px;font-weight:800}.method-time{font-size:15px;color:#a7b5af}.check{position:absolute;right:10px;top:9px;width:32px;height:32px;border-radius:50%;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:16px}.method{position:relative}
-.amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.amount{height:69px;border:1px solid #184638;background:#0a1d17;border-radius:14px;color:#fff;font-size:20px}.amount.active{background:#00e785;color:#06110d;border-color:#00e785;font-weight:950}.other{height:64px;margin-top:12px;border:1px solid #184638;background:#0a1d17;border-radius:14px;display:flex;align-items:center;gap:15px;padding:0 23px;color:#b4c0bb;font-size:17px}.other i{font-size:25px}.account{margin:0 38px;background:#071510;border:1px solid #164638;border-radius:0 0 22px 22px;padding:25px 27px}.account-title{font-size:25px;font-weight:900;margin-bottom:14px}.account-row{height:92px;border:1px solid #184638;background:#0a1d17;border-radius:16px;display:flex;align-items:center;padding:0 18px;gap:16px}.account-icon{width:54px;height:54px;border-radius:50%;background:#0e3428;color:#00e785;display:grid;place-items:center;font-size:28px}.account-main strong{font-size:20px}.account-main small{display:block;color:#9caaa4;font-size:16px;margin-top:2px}.change{margin-left:auto;border:1px solid #214f40;background:#0b2019;border-radius:13px;padding:11px 18px;color:#dce4e0;font-size:16px}.safe{margin-top:18px;display:flex;gap:16px;align-items:center;border:1px solid #184638;background:#0a1d17;border-radius:16px;padding:16px 19px}.safe-icon{font-size:37px;color:#00e785}.safe strong{font-size:17px}.safe span{display:block;color:#a3b1ab;font-size:15px;margin-top:3px}.cta{width:100%;height:70px;margin-top:18px;border:0;border-radius:14px;background:#00e785;color:#06110d;font-size:25px;font-weight:950}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1024px;height:88px;background:#07120ef7;border-top:1px solid #17382d;display:grid;grid-template-columns:repeat(5,1fr);z-index:50}.bottom a{color:#a5b1ad;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:15px;font-weight:800}.bottom i{font-size:30px}.bottom a.active{color:#06110d;background:#00e785;margin:8px 11px;border-radius:20px}.bottom a.active i{font-size:26px}
-.drawer{position:fixed;inset:0;background:#000b;z-index:100;display:none}.drawer.open{display:block}.drawer-panel{width:340px;max-width:82%;height:100%;background:#0b1311;border-right:1px solid #1f3831;padding:24px}.drawer a{display:flex;gap:12px;align-items:center;color:#dce5e1;text-decoration:none;padding:13px;border-radius:10px;font-size:14px}.drawer a i{width:20px;color:#00e785}.close{float:right;background:#12201c;border:1px solid #1f3831;color:#fff;border-radius:9px;width:38px;height:38px}.drawer-title{font-size:20px;font-weight:950;margin:10px 0 25px}.drawer-title span{color:#00e785}
-@media(max-width:700px){.header{height:112px;padding:0 16px}.mark{width:84px;height:84px}.brand{font-size:27px}.tag{font-size:10px}.head-btn{width:56px;height:56px;font-size:25px}.page{width:100%}.section,.account{margin-left:38px;margin-right:38px;padding:21px 18px}.section-title{font-size:27px}.method-grid{gap:13px}.method{height:138px}.method-name{font-size:16px}.method-time{font-size:14px}.amount{font-size:19px}.bottom{height:88px}.bottom a{font-size:13px}.bottom i{font-size:27px}}
-@media(max-width:520px){.header{height:112px}.logo{gap:14px}.mark{width:89px;height:89px;border-radius:24px}.brand{font-size:25px}.tag{font-size:9px}.head-actions{gap:8px}.head-btn{width:55px;height:55px}.hero img{width:100%;height:auto}.section,.account{margin-left:38px;margin-right:38px}.method-grid{grid-template-columns:repeat(2,1fr);gap:12px}.method{height:138px}.section-title{font-size:25px}.amount-grid{gap:10px}.amount{height:68px;font-size:18px}.other{font-size:15px}.account-title{font-size:24px}.account-row{height:92px}.account-main strong{font-size:18px}.change{font-size:14px;padding:10px 14px}.safe span{font-size:14px}.cta{font-size:21px}.bottom a{font-size:12px}.bottom a.active{margin:8px 6px}}
+*{box-sizing:border-box}body{margin:0;background:#06110d;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.header{height:112px;background:#06110d;border-bottom:1px solid #15372b;display:flex;align-items:center;justify-content:space-between;padding:0 55px}.logo{display:flex;align-items:center;gap:18px}.mark{width:84px;height:84px;border-radius:22px;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:36px}.brand{font-size:37px;font-weight:950;letter-spacing:-.055em}.brand span{color:#00e785}.tag{font-size:13px;color:#9aa9a3;letter-spacing:.16em}.head-actions{display:flex;gap:12px}.head-btn{width:58px;height:58px;border:1px solid #153d30;border-radius:16px;background:#0b1b15;color:#fff;display:grid;place-items:center;font-size:28px}.page{max-width:1024px;margin:auto;padding-bottom:92px}.hero{height:285px;overflow:hidden;position:relative}.hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 58%,#06110d 100%)}.hero-title{position:absolute;left:62px;bottom:34px;z-index:2;font-size:48px;font-weight:950}.hero-sub{position:absolute;left:62px;bottom:9px;z-index:2;font-size:21px;color:#d1d9d5;font-weight:700}.section{margin:0 38px;background:#071510;border:1px solid #164638;border-radius:22px;padding:25px 27px}.section+.section{margin-top:0;border-top:0;border-radius:0 0 22px 22px}.section-title{font-size:29px;font-weight:900;margin-bottom:20px}.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.method{height:138px;border:1px solid #173e31;background:#091b15;border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:#fff;position:relative}.method.active{border:2px solid #00e785;background:#0a2119}.bank-icon{font-size:38px}.method-logo{height:31px;max-width:145px;object-fit:contain}.method-name{font-size:18px;font-weight:800}.method-time{font-size:15px;color:#a7b5af}.check{position:absolute;right:10px;top:9px;width:32px;height:32px;border-radius:50%;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:16px}.amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.amount{height:69px;border:1px solid #184638;background:#0a1d17;border-radius:14px;color:#fff;font-size:20px}.amount.active{background:#00e785;color:#06110d;border-color:#00e785;font-weight:950}.other{height:64px;margin-top:12px;border:1px solid #184638;background:#0a1d17;border-radius:14px;display:flex;align-items:center;gap:15px;padding:0 23px;color:#b4c0bb;font-size:17px}.account{margin:0 38px;background:#071510;border:1px solid #164638;border-radius:0 0 22px 22px;padding:25px 27px}.account-title{font-size:25px;font-weight:900;margin-bottom:14px}.account-row{height:92px;border:1px solid #184638;background:#0a1d17;border-radius:16px;display:flex;align-items:center;padding:0 18px;gap:16px}.account-icon{width:54px;height:54px;border-radius:50%;background:#0e3428;color:#00e785;display:grid;place-items:center;font-size:28px}.account-main strong{font-size:20px}.account-main small{display:block;color:#9caaa4;font-size:16px;margin-top:2px}.change{margin-left:auto;border:1px solid #214f40;background:#0b2019;border-radius:13px;padding:11px 18px;color:#dce4e0;font-size:16px}.safe{margin-top:18px;display:flex;gap:16px;align-items:center;border:1px solid #184638;background:#0a1d17;border-radius:16px;padding:16px 19px}.safe-icon{font-size:37px;color:#00e785}.safe strong{font-size:17px}.safe span{display:block;color:#a3b1ab;font-size:15px;margin-top:3px}.cta{width:100%;height:70px;margin-top:18px;border:0;border-radius:14px;background:#00e785;color:#06110d;font-size:25px;font-weight:950}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1024px;height:88px;background:#07120ef7;border-top:1px solid #17382d;display:grid;grid-template-columns:repeat(5,1fr);z-index:50}.bottom a{color:#a5b1ad;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:15px;font-weight:800}.bottom i{font-size:30px}.bottom a.active{color:#06110d;background:#00e785;margin:8px 11px;border-radius:20px}.bottom a.active i{font-size:26px}@media(max-width:700px){.header{height:112px;padding:0 16px}.mark{width:84px;height:84px}.brand{font-size:27px}.tag{font-size:10px}.head-btn{width:56px;height:56px;font-size:25px}.hero{height:285px}.hero-title{left:62px;bottom:48px;font-size:42px}.hero-sub{left:62px;bottom:18px;font-size:18px}.section,.account{margin-left:38px;margin-right:38px;padding:21px 18px}.section-title{font-size:27px}.method-grid{gap:13px}.method{height:138px}.method-name{font-size:16px}.method-time{font-size:14px}.amount{font-size:19px}.bottom{height:88px}.bottom a{font-size:13px}.bottom i{font-size:27px}}@media(max-width:520px){.hero-title{left:62px;font-size:35px}.hero-sub{left:62px;font-size:15px}.method-grid{grid-template-columns:repeat(2,1fr);gap:12px}.method{height:138px}.section-title{font-size:25px}.amount-grid{gap:10px}.amount{height:68px;font-size:18px}.other{font-size:15px}.account-title{font-size:24px}.account-main strong{font-size:18px}.change{font-size:14px;padding:10px 14px}.safe span{font-size:14px}.cta{font-size:21px}.bottom a{font-size:12px}.bottom a.active{margin:8px 6px}}
 </style>
 </head>
 <body>
-<header class="header">
-  <a href="index.html" class="logo">
-    <div class="mark"><i class="fa-solid fa-gamepad"></i></div>
-    <div><div class="brand">NORDIC<span>PLAY</span></div><div class="tag">SPIL MED OM T A N K E ·</div></div>
-  </a>
-  <div class="head-actions"><button class="head-btn"><i class="fa-solid fa-magnifying-glass"></i></button><button class="head-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
-</header>
-
+<header class="header"><a href="index.html" class="logo"><div class="mark"><i class="fa-solid fa-gamepad"></i></div><div><div class="brand">NORDIC<span>PLAY</span></div><div class="tag">SPIL MED OM T A N K E ·</div></div></a><div class="head-actions"><button class="head-btn"><i class="fa-solid fa-magnifying-glass"></i></button><button class="head-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div></header>
 <main class="page">
-  <section class="hero"><img src="image/udbetaling-hero.jpg" alt="NordicPlay udbetaling"></section>
-
-  <section class="section methods">
-    <div class="section-title">Vælg udbetalingsmetode</div>
-    <div class="method-grid">
-      <button class="method active" onclick="selectMethod(this)"><span class="check"><i class="fa-solid fa-check"></i></span><i class="fa-solid fa-building-columns bank-icon"></i><span class="method-name">Bankoverførsel</span><span class="method-time">1–3 hverdage</span></button>
-      <button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-trustly.svg" alt="Trustly"><span class="method-time">Inden for 24t</span></button>
-      <button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-skrill.svg" alt="Skrill"><span class="method-time">Inden for 24t</span></button>
-      <button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-neteller.svg" alt="Neteller"><span class="method-time">Inden for 24t</span></button>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-title">Vælg beløb</div>
-    <div class="amount-grid">
-      <button class="amount" onclick="selectAmount(this)">100 kr.</button>
-      <button class="amount" onclick="selectAmount(this)">500 kr.</button>
-      <button class="amount active" onclick="selectAmount(this)">1.000 kr.</button>
-      <button class="amount" onclick="selectAmount(this)">2.500 kr.</button>
-      <button class="amount" onclick="selectAmount(this)">5.000 kr.</button>
-      <button class="amount" onclick="selectAmount(this)">10.000 kr.</button>
-    </div>
-    <button class="other" onclick="document.getElementById('custom').focus()"><i class="fa-solid fa-pen"></i><span>Andet beløb (min. 100 kr.)</span></button>
-    <input id="custom" type="number" min="100" placeholder=" " style="position:absolute;opacity:0;pointer-events:none">
-  </section>
-
-  <section class="account">
-    <div class="account-title">Modtagende konto</div>
-    <div class="account-row">
-      <div class="account-icon"><i class="fa-solid fa-building-columns"></i></div>
-      <div class="account-main"><strong>Dansk bankkonto</strong><small>•••• 3456</small></div>
-      <button class="change" onclick="changeAccount()">Ændre konto <i class="fa-solid fa-chevron-right ml-2"></i></button>
-    </div>
-    <div class="safe"><div class="safe-icon"><i class="fa-solid fa-shield-halved"></i></div><div><strong>Sikker udbetaling</strong><span>Udbetalinger behandles sikkert og sendes normalt<br class="hidden sm:block"> inden for 1–3 hverdage.</span></div></div>
-    <button class="cta" onclick="requestWithdrawal()">Anmod om udbetaling <i class="fa-solid fa-chevron-right ml-2"></i></button>
-  </section>
+<section class="hero"><img src="image/02-viking-kiste.png" alt="NordicPlay udbetaling"><div class="hero-title">Udbetaling</div><div class="hero-sub">Hurtig, sikker og nem udbetaling af dine gevinster.</div></section>
+<section class="section"><div class="section-title">Vælg udbetalingsmetode</div><div class="method-grid">
+<button class="method active" onclick="selectMethod(this)"><span class="check"><i class="fa-solid fa-check"></i></span><i class="fa-solid fa-building-columns bank-icon"></i><span class="method-name">Bankoverførsel</span><span class="method-time">1–3 hverdage</span></button>
+<button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-trustly.svg" alt="Trustly"><span class="method-time">Inden for 24t</span></button>
+<button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-skrill.svg" alt="Skrill"><span class="method-time">Inden for 24t</span></button>
+<button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-neteller.svg" alt="Neteller"><span class="method-time">Inden for 24t</span></button>
+</div></section>
+<section class="section"><div class="section-title">Vælg beløb</div><div class="amount-grid"><button class="amount">100 kr.</button><button class="amount">500 kr.</button><button class="amount active">1.000 kr.</button><button class="amount">2.500 kr.</button><button class="amount">5.000 kr.</button><button class="amount">10.000 kr.</button></div><button class="other"><i class="fa-solid fa-pen"></i>Andet beløb (min. 100 kr.)</button></section>
+<section class="account"><div class="account-title">Modtagende konto</div><div class="account-row"><div class="account-icon"><i class="fa-solid fa-building-columns"></i></div><div class="account-main"><strong>Dansk bankkonto</strong><small>•••• 3456</small></div><button class="change">Ændre konto <i class="fa-solid fa-chevron-right"></i></button></div><div class="safe"><div class="safe-icon"><i class="fa-solid fa-shield-halved"></i></div><div><strong>Sikker udbetaling</strong><span>Udbetalinger behandles sikkert og sendes normalt inden for 1–3 hverdage.</span></div></div><button class="cta">Anmod om udbetaling <i class="fa-solid fa-chevron-right"></i></button></section>
 </main>
-
-<nav class="bottom">
-  <a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a>
-  <a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a>
-  <a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a>
-  <a class="active" href="min-konto.html"><i class="fa-solid fa-user"></i><span>Min konto</span></a>
-  <a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a>
-</nav>
-
-<div id="drawer" class="drawer" onclick="if(event.target===this)closeMenu()">
-  <div class="drawer-panel">
-    <button class="close" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></button>
-    <div class="drawer-title">NORDIC<span>PLAY</span></div>
-    <a href="min-konto.html"><i class="fa-solid fa-user"></i>Min konto</a>
-    <a href="saldo.html"><i class="fa-solid fa-wallet"></i>Saldo</a>
-    <a href="indbetaling.html"><i class="fa-solid fa-plus"></i>Indbetaling</a>
-    <a href="udbetaling.html"><i class="fa-solid fa-arrow-up-right-from-square"></i>Udbetaling</a>
-    <a href="transaktioner.html"><i class="fa-solid fa-receipt"></i>Transaktioner</a>
-    <a href="campaign.html"><i class="fa-solid fa-gift"></i>Bonuser</a>
-    <a href="favoritter.html"><i class="fa-solid fa-heart"></i>Favoritter</a>
-    <a href="indstillinger.html"><i class="fa-solid fa-gear"></i>Indstillinger</a>
-  </div>
-</div>
-<script>
-function selectMethod(btn){document.querySelectorAll('.method').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
-function selectAmount(btn){document.querySelectorAll('.amount').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
-function changeAccount(){alert('Her åbnes flowet til at ændre den registrerede udbetalingskonto.')}
-function requestWithdrawal(){alert('Udbetalingsanmodningen er klar til bekræftelse.')}
-function openMenu(){document.getElementById('drawer').classList.add('open')}
-function closeMenu(){document.getElementById('drawer').classList.remove('open')}
-</script>
-</body>
-</html>
+<nav class="bottom"><a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a><a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a><a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a><a class="active" href="min-konto.html"><i class="fa-solid fa-user"></i><span>Min konto</span></a><a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a></nav>
+<div id="drawer" style="display:none;position:fixed;inset:0;background:#000b;z-index:100" onclick="if(event.target===this)closeMenu()"><div style="width:340px;max-width:82%;height:100%;background:#0b1311;border-right:1px solid #1f3831;padding:24px"><button onclick="closeMenu()" style="float:right;background:#12201c;border:1px solid #1f3831;color:#fff;border-radius:9px;width:38px;height:38px"><i class="fa-solid fa-xmark"></i></button><div style="font-size:20px;font-weight:950;margin:10px 0 25px">NORDIC<span style="color:#00e785">PLAY</span></div><a href="min-konto.html">Min konto</a><a href="saldo.html">Saldo</a><a href="indbetaling.html">Indbetaling</a><a href="udbetaling.html">Udbetaling</a><a href="transaktioner.html">Transaktioner</a><a href="favoritter.html">Favoritter</a><a href="indstillinger.html">Indstillinger</a></div></div>
+<script>function selectMethod(b){document.querySelectorAll('.method').forEach(x=>x.classList.remove('active'));b.classList.add('active')}function openMenu(){document.getElementById('drawer').style.display='block'}function closeMenu(){document.getElementById('drawer').style.display='none'}</script>
+</body></html>
