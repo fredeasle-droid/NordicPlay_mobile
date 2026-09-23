@@ -1,130 +1,78 @@
-<!doctype html><html lang="da"><head><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NordicPlay - Ansvarligt spil</title><style>
-*{box-sizing:border-box}body{margin:0;background:#06110d;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{text-decoration:none}.app{min-height:100vh;background:#06110d}.topbar{height:58px;background:#07140f;border-bottom:1px solid #16342a;display:flex;align-items:center;padding:0 22px;gap:25px;position:sticky;top:0;z-index:10}.logo{font-weight:900;letter-spacing:-.5px;font-size:15px}.logo b{color:#00ffcc}.toplinks{display:flex;gap:18px;font-size:10px;color:#8ca29b}.toplinks a{color:inherit}.topright{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:10px}.balance{background:#0d2b22;border:1px solid #1a4a3c;color:#00ffcc;padding:7px 10px;border-radius:8px;font-weight:800}.flag{font-size:14px}.shell{display:flex;min-height:calc(100vh - 58px)}.sidebar{width:235px;flex:0 0 235px;background:#07120e;border-right:1px solid #17352b;padding:15px 10px}.profile{padding:10px;background:#0c1d18;border:1px solid #17352b;border-radius:11px;display:flex;gap:9px;align-items:center}.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#17342d;color:#00ffcc;font-size:11px;font-weight:900}.name{font-size:11px;font-weight:800}.small{font-size:8px;color:#71857f}.nav{margin-top:14px;display:flex;flex-direction:column;gap:2px}.nav a{padding:8px 10px;color:#849b94;border-radius:7px;font-size:10px}.nav a:hover{background:#10251f;color:#fff}.nav a.active{background:#00ffcc;color:#00100c;font-weight:900}.sidepromo{margin-top:18px;border:1px solid #17473a;border-radius:11px;padding:10px;background:linear-gradient(145deg,#102b22,#07150f)}.sidepromo b{font-size:10px}.sidepromo p{font-size:8px;color:#78918a;line-height:1.4}.content{flex:1;min-width:0;padding:20px 24px;background:#06110d}.title{font-size:22px;font-weight:900}.sub{font-size:10px;color:#81958f;margin-top:3px}.hero{min-height:145px;border-radius:15px;border:1px solid #1b493b;background:linear-gradient(105deg,#0c2a21 0%,#092019 45%,#07140f 100%);position:relative;overflow:hidden;margin-bottom:13px;padding:25px}.hero:after{content:"";position:absolute;right:-60px;top:-100px;width:330px;height:300px;background:radial-gradient(circle,rgba(0,255,204,.18),transparent 62%)}.hero h1{font-size:25px;margin:0 0 6px;position:relative;z-index:1}.hero h1 span{color:#00ffcc}.hero p{font-size:10px;color:#9bb0aa;max-width:470px;position:relative;z-index:1}.hero .hero-img{position:absolute;right:0;top:0;width:42%;height:100%;object-fit:cover;opacity:.48;mask-image:linear-gradient(to right,transparent,black 35%)}.btn{display:inline-block;border:0;background:#00ffcc;color:#00100c;padding:8px 13px;border-radius:8px;font-size:9px;font-weight:900}.btn.dark{background:#0c201a;border:1px solid #1b3d32;color:#d6e2de}.panel{background:#091913;border:1px solid #17372d;border-radius:11px;padding:13px}.grid{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.label{font-size:8px;color:#718983}.value{font-size:16px;font-weight:900;margin-top:5px}.green{color:#00ffcc}.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #143027;font-size:9px}.row:last-child{border:0}.pill{font-size:7px;padding:4px 7px;border-radius:20px;background:#103027;color:#00ffcc}.section-head{display:flex;justify-content:space-between;align-items:center;margin:15px 0 8px}.section-head b{font-size:12px}.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}.tab{padding:6px 9px;border:1px solid #17382e;background:#0a1b16;border-radius:7px;color:#819790;font-size:8px}.tab.active{background:#00ffcc;color:#00100c;font-weight:900}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.game{background:#0b1c17;border:1px solid #17372d;border-radius:9px;overflow:hidden}.game img{display:block;width:100%;aspect-ratio:1.35;object-fit:cover}.game .gp{padding:7px;font-size:8px}.game .gp small{display:block;color:#70857f;margin-top:3px;font-size:7px}.iconbox{width:30px;height:30px;border-radius:8px;background:#0e2a21;color:#00ffcc;display:grid;place-items:center}.activity{display:flex;flex-direction:column}.footer{margin-top:22px;border-top:1px solid #17342a;padding:14px 4px;color:#627a72;font-size:7px;display:flex;justify-content:space-between}.payments{color:#9ab0aa;font-size:8px}@media(max-width:900px){.toplinks{display:none}.sidebar{width:190px;flex-basis:190px}.g4{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.topbar{padding:0 12px;height:52px}.shell{display:block}.sidebar{width:100%;border-right:0;border-bottom:1px solid #17352b;padding:10px}.nav{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.sidepromo{display:none}.content{padding:12px}.topright .balance{display:none}.hero{padding:19px;min-height:135px}.hero h1{font-size:20px}.hero .hero-img{width:48%}.g3,.g2{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.footer{display:block;line-height:1.7}}<style>
-.np-footer{margin-top:40px;background:#07100d;border-top:1px solid #17352b;color:#d7dfdb;padding-bottom:18px}
-.np-trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #17352b}
-.np-trust>div{padding:24px 8px 22px;text-align:center;border-right:1px solid #17352b}
-.np-trust>div:last-child{border-right:0}
-.np-trust i{display:block;color:#00e785;font-size:25px;margin-bottom:9px}
-.np-trust strong{display:block;font-size:11px;color:#fff}
-.np-trust span{display:block;font-size:8px;color:#84918c;margin-top:3px}
-.np-footer-block{padding:22px 16px;border-bottom:1px solid #17352b}
-.np-footer-title{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px}
-.np-footer-title span:last-child{color:#aab5b0;font-size:9px;font-weight:600}
-.np-footer-title i{color:#00e785;margin-right:4px}
-.np-payments{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;width:100%;padding:1px 0 3px;box-sizing:border-box}
-.np-payments span{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#f4f7f5;overflow:hidden}
-.np-safety{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.np-safety>div{min-height:72px;padding:10px;border:1px solid #173c30;background:#0b1915;border-radius:12px}
-.np-safety i{color:#00e785;font-size:17px;margin-bottom:5px}
-.np-safety b{display:inline-flex;width:25px;height:25px;border:2px solid #00e785;border-radius:50%;align-items:center;justify-content:center;font-size:8px;color:#00e785;margin-bottom:5px}
-.np-safety strong{display:block;color:#fff;font-size:10px}
-.np-safety small{display:block;color:#7f8d87;font-size:8px;margin-top:2px}
-.np-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;padding:20px 14px 10px}
-.np-footer-links a{color:#aab5b0;font-size:9px;text-decoration:none}
-.np-brand{display:flex;align-items:center;justify-content:center;gap:9px;padding:8px 16px 12px}
-.np-brand-mark{width:30px;height:30px;border-radius:9px;background:#00e785;color:#07100d;display:flex;align-items:center;justify-content:center;font-size:22px}
-.np-brand strong{display:block;font-size:20px;letter-spacing:-.04em;color:#fff}.np-brand strong span{color:#00e785}.np-brand small{display:block;color:#00e785;font-size:6px;font-weight:800;letter-spacing:.18em}
-.np-legal,.np-copy{text-align:center;color:#68766f;font-size:8px;line-height:1.5;margin:5px 20px}.np-legal span{color:#81918a}.np-copy{font-size:7px;color:#4d5a55;margin-top:10px}
-@media(max-width:360px){.np-trust strong{font-size:10px}.np-footer-title{font-size:12px}}@media(max-width:650px){
-  .app{max-width:520px;margin:0 auto;background:#07130f}
-  .shell{display:block;min-height:0}
-  .sidebar{display:none!important}
-  .content{width:100%;padding:8px 9px 0;background:#07130f}
-  .content>.hero{margin:8px 0 10px;min-height:190px;height:190px;padding:0;border-radius:16px}
-  .content>.hero .hero-img{position:absolute;inset:0;width:100%;height:100%;opacity:1;object-fit:cover;mask-image:linear-gradient(to right,rgba(0,0,0,.98),rgba(0,0,0,.82) 48%,rgba(0,0,0,.35) 100%)}
-  .content>.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,24,18,.96) 0%,rgba(7,24,18,.78) 48%,rgba(7,24,18,.2) 100%)}
-  .content>.hero h1,.content>.hero p{position:relative;z-index:2;margin-left:19px}
-  .content>.hero h1{padding-top:46px;font-size:25px}
-  .content>.hero p{font-size:10px;line-height:1.5;max-width:245px}
-  .content>.grid.g4{grid-template-columns:repeat(2,1fr);gap:9px}
-  .content>.grid.g4 .panel{padding:13px;min-height:174px}
-  .content>.grid.g4 .btn{font-size:8px;padding:8px 10px}
-  .content>.section-head{margin:13px 1px 8px}
-  .content>.grid.g2{grid-template-columns:1fr;gap:9px}
-  .content>.panel{border-radius:14px}
-}
-@media(min-width:651px){
-  .content>.hero{min-height:220px}
-}
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06130e">
+<title>NordicPlay – Ansvarligt spil</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#020806;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{overflow-x:hidden}a{text-decoration:none;color:inherit}
+.app{width:100%;max-width:520px;min-height:100vh;margin:auto;background:#06130e;padding-bottom:76px}
+header.np-head{height:72px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #174234;background:#07140f;position:sticky;top:0;z-index:30}
+.brand{display:flex;align-items:center;gap:10px}.brand-mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#00e785,#58e7a8);display:grid;place-items:center;color:#06130e;font-size:23px;box-shadow:0 0 18px rgba(0,231,133,.25)}.brand-name{font-size:21px;font-weight:950;letter-spacing:-.05em}.brand-name span{color:#00e785}.brand-sub{font-size:6px;letter-spacing:.28em;color:#d2ddd8;margin-top:1px}
+.head-actions{display:flex;align-items:center;gap:8px}.head-btn{width:48px;height:44px;border:1px solid #16503c;background:#071b14;border-radius:14px;color:#fff;display:grid;place-items:center;font-size:21px}.lang{height:44px;padding:0 12px;border:1px solid #16503c;background:#071b14;border-radius:14px;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;gap:8px}.flag{width:22px;height:22px;border-radius:50%;background:#e21f3b;display:grid;place-items:center;font-size:11px}
+.hero{position:relative;margin:0;min-height:302px;border-bottom:1px solid #154231;overflow:hidden;background:#092019}.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,22,16,.96) 0%,rgba(5,22,16,.82) 44%,rgba(5,22,16,.18) 100%)}.hero-copy{position:relative;z-index:2;padding:27px 22px;width:63%}.eyebrow{font-size:11px;color:#00e785;font-weight:950;letter-spacing:.12em}.hero h1{font-size:31px;line-height:1.02;margin:7px 0 10px;font-weight:950;letter-spacing:-.04em}.hero h1 span{color:#00e785}.hero p{font-size:13px;line-height:1.35;color:#e1e9e5;margin:0}.hero-points{position:absolute;z-index:3;left:22px;bottom:23px;display:flex;gap:12px}.hero-point{display:flex;align-items:center;gap:6px;font-size:8px;color:#f0f5f2}.hero-point i{width:30px;height:30px;border:1px solid #00e785;border-radius:50%;display:grid;place-items:center;color:#00e785;font-size:12px}
+.content{padding:20px 16px 0}
+.limit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.limit-card{min-height:153px;border:1px solid #176046;border-radius:15px;background:linear-gradient(160deg,#0b241b,#071812);padding:13px 10px;position:relative}.limit-icon{font-size:28px;color:#00e785;height:43px}.limit-arrow{position:absolute;right:10px;top:25px;font-size:23px;color:#b8c3bf}.limit-card h3{font-size:11px;line-height:1.12;margin:7px 0 7px;font-weight:900}.limit-card p{font-size:8px;line-height:1.35;color:#d0dad6;margin:0}
+.pause{margin-top:14px;border:1px solid #176046;border-radius:15px;background:linear-gradient(100deg,#0b241b,#071812);padding:15px;display:flex;align-items:center;gap:14px}.pause-icon{width:62px;height:62px;flex:0 0 62px;border-radius:50%;background:#0b3025;border:8px solid #087e59;display:grid;place-items:center;color:#00e785;font-size:25px;box-shadow:0 0 22px rgba(0,231,133,.16)}.pause-copy{flex:1}.pause-copy h2{font-size:16px;margin:0 0 4px;font-weight:950}.pause-copy p{font-size:9px;line-height:1.35;color:#d1dad6;margin:0}.primary{height:48px;padding:0 18px;border:0;border-radius:12px;background:#00e785;color:#03110c;font-size:10px;font-weight:950;white-space:nowrap}
+.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.help-card{border:1px solid #176046;border-radius:15px;background:linear-gradient(160deg,#0b241b,#071812);padding:14px;min-height:215px}.help-icon{width:58px;height:58px;border-radius:50%;background:#0b3025;border:1px solid #00a96f;display:grid;place-items:center;color:#00e785;font-size:27px;margin-bottom:12px}.help-card h2{font-size:15px;margin:0 0 7px;font-weight:950}.help-card p{font-size:9px;line-height:1.42;color:#d1dad6;margin:0}.outline{height:45px;width:100%;margin-top:13px;border:1px solid #00e785;border-radius:12px;background:transparent;color:#fff;font-size:10px;font-weight:900}.wide-info{margin-top:14px;border:1px solid #176046;border-radius:15px;min-height:118px;padding:18px 17px;position:relative;overflow:hidden;background:linear-gradient(100deg,#0b241b,#071812)}.wide-info:after{content:"";position:absolute;right:-10px;bottom:-45px;width:180px;height:150px;background:radial-gradient(circle,rgba(0,231,133,.22),transparent 62%)}.wide-icon{color:#00e785;font-size:35px;float:left;margin:7px 17px 30px 0}.wide-info h2{font-size:15px;margin:0 0 6px;font-weight:950}.wide-info p{font-size:9px;line-height:1.45;color:#d1dad6;margin:0;max-width:310px}
+.links-title{font-size:9px;color:#00e785;font-weight:950;letter-spacing:.13em;margin:17px 0 9px}.links{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.link-card{height:66px;border:1px solid #176046;border-radius:12px;background:#071a14;display:grid;place-items:center;text-align:center;font-size:8px;font-weight:850}.link-card i{font-size:20px;color:#d7dedb;margin-bottom:3px}.stop{font-size:11px;color:#2f8ddd;font-weight:950}.rofus{font-size:10px;color:#d4d8d7;font-weight:800}.mynd{font-family:serif;font-size:9px;color:#e7e3d7}.ga{font-size:9px}
+.np-footer{margin-top:18px;background:#07100d;border-top:1px solid #17352b;color:#d7dfdb;padding-bottom:18px}.np-trust{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:1px solid #17352b}.np-trust>div{padding:18px 7px;text-align:center;border-right:1px solid #17352b;border-bottom:1px solid #17352b}.np-trust>div:nth-child(2n){border-right:0}.np-trust i{display:block;color:#00e785;font-size:20px;margin-bottom:6px}.np-trust strong{display:block;font-size:9px}.np-trust span{display:block;font-size:7px;color:#84918c;margin-top:2px}.np-footer-block{padding:18px 10px;border-bottom:1px solid #17352b}.np-footer-title{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:800;margin-bottom:11px}.np-footer-title span:last-child{color:#aab5b0;font-size:7px}.np-footer-title i{color:#00e785}.np-payments{display:flex;gap:7px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none}.np-payments::-webkit-scrollbar{display:none}.np-pay-logo{flex:0 0 104px;width:104px;height:52px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 10px}.np-pay-logo img{max-width:82px;max-height:30px}.np-safety{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.np-safety>div{min-height:66px;padding:9px;border:1px solid #173c30;background:#0b1915;border-radius:11px}.np-safety i{color:#00e785;font-size:14px;margin-bottom:4px}.np-safety b{display:flex;width:23px;height:23px;border:2px solid #00e785;border-radius:50%;align-items:center;justify-content:center;font-size:7px;color:#00e785;margin-bottom:4px}.np-safety strong{display:block;font-size:8px}.np-safety small{display:block;color:#7f8d87;font-size:7px;margin-top:2px}.np-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;padding:17px 10px 8px}.np-footer-links a{color:#aab5b0;font-size:7px}.np-brand{display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px 9px}.np-brand-mark{width:27px;height:27px;border-radius:8px;background:#00e785;color:#07100d;display:flex;align-items:center;justify-content:center;font-size:19px}.np-brand strong{font-size:17px}.np-brand strong span{color:#00e785}.np-brand small{display:block;color:#00e785;font-size:5px;letter-spacing:.15em}.np-legal,.np-copy{text-align:center;color:#68766f;font-size:7px;line-height:1.45;margin:4px 15px}.np-copy{font-size:6px;color:#4d5a55;margin-top:8px}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:72px;background:rgba(4,15,11,.98);border-top:1px solid #174234;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);padding:5px 6px}.bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#d8dedb;font-size:8px;font-weight:700;border-radius:20px}.bottom i{font-size:21px}.bottom .active{background:#00e785;color:#03110c;margin:0 5px;padding:2px 0}.drawer{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.8);display:none}.drawer.open{display:block}.drawer-inner{width:86%;max-width:390px;height:100%;background:#091712;border-right:1px solid #1c4034;padding:20px;overflow-y:auto}
+@media(max-width:420px){.head-btn{width:44px}.lang{padding:0 9px}.brand-mark{width:44px;height:44px}.brand-name{font-size:20px}.hero{min-height:290px}.hero-copy{width:72%}.hero h1{font-size:28px}.hero-points{gap:8px}.hero-point{font-size:7px}.limit-grid{grid-template-columns:repeat(2,1fr)}.limit-card{min-height:145px}.pause{align-items:flex-start;flex-wrap:wrap}.pause-copy{min-width:calc(100% - 76px)}.primary{margin-left:76px}.links{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="np-head">
+  <a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-gamepad"></i></div><div><div class="brand-name">NORDIC<span>PLAY</span></div><div class="brand-sub">SPIL MED OMTANKE</div></div></a>
+  <div class="head-actions"><button class="head-btn" aria-label="Søg"><i class="fa-solid fa-magnifying-glass"></i></button><button class="head-btn" onclick="openMenu()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button><button class="lang"><span class="flag">✚</span> DK <i class="fa-solid fa-chevron-down" style="font-size:9px"></i></button></div>
+</header>
 
-<style>.np-payments span{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px}.np-payments img{display:none}.np-pay-logo{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;height:52px;padding:0 10px;border:1px solid #1e4738;background:#0b1915;border-radius:10px;display:flex;align-items:center;justify-content:center}.np-pay-logo svg{width:82px;height:27px;display:block;max-width:100%;flex:0 0 auto}.np-pay-logo.mc svg{height:30px}.np-pay-logo.mp svg{height:27px}</style></style></head><body><header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-2.5">
-        <button onclick="openMenuDrawer()" class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-200 hover:text-[#00e785] transition"><i class="fa-solid fa-bars text-sm"></i></button>
-        <a href="index.html" class="flex items-center gap-2">
-            <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#00e785] to-emerald-400 flex items-center justify-center shadow-[0_0_10px_rgba(0,231,133,0.4)] flex-shrink-0"><i class="fa-solid fa-gamepad text-[#0b1311] text-xs font-bold"></i></div>
-            <div class="leading-tight"><span class="font-extrabold tracking-tight text-sm bg-gradient-to-r from-white via-gray-100 to-[#00e785] bg-clip-text text-transparent">NORDIC<span class="text-[#00e785]">PLAY</span></span><div class="text-[8px] text-gray-400 tracking-wider uppercase font-semibold">Spil med omtanke</div></div>
-        </a>
-    </div>
-    <div class="flex items-center gap-1.5">
-        <button class="w-8 h-8 rounded-lg bg-[#12201c] border border-[#1f3831] flex items-center justify-center text-gray-300"><i class="fa-solid fa-magnifying-glass text-xs"></i></button><button onclick="alert('Log ind')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#12201c] border border-[#1f3831] text-gray-200 hover:border-[#00e785] transition">Log ind</button>
-        <button onclick="alert('Opret')" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#00e785] text-[#0b1311] hover:bg-[#00c772] shadow-[0_0_12px_rgba(0,231,133,0.3)] transition">Opret</button>
-    </div>
-</header><div class="shell"><aside class="sidebar"><div class="profile"><div class="avatar">FM</div><div><div class="name">Frederik M.</div><div class="small">Medlem siden 2025</div></div></div><nav class="nav">
-<a class="" href="min-konto.html">⌂ &nbsp; Min konto</a><a class="" href="saldo.html">◉ &nbsp; Saldo</a><a class="" href="indbetaling.html">＋ &nbsp; Indbetaling</a><a class="" href="udbetaling.html">↗ &nbsp; Udbetaling</a><a class="" href="transaktioner.html">≡ &nbsp; Transaktioner</a><a class="" href="campaign.html">✦ &nbsp; Bonuser</a><a class="" href="mine-spil.html">◆ &nbsp; Mine spil</a><a class="" href="favoritter.html">♡ &nbsp; Favoritter</a><a class="active" href="ansvarligt-spil.html">✓ &nbsp; Ansvarligt spil</a><a class="" href="indstillinger.html">⚙ &nbsp; Indstillinger</a></nav><div class="sidepromo"><b>EKSKLUSIVE TILBUD</b><p>Tilbud og kampagner samlet ét sted.</p><a class="btn" href="campaign.html">Se kampagner</a></div></aside><main class="content"><div class="hero"><img class="hero-img" src="image/ansvarligt-spil-hero.jpg" alt="Ansvarligt spil"><h1><span>Ansvarligt spil</span></h1><p>Spil med omtanke. Brug værktøjerne til at holde overblik over din spilaktivitet.</p></div><div class="grid g4"><div class="panel"><div class="iconbox">◷</div><b>Spilletid</b><div class="sub">Se din spilletid og aktivitet.</div><a class="btn dark" style="margin-top:9px">Se spilletid</a></div><div class="panel"><div class="iconbox">◉</div><b>Selvudelukkelse</b><div class="sub">Tag en pause fra kontoen.</div><a class="btn dark" style="margin-top:9px">Indstil pause</a></div><div class="panel"><div class="iconbox">⌁</div><b>Indbetalingsgrænse</b><div class="sub">Sæt daglig eller månedlig grænse.</div><a class="btn dark" style="margin-top:9px">Sæt grænse</a></div><div class="panel"><div class="iconbox">▥</div><b>Spilhistorik</b><div class="sub">Se din aktivitet.</div><a class="btn dark" href="transaktioner.html" style="margin-top:9px">Se historik</a></div></div><div class="section-head"><b>Dine grænser</b></div><div class="grid g2"><div class="panel"><div class="row"><span>Daglig indbetaling</span><span>1.000 kr.</span></div><div class="row"><span>Månedlig indbetaling</span><span>5.000 kr.</span></div><div class="row"><span>Spilletid pr. session</span><span>60 min.</span></div></div><div class="panel"><b>Har du brug for hjælp?</b><div class="sub" style="line-height:1.6">Hvis spil ikke længere føles som underholdning, brug pause- og selvudelukkelsesværktøjerne eller søg professionel rådgivning.</div><a class="btn" style="margin-top:10px">Få hjælp</a></div></div><div class="section-head"><b>Hurtige værktøjer</b></div><div class="panel"><div class="row"><span>Selvtest</span><span class="green">Start test →</span></div><div class="row"><span>Pause konto</span><span class="green">Åbn →</span></div><div class="row"><span>ROFUS information</span><span class="green">Læs mere →</span></div></div><footer class="np-footer">
-  <div class="np-trust">
-    <div><i class="fa-solid fa-shield-halved"></i><strong>Sikker betaling</strong><span>Trygt & sikkert</span></div>
-    <div><i class="fa-solid fa-headset"></i><strong>Dansk support</strong><span>Hurtig hjælp</span></div>
-    <div><i class="fa-solid fa-crown"></i><strong>Spil med omtanke</strong><span>Ansvarligt spil</span></div>
-    <div><i class="fa-solid fa-gem"></i><strong>Stort spiludvalg</strong><span>Hundredvis af spil</span></div>
-  </div>
-  <div class="np-footer-block">
-    <div class="np-footer-title"><span>Betalingsmetoder</span><span><i class="fa-solid fa-lock"></i> Sikker betaling</span></div>
-    <div class="np-payments"><span class="np-pay-logo visa"><svg viewBox="0 0 90 30" aria-label="Visa"><text x="2" y="22" font-family="Arial,sans-serif" font-size="22" font-weight="900" font-style="italic" fill="#1434CB">VISA</text></svg></span><span class="np-pay-logo mc"><svg viewBox="0 0 60 36" aria-label="Mastercard"><circle cx="23" cy="18" r="13" fill="#EB001B"/><circle cx="37" cy="18" r="13" fill="#F79E1B"/><path d="M30 8.2a13 13 0 0 1 0 19.6 13 13 0 0 1 0-19.6z" fill="#FF5F00"/></svg></span><span class="np-pay-logo mp"><svg viewBox="0 0 112 30" aria-label="MobilePay"><rect x="1" y="1" width="28" height="28" rx="8" fill="#5A78FF"/><path d="M10 11.5c2.5-2.5 6.5-2.5 9 0l4 4-4 4-4-4-4 4-4-4z" fill="#fff"/><text x="34" y="20" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#5A78FF">MobilePay</text></svg></span><span class="np-pay-logo ap"><svg viewBox="0 0 92 30" aria-label="Apple Pay"><text x="2" y="21" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">Pay</text></svg></span><span class="np-pay-logo gp"><svg viewBox="0 0 105 30" aria-label="Google Pay"><text x="2" y="21" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#4285F4">G</text><text x="21" y="21" font-family="Arial,sans-serif" font-size="16" font-weight="500" fill="#fff">Pay</text></svg></span></div>
-  </div>
-  <div class="np-footer-block">
-    <div class="np-footer-title"><span>Licens & sikkerhed</span><span><i class="fa-solid fa-shield-check"></i> Spil ansvarligt</span></div>
-    <div class="np-safety">
-      <div><i class="fa-solid fa-landmark"></i><strong>Licensinformation</strong><small>Se vores licens- og virksomhedsoplysninger</small></div>
-      <div><b>18+</b><strong>Kun for voksne</strong><small>Spil ansvarligt</small></div>
-      <div><i class="fa-solid fa-user-shield"></i><strong>ROFUS</strong><small>Selvudelukkelse</small></div>
-      <div><i class="fa-solid fa-life-ring"></i><strong>StopSpillet</strong><small>Hjælp ved spilproblemer</small></div>
-    </div>
-  </div>
-  <div class="np-footer-links"><a href="ansvarligt-spil.html">Ansvarligt spil</a><a href="vilkaar.html">Vilkår og betingelser</a><a href="privatliv.html">Privatlivspolitik</a><a href="kontakt.html">Kontakt</a></div>
-  <div class="np-brand"><span class="np-brand-mark">✦</span><div><strong>NORDIC<span>PLAY</span></strong><small>SPIL MED OMTANKE</small></div></div>
-  <p class="np-legal">Spil ansvarligt. 18+. Hvis spil ikke længere føles som underholdning, så søg hjælp. <span>ROFUS.dk · StopSpillet.dk</span></p>
-  <p class="np-copy">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
-</footer></main></div><div id="menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden justify-start">
-        <div class="bg-[#0b1311] border-r border-[#1f3831] w-4/5 max-w-xs h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in slide-in-from-left duration-300">
-            <div>
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1f3831]">
-                    <div class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-full bg-[#00e785] flex items-center justify-center text-[#0b1311]">
-                            <i class="fa-solid fa-gamepad text-xs font-bold"></i>
-                        </div>
-                        <span class="font-extrabold text-base text-white">NORDIC<span class="text-[#00e785]">PLAY</span></span>
-                    </div>
-                    <button onclick="closeMenuDrawer()" class="text-gray-400 hover:text-white w-8 h-8 rounded-full bg-[#12201c] flex items-center justify-center">
-                        <i class="fa-solid fa-xmark text-sm"></i>
-                    </button>
-                </div>
-                <ul class="space-y-2 text-sm font-medium">
-                    <li><a href="min-konto.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-user text-[#00e785] w-5"></i> Min konto</a></li>
-                    <li><a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-dice text-[#00e785] w-5"></i> Alle Spil</a></li>
-                    <li><a href="casino.html#live" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-video text-[#00e785] w-5"></i> Live Casino</a></li>
-                    <li><a href="casino.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-fire text-[#00e785] w-5"></i> Spilleautomater</a></li>
-                    <li><a href="campaign.html" onclick="closeMenuDrawer();" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-gift text-[#00e785] w-5"></i> Kampagner & Bonus</a></li>
-                    <li><a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-headset text-[#00e785] w-5"></i> Kundeservice (24/7)</a></li>
-                    <li><a href="#" onclick="closeMenuDrawer();return false;" class="flex items-center gap-3 text-gray-200 hover:text-[#00e785] p-2.5 rounded-xl hover:bg-[#12201c] transition"><i class="fa-solid fa-circle-info text-[#00e785] w-5"></i> Om os & Vilkår</a></li>
-                </ul>
-            </div>
-            <div class="pt-6 border-t border-[#1f3831] space-y-3">
-                <div class="flex items-center justify-between text-xs text-gray-400">
-                    <span>Sprog: Dansk</span>
-                    <span class="text-[#00e785] font-bold">18+ ROFUS</span>
-                </div>
-                <p class="text-[10px] text-gray-600">NordicPlay mobile v2.6</p>
-            </div>
-        </div>
-    </div>
+<section class="hero">
+  <img src="image/ansvarligt-spil-hero.jpg" alt="Ansvarligt spil">
+  <div class="hero-copy"><div class="eyebrow">ANSVARLIGT SPIL</div><h1>Spil med <span>omtanke</span></h1><p>Underholdning skal være sjovt – og det skal altid føles trygt.</p></div>
+  <div class="hero-points"><div class="hero-point"><i class="fa-solid fa-shield-heart"></i><span>Sæt dine<br>grænser</span></div><div class="hero-point"><i class="fa-regular fa-heart"></i><span>Spil<br>ansvarligt</span></div><div class="hero-point"><i class="fa-solid fa-users"></i><span>Vi er her<br>for at hjælpe</span></div></div>
+</section>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#12201c] border border-[#00e785] text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-[#00e785]"></i>
-        <span id="toast-msg">Handlingen lykkedes</span>
-    </div>
+<main class="content">
+<div class="limit-grid">
+  <a class="limit-card" href="#indbetaling"><div class="limit-icon"><i class="fa-regular fa-clock"></i></div><i class="limit-arrow fa-solid fa-chevron-right"></i><h3>Indbetalingsgrænser</h3><p>Sæt en grænse for dine indbetalinger</p></a>
+  <a class="limit-card" href="#spilletid"><div class="limit-icon"><i class="fa-regular fa-hourglass-half"></i></div><i class="limit-arrow fa-solid fa-chevron-right"></i><h3>Spiltidsgrænser</h3><p>Begræns den tid du bruger på spil</p></a>
+  <a class="limit-card" href="#indsats"><div class="limit-icon"><i class="fa-solid fa-coins"></i></div><i class="limit-arrow fa-solid fa-chevron-right"></i><h3>Indsatsgrænser</h3><p>Sæt maks. indsats pr. spilrunde</p></a>
+  <a class="limit-card" href="#selvudelukkelse"><div class="limit-icon"><i class="fa-solid fa-ban"></i></div><i class="limit-arrow fa-solid fa-chevron-right"></i><h3>Selvudelukkelse</h3><p>Tag en pause eller udeluk dig selv</p></a>
+</div>
 
-    <!-- JavaScript Application Logic -->\n<script>
-function openMenuDrawer(){const d=document.getElementById('menu-drawer');if(d){d.classList.remove('hidden');d.classList.add('flex');}}
-function closeMenuDrawer(){const d=document.getElementById('menu-drawer');if(d){d.classList.remove('flex');d.classList.add('hidden');}}
-</script></body></html>
+<div class="pause"><div class="pause-icon"><i class="fa-solid fa-life-ring"></i></div><div class="pause-copy"><h2>Brug for en pause?</h2><p>Du kan altid tage en midlertidig pause fra spil. Vi gør det nemt for dig at tage kontrollen.</p></div><button class="primary">Tag en pause <i class="fa-solid fa-chevron-right"></i></button></div>
+
+<div class="help-grid">
+ <div class="help-card"><div class="help-icon"><i class="fa-solid fa-head-side-virus"></i></div><h2>Test dig selv</h2><p>Er dit spil stadig sjovt? Tag vores korte selvtest og bliv klogere på dine spillevaner.</p><button class="primary" style="width:100%;margin-top:13px">Start selvtest <i class="fa-solid fa-chevron-right"></i></button></div>
+ <div class="help-card"><div class="help-icon"><i class="fa-solid fa-headset"></i></div><h2>Få hjælp</h2><p>Hvis du oplever, at spillet fylder for meget, er der hjælp at hente. Du er ikke alene.</p><button class="outline">Se hjælpetilbud <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+
+<div class="wide-info"><i class="wide-icon fa-solid fa-trophy"></i><h2>Spil ansvarligt – længere sjov</h2><p>Når du spiller med omtanke, kan du nyde spillet længere. Husk – det handler om balance.</p></div>
+
+<div class="links-title">NYTTIGE LINKS</div>
+<div class="links"><a class="link-card" href="https://www.stopspillet.dk/"><span class="stop">StopSpillet</span></a><a class="link-card" href="https://rofus.dk/"><span class="rofus">♛ ROFUS</span></a><a class="link-card" href="#"><span class="mynd">Spillemyndigheden</span></a><a class="link-card" href="#"><span class="ga">◯ Gambler's<br>Anonymous</span></a></div>
+</main>
+
+<footer class="np-footer">
+<div class="np-trust"><div><i class="fa-solid fa-shield-halved"></i><strong>Sikker betaling</strong><span>Trygt & sikkert</span></div><div><i class="fa-solid fa-headset"></i><strong>Dansk support</strong><span>Hurtig hjælp</span></div><div><i class="fa-solid fa-crown"></i><strong>Spil med omtanke</strong><span>Ansvarligt spil</span></div><div><i class="fa-solid fa-gem"></i><strong>Stort spiludvalg</strong><span>Hundredvis af spil</span></div></div>
+<div class="np-footer-block"><div class="np-footer-title"><span>Betalingsmetoder</span><span><i class="fa-solid fa-lock"></i> Sikker betaling</span></div><div class="np-payments"><div class="np-pay-logo"><img src="image/payment-visa.svg" alt="Visa"></div><div class="np-pay-logo"><img src="image/payment-mastercard.svg" alt="Mastercard"></div><div class="np-pay-logo"><img src="image/payment-applepay.svg" alt="Apple Pay"></div><div class="np-pay-logo"><img src="image/payment-googlepay.svg" alt="Google Pay"></div><div class="np-pay-logo"><img src="image/payment-trustly.svg" alt="Trustly"></div><div class="np-pay-logo"><img src="image/payment-skrill.svg" alt="Skrill"></div><div class="np-pay-logo"><img src="image/payment-neteller.svg" alt="Neteller"></div></div></div>
+<div class="np-footer-block"><div class="np-footer-title"><span>Licens & sikkerhed</span><span><i class="fa-solid fa-shield-halved"></i> Spil ansvarligt</span></div><div class="np-safety"><div><i class="fa-solid fa-landmark"></i><strong>Licensinformation</strong><small>Licens- og virksomhedsoplysninger</small></div><div><b>18+</b><strong>Kun for voksne</strong><small>Spil ansvarligt</small></div><div><i class="fa-solid fa-user-shield"></i><strong>ROFUS</strong><small>Selvudelukkelse</small></div><div><i class="fa-solid fa-life-ring"></i><strong>StopSpillet</strong><small>Hjælp ved spilproblemer</small></div></div></div>
+<div class="np-footer-links"><a href="ansvarligt-spil.html">Ansvarligt spil</a><a href="vilkaar.html">Vilkår og betingelser</a><a href="privatliv.html">Privatlivspolitik</a><a href="kontakt.html">Kontakt</a></div>
+<div class="np-brand"><span class="np-brand-mark">✦</span><div><strong>NORDIC<span>PLAY</span></strong><small>SPIL MED OMTANKE</small></div></div>
+<p class="np-legal">Spil ansvarligt. 18+. ROFUS.dk · StopSpillet.dk</p><p class="np-copy">© 2026 NordicPlay. Alle rettigheder forbeholdes.</p>
+</footer>
+
+<nav class="bottom">
+<a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a><a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a><a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a><a href="min-konto.html" class="active"><i class="fa-solid fa-user"></i><span>Min konto</span></a><a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a>
+</nav>
+
+<div id="drawer" class="drawer" onclick="if(event.target===this)closeMenu()"><div class="drawer-inner"><div class="flex justify-between items-center pb-4 border-b border-[#1b392f]"><b class="text-lg">NORDIC<span class="text-[#00e785]">PLAY</span></b><button onclick="closeMenu()" class="w-9 h-9 rounded-xl bg-[#10231c]"><i class="fa-solid fa-xmark"></i></button></div><div class="mt-5 space-y-2"><a href="min-konto.html" class="block p-3 rounded-xl text-gray-200">Min konto</a><a href="saldo.html" class="block p-3 rounded-xl text-gray-200">Saldo</a><a href="indbetaling.html" class="block p-3 rounded-xl text-gray-200">Indbetaling</a><a href="udbetaling.html" class="block p-3 rounded-xl text-gray-200">Udbetaling</a><a href="transaktioner.html" class="block p-3 rounded-xl text-gray-200">Transaktioner</a><a href="campaign.html" class="block p-3 rounded-xl text-gray-200">Bonuser</a><a href="mine-spil.html" class="block p-3 rounded-xl text-gray-200">Mine spil</a><a href="favoritter.html" class="block p-3 rounded-xl text-gray-200">Favoritter</a><a href="ansvarligt-spil.html" class="block p-3 rounded-xl bg-[#0e2a21] text-[#00e785]">Ansvarligt spil</a><a href="indstillinger.html" class="block p-3 rounded-xl text-gray-200">Indstillinger</a></div></div></div>
+<script>function openMenu(){document.getElementById('drawer').classList.add('open')}function closeMenu(){document.getElementById('drawer').classList.remove('open')}</script>
+</div>
+</body>
+</html>
