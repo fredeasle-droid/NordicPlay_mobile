@@ -7,150 +7,90 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#06110d;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button{font:inherit}
-.np-header{height:58px;background:#0b1311f5;border-bottom:1px solid #1f3831;display:flex;align-items:center;justify-content:space-between;padding:0 12px;position:sticky;top:0;z-index:30;backdrop-filter:blur(14px)}
-.np-logo{display:flex;align-items:center;gap:9px}.np-mark{width:31px;height:31px;border-radius:50%;background:#00e785;color:#07110d;display:grid;place-items:center;font-size:13px}.np-brand{font-size:14px;font-weight:900;letter-spacing:-.04em}.np-brand span{color:#00e785}.np-tag{font-size:7px;color:#82918b;letter-spacing:.11em;margin-top:1px}
-.icon-btn{width:34px;height:34px;border-radius:9px;border:1px solid #1f3831;background:#12201c;color:#dfe7e3;display:grid;place-items:center}
-.page{padding-bottom:82px}.hero{position:relative;overflow:hidden;border-bottom:1px solid #12382c;background:#06110d}.hero img{display:block;width:100%;height:205px;object-fit:cover;object-position:center}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,#06110d 100%);pointer-events:none}.hero-copy{position:absolute;left:18px;bottom:19px;z-index:2}.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:900;color:#00e785}.hero-title{font-size:25px;line-height:1.03;font-weight:950;margin-top:5px;max-width:275px}.hero-sub{font-size:10px;color:#c4d0cb;margin-top:7px;max-width:260px}
-.wrap{padding:0 12px}.balance{margin-top:-1px;padding:15px 14px;background:linear-gradient(145deg,#0a2119,#071610);border:1px solid #174c3b;border-radius:15px}.balance-label{font-size:10px;color:#9bac a5}.balance-amount{font-size:25px;font-weight:950;color:#00e785;margin-top:3px}.wallet{width:39px;height:39px;border-radius:11px;background:#0d2c22;border:1px solid #1a5742;color:#00e785;display:grid;place-items:center}
-.card{margin-top:12px;background:#081812;border:1px solid #163f31;border-radius:15px;padding:14px}.step{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:900;margin-bottom:10px}.stepnum{width:29px;height:29px;border-radius:50%;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:13px;font-weight:950;flex:0 0 29px}.amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.amount{height:47px;border:1px solid #15533f;background:#0a2019;border-radius:11px;color:#dbe5e1;font-size:12px;font-weight:800}.amount.active{border-color:#00e785;background:#073c2d;color:#00e785;box-shadow:0 0 0 1px #00e785 inset}.custom{display:flex;align-items:center;gap:8px;margin-top:8px;border:1px solid #15533f;border-radius:11px;background:#071711;padding:0 12px}.custom input{width:100%;height:47px;border:0;outline:0;background:transparent;color:#fff;font-size:13px}.custom span{font-size:12px;color:#8da19a}.methods{display:flex;flex-direction:column;gap:8px}.method{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px;border:1px solid #173f32;background:#0a1e18;border-radius:12px;color:#fff}.method.active{border-color:#00e785;background:#082b21}.method-icon{width:39px;height:39px;border-radius:10px;background:#10352a;color:#00e785;display:grid;place-items:center;font-size:17px;flex:0 0 39px}.method strong{font-size:12px}.method small{display:block;color:#82948e;font-size:9px;margin-top:3px}.check{margin-left:auto;width:25px;height:25px;border-radius:50%;background:#00e785;color:#06110d;display:none;place-items:center}.method.active .check{display:grid}.info{border:1px solid #194637;background:#0a2019;border-radius:12px;padding:12px;color:#cbd6d2;font-size:9px;line-height:1.55}.info b{display:block;color:#fff;font-size:11px;margin-bottom:6px}.info div{margin:2px 0}.account{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #174333;background:#0a1f18;border-radius:12px;padding:12px}.account strong{display:block;font-size:11px}.account small{display:block;color:#7f938b;font-size:8px;margin-top:3px}.change{color:#00e785;font-size:9px;font-weight:900;white-space:nowrap}.cta{width:100%;height:50px;margin-top:12px;border:0;border-radius:13px;background:#00e785;color:#06110d;font-size:13px;font-weight:950;box-shadow:0 0 18px #00e78533}.hint{text-align:center;color:#667a72;font-size:8px;margin:9px 8px 0}
-.bottom{position:fixed;left:0;right:0;bottom:0;height:72px;background:#07120ef5;border-top:1px solid #17382d;display:grid;grid-template-columns:repeat(5,1fr);z-index:40;backdrop-filter:blur(14px)}.bottom a{color:#83948e;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:8px;font-weight:800}.bottom i{font-size:16px}.bottom a.active{color:#07110d;background:#00e785;margin:7px 7px;border-radius:13px}.bottom a.active i{font-size:15px}
-.drawer{position:fixed;inset:0;background:#000b;z-index:60;display:none}.drawer.open{display:block}.drawer-panel{width:82%;max-width:330px;height:100%;background:#0b1311;border-right:1px solid #1f3831;padding:22px 18px}.drawer a{display:flex;gap:12px;align-items:center;color:#dce5e1;text-decoration:none;padding:12px;border-radius:10px;font-size:12px}.drawer a i{width:20px;color:#00e785}.drawer-close{float:right}.drawer-title{font-size:16px;font-weight:900;margin:8px 0 24px}.drawer-title span{color:#00e785}
-@media(min-width:700px){.page{max-width:520px;margin:auto;border-left:1px solid #122d24;border-right:1px solid #122d24}.bottom{max-width:520px;left:50%;transform:translateX(-50%)}}
+*{box-sizing:border-box}body{margin:0;background:#06110d;color:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit}
+.header{height:112px;background:#06110d;border-bottom:1px solid #15372b;display:flex;align-items:center;justify-content:space-between;padding:0 55px}.logo{display:flex;align-items:center;gap:18px}.mark{width:84px;height:84px;border-radius:22px;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:36px}.brand{font-size:37px;font-weight:950;letter-spacing:-.055em}.brand span{color:#00e785}.tag{font-size:13px;color:#9aa9a3;letter-spacing:.16em;margin-top:2px}.head-actions{display:flex;gap:12px}.head-btn{width:58px;height:58px;border:1px solid #153d30;border-radius:16px;background:#0b1b15;color:#fff;display:grid;place-items:center;font-size:28px}
+.page{max-width:1024px;margin:auto;padding-bottom:92px}.hero img{display:block;width:100%;height:auto}.section{margin:0 38px;background:#071510;border:1px solid #164638;border-radius:22px;padding:25px 27px}.methods{margin-top:-4px;border-top-left-radius:22px;border-top-right-radius:22px}.section+.section{margin-top:0;border-top:0;border-radius:0 0 22px 22px}.section-title{font-size:29px;font-weight:900;margin-bottom:20px}.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.method{height:138px;border:1px solid #173e31;background:#091b15;border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:#fff}.method.active{border:2px solid #00e785;background:#0a2119}.bank-icon{font-size:38px}.method-logo{height:31px;max-width:145px;object-fit:contain}.method-name{font-size:18px;font-weight:800}.method-time{font-size:15px;color:#a7b5af}.check{position:absolute;right:10px;top:9px;width:32px;height:32px;border-radius:50%;background:#00e785;color:#06110d;display:grid;place-items:center;font-size:16px}.method{position:relative}
+.amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.amount{height:69px;border:1px solid #184638;background:#0a1d17;border-radius:14px;color:#fff;font-size:20px}.amount.active{background:#00e785;color:#06110d;border-color:#00e785;font-weight:950}.other{height:64px;margin-top:12px;border:1px solid #184638;background:#0a1d17;border-radius:14px;display:flex;align-items:center;gap:15px;padding:0 23px;color:#b4c0bb;font-size:17px}.other i{font-size:25px}.account{margin:0 38px;background:#071510;border:1px solid #164638;border-radius:0 0 22px 22px;padding:25px 27px}.account-title{font-size:25px;font-weight:900;margin-bottom:14px}.account-row{height:92px;border:1px solid #184638;background:#0a1d17;border-radius:16px;display:flex;align-items:center;padding:0 18px;gap:16px}.account-icon{width:54px;height:54px;border-radius:50%;background:#0e3428;color:#00e785;display:grid;place-items:center;font-size:28px}.account-main strong{font-size:20px}.account-main small{display:block;color:#9caaa4;font-size:16px;margin-top:2px}.change{margin-left:auto;border:1px solid #214f40;background:#0b2019;border-radius:13px;padding:11px 18px;color:#dce4e0;font-size:16px}.safe{margin-top:18px;display:flex;gap:16px;align-items:center;border:1px solid #184638;background:#0a1d17;border-radius:16px;padding:16px 19px}.safe-icon{font-size:37px;color:#00e785}.safe strong{font-size:17px}.safe span{display:block;color:#a3b1ab;font-size:15px;margin-top:3px}.cta{width:100%;height:70px;margin-top:18px;border:0;border-radius:14px;background:#00e785;color:#06110d;font-size:25px;font-weight:950}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1024px;height:88px;background:#07120ef7;border-top:1px solid #17382d;display:grid;grid-template-columns:repeat(5,1fr);z-index:50}.bottom a{color:#a5b1ad;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:15px;font-weight:800}.bottom i{font-size:30px}.bottom a.active{color:#06110d;background:#00e785;margin:8px 11px;border-radius:20px}.bottom a.active i{font-size:26px}
+.drawer{position:fixed;inset:0;background:#000b;z-index:100;display:none}.drawer.open{display:block}.drawer-panel{width:340px;max-width:82%;height:100%;background:#0b1311;border-right:1px solid #1f3831;padding:24px}.drawer a{display:flex;gap:12px;align-items:center;color:#dce5e1;text-decoration:none;padding:13px;border-radius:10px;font-size:14px}.drawer a i{width:20px;color:#00e785}.close{float:right;background:#12201c;border:1px solid #1f3831;color:#fff;border-radius:9px;width:38px;height:38px}.drawer-title{font-size:20px;font-weight:950;margin:10px 0 25px}.drawer-title span{color:#00e785}
+@media(max-width:700px){.header{height:112px;padding:0 16px}.mark{width:84px;height:84px}.brand{font-size:27px}.tag{font-size:10px}.head-btn{width:56px;height:56px;font-size:25px}.page{width:100%}.section,.account{margin-left:38px;margin-right:38px;padding:21px 18px}.section-title{font-size:27px}.method-grid{gap:13px}.method{height:138px}.method-name{font-size:16px}.method-time{font-size:14px}.amount{font-size:19px}.bottom{height:88px}.bottom a{font-size:13px}.bottom i{font-size:27px}}
+@media(max-width:520px){.header{height:112px}.logo{gap:14px}.mark{width:89px;height:89px;border-radius:24px}.brand{font-size:25px}.tag{font-size:9px}.head-actions{gap:8px}.head-btn{width:55px;height:55px}.hero img{width:100%;height:auto}.section,.account{margin-left:38px;margin-right:38px}.method-grid{grid-template-columns:repeat(2,1fr);gap:12px}.method{height:138px}.section-title{font-size:25px}.amount-grid{gap:10px}.amount{height:68px;font-size:18px}.other{font-size:15px}.account-title{font-size:24px}.account-row{height:92px}.account-main strong{font-size:18px}.change{font-size:14px;padding:10px 14px}.safe span{font-size:14px}.cta{font-size:21px}.bottom a{font-size:12px}.bottom a.active{margin:8px 6px}}
 </style>
 </head>
 <body>
-<header class="np-header">
-  <div class="np-logo">
-    <div class="np-mark"><i class="fa-solid fa-gamepad"></i></div>
-    <div><div class="np-brand">NORDIC<span>PLAY</span></div><div class="np-tag">SPIL MED OM T A N K E</div></div>
-  </div>
-  <div class="flex gap-2">
-    <button class="icon-btn" aria-label="Søg"><i class="fa-solid fa-magnifying-glass text-xs"></i></button>
-    <button class="icon-btn" aria-label="Menu" onclick="openMenu()"><i class="fa-solid fa-bars text-xs"></i></button>
-  </div>
+<header class="header">
+  <a href="index.html" class="logo">
+    <div class="mark"><i class="fa-solid fa-gamepad"></i></div>
+    <div><div class="brand">NORDIC<span>PLAY</span></div><div class="tag">SPIL MED OM T A N K E ·</div></div>
+  </a>
+  <div class="head-actions"><button class="head-btn"><i class="fa-solid fa-magnifying-glass"></i></button><button class="head-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
 </header>
 
 <main class="page">
-  <section class="hero">
-    <img src="image/02-viking-kiste.png" alt="NordicPlay udbetaling">
-    <div class="hero-copy">
-      <div class="eyebrow">UDBETALING</div>
-      <div class="hero-title">Dine gevinster,<br>hurtigt og sikkert</div>
-      <div class="hero-sub">Få dine penge udbetalt nemt og sikkert – direkte til din konto.</div>
+  <section class="hero"><img src="image/udbetaling-hero.jpg" alt="NordicPlay udbetaling"></section>
+
+  <section class="section methods">
+    <div class="section-title">Vælg udbetalingsmetode</div>
+    <div class="method-grid">
+      <button class="method active" onclick="selectMethod(this)"><span class="check"><i class="fa-solid fa-check"></i></span><i class="fa-solid fa-building-columns bank-icon"></i><span class="method-name">Bankoverførsel</span><span class="method-time">1–3 hverdage</span></button>
+      <button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-trustly.svg" alt="Trustly"><span class="method-time">Inden for 24t</span></button>
+      <button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-skrill.svg" alt="Skrill"><span class="method-time">Inden for 24t</span></button>
+      <button class="method" onclick="selectMethod(this)"><img class="method-logo" src="image/payment-neteller.svg" alt="Neteller"><span class="method-time">Inden for 24t</span></button>
     </div>
   </section>
 
-  <div class="wrap">
-    <section class="balance">
-      <div class="flex items-center gap-3">
-        <div class="wallet"><i class="fa-solid fa-wallet"></i></div>
-        <div><div class="balance-label">Tilgængelig saldo</div><div class="balance-amount">2.450,00 kr.</div></div>
-      </div>
-    </section>
+  <section class="section">
+    <div class="section-title">Vælg beløb</div>
+    <div class="amount-grid">
+      <button class="amount" onclick="selectAmount(this)">100 kr.</button>
+      <button class="amount" onclick="selectAmount(this)">500 kr.</button>
+      <button class="amount active" onclick="selectAmount(this)">1.000 kr.</button>
+      <button class="amount" onclick="selectAmount(this)">2.500 kr.</button>
+      <button class="amount" onclick="selectAmount(this)">5.000 kr.</button>
+      <button class="amount" onclick="selectAmount(this)">10.000 kr.</button>
+    </div>
+    <button class="other" onclick="document.getElementById('custom').focus()"><i class="fa-solid fa-pen"></i><span>Andet beløb (min. 100 kr.)</span></button>
+    <input id="custom" type="number" min="100" placeholder=" " style="position:absolute;opacity:0;pointer-events:none">
+  </section>
 
-    <section class="card">
-      <div class="step"><span class="stepnum">1</span>Vælg beløb</div>
-      <div class="amounts">
-        <button class="amount" onclick="selectAmount(this,'100')">100 kr.</button>
-        <button class="amount" onclick="selectAmount(this,'500')">500 kr.</button>
-        <button class="amount active" onclick="selectAmount(this,'1000')">1.000 kr.</button>
-        <button class="amount" onclick="selectAmount(this,'2000')">2.000 kr.</button>
-        <button class="amount" onclick="selectAmount(this,'5000')">5.000 kr.</button>
-        <button class="amount" onclick="selectAmount(this,'other')">Andet</button>
-      </div>
-      <div class="custom"><input id="customAmount" type="number" min="100" placeholder="Indtast beløb"><span>kr.</span></div>
-    </section>
-
-    <section class="card">
-      <div class="step"><span class="stepnum">2</span>Vælg udbetalingsmetode</div>
-      <div class="methods">
-        <button class="method active" onclick="selectMethod(this)">
-          <span class="method-icon"><i class="fa-solid fa-building-columns"></i></span>
-          <span><strong>Bankoverførsel</strong><small>Udbetaling til din registrerede bankkonto</small></span>
-          <span class="check"><i class="fa-solid fa-check text-[10px]"></i></span>
-        </button>
-        <button class="method" onclick="selectMethod(this)">
-          <span class="method-icon"><i class="fa-solid fa-bolt"></i></span>
-          <span><strong>Trustly</strong><small>Hurtig udbetaling til din bank</small></span>
-          <span class="check"><i class="fa-solid fa-check text-[10px]"></i></span>
-        </button>
-        <button class="method" onclick="selectMethod(this)">
-          <span class="method-icon"><i class="fa-solid fa-wallet"></i></span>
-          <span><strong>Skrill</strong><small>Udbetaling til din Skrill-konto</small></span>
-          <span class="check"><i class="fa-solid fa-check text-[10px]"></i></span>
-        </button>
-        <button class="method" onclick="selectMethod(this)">
-          <span class="method-icon"><i class="fa-solid fa-wallet"></i></span>
-          <span><strong>Neteller</strong><small>Udbetaling til din Neteller-konto</small></span>
-          <span class="check"><i class="fa-solid fa-check text-[10px]"></i></span>
-        </button>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="step"><span class="stepnum">3</span>Bekræft dine oplysninger</div>
-      <div class="account">
-        <div><strong>Modtagende konto</strong><small>Dansk bankkonto •••• 3456</small></div>
-        <button class="change" onclick="changeAccount()">Ændre konto</button>
-      </div>
-      <div class="info mt-2">
-        <b><i class="fa-solid fa-circle-info mr-1"></i> Vigtig information</b>
-        <div>• Udbetalinger behandles normalt inden for 1–3 hverdage.</div>
-        <div>• Beløbet udbetales til din registrerede konto.</div>
-        <div>• Sørg for, at dine kontooplysninger er korrekte.</div>
-      </div>
-      <button class="cta" onclick="requestWithdrawal()">Anmod om udbetaling <i class="fa-solid fa-arrow-right ml-2"></i></button>
-      <div class="hint">Du modtager en bekræftelse, når din anmodning er registreret.</div>
-    </section>
-  </div>
+  <section class="account">
+    <div class="account-title">Modtagende konto</div>
+    <div class="account-row">
+      <div class="account-icon"><i class="fa-solid fa-building-columns"></i></div>
+      <div class="account-main"><strong>Dansk bankkonto</strong><small>•••• 3456</small></div>
+      <button class="change" onclick="changeAccount()">Ændre konto <i class="fa-solid fa-chevron-right ml-2"></i></button>
+    </div>
+    <div class="safe"><div class="safe-icon"><i class="fa-solid fa-shield-halved"></i></div><div><strong>Sikker udbetaling</strong><span>Udbetalinger behandles sikkert og sendes normalt<br class="hidden sm:block"> inden for 1–3 hverdage.</span></div></div>
+    <button class="cta" onclick="requestWithdrawal()">Anmod om udbetaling <i class="fa-solid fa-chevron-right ml-2"></i></button>
+  </section>
 </main>
 
 <nav class="bottom">
   <a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a>
   <a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a>
   <a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a>
-  <a href="min-konto.html" class="active"><i class="fa-solid fa-user"></i><span>Min konto</span></a>
+  <a class="active" href="min-konto.html"><i class="fa-solid fa-user"></i><span>Min konto</span></a>
   <a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a>
 </nav>
 
 <div id="drawer" class="drawer" onclick="if(event.target===this)closeMenu()">
   <div class="drawer-panel">
-    <button class="icon-btn drawer-close" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></button>
+    <button class="close" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></button>
     <div class="drawer-title">NORDIC<span>PLAY</span></div>
-    <div class="drawer">
-      <a href="min-konto.html"><i class="fa-solid fa-user"></i>Min konto</a>
-      <a href="saldo.html"><i class="fa-solid fa-wallet"></i>Saldo</a>
-      <a href="indbetaling.html"><i class="fa-solid fa-plus"></i>Indbetaling</a>
-      <a href="udbetaling.html"><i class="fa-solid fa-arrow-up-right-from-square"></i>Udbetaling</a>
-      <a href="transaktioner.html"><i class="fa-solid fa-receipt"></i>Transaktioner</a>
-      <a href="campaign.html"><i class="fa-solid fa-gift"></i>Bonuser</a>
-      <a href="favoritter.html"><i class="fa-solid fa-heart"></i>Favoritter</a>
-      <a href="indstillinger.html"><i class="fa-solid fa-gear"></i>Indstillinger</a>
-    </div>
+    <a href="min-konto.html"><i class="fa-solid fa-user"></i>Min konto</a>
+    <a href="saldo.html"><i class="fa-solid fa-wallet"></i>Saldo</a>
+    <a href="indbetaling.html"><i class="fa-solid fa-plus"></i>Indbetaling</a>
+    <a href="udbetaling.html"><i class="fa-solid fa-arrow-up-right-from-square"></i>Udbetaling</a>
+    <a href="transaktioner.html"><i class="fa-solid fa-receipt"></i>Transaktioner</a>
+    <a href="campaign.html"><i class="fa-solid fa-gift"></i>Bonuser</a>
+    <a href="favoritter.html"><i class="fa-solid fa-heart"></i>Favoritter</a>
+    <a href="indstillinger.html"><i class="fa-solid fa-gear"></i>Indstillinger</a>
   </div>
 </div>
-
 <script>
-let selectedAmount='1000';
-function selectAmount(btn,value){
-  document.querySelectorAll('.amount').forEach(x=>x.classList.remove('active'));
-  btn.classList.add('active'); selectedAmount=value;
-  if(value!=='other'){document.getElementById('customAmount').value=value;}
-  else {document.getElementById('customAmount').focus();}
-}
-function selectMethod(btn){
-  document.querySelectorAll('.method').forEach(x=>x.classList.remove('active'));
-  btn.classList.add('active');
-}
-function changeAccount(){alert('Her åbnes flowet til at ændre den registrerede udbetalingskonto.');}
-function requestWithdrawal(){
-  const amount=selectedAmount==='other'?Number(document.getElementById('customAmount').value):Number(selectedAmount);
-  if(!amount || amount<100){alert('Indtast et beløb på mindst 100 kr.');return;}
-  alert('Din udbetalingsanmodning på '+amount.toLocaleString('da-DK')+' kr. er klar til bekræftelse.');
-}
+function selectMethod(btn){document.querySelectorAll('.method').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
+function selectAmount(btn){document.querySelectorAll('.amount').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
+function changeAccount(){alert('Her åbnes flowet til at ændre den registrerede udbetalingskonto.')}
+function requestWithdrawal(){alert('Udbetalingsanmodningen er klar til bekræftelse.')}
 function openMenu(){document.getElementById('drawer').classList.add('open')}
 function closeMenu(){document.getElementById('drawer').classList.remove('open')}
 </script>
