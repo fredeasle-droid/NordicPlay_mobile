@@ -432,31 +432,36 @@
     </section>
 
     <!-- Category Cards Section -->
-    <section class="mt-6 px-4">
-        <div class="flex items-center gap-2 mb-3">
-            <span class="text-yellow-400 text-base"><i class="fa-solid fa-crown"></i></span>
-            <h2 class="font-bold text-base tracking-wide text-white">Udforsk vores kategorier</h2>
+    <section class="mt-7 px-4">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-[#0d2c21] border border-[#176046] text-yellow-300 shadow-[0_0_18px_rgba(0,231,133,.10)]">
+                <i class="fa-solid fa-crown text-base"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <h2 class="font-black text-[18px] leading-tight tracking-tight text-white">Udforsk vores kategorier</h2>
+                <p class="text-[9px] text-gray-500 mt-0.5">Find din næste spiloplevelse</p>
+            </div>
+            <button onclick="showToast('Viser alle kategorier')" class="shrink-0 h-9 px-3.5 rounded-full border border-[#176046] bg-[#091c15] text-white text-[10px] font-extrabold flex items-center gap-2">
+                Se alle <i class="fa-solid fa-chevron-right text-[#00e785]"></i>
+            </button>
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
-            <!-- 1. Live Casino (IMG_4051.png) -->
-            <div onclick="switchTab('live')" class="relative aspect-[3/2] rounded-[28px] overflow-hidden border-2 border-[#24553f] shadow-[0_0_18px_rgba(0,231,133,.08)] cursor-pointer group hover:border-[#00e785] transition">
-                <img src="image/IMG_4051.png" alt="Live Casino" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        <div class="grid grid-cols-2 gap-3.5">
+            <div onclick="switchTab('live')" class="category-card relative aspect-[1.52] rounded-[22px] overflow-hidden border border-[#176046] bg-[#071812] cursor-pointer group shadow-[0_8px_26px_rgba(0,0,0,.22)]">
+                <img src="image/IMG_4051.png" alt="Live Casino" class="absolute inset-0 w-full h-full object-cover block transition-transform duration-300 group-hover:scale-[1.025]">
+                <div class="absolute inset-0 pointer-events-none border border-white/5 rounded-[22px]"></div>
             </div>
-
-            <!-- 2. Blackjack (IMG_4050.png) -->
-            <div onclick="playGame('Blackjack')" class="relative aspect-[3/2] rounded-[28px] overflow-hidden border-2 border-[#24553f] shadow-[0_0_18px_rgba(0,231,133,.08)] cursor-pointer group hover:border-[#00e785] transition">
-                <img src="image/IMG_4050.png" alt="Blackjack" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div onclick="playGame('Blackjack')" class="category-card relative aspect-[1.52] rounded-[22px] overflow-hidden border border-[#176046] bg-[#071812] cursor-pointer group shadow-[0_8px_26px_rgba(0,0,0,.22)]">
+                <img src="image/IMG_4050.png" alt="Blackjack" class="absolute inset-0 w-full h-full object-cover block transition-transform duration-300 group-hover:scale-[1.025]">
+                <div class="absolute inset-0 pointer-events-none border border-white/5 rounded-[22px]"></div>
             </div>
-
-            <!-- 3. Pragmatic Drops & Wins (IMG_4049.png) -->
-            <div onclick="playGame('Drops & Wins')" class="relative aspect-[3/2] rounded-[28px] overflow-hidden border-2 border-[#24553f] shadow-[0_0_18px_rgba(0,231,133,.08)] cursor-pointer group hover:border-[#00e785] transition">
-                <img src="image/IMG_4049.png" alt="Drops & Wins" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div onclick="playGame('Drops & Wins')" class="category-card relative aspect-[1.52] rounded-[22px] overflow-hidden border border-[#176046] bg-[#071812] cursor-pointer group shadow-[0_8px_26px_rgba(0,0,0,.22)]">
+                <img src="image/IMG_4049.png" alt="Pragmatic Drops & Wins" class="absolute inset-0 w-full h-full object-cover block transition-transform duration-300 group-hover:scale-[1.025]">
+                <div class="absolute inset-0 pointer-events-none border border-white/5 rounded-[22px]"></div>
             </div>
-
-            <!-- 4. Henvis en ven (IMG_4052.png) -->
-            <div onclick="showToast('Del dit link og få 100 kr.')" class="relative aspect-[3/2] rounded-[28px] overflow-hidden border-2 border-[#24553f] shadow-[0_0_18px_rgba(0,231,133,.08)] cursor-pointer group hover:border-[#00e785] transition">
-                <img src="image/IMG_4052.png" alt="Henvis ven" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div onclick="showToast('Del dit link og få 100 kr.')" class="category-card relative aspect-[1.52] rounded-[22px] overflow-hidden border border-[#176046] bg-[#071812] cursor-pointer group shadow-[0_8px_26px_rgba(0,0,0,.22)]">
+                <img src="image/IMG_4052.png" alt="Henvis en ven" class="absolute inset-0 w-full h-full object-cover block transition-transform duration-300 group-hover:scale-[1.025]">
+                <div class="absolute inset-0 pointer-events-none border border-white/5 rounded-[22px]"></div>
             </div>
         </div>
     </section>
