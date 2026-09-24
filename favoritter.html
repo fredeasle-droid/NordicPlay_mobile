@@ -104,10 +104,10 @@ a{text-decoration:none;color:inherit}
 <a href="index.html"><i class="fa-solid fa-house"></i><span>Hjem</span></a><a href="casino.html"><i class="fa-solid fa-dice"></i><span>Casino</span></a><a href="campaign.html"><i class="fa-solid fa-gift"></i><span>Kampagner</span></a><a href="min-konto.html" class="active"><i class="fa-regular fa-user"></i><span>Min konto</span></a><a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a>
 </nav>
 
-<div id="drawer" class="np-menu-layer" onclick="if(event.target===this)NP_CLOSE()">
+<div id="drawer" class="np-menu-layer" onclick="if(event.target===this)closeMenuDrawer()">
 <div class="np-menu-panel">
 <div class="np-menu-top">
-<button class="np-menu-icon" onclick="NP_CLOSE()" aria-label="Luk"><i class="fa-solid fa-xmark"></i></button>
+<button class="np-menu-icon" onclick="closeMenuDrawer()" aria-label="Luk"><i class="fa-solid fa-xmark"></i></button>
 <div class="np-menu-logo">NORDIC<span>PLAY</span></div>
 <div style="display:flex;align-items:center;gap:7px"><button class="np-menu-icon"><i class="fa-regular fa-bell"></i></button><div class="np-menu-wallet"><i class="fa-solid fa-wallet"></i> 0,00 kr.</div></div>
 </div>
