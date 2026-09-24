@@ -87,10 +87,10 @@
 <a href="#" onclick="openMenu();return false"><i class="fa-solid fa-bars"></i><span>Menu</span></a>
 </nav>
 
-<div id="drawer" class="np-menu-layer" onclick="if(event.target===this)NP_CLOSE()">
+<div id="drawer" class="np-menu-layer" onclick="if(event.target===this)closeMenuDrawer()">
 <div class="np-menu-panel">
 <div class="np-menu-top">
-<button class="np-menu-icon" onclick="NP_CLOSE()" aria-label="Luk"><i class="fa-solid fa-xmark"></i></button>
+<button class="np-menu-icon" onclick="closeMenuDrawer()" aria-label="Luk"><i class="fa-solid fa-xmark"></i></button>
 <div class="np-menu-logo">NORDIC<span>PLAY</span></div>
 <div style="display:flex;align-items:center;gap:7px"><button class="np-menu-icon"><i class="fa-regular fa-bell"></i></button><div class="np-menu-wallet"><i class="fa-solid fa-wallet"></i> 0,00 kr.</div></div>
 </div>
@@ -122,7 +122,7 @@
 </div></div>
 
 <script>
-function openMenu(){document.getElementById('drawer').classList.add('np-open')}function closeMenu(){document.getElementById('drawer').classList.remove('np-open')}
+function openMenu(){const d=document.getElementById('drawer');d.classList.remove('hidden');d.classList.add('np-open')}function closeMenu(){const d=document.getElementById('drawer');d.classList.remove('np-open');d.classList.add('hidden')}
 function selectPayment(el){document.querySelectorAll('.payment').forEach(x=>x.classList.remove('selected'));el.classList.add('selected')}
 function showToast(msg){const t=document.createElement('div');t.textContent=msg;t.style.cssText='position:fixed;left:50%;bottom:85px;transform:translateX(-50%);background:#12201c;border:1px solid #00e785;color:#fff;padding:10px 14px;border-radius:12px;font-size:11px;z-index:100';document.body.appendChild(t);setTimeout(()=>t.remove(),1600)}
 </script>
