@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b0d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>DANSK — Virtual Bodyguard</title>
+<style>
+:root{--bg:#070b0d;--panel:#0d1316;--panel2:#11191d;--line:#1d292e;--text:#f5f7f8;--muted:#8c9aa1;--green:#35e39a;--green2:#12b976;--cyan:#5de7ff;--red:#ff5b67;--amber:#ffcc66;--shadow:0 20px 70px rgba(0,0,0,.45)}
+*{box-sizing:border-box}html{background:#070b0d}body{margin:0;background:radial-gradient(circle at 50% -10%,#17352b 0,#0a1013 34%,#070b0d 70%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}button,input,textarea{font:inherit}button{cursor:pointer}::-webkit-scrollbar{display:none}
+.app{width:100%;max-width:520px;margin:auto;min-height:100vh;padding-bottom:88px}.top{position:sticky;top:0;z-index:20;padding:12px 15px 10px;background:rgba(7,11,13,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:10px;align-items:center}.brandmark{width:38px;height:38px;border-radius:13px;background:linear-gradient(145deg,#55f0a8,#0f9b68);display:grid;place-items:center;color:#06100c;font-size:19px;box-shadow:0 0 28px rgba(53,227,154,.2)}.brand b{display:block;font-size:14px;letter-spacing:-.02em}.brand small{display:block;color:var(--green);font-size:9px;font-weight:800;letter-spacing:.13em;margin-top:1px}.top-actions{display:flex;gap:7px}.iconbtn{width:37px;height:37px;border:1px solid var(--line);background:#0e1519;color:#dce5e8;border-radius:12px}.screen{display:none;padding:18px 15px}.screen.active{display:block}.hero{padding:17px 16px 20px;border:1px solid #1c3b31;background:linear-gradient(145deg,rgba(19,48,39,.92),rgba(10,18,22,.96));border-radius:26px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:210px;height:210px;right:-80px;top:-90px;background:radial-gradient(circle,rgba(53,227,154,.2),transparent 68%)}.eyebrow{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:29px;line-height:1.04;margin:8px 0 8px;letter-spacing:-.055em}.hero p{color:#aab8bd;font-size:12px;line-height:1.55;max-width:350px;margin:0}.guard-row{display:flex;align-items:end;justify-content:space-between;margin-top:18px;position:relative;z-index:2}.guard{width:92px;height:92px;border-radius:28px;background:radial-gradient(circle at 50% 30%,#effff7 0 7%,#8af2c0 8% 17%,#143e31 18% 50%,#09110e 51%);border:1px solid #5cf1ae;box-shadow:0 0 35px rgba(53,227,154,.22);display:grid;place-items:center;font-size:39px}.status{padding:11px 13px;border:1px solid #25483b;border-radius:16px;background:rgba(4,13,10,.55);min-width:205px}.statusline{display:flex;justify-content:space-between;font-size:10px;margin:4px 0;color:#a9b6bb}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(53,227,154,.7);margin-right:6px}.section-title{display:flex;align-items:end;justify-content:space-between;margin:20px 2px 10px}.section-title h2{font-size:15px;margin:0;letter-spacing:-.02em}.section-title span{font-size:9px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{border:1px solid var(--line);background:linear-gradient(145deg,#10181c,#0b1114);border-radius:18px;padding:14px;min-height:118px;position:relative;overflow:hidden;transition:.18s}.card:active{transform:scale(.985)}.card .ico{width:37px;height:37px;border-radius:12px;display:grid;place-items:center;background:#10241c;color:var(--green);font-size:18px;margin-bottom:10px}.card b{font-size:12px}.card p{font-size:9px;color:var(--muted);line-height:1.45;margin:5px 0 0}.badge{position:absolute;right:10px;top:10px;font-size:7px;padding:4px 6px;border-radius:999px;background:#173127;color:var(--green);font-weight:900}.wide{grid-column:1/-1}.quick{display:flex;gap:8px;overflow:auto;margin-top:10px}.chip{white-space:nowrap;border:1px solid var(--line);background:#0d1418;color:#c9d3d7;border-radius:999px;padding:9px 12px;font-size:9px}.vault-list,.wallet-list{display:grid;gap:8px}.item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#0d1418;border-radius:15px;padding:11px}.item .mini{width:38px;height:38px;border-radius:11px;background:#14221f;display:grid;place-items:center;color:var(--green)}.item-main{min-width:0;flex:1}.item-main b{display:block;font-size:11px}.item-main small{display:block;color:var(--muted);font-size:8px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.item button{border:0;background:#17231f;color:#cbd5d9;border-radius:9px;padding:7px 9px;font-size:9px}.toolbox{border:1px solid #254238;background:linear-gradient(145deg,#10221c,#0c1317);border-radius:20px;padding:14px;margin-top:10px}.toolbox label{display:block;font-size:9px;color:#a9b5ba;margin:0 0 6px}.field{width:100%;border:1px solid #26353b;background:#080d10;color:#fff;border-radius:12px;padding:11px;font-size:11px;outline:none}.field:focus{border-color:#3bd89a}.textarea{min-height:125px;resize:vertical}.primary{width:100%;border:0;background:linear-gradient(135deg,#43eea5,#13ad75);color:#05100b;border-radius:13px;padding:12px;font-size:11px;font-weight:950;margin-top:9px;box-shadow:0 8px 25px rgba(53,227,154,.12)}.secondary{border:1px solid #294039;background:#0d1518;color:#e3e9eb;border-radius:12px;padding:10px;font-size:10px;font-weight:800}.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}.security{border:1px solid #214436;background:#0b1713;border-radius:20px;padding:15px}.score{display:flex;align-items:center;gap:13px}.score-ring{width:70px;height:70px;border-radius:50%;border:7px solid #1b5b43;display:grid;place-items:center;color:var(--green);font-size:17px;font-weight:950}.checks{margin-top:14px;display:grid;gap:7px}.check{display:flex;justify-content:space-between;align-items:center;padding:10px 11px;border-radius:12px;background:#0f191c;border:1px solid #1a292e;font-size:9px}.ok{color:var(--green)}.warn{color:var(--amber)}.vpn{border:1px solid #24503e;background:radial-gradient(circle at 80% 20%,rgba(53,227,154,.12),transparent 30%),#0b1713;border-radius:22px;padding:16px}.vpn-head{display:flex;justify-content:space-between;align-items:center}.switch{width:52px;height:30px;border-radius:99px;background:#273338;padding:3px;border:0}.switch i{display:block;width:24px;height:24px;background:#fff;border-radius:50%;transition:.2s}.switch.on{background:var(--green)}.switch.on i{transform:translateX(22px);background:#07110d}.ipbox{margin-top:12px;padding:12px;background:#07100d;border:1px solid #1c342b;border-radius:14px}.iprow{display:flex;justify-content:space-between;font-size:9px;color:#9ca9ae;margin:5px 0}.iprow b{color:#eaf1f3}.wallet-address{font-family:ui-monospace,monospace;font-size:8px!important}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);z-index:30;width:min(520px,100%);padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:rgba(7,11,13,.94);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:repeat(5,1fr);gap:3px}.nav button{border:0;background:transparent;color:#75838a;font-size:8px;padding:5px 2px;border-radius:12px}.nav button.active{color:var(--green);background:#10231b}.nav .nicon{display:block;font-size:17px;margin-bottom:3px}.fab{position:fixed;right:max(16px,calc((100vw - 520px)/2 + 16px));bottom:85px;z-index:25;width:55px;height:55px;border-radius:19px;border:1px solid #64f0b3;background:linear-gradient(145deg,#38e99d,#0fae72);color:#05100b;font-size:22px;box-shadow:0 15px 35px rgba(0,0,0,.5),0 0 25px rgba(53,227,154,.18)}.toast{position:fixed;left:50%;bottom:150px;transform:translateX(-50%) translateY(10px);z-index:80;background:#e9fff5;color:#06120c;border-radius:13px;padding:10px 13px;font-size:10px;font-weight:900;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.modal{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);display:none;align-items:end;justify-content:center}.modal.open{display:flex}.sheet{width:min(520px,100%);max-height:86vh;overflow:auto;background:#0a1013;border:1px solid #26343a;border-radius:24px 24px 0 0;padding:17px}.sheet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.sheet-top b{font-size:14px}.close{width:32px;height:32px;border-radius:10px;border:1px solid var(--line);background:#11191d;color:#b9c4c9}.chat{display:grid;gap:9px}.msg{max-width:86%;padding:10px 12px;border-radius:15px;background:#111a1e;color:#dce4e7;font-size:10px;line-height:1.5}.msg.me{justify-self:end;background:#15372a;color:#effff7}.composer{display:flex;gap:7px;margin-top:10px}.composer input{flex:1}.send{width:44px;border:0;border-radius:12px;background:var(--green);color:#06100c;font-weight:900}.pillrow{display:flex;gap:7px;flex-wrap:wrap}.danger{color:#ff8a91}.empty{padding:22px;text-align:center;border:1px dashed #26363c;border-radius:16px;color:#7f8c92;font-size:10px}.bigicon{font-size:31px;color:var(--green);margin-bottom:9px}.back{border:0;background:transparent;color:#9eabb0;padding:0;font-size:10px;margin-bottom:12px}.notice{border:1px solid #4a3c20;background:#19150b;color:#d7c79e;padding:10px 11px;border-radius:12px;font-size:9px;line-height:1.5;margin-top:10px}.profile{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#0d1518}.avatar{width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,#55efac,#163d30);display:grid;place-items:center;font-size:22px;color:#07110d}.muted{color:var(--muted)}.tiny{font-size:8px}.mt{margin-top:10px}.hide{display:none!important}
+@media(min-width:700px){body{padding:18px 0}.app{border:1px solid #1b272c;border-radius:28px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.55);background:#080d10}.top{border-radius:28px 28px 0 0}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="brandmark">🛡️</div><div><b>DANSK <span style="color:var(--green)">BODYGUARD</span></b><small>YOUR DIGITAL SIDEKICK</small></div></div>
+  <div class="top-actions"><button class="iconbtn" onclick="openChat()">✦</button><button class="iconbtn" onclick="toast('Profil åbnes snart')">●</button></div>
+</header>
+
+<main>
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="eyebrow">Din digitale bodyguard</div>
+    <h1>Jeg passer på det.<br>Du passer på dig.</h1>
+    <p>Gem, skriv, tjek, del og beskyt — direkte fra din Telegram-verden.</p>
+    <div class="guard-row"><div class="guard">🛡️</div><div class="status"><div><span class="dot"></span><b style="font-size:10px">Bodyguard online</b></div><div class="statusline"><span>VPN</span><b class="ok">Ikke aktiv</b></div><div class="statusline"><span>Sikkerhed</span><b class="ok">92 / 100</b></div></div></div>
+  </div>
+
+  <div class="section-title"><h2>Hvad skal vi ordne?</h2><span>Alt samlet ét sted</span></div>
+  <div class="grid">
+    <div class="card" onclick="go('vault')"><span class="badge">PRIVAT</span><div class="ico">🔐</div><b>Private Vault</b><p>Gem tekster, billeder, filer, links og viden.</p></div>
+    <div class="card" onclick="go('telegram')"><div class="ico">✍️</div><b>Telegram Helper</b><p>Opslag, bios, captions, idéer og formuleringer.</p></div>
+    <div class="card" onclick="go('security')"><span class="badge">SCAN</span><div class="ico">🛡️</div><b>Sikkerhedstjek</b><p>Se hvad du kan kontrollere på din konto og forbindelse.</p></div>
+    <div class="card" onclick="go('vpn')"><div class="ico">🌐</div><b>VPN</b><p>Forbindelse på enheden — klar til Telegram.</p></div>
+    <div class="card" onclick="go('wallet')"><div class="ico">💳</div><b>Wallet Bank</b><p>Find dine gemte adresser på få sekunder.</p></div>
+    <div class="card" onclick="go('tools')"><div class="ico">⚡</div><b>Quick Tools</b><p>Email, links, filer, QR og små hverdagsværktøjer.</p></div>
+  </div>
+
+  <div class="section-title"><h2>Bodyguard kan også</h2></div>
+  <div class="quick"><button class="chip" onclick="go('identity')">👤 Lav username</button><button class="chip" onclick="go('creator')">🎨 Lav profil</button><button class="chip" onclick="go('tools')">🔗 Forkort link</button><button class="chip" onclick="go('tools')">📄 Konverter fil</button></div>
+</section>
+
+<section id="vault" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button>
+  <div class="eyebrow">Private Vault</div><h1 style="font-size:26px;margin:7px 0">Dit digitale pengeskab.</h1>
+  <p class="muted" style="font-size:11px;line-height:1.55">Gem ting, du vil have væk fra chatten — men ikke væk for altid.</p>
+  <div class="grid mt">
+    <div class="card" onclick="newVault('note')"><div class="ico">📝</div><b>Ny note</b><p>Viden, idéer eller tekst.</p></div>
+    <div class="card" onclick="newVault('text')"><div class="ico">📋</div><b>Gem tekst</b><p>Et opslag du vil genbruge.</p></div>
+    <div class="card" onclick="toast('Filvælger åbnes når backend er tilkoblet')"><div class="ico">📎</div><b>Gem fil</b><p>Billeder og dokumenter.</p></div>
+    <div class="card" onclick="newVault('link')"><div class="ico">🔗</div><b>Gem link</b><p>Find det igen senere.</p></div>
+  </div>
+  <div class="section-title"><h2>Senest gemt</h2><span>Lokalt i prototype</span></div>
+  <div id="vaultList" class="vault-list"></div>
+  <div class="notice">🔒 Prototype: indholdet gemmes lokalt i denne browser. Rigtig krypteret server-side vault kommer med backend og nøglehåndtering.</div>
+</section>
+
+<section id="telegram" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button>
+  <div class="eyebrow">Telegram Helper</div><h1 style="font-size:26px;margin:7px 0">Skriv det. Jeg gør det skarpt.</h1>
+  <p class="muted" style="font-size:11px">Fortæl mig hvad du vil sige. Vælg stil. Få et opslag, der er klar til Telegram.</p>
+  <div class="toolbox">
+    <label>Hvad skal opslaget handle om?</label><textarea id="postInput" class="field textarea" placeholder="Fx: Vi lancerer vores nye service i morgen kl. 10..."></textarea>
+    <div class="pillrow mt"><button class="chip" onclick="setTone('🔥 Hype')">🔥 Hype</button><button class="chip" onclick="setTone('💼 Professionel')">💼 Professionel</button><button class="chip" onclick="setTone('😎 Casual')">😎 Casual</button><button class="chip" onclick="setTone('📣 Salg')">📣 Salg</button></div>
+    <button class="primary" onclick="generatePost()">✦ Lav Telegram-opslag</button>
+  </div>
+  <div id="postResult" class="toolbox hide"></div>
+</section>
+
+<section id="identity" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button><div class="eyebrow">Telegram Identity</div><h1 style="font-size:26px;margin:7px 0">Find et navn folk husker.</h1>
+  <div class="toolbox"><label>Ord, navn eller vibe</label><input id="nameSeed" class="field" placeholder="Fx nordic, business, crypto..."><button class="primary" onclick="generateNames()">⚡ Generér forslag</button></div>
+  <div id="nameResults" class="vault-list mt"></div>
+</section>
+
+<section id="creator" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button><div class="eyebrow">Creator Studio</div><h1 style="font-size:26px;margin:7px 0">Dit Telegram-look.</h1>
+  <div class="grid">
+    <div class="card wide" onclick="toast('Billedgenerator klar — kobles til billed-API')"><div class="bigicon">🎨</div><b>Profilbillede</b><p>Generér et stærkt Telegram-profilkoncept.</p><button class="secondary mt">Åbn generator</button></div>
+    <div class="card" onclick="toast('Mockup-generator klar')"><div class="ico">🖥️</div><b>Mockups</b><p>Vis dit design i en Telegram-ramme.</p></div>
+    <div class="card" onclick="go('telegram')"><div class="ico">✍️</div><b>Opslag</b><p>Lav teksten med Bodyguard.</p></div>
+  </div>
+</section>
+
+<section id="security" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button><div class="eyebrow">Security Center</div><h1 style="font-size:26px;margin:7px 0">Lad mig kigge dig efter.</h1>
+  <div class="security mt"><div class="score"><div class="score-ring">92</div><div><b style="font-size:14px">Godt beskyttet</b><p class="muted tiny">Baseret på de kontroller, vi faktisk kan udføre.</p></div></div>
+  <div class="checks">
+    <div class="check"><span>VPN-forbindelse</span><b class="warn">Ikke aktiv</b></div>
+    <div class="check"><span>Offentlig IP</span><b class="ok">Synlig</b></div>
+    <div class="check"><span>DNS leak</span><b class="ok">Ikke testet</b></div>
+    <div class="check"><span>WebRTC leak</span><b class="ok">Ikke testet</b></div>
+    <div class="check"><span>Telegram 2FA</span><b class="warn">Tjek selv</b></div>
+    <div class="check"><span>Aktive Telegram-sessioner</span><b class="warn">Tjek i Telegram</b></div>
+  </div><button class="primary" onclick="runScan()">🔎 Kør forbindelsestjek</button></div>
+  <div class="notice">Bodyguard kan ikke se private Telegram-sessioner eller bevise, at en konto ikke bliver overvåget. Den viser kun kontroller, der faktisk kan udføres.</div>
+</section>
+
+<section id="vpn" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button><div class="eyebrow">Secure Connection</div><h1 style="font-size:26px;margin:7px 0">VPN til din enhed.</h1>
+  <p class="muted" style="font-size:11px">Når VPN'en er aktiv på telefonen, kan Telegram fortsætte med at bruge forbindelsen gennem VPN'en.</p>
+  <div class="vpn mt"><div class="vpn-head"><div><b style="font-size:15px">DANSK VPN</b><div id="vpnStatus" class="tiny muted mt">Forbindelse ikke aktiv</div></div><button id="vpnSwitch" class="switch" onclick="toggleVpn()"><i></i></button></div>
+    <div class="ipbox"><div class="iprow"><span>Status</span><b id="vpnState">🔴 Offline</b></div><div class="iprow"><span>IP</span><b id="vpnIp">—</b></div><div class="iprow"><span>Lokation</span><b id="vpnLoc">—</b></div><div class="iprow"><span>Telegram</span><b id="tgState">Klar</b></div></div>
+    <button class="primary" onclick="confirmVpn()">✓ Bekræft VPN kører</button>
+  </div>
+  <div class="notice">Vigtigt: En Telegram Mini App kan ikke selv installere eller styre en system-VPN. Denne prototype viser brugerflowet. Den rigtige version skal kobles til en separat VPN-klient/profil.</div>
+</section>
+
+<section id="wallet" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button><div class="eyebrow">Wallet Bank</div><h1 style="font-size:26px;margin:7px 0">Dine adresser. Klar når du er.</h1>
+  <div class="toolbox"><label>Navn</label><input id="walletName" class="field" placeholder="Fx Stefanosss"><label style="margin-top:9px">Wallet-adresse</label><input id="walletAddr" class="field" placeholder="0x..."><label style="margin-top:9px">Netværk / valuta</label><input id="walletNet" class="field" placeholder="USDC • Ethereum"><button class="primary" onclick="saveWallet()">＋ Gem wallet</button></div>
+  <div class="section-title"><h2>Gemte wallets</h2></div><div id="walletList" class="wallet-list"></div>
+  <div class="toolbox"><b style="font-size:12px">🤖 Betalingsassistent</b><p class="muted tiny" style="line-height:1.5">Eksempel: “Send samme beløb til Mamma som i går.” Bodyguard skal altid vise modtager, beløb, valuta og adresse før en betaling kan bekræftes.</p><button class="secondary" onclick="paymentDemo()">Prøv flowet</button></div>
+</section>
+
+<section id="tools" class="screen">
+  <button class="back" onclick="go('home')">← Tilbage</button><div class="eyebrow">Quick Tools</div><h1 style="font-size:26px;margin:7px 0">Små ting. Meget mindre bøvl.</h1>
+  <div class="grid">
+    <div class="card" onclick="openTool('email')"><div class="ico">✉️</div><b>Quick Email</b><p>Opret en midlertidig adresse med få klik.</p></div>
+    <div class="card" onclick="openTool('url')"><div class="ico">🔗</div><b>URL Shortener</b><p>Gør lange links nemme at dele.</p></div>
+    <div class="card" onclick="openTool('file')"><div class="ico">📄</div><b>File Converter</b><p>Konverter dokumenter og billeder.</p></div>
+    <div class="card" onclick="openTool('qr')"><div class="ico">▦</div><b>QR Generator</b><p>Lav en QR fra tekst eller link.</p></div>
+  </div>
+  <div id="toolPanel" class="toolbox mt"><b id="toolTitle">Vælg et værktøj</b><p id="toolDesc" class="muted tiny mt">Her kommer værktøjet.</p><div id="toolBody"></div></div>
+</section>
+
+<section id="profile" class="screen">
+  <div class="profile"><div class="avatar">🛡️</div><div><b>Din Bodyguard</b><div class="tiny muted">Beskyttelse · Kreativitet · Orden</div></div></div>
+  <div class="section-title"><h2>Din konto</h2></div>
+  <div class="grid"><div class="card"><div class="ico">🔐</div><b>Vault</b><p id="vaultCount">0 gemte</p></div><div class="card"><div class="ico">💳</div><b>Wallets</b><p id="walletCount">0 gemte</p></div><div class="card"><div class="ico">🛡️</div><b>Security</b><p>92 / 100</p></div><div class="card"><div class="ico">⚙️</div><b>Indstillinger</b><p>Privatliv og konto</p></div></div>
+</section>
+</main>
+
+<button class="fab" onclick="openChat()" aria-label="Åbn Bodyguard">✦</button>
+<nav class="nav"><button data-tab="home" onclick="go('home')" class="active"><span class="nicon">⌂</span>Hjem</button><button data-tab="vault" onclick="go('vault')"><span class="nicon">🔐</span>Vault</button><button data-tab="telegram" onclick="go('telegram')"><span class="nicon">✍️</span>Telegram</button><button data-tab="security" onclick="go('security')"><span class="nicon">🛡️</span>Sikkerhed</button><button data-tab="profile" onclick="go('profile')"><span class="nicon">●</span>Profil</button></nav>
+</div>
+
+<div id="chatModal" class="modal" onclick="if(event.target===this)closeChat()"><div class="sheet"><div class="sheet-top"><b>🛡️ Bodyguard</b><button class="close" onclick="closeChat()">×</button></div><div id="chat" class="chat"><div class="msg">Hej. Jeg er din Bodyguard. Hvad skal vi ordne?</div><div class="pillrow"><button class="chip" onclick="chatQuick('Find min gemte tekst')">Find noget</button><button class="chip" onclick="chatQuick('Lav et Telegram opslag')">Lav opslag</button><button class="chip" onclick="chatQuick('Tjek min sikkerhed')">Sikkerhed</button><button class="chip" onclick="chatQuick('Send min USDC wallet til Stefanosss')">Wallet</button></div></div><div class="composer"><input id="chatInput" class="field" placeholder="Skriv til Bodyguard..." onkeydown="if(event.key==='Enter')sendChat()"><button class="send" onclick="sendChat()">➤</button></div></div></div>
+<div id="toast" class="toast"></div>
+
+<script>
+const state={screen:'home',tone:'🔥 Hype',vault:JSON.parse(localStorage.getItem('bg_vault')||'[]'),wallets:JSON.parse(localStorage.getItem('bg_wallets')||'[]'),vpn:false};
+function $(id){return document.getElementById(id)}
+function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(id)?.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));state.screen=id;window.scrollTo({top:0,behavior:'smooth'});if(id==='vault')renderVault();if(id==='wallet')renderWallets();if(id==='profile'){renderVault();renderWallets()}}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2200)}
+function openChat(){$('chatModal').classList.add('open');setTimeout(()=>$('chatInput').focus(),120)}
+function closeChat(){$('chatModal').classList.remove('open')}
+function chatQuick(q){$('chatInput').value=q;sendChat()}
+function sendChat(){const input=$('chatInput'),q=input.value.trim();if(!q)return;const c=$('chat');c.insertAdjacentHTML('beforeend','<div class="msg me">'+esc(q)+'</div>');input.value='';let a='Jeg er klar. I denne prototype kan jeg åbne de relevante værktøjer, mens den rigtige AI kobles på backend.';if(/sikker|security|overvåget/i.test(q))a='Jeg kan hjælpe med et forbindelsestjek. Jeg kan ikke bevise, at en Telegram-konto ikke bliver overvåget, men jeg kan vise konkrete sikkerhedskontroller.';else if(/wallet|usdc|stefanos/i.test(q))a='Jeg har forstået opgaven. Jeg ville vise modtager, wallet, valuta og beløb og kræve én tydelig bekræftelse før en transaktion.';else if(/opslag|telegram/i.test(q))a='Send mig emnet og tonen, så laver jeg et Telegram-opslag. Du kan også åbne Telegram Helper.';else if(/gem|find/i.test(q))a='Jeg kan søge i din Vault efter titel, tekst eller kategori.';setTimeout(()=>{c.insertAdjacentHTML('beforeend','<div class="msg">'+esc(a)+'</div>');c.scrollTop=c.scrollHeight},300)}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function newVault(type){const title=prompt(type==='note'?'Navn på note':type==='text'?'Titel på tekst':'Navn på link');if(!title)return;const content=prompt('Indhold');if(content===null)return;state.vault.unshift({id:Date.now(),title,content,type});localStorage.setItem('bg_vault',JSON.stringify(state.vault));renderVault();toast('🔐 Gemt i Vault')}
+function renderVault(){const el=$('vaultList');if(!el)return;el.innerHTML=state.vault.length?state.vault.map(x=>'<div class="item"><div class="mini">'+(x.type==='note'?'📝':x.type==='text'?'📋':'🔗')+'</div><div class="item-main"><b>'+esc(x.title)+'</b><small>'+esc(x.content)+'</small></div><button onclick="copyText('+x.id+')">Kopiér</button></div>').join(''):'<div class="empty">Din Vault er tom.<br>Gem noget du ikke vil miste.</div>';$('vaultCount').textContent=state.vault.length+' gemte'}
+function copyText(id){const x=state.vault.find(v=>v.id===id);if(!x)return;navigator.clipboard?.writeText(x.content);toast('Kopieret')}
+function setTone(t){state.tone=t;toast('Stil valgt: '+t)}
+function generatePost(){const q=$('postInput').value.trim()||'Vi har en nyhed, som vi glæder os til at dele.';const title=q.split(/[.!?]/)[0].slice(0,55);const text=state.tone.includes('Hype')?'🚨 '+title+'\n\nVi er klar — og det her bliver godt. 🔥\n\nHold øje med kanalen. Mere info kommer meget snart.\n\n👉 Følg med her.':state.tone.includes('Professionel')?'📢 '+title+'\n\nVi lancerer nu en ny opdatering.\n\nVi deler de vigtigste detaljer her i kanalen, så du kan få det hele samlet ét sted.\n\nLæs med nedenfor 👇':'🔥 '+title+'\n\nSå er vi i gang! Vi glæder os til at vise jer, hvad vi har arbejdet på.\n\nStay tuned 👀';$('postResult').classList.remove('hide');$('postResult').innerHTML='<b style="font-size:12px">Klar til Telegram</b><p style="white-space:pre-wrap;color:#dbe5e8;font-size:11px;line-height:1.6;margin:10px 0">'+esc(text)+'</p><button class="secondary" onclick="navigator.clipboard?.writeText('+JSON.stringify(text)+');toast(\'Kopieret til udklipsholder\')">Kopiér opslag</button>'}
+function generateNames(){const s=($('nameSeed').value.trim()||'nordic').toLowerCase().replace(/\s+/g,'');const suffix=['hq','hub','x','official','lab','core','vault','guard','dk','flow'];const arr=[s+'_'+suffix[Math.floor(Math.random()*suffix.length)],'the'+s,s+'.'+suffix[1],s+suffix[3],s+'_'+suffix[5],s+suffix[2]];$('nameResults').innerHTML=arr.map(n=>'<div class="item"><div class="mini">@</div><div class="item-main"><b>@'+esc(n)+'</b><small>Telegram username-idé</small></div><button onclick="navigator.clipboard?.writeText('+JSON.stringify('@'+n)+');toast(\'Kopieret\')">Kopiér</button></div>').join('')}
+function runScan(){toast('🔎 Forbindelsestjek kørt — ingen live netværkstest i prototype');}
+function toggleVpn(){state.vpn=!state.vpn;$('vpnSwitch').classList.toggle('on',state.vpn);$('vpnState').textContent=state.vpn?'🟢 Tilsluttet':'🔴 Offline';$('vpnStatus').textContent=state.vpn?'Forbindelsen er markeret aktiv':'Forbindelse ikke aktiv';$('vpnIp').textContent=state.vpn?'VPN-IP skjult i prototype':'—';$('vpnLoc').textContent=state.vpn?'Danmark 🇩🇰':'—';$('tgState').textContent=state.vpn?'Klar via VPN':'Klar';toast(state.vpn?'VPN markeret som aktiv':'VPN deaktiveret')}
+function confirmVpn(){toast(state.vpn?'✓ VPN bekræftet aktiv':'⚠️ Aktivér VPN først')}
+function saveWallet(){const n=$('walletName').value.trim(),a=$('walletAddr').value.trim(),net=$('walletNet').value.trim()||'Crypto';if(!n||!a)return toast('Udfyld navn og wallet-adresse');state.wallets.unshift({id:Date.now(),name:n,address:a,net});localStorage.setItem('bg_wallets',JSON.stringify(state.wallets));$('walletName').value='';$('walletAddr').value='';$('walletNet').value='';renderWallets();toast('💳 Wallet gemt')}
+function renderWallets(){const el=$('walletList');if(!el)return;el.innerHTML=state.wallets.length?state.wallets.map(x=>'<div class="item"><div class="mini">₿</div><div class="item-main"><b>'+esc(x.name)+' · '+esc(x.net)+'</b><small class="wallet-address">'+esc(x.address)+'</small></div><button onclick="navigator.clipboard?.writeText('+JSON.stringify(x.address)+');toast(\'Wallet kopieret\')">Kopiér</button></div>').join(''):'<div class="empty">Ingen wallets endnu.</div>';$('walletCount').textContent=state.wallets.length+' gemte'}
+function paymentDemo(){const name=state.wallets[0]?.name||'Mamma',addr=state.wallets[0]?.address||'0x7A...92F1';const amount='250 USDC';$('chat').insertAdjacentHTML('beforeend','<div class="msg me">Send '+amount+' til '+esc(name)+'</div><div class="msg">🛡️ Jeg har fundet modtageren.<br><br><b>'+esc(name)+'</b><br>'+esc(addr)+'<br><br><b>'+amount+'</b><br><br>⚠️ Bekræft først. Ingen transaktion er sendt.</div>');openChat()}
+function openTool(type){const title={email:'✉️ Quick Email',url:'🔗 URL Shortener',file:'📄 File Converter',qr:'▦ QR Generator'}[type];$('toolTitle').textContent=title;$('toolDesc').textContent=type==='email'?'Prototypeflow: opret en adresse med få klik.':type==='url'?'Indsæt en URL og lav et kort link.':type==='file'?'Vælg filtype og ønsket format.':'Lav en QR-kode fra tekst eller URL.';let body='';if(type==='email')body='<input class="field mt" placeholder="Navn (fx nordic123)"><button class="primary" onclick="toast(\'Email-adresse klar i prototype\')">⚡ Opret email</button>';if(type==='url')body='<input id="longUrl" class="field mt" placeholder="https://..."><button class="primary" onclick="shorten()">Forkort URL</button>';if(type==='file')body='<div class="split mt"><button class="secondary" onclick="toast(\'Vælg JPG → PDF\')">JPG → PDF</button><button class="secondary" onclick="toast(\'Vælg PDF → JPG\')">PDF → JPG</button></div>';if(type==='qr')body='<input class="field mt" placeholder="Tekst eller URL"><button class="primary" onclick="toast(\'QR-generator klar\')">Generér QR</button>';$('toolBody').innerHTML=body}
+function shorten(){const u=$('longUrl').value.trim();if(!u)return toast('Indsæt et link først');toast('Kort link genereret i prototype')}
+window.addEventListener('load',()=>{renderVault();renderWallets()});
+</script>
+</body>
+</html>
