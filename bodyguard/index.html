@@ -3,117 +3,247 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#030607">
-<title>DANSK — Bodyguard OS</title>
+<meta name="theme-color" content="#e8e1d5">
+<title>DANSK BODYGUARD</title>
 <style>
-:root{--bg:#030607;--ink:#edf6f2;--muted:#667873;--line:#17312a;--green:#63f5b1;--green2:#18c986;--cyan:#6edfff;--amber:#ffc85a;--red:#ff5368}
-*{box-sizing:border-box}html,body{margin:0;background:#030607;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}body{min-height:100vh;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}::-webkit-scrollbar{display:none}
-.os{max-width:540px;min-height:100vh;margin:auto;background:radial-gradient(circle at 50% 22%,rgba(26,95,69,.16),transparent 35%),#030607;position:relative;padding-bottom:76px}
-.os:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(99,245,177,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(99,245,177,.018) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(#000,transparent 70%);z-index:0}
-header{height:58px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(99,245,177,.08);position:sticky;top:0;background:rgba(3,6,7,.9);backdrop-filter:blur(20px);z-index:20}
-.wordmark{font-size:12px;letter-spacing:.18em;font-weight:900}.wordmark span{color:var(--green)}.session{font-size:6px;letter-spacing:.18em;color:#4d615b}
-.view{display:none;padding:16px}.view.active{display:block}
-.command{font-size:7px;letter-spacing:.24em;color:var(--green);font-weight:900}.sub{font-size:10px;color:var(--muted);line-height:1.55}
-.status-head{display:flex;justify-content:space-between;align-items:end;margin:10px 0 16px}.status-head h1{font-size:29px;line-height:.96;letter-spacing:-.065em;margin:0}.live{font-size:7px;color:var(--green);letter-spacing:.14em;border:1px solid #1d4d3b;padding:6px 7px}
-.guard-stage{height:340px;border:1px solid #17352c;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(71,246,174,.1),transparent 30%),radial-gradient(circle at 50% 50%,transparent 0 92px,rgba(99,245,177,.05) 93px 94px,transparent 95px 130px,rgba(110,223,255,.045) 131px 132px,transparent 133px),#050908}
-.guard-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.8%,rgba(99,245,177,.07) 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,rgba(99,245,177,.07) 50%,transparent 50.2%)}
-.guard-stage:after{content:"SCANNING PERIMETER";position:absolute;bottom:12px;left:12px;font-size:6px;letter-spacing:.2em;color:#42645a}
-.guard{position:absolute;left:50%;top:50%;transform:translate(-50%,-53%);width:150px;height:190px;display:grid;place-items:center}
-.body{position:absolute;width:108px;height:128px;bottom:0;border:1px solid #4ce6a5;border-radius:55px 55px 28px 28px;background:linear-gradient(145deg,#173d31,#06100c 62%);box-shadow:0 0 55px rgba(63,245,174,.15),inset 0 0 30px rgba(110,223,255,.05)}
-.head{position:absolute;top:12px;width:72px;height:72px;border:1px solid #68f5b5;border-radius:50%;background:radial-gradient(circle at 50% 45%,#c9ffe6 0 5%,#4aeaa5 6% 10%,#0d2820 11% 52%,#06100c 53%);box-shadow:0 0 28px rgba(99,245,177,.24);z-index:2}
-.visor{position:absolute;left:12px;right:12px;top:29px;height:9px;border-top:1px solid var(--cyan);border-bottom:1px solid rgba(110,223,255,.25);box-shadow:0 0 12px rgba(110,223,255,.45)}
-.core{position:absolute;width:22px;height:22px;border-radius:50%;border:1px solid var(--green);background:#092018;box-shadow:0 0 20px rgba(99,245,177,.5);left:50%;top:58px;transform:translate(-50%,-50%);z-index:4}
-.guard-name{position:absolute;bottom:-1px;font-size:6px;letter-spacing:.3em;color:#70e7b7;font-weight:900}
-.scanline{position:absolute;width:75%;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);top:12%;left:12.5%;animation:scan 3.2s ease-in-out infinite;opacity:.45}@keyframes scan{50%{top:88%}}
-.radar-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}.d1{left:18%;top:28%}.d2{right:17%;top:39%;background:var(--amber)}.d3{left:24%;bottom:25%;background:var(--green)}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-top:0}.metric{padding:12px 9px;border-right:1px solid var(--line)}.metric:last-child{border:0}.metric b{display:block;font-size:15px}.metric small{font-size:6px;letter-spacing:.12em;color:var(--muted)}
-.panel{margin-top:12px;border:1px solid var(--line);background:rgba(7,14,12,.78);padding:13px}.panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}.panel-title b{font-size:9px;letter-spacing:.13em}.panel-title span{font-size:6px;color:var(--muted);letter-spacing:.16em}
-.security-row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:9px 0;border-top:1px solid #10231e}.security-row:first-child{border:0}.security-row b{font-size:9px}.security-row small{display:block;font-size:7px;color:var(--muted);margin-top:2px}.ok{color:var(--green)}.warn{color:var(--amber)}
-.events{font-family:ui-monospace,monospace}.event{display:grid;grid-template-columns:42px 1fr auto;gap:7px;padding:8px 0;border-top:1px solid #10231e;font-size:7px;color:#9baaa5}.event:first-child{border:0}.event time{color:#50635c}.event b{font-weight:600;color:#c9d7d2}.event i{font-style:normal;color:var(--green)}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.action{border:1px solid var(--line);background:#07100d;color:#dce8e3;text-align:left;padding:12px;min-height:76px}.action strong{display:block;font-size:9px}.action span{display:block;color:var(--muted);font-size:7px;margin-top:5px;line-height:1.4}
-.guard-msg{border-left:2px solid var(--green);padding:11px 12px;background:linear-gradient(90deg,rgba(99,245,177,.06),transparent);margin-top:12px}.guard-msg small{font-size:6px;letter-spacing:.18em;color:var(--green)}.guard-msg p{margin:5px 0 0;font-size:10px;line-height:1.5}
-.page-title{font-size:25px;letter-spacing:-.05em;margin:7px 0}.back{border:0;background:none;color:#6c8179;font-size:8px;letter-spacing:.12em;padding:0;margin-bottom:18px}.tool{border:1px solid var(--line);padding:13px;margin-top:9px;background:#07100d}.tool b{font-size:10px}.field{width:100%;margin-top:9px;border:1px solid #19372e;background:#040807;color:white;padding:11px;font-size:10px;outline:0}.primary{width:100%;border:1px solid #62f3b1;background:#0b3928;color:#bfffe0;padding:11px;margin-top:8px;font-size:8px;font-weight:900;letter-spacing:.1em}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(540px,100%);height:65px;background:rgba(3,6,7,.96);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:30}.nav button{border:0;background:none;color:#53645f;font-size:6px;letter-spacing:.12em}.nav button.active{color:var(--green);background:rgba(99,245,177,.035)}.nav .n{display:block;font-size:15px;margin-bottom:4px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:50;align-items:end}.modal.open{display:flex}.sheet{width:min(540px,100%);margin:auto;background:#06100d;border:1px solid #24523f;padding:16px}.sheet h2{font-size:16px;margin:0}.chat{margin-top:14px;display:grid;gap:8px;max-height:48vh;overflow:auto}.msg{font-size:9px;line-height:1.5;padding:10px;background:#0b1914;border:1px solid #17352c}.msg.me{margin-left:auto;background:#123b2a}.composer{display:flex;gap:7px;margin-top:10px}.composer .field{margin:0}.send{width:44px;border:1px solid var(--green);background:#0c3022;color:var(--green)}
+:root{
+  --paper:#e9e3d8;--paper2:#f4f0e8;--ink:#17191b;--soft:#5d6265;--line:#c9c2b7;
+  --navy:#17253a;--navy2:#263a55;--red:#8e3131;--white:#fbfaf7;--shadow:0 18px 50px rgba(25,29,32,.10)
+}
+*{box-sizing:border-box}html,body{margin:0;background:#d5d0c7;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{min-height:100vh}button,input,textarea{font:inherit}button{cursor:pointer}button:focus,input:focus,textarea:focus{outline:2px solid rgba(23,37,58,.25);outline-offset:2px}
+.shell{max-width:760px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 70px rgba(0,0,0,.12);position:relative}
+.top{height:76px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(244,240,232,.94);backdrop-filter:blur(14px);position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:12px}.crest{width:34px;height:40px;border:1px solid var(--navy);display:grid;place-items:center;position:relative}.crest:before{content:"";width:12px;height:18px;border:2px solid var(--navy);border-radius:8px 8px 4px 4px}.brand b{font-size:15px;letter-spacing:.13em}.brand small{display:block;font-size:8px;color:var(--soft);letter-spacing:.16em;margin-top:3px}
+.top-actions{display:flex;gap:8px}.icon-btn{border:1px solid var(--line);background:var(--white);width:42px;height:42px;color:var(--ink)}
+.page{display:none;padding:28px}.page.active{display:block}
+.eyebrow{font-size:10px;letter-spacing:.22em;font-weight:800;color:var(--navy);text-transform:uppercase}
+h1{font-size:clamp(34px,8vw,62px);line-height:.95;letter-spacing:-.065em;margin:9px 0 16px;font-weight:850}
+h2{font-size:27px;line-height:1;letter-spacing:-.045em;margin:0 0 10px}h3{font-size:16px;margin:0 0 6px}.muted{color:var(--soft);font-size:13px;line-height:1.55}
+.hero{min-height:590px;display:grid;grid-template-columns:1fr 1.05fr;gap:18px;align-items:stretch;margin-bottom:18px}
+.intro{display:flex;flex-direction:column;justify-content:space-between;padding:8px 0 4px}.intro-copy{max-width:330px}.intro p{font-size:16px;line-height:1.55;color:#454b4f;margin:0 0 25px}
+.status{display:inline-flex;align-items:center;gap:9px;border:1px solid #9f9a92;background:var(--white);padding:10px 13px;width:max-content;font-size:10px;font-weight:800;letter-spacing:.12em}.status i{width:8px;height:8px;border-radius:50%;background:#365f4a}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{border:1px solid var(--navy);background:var(--navy);color:#fff;padding:15px 14px;text-align:left;font-weight:800;font-size:11px;letter-spacing:.06em}.btn.alt{background:transparent;color:var(--navy)}
+.guard-frame{min-height:590px;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.guard-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.09),transparent 35%),radial-gradient(circle at 50% 35%,rgba(255,255,255,.10),transparent 27%),linear-gradient(90deg,transparent 49.7%,rgba(255,255,255,.08) 50%,transparent 50.3%)}
+.guard-frame:after{content:"DANSK BODYGUARD";position:absolute;top:20px;left:20px;color:rgba(255,255,255,.42);font-size:9px;letter-spacing:.25em}
+.guard-figure{position:relative;width:78%;height:90%;max-width:360px;display:flex;justify-content:center;filter:drop-shadow(0 24px 30px rgba(0,0,0,.24))}
+.guard-head{position:absolute;top:7%;width:31%;aspect-ratio:1;border-radius:48% 48% 44% 44%;background:#d7d1c7;border:1px solid rgba(255,255,255,.45);z-index:2}
+.guard-head:before{content:"";position:absolute;left:16%;right:16%;top:48%;height:6px;background:var(--navy);border-top:1px solid rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.25)}
+.guard-head:after{content:"";position:absolute;left:42%;top:63%;width:16%;height:1px;background:#73767a}
+.guard-body{position:absolute;bottom:0;width:73%;height:73%;background:linear-gradient(135deg,#101923,#263a55 54%,#101923);clip-path:polygon(28% 0,72% 0,86% 14%,100% 100%,0 100%,14% 14%);border:1px solid rgba(255,255,255,.16)}
+.guard-collar{position:absolute;top:21%;width:38%;height:27%;background:#e7e1d7;clip-path:polygon(50% 100%,0 0,38% 0,50% 45%,62% 0,100% 0);z-index:3}
+.guard-badge{position:absolute;top:46%;width:44px;height:58px;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;color:#fff;font-size:10px;letter-spacing:.12em;z-index:4}
+.guard-badge:before{content:"";position:absolute;width:18px;height:25px;border:1px solid #fff;border-radius:10px 10px 5px 5px}
+.guard-badge span{position:relative;z-index:2;font-size:7px;font-weight:900}
+.guard-caption{position:absolute;bottom:18px;left:20px;right:20px;display:flex;justify-content:space-between;color:rgba(255,255,255,.58);font-size:8px;letter-spacing:.16em}
+.overview{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-bottom:18px}
+.paper{background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);padding:20px}.paper.soft{background:var(--paper2);box-shadow:none}
+.big-status{display:flex;align-items:end;justify-content:space-between;gap:14px}.score{font-size:52px;line-height:.8;font-weight:850;color:var(--navy)}.score small{display:block;font-size:9px;letter-spacing:.16em;color:var(--soft);margin-top:9px}
+.list{margin-top:18px}.row{display:grid;grid-template-columns:1fr auto;gap:12px;border-top:1px solid var(--line);padding:13px 0}.row:first-child{border-top:0}.row b{font-size:12px}.row small{display:block;color:var(--soft);font-size:10px;margin-top:3px;line-height:1.4}.tag{font-size:8px;letter-spacing:.1em;font-weight:800;align-self:center}.tag.ok{color:#365f4a}.tag.watch{color:var(--red)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:15px}.section-head h2{margin:3px 0 0}.section-head span{font-size:9px;color:var(--soft);letter-spacing:.12em}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tool{min-height:150px;border:1px solid var(--line);background:var(--white);padding:18px;text-align:left;box-shadow:var(--shadow)}.tool b{font-size:15px;display:block;margin-bottom:8px}.tool p{margin:0;color:var(--soft);font-size:11px;line-height:1.5}.tool .tool-no{font-size:8px;letter-spacing:.2em;color:var(--navy);font-weight:800;margin-bottom:26px}
+.feature-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);margin-top:18px}.feature{padding:18px;border-right:1px solid var(--line)}.feature:last-child{border:0}.feature b{display:block;font-size:13px}.feature small{color:var(--soft);font-size:10px;line-height:1.4;display:block;margin-top:5px}
+.bottom{position:sticky;bottom:0;height:72px;border-top:1px solid var(--line);background:rgba(244,240,232,.97);display:grid;grid-template-columns:repeat(5,1fr);z-index:18}.bottom button{border:0;background:transparent;color:#747876;font-size:8px;letter-spacing:.08em}.bottom button.active{color:var(--navy);font-weight:900;background:#e6e0d5}.bottom span{display:block;font-size:19px;margin-bottom:3px}
+.back{border:0;background:none;padding:0;color:var(--navy);font-size:10px;font-weight:800;letter-spacing:.1em;margin-bottom:22px}
+.form{display:grid;gap:10px}.field{width:100%;border:1px solid var(--line);background:#fffdf9;padding:14px;color:var(--ink);font-size:13px}.area{min-height:140px;resize:vertical}.wide{width:100%;text-align:center;margin-top:10px}
+.result{margin-top:14px;border-top:1px solid var(--line)}.result .row{padding:14px 0}
+.modal{display:none;position:fixed;inset:0;background:rgba(20,24,28,.58);z-index:50;align-items:flex-end}.modal.open{display:flex}.drawer{width:min(760px,100%);margin:auto;background:var(--paper2);border-top:1px solid var(--line);padding:22px;max-height:88vh;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:start}.close{border:1px solid var(--line);background:var(--white);padding:9px 11px}.chat{display:grid;gap:9px;margin:18px 0;max-height:46vh;overflow:auto}.bubble{padding:13px;background:var(--white);border:1px solid var(--line);font-size:12px;line-height:1.5}.bubble.me{background:var(--navy);color:#fff;margin-left:14%}.composer{display:grid;grid-template-columns:1fr auto;gap:8px}.send{border:1px solid var(--navy);background:var(--navy);color:#fff;width:52px}
+.notice{padding:15px;background:#eee8dd;border-left:3px solid var(--navy);font-size:11px;line-height:1.5;color:#4c5155;margin-top:14px}
+@media(max-width:620px){
+ .top{padding:0 18px;height:68px}.page{padding:21px}.hero{grid-template-columns:1fr;min-height:auto}.guard-frame{min-height:460px;order:-1}.intro{min-height:430px}.overview{grid-template-columns:1fr}.feature-strip{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--line)}.feature:last-child{border-bottom:0}.tool-grid{grid-template-columns:1fr}.tool{min-height:132px}.cta-row{grid-template-columns:1fr}.bottom{height:66px}.brand b{font-size:13px}.brand small{font-size:7px}
+}
 </style>
 </head>
 <body>
-<div class="os">
-<header><div class="wordmark">DANSK <span>BODYGUARD</span></div><div class="session">PRIVATE DEFENSE OS · v1.0</div></header>
+<div class="shell">
+<header class="top">
+  <div class="brand"><div class="crest"></div><div><b>DANSK BODYGUARD</b><small>DIN DIGITALE BESKYTTELSE</small></div></div>
+  <div class="top-actions"><button class="icon-btn" onclick="openChat()" aria-label="Bodyguard">?</button><button class="icon-btn" onclick="showPage('system')" aria-label="Profil">◦</button></div>
+</header>
+
 <main>
-<section id="home" class="view active">
-<div class="status-head"><div><div class="command">SECURITY COMMAND</div><h1>Du er ikke alene<br>om at passe på.</h1></div><div class="live">● LIVE</div></div>
-<div class="guard-stage">
-<div class="scanline"></div><i class="radar-dot d1"></i><i class="radar-dot d2"></i><i class="radar-dot d3"></i>
-<div class="guard"><div class="head"><div class="visor"></div></div><div class="body"></div><div class="core"></div><div class="guard-name">BODYGUARD / 01</div></div>
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="intro">
+      <div class="intro-copy">
+        <div class="eyebrow">PERSONLIG DIGITAL BESKYTTELSE</div>
+        <h1>Din digitale bodyguard.</h1>
+        <p>Én samlet plads til sikkerhed, privatliv, kommunikation og de værktøjer, du bruger, når du vil have mere kontrol.</p>
+        <div class="status"><i></i> BESKYTTELSE AKTIV · PROTOTYPE</div>
+      </div>
+      <div class="cta-row">
+        <button class="btn" onclick="showPage('security')">TJEK SIKKERHED</button>
+        <button class="btn alt" onclick="openChat()">TAL MED BODYGUARD</button>
+      </div>
+    </div>
+    <div class="guard-frame">
+      <div class="guard-figure">
+        <div class="guard-head"></div><div class="guard-body"></div><div class="guard-collar"></div><div class="guard-badge"><span>DB</span></div>
+      </div>
+      <div class="guard-caption"><span>BODYGUARD / 01</span><span>DISKRET · DIREKTE · PRIVAT</span></div>
+    </div>
+  </div>
+
+  <div class="overview">
+    <div class="paper">
+      <div class="eyebrow">SIKKERHEDSSTATUS</div><div class="big-status"><div><h2>Overblik uden støj.</h2><div class="muted">Statusser vises kun som verificerede eller som noget, du skal kontrollere.</div></div><div class="score">92<small>STATUS</small></div></div>
+      <div class="list">
+        <div class="row"><div><b>Forbindelse</b><small>Kontrol klar til at blive kørt.</small></div><span class="tag watch">SKAL TJEKKES</span></div>
+        <div class="row"><div><b>Privat Vault</b><small>Lokalt beskyttet i denne prototype.</small></div><span class="tag ok">LÅST</span></div>
+        <div class="row"><div><b>Telegram</b><small>Hjælp til 2FA, sessioner og privatliv.</small></div><span class="tag ok">KLAR</span></div>
+      </div>
+    </div>
+    <div class="paper soft">
+      <div class="eyebrow">BODYGUARD VURDERER</div><h2>Det vigtigste først.</h2>
+      <p class="muted">Ingen falske “100% sikker”-påstande. Bodyguard skal fortælle dig, hvad der faktisk er kontrolleret, og hvad du selv skal gøre.</p>
+      <button class="btn wide" onclick="showPage('security')">ÅBN SIKKERHEDSCENTER</button>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="section-head"><div><div class="eyebrow">DINE VÆRKTØJER</div><h2>Alt samlet ét sted.</h2></div><span>12 MODULER</span></div>
+    <div class="tool-grid">
+      <button class="tool" onclick="showPage('vault')"><span class="tool-no">01 · PRIVAT</span><b>Private Vault</b><p>Gem private noter, links og oplysninger lokalt.</p></button>
+      <button class="tool" onclick="showPage('telegram')"><span class="tool-no">02 · TELEGRAM</span><b>Telegram Helper</b><p>Guides til privatliv, 2FA, sessions og sikker opsætning.</p></button>
+      <button class="tool" onclick="showPage('username')"><span class="tool-no">03 · IDENTITET</span><b>Username Generator</b><p>Lav neutrale Telegram-navne uden at bruge dit rigtige navn.</p></button>
+      <button class="tool" onclick="showPage('creator')"><span class="tool-no">04 · CREATOR</span><b>Creator Studio</b><p>Byg opslag, captions og idéer til dit indhold.</p></button>
+      <button class="tool" onclick="showPage('vpn')"><span class="tool-no">05 · FORBINDELSE</span><b>VPN</b><p>Guide til VPN, valg af udbyder og sikker forbindelse.</p></button>
+      <button class="tool" onclick="showPage('wallet')"><span class="tool-no">06 · ØKONOMI</span><b>Wallet Bank</b><p>Samlet oversigt over wallets, adresser og egne noter.</p></button>
+      <button class="tool" onclick="showPage('payment')"><span class="tool-no">07 · BETALING</span><b>Betalingsbekræftelse</b><p>Upload eller registrér dokumentation for en betaling.</p></button>
+      <button class="tool" onclick="showPage('email')"><span class="tool-no">08 · KOMMUNIKATION</span><b>Quick Email</b><p>Lav en hurtig mailkladde uden at skifte værktøj.</p></button>
+      <button class="tool" onclick="showPage('url')"><span class="tool-no">09 · LINK</span><b>URL Shortener</b><p>Forbered korte links. Rigtig server-side shortening tilkobles senere.</p></button>
+      <button class="tool" onclick="showPage('convert')"><span class="tool-no">10 · FIL</span><b>File Converter</b><p>Filværktøj klar til rigtig backend-konvertering.</p></button>
+      <button class="tool" onclick="showPage('qr')"><span class="tool-no">11 · QR</span><b>QR Generator</b><p>Lav QR-koder fra tekst eller links.</p></button>
+      <button class="tool" onclick="openChat()"><span class="tool-no">12 · AI</span><b>Bodyguard AI</b><p>Spørg Bodyguard om sikkerhed, værktøjer og næste skridt.</p></button>
+    </div>
+  </div>
+</section>
+
+<section id="security" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">SIKKERHEDSCENTER</div><h1>Kontrol før panik.</h1>
+<p class="muted">Her samler Bodyguard de kontroller, som kan dokumenteres. VPN, DNS og WebRTC kræver rigtig teknisk integration for at blive live.</p>
+<div class="paper">
+<div class="row"><div><b>Forbindelse</b><small>Browseren kan vise grundlæggende status, men ikke garantere anonymitet.</small></div><span class="tag watch">IKKE VERIFICERET</span></div>
+<div class="row"><div><b>VPN</b><small>Kræver separat VPN-klient eller leverandørintegration.</small></div><span class="tag watch">IKKE LIVE</span></div>
+<div class="row"><div><b>Telegram 2FA</b><small>Bodyguard kan guide dig gennem den rigtige opsætning.</small></div><span class="tag ok">GUIDE KLAR</span></div>
+<div class="row"><div><b>Privat Vault</b><small>Prototype-data gemmes lokalt i browseren.</small></div><span class="tag ok">LÅST</span></div>
 </div>
-<div class="metrics"><div class="metric"><b class="ok">92</b><small>SECURITY SCORE</small></div><div class="metric"><b>0</b><small>OPEN THREATS</small></div><div class="metric"><b>3</b><small>PROTECTED AREAS</small></div></div>
-<div class="panel"><div class="panel-title"><b>DEFENSE STATUS</b><span>LAST SCAN 02:41</span></div>
-<div class="security-row"><div><b>Identity</b><small>Account &amp; session hygiene</small></div><b class="ok">SECURE</b></div>
-<div class="security-row"><div><b>Network</b><small>Connection perimeter</small></div><b class="warn">CHECK</b></div>
-<div class="security-row"><div><b>Telegram</b><small>2FA &amp; active sessions</small></div><b class="ok">MONITORED</b></div>
-<div class="security-row"><div><b>Vault</b><small>Private local storage</small></div><b class="ok">LOCKED</b></div></div>
-<div class="guard-msg"><small>BODYGUARD / PRIORITY</small><p>Din forbindelse er ikke verificeret endnu. Jeg kan starte et sikkerhedstjek.</p><button class="primary" onclick="openSecurity()">RUN SECURITY CHECK</button></div>
-<div class="panel"><div class="panel-title"><b>QUICK COMMANDS</b><span>NO NOISE</span></div><div class="actions">
-<button class="action" onclick="openChat()"><strong>ASK BODYGUARD</strong><span>Fortæl mig hvad der skal ordnes.</span></button>
-<button class="action" onclick="openSecurity()"><strong>SCAN CONNECTION</strong><span>Kontroller det, vi faktisk kan teste.</span></button>
-<button class="action" onclick="show('vault')"><strong>OPEN VAULT</strong><span>Private noter, links og data.</span></button>
-<button class="action" onclick="show('identity')"><strong>PROTECT IDENTITY</strong><span>Username og digitale spor.</span></button>
-</div></div>
+<button class="btn wide" onclick="runCheck()">KØR KONTROL</button>
+<div id="securityResult" class="notice">En kontrol bliver ikke kaldt “live”, før den faktisk henter og verificerer data.</div>
 </section>
 
-<section id="security" class="view">
-<button class="back" onclick="show('home')">← COMMAND CENTER</button><div class="command">SECURITY CENTER</div><h1 class="page-title">Forsvarslag for lag.</h1>
-<div class="panel"><div class="panel-title"><b>SECURITY POSTURE</b><span>LOCAL CHECKS</span></div>
-<div class="security-row"><div><b>VPN</b><small>System VPN kan ikke styres fra Mini App</small></div><b class="warn">NOT VERIFIED</b></div>
-<div class="security-row"><div><b>DNS</b><small>Leak-test kræver faktisk netværkstest</small></div><b>READY</b></div>
-<div class="security-row"><div><b>WEBRTC</b><small>Browser-level check</small></div><b>READY</b></div>
-<div class="security-row"><div><b>TELEGRAM 2FA</b><small>Du skal bekræfte direkte i Telegram</small></div><b class="warn">CHECK</b></div>
-</div>
-<div class="panel"><div class="panel-title"><b>SECURITY EVENTS</b><span>LOCAL TIMELINE</span></div><div class="events">
-<div class="event"><time>02:41</time><b>Security scan completed</b><i>OK</i></div><div class="event"><time>02:37</time><b>Session state checked</b><i>OK</i></div><div class="event"><time>02:31</time><b>Network status changed</b><i>WATCH</i></div></div></div>
-<button class="primary" onclick="scan()">START VERIFIED SCAN</button>
-<div class="guard-msg"><small>BODYGUARD NOTE</small><p>Jeg viser kun resultater, der kan dokumenteres. Ingen falske “100% secure”-løfter.</p></div>
+<section id="vault" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">PRIVATE VAULT</div><h1>Dine oplysninger.</h1>
+<p class="muted">En enkel privat plads til noter og oplysninger. Denne prototype bruger lokal browser storage.</p>
+<div class="paper"><div class="form"><input id="note" class="field" placeholder="Titel eller privat note"><button class="btn" onclick="saveNote()">GEM I VAULT</button></div></div>
+<div class="paper" style="margin-top:14px"><div class="section-head"><h2>Gemte ting</h2><span id="vaultCount">0</span></div><div id="vaultItems"></div></div>
 </section>
 
-<section id="vault" class="view">
-<button class="back" onclick="show('home')">← COMMAND CENTER</button><div class="command">PRIVATE VAULT</div><h1 class="page-title">Dine ting. Din kontrol.</h1>
-<div class="tool"><b>NEW PRIVATE NOTE</b><input id="note" class="field" placeholder="Titel eller indhold"><button class="primary" onclick="saveNote()">LOCK INTO VAULT</button></div>
-<div class="panel"><div class="panel-title"><b>VAULT ITEMS</b><span id="vaultCount">0 ITEMS</span></div><div id="vaultItems"></div></div>
-<div class="guard-msg"><small>ENCRYPTION ROADMAP</small><p>Prototype bruger lokal browser storage. Rigtig version skal bruge krypteret backend-storage og nøglehåndtering.</p></div>
+<section id="telegram" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">TELEGRAM HELPER</div><h1>Gør Telegram mere privat.</h1>
+<div class="paper"><div class="row"><div><b>Totrinsbekræftelse</b><small>Guide til at aktivere ekstra adgangskode i Telegram.</small></div><span class="tag ok">GUIDE</span></div><div class="row"><div><b>Aktive sessioner</b><small>Find gamle eller ukendte sessioner og luk dem i Telegram.</small></div><span class="tag ok">GUIDE</span></div><div class="row"><div><b>Telefonnummer</b><small>Gennemgå hvem der må se dit nummer.</small></div><span class="tag ok">GUIDE</span></div><div class="row"><div><b>Privatliv</b><small>Gennemgå profil, grupper, opkald og videresendte beskeder.</small></div><span class="tag ok">GUIDE</span></div></div>
+<button class="btn wide" onclick="openChat()">SPØRG BODYGUARD</button>
 </section>
 
-<section id="identity" class="view">
-<button class="back" onclick="show('home')">← COMMAND CENTER</button><div class="command">IDENTITY DEFENSE</div><h1 class="page-title">Mindre spor. Mere kontrol.</h1>
-<div class="panel"><div class="panel-title"><b>IDENTITY POSTURE</b><span>PRIVATE MODE</span></div>
-<div class="security-row"><div><b>Telegram username</b><small>Vælg et navn uden unødvendige personlige spor.</small></div><b class="ok">READY</b></div>
-<div class="security-row"><div><b>Profile exposure</b><small>Review af offentlige oplysninger.</small></div><b class="warn">CHECK</b></div>
-</div>
-<div class="tool"><b>USERNAME LAB</b><input id="seed" class="field" placeholder="fx nordic, guard, private"><button class="primary" onclick="names()">GENERATE IDENTITIES</button><div id="names" style="margin-top:10px"></div></div>
+<section id="username" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">USERNAME GENERATOR</div><h1>Et navn uden dine oplysninger.</h1>
+<div class="paper"><div class="form"><input id="seed" class="field" placeholder="Fx nordic, guard eller private"><button class="btn" onclick="generateNames()">GENERÉR NAVNE</button></div><div id="names" class="result"></div></div>
 </section>
 
-<section id="profile" class="view">
-<div class="command">CONTROL ROOM</div><h1 class="page-title">Bodyguard OS.</h1>
-<div class="panel"><div class="panel-title"><b>SYSTEM MODULES</b><span>4 ACTIVE</span></div>
-<div class="security-row"><div><b>Private Vault</b><small>Local prototype</small></div><b class="ok">READY</b></div>
-<div class="security-row"><div><b>Security Center</b><small>Manual verification</small></div><b class="ok">READY</b></div>
-<div class="security-row"><div><b>AI Bodyguard</b><small>Backend integration pending</small></div><b class="warn">STAGED</b></div>
-<div class="security-row"><div><b>VPN</b><small>Separate client required</small></div><b class="warn">STAGED</b></div></div>
+<section id="creator" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">CREATOR STUDIO</div><h1>Lav indhold hurtigere.</h1>
+<div class="paper"><div class="form"><input id="creatorTopic" class="field" placeholder="Hvad skal opslaget handle om?"><textarea id="creatorText" class="field area" placeholder="Stikord, tilbud eller idé..."></textarea><button class="btn" onclick="createDraft()">LAV UDKAST</button></div><div id="creatorResult" class="notice" style="display:none"></div></div>
+</section>
+
+<section id="vpn" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">VPN</div><h1>En sikker forbindelse starter rigtigt.</h1>
+<div class="paper"><h2>Opsætning</h2><p class="muted">Bodyguard kan ikke installere eller styre en VPN direkte fra en almindelig Mini App. Brug en rigtig VPN-klient, og kom tilbage hertil for checklisten.</p><div class="list"><div class="row"><div><b>1. Vælg VPN</b><small>Brug en leverandør, du stoler på.</small></div></div><div class="row"><div><b>2. Aktivér Kill Switch</b><small>Undgå at forbindelsen falder tilbage til normal trafik.</small></div></div><div class="row"><div><b>3. Kontroller forbindelsen</b><small>Brug en ekstern test, når den er tilkoblet.</small></div></div></div></div>
+</section>
+
+<section id="wallet" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">WALLET BANK</div><h1>Samlet overblik.</h1>
+<div class="paper"><div class="form"><input id="walletName" class="field" placeholder="Wallet-navn"><input id="walletAddress" class="field" placeholder="Adresse"><button class="btn" onclick="saveWallet()">GEM WALLET</button></div></div><div class="paper" style="margin-top:14px"><div class="section-head"><h2>Mine wallets</h2><span id="walletCount">0</span></div><div id="walletItems"></div></div>
+</section>
+
+<section id="payment" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">BETALINGSBEKRÆFTELSE</div><h1>Dokumentér en betaling.</h1>
+<div class="paper"><div class="form"><input id="paymentRef" class="field" placeholder="Reference / ordrenummer"><input id="paymentAmount" class="field" placeholder="Beløb"><textarea id="paymentNote" class="field area" placeholder="Ekstra oplysninger"></textarea><button class="btn" onclick="confirmPayment()">REGISTRÉR DOKUMENTATION</button></div><div id="paymentResult"></div></div>
+</section>
+
+<section id="email" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">QUICK EMAIL</div><h1>Skriv den. Send den senere.</h1>
+<div class="paper"><div class="form"><input id="mailTo" class="field" placeholder="Modtager"><input id="mailSubject" class="field" placeholder="Emne"><textarea id="mailBody" class="field area" placeholder="Din besked"></textarea><button class="btn" onclick="makeMail()">LAV MAILKLADDE</button></div><div id="mailResult"></div></div>
+</section>
+
+<section id="url" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">URL SHORTENER</div><h1>Korte links, uden pynt.</h1>
+<div class="paper"><div class="form"><input id="urlInput" class="field" placeholder="https://eksempel.dk/meget/langt-link"><button class="btn" onclick="shortenUrl()">FORBERED LINK</button></div><div id="urlResult" class="notice">Rigtig URL-shortening kræver en backend eller en ekstern tjeneste.</div></div>
+</section>
+
+<section id="convert" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">FILE CONVERTER</div><h1>Filværktøj.</h1>
+<div class="paper"><input id="fileInput" type="file" class="field"><div id="fileInfo" class="notice">Vælg en fil. Prototype viser filens metadata; rigtig konvertering kræver backend.</div></div>
+</section>
+
+<section id="qr" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">QR GENERATOR</div><h1>Lav en QR-kode.</h1>
+<div class="paper"><div class="form"><input id="qrText" class="field" placeholder="Tekst eller URL"><button class="btn" onclick="makeQR()">GENERÉR QR</button></div><div id="qrResult" style="margin-top:16px;text-align:center"></div></div>
+</section>
+
+<section id="system" class="page">
+<button class="back" onclick="showPage('home')">← TILBAGE</button><div class="eyebrow">SYSTEM</div><h1>Bodyguard.</h1>
+<div class="paper"><div class="row"><div><b>Version</b><small>DANSK BODYGUARD prototype v1</small></div><span class="tag ok">AKTIV</span></div><div class="row"><div><b>Privat Vault</b><small>Browser-lokal prototype</small></div><span class="tag ok">KLAR</span></div><div class="row"><div><b>AI Bodyguard</b><small>UI klar · rigtig AI kræver backend/API</small></div><span class="tag watch">STAGED</span></div><div class="row"><div><b>Betalinger</b><small>Ingen penge flyttes af denne prototype</small></div><span class="tag watch">STAGED</span></div></div>
 </section>
 </main>
-<nav class="nav"><button class="active" data-v="home" onclick="show('home')"><span class="n">⌁</span>COMMAND</button><button data-v="security" onclick="show('security')"><span class="n">◉</span>SECURITY</button><button data-v="vault" onclick="show('vault')"><span class="n">▣</span>VAULT</button><button data-v="profile" onclick="show('profile')"><span class="n">◇</span>SYSTEM</button></nav>
+
+<nav class="bottom">
+<button data-page="home" class="active" onclick="showPage('home')"><span>⌂</span>OVERSIGT</button>
+<button data-page="security" onclick="showPage('security')"><span>◈</span>SIKKERHED</button>
+<button data-page="vault" onclick="showPage('vault')"><span>▣</span>VAULT</button>
+<button data-page="creator" onclick="showPage('creator')"><span>✦</span>VÆRKTØJER</button>
+<button data-page="system" onclick="showPage('system')"><span>○</span>SYSTEM</button>
+</nav>
 </div>
-<div id="modal" class="modal" onclick="if(event.target===this)closeChat()"><div class="sheet"><div style="display:flex;justify-content:space-between"><h2>BODYGUARD</h2><button class="back" onclick="closeChat()">CLOSE ×</button></div><div id="chat" class="chat"><div class="msg">Jeg er online. Fortæl mig, hvad du vil beskytte, undersøge eller ordne.</div></div><div class="composer"><input id="chatInput" class="field" placeholder="Skriv til Bodyguard..." onkeydown="if(event.key==='Enter')send()"><button class="send" onclick="send()">➤</button></div></div></div>
+
+<div id="chatModal" class="modal" onclick="if(event.target===this)closeChat()">
+<div class="drawer"><div class="drawer-head"><div><div class="eyebrow">BODYGUARD AI</div><h2>Hvad skal jeg hjælpe med?</h2></div><button class="close" onclick="closeChat()">LUK</button></div>
+<div id="chat" class="chat"><div class="bubble">Jeg er din Bodyguard. Spørg om sikkerhed, Telegram, værktøjerne eller hvad du bør gøre som næste skridt.</div></div>
+<div class="composer"><input id="chatInput" class="field" placeholder="Skriv til Bodyguard..." onkeydown="if(event.key==='Enter')sendChat()"><button class="send" onclick="sendChat()">→</button></div>
+</div></div>
+
 <script>
-const $=id=>document.getElementById(id);let vault=JSON.parse(localStorage.getItem('bg_vault_v2')||'[]');
-function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.v===id));scrollTo(0,0);if(id==='vault')renderVault()}
-function openSecurity(){show('security')}
-function openChat(){$('modal').classList.add('open');setTimeout(()=>$('chatInput').focus(),80)}
-function closeChat(){$('modal').classList.remove('open')}
-function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function send(){let q=$('chatInput').value.trim();if(!q)return;$('chat').insertAdjacentHTML('beforeend','<div class="msg me">'+esc(q)+'</div>');$('chatInput').value='';let a=/security|sikker/i.test(q)?'Jeg kan starte et konkret sikkerhedstjek. Jeg vil ikke kalde noget sikkert uden at kunne dokumentere det.':/vault|gem/i.test(q)?'Jeg kan åbne din private vault og hjælpe med at organisere indholdet.': 'Jeg har forstået dig. AI-delen kobles til backend, så jeg kan udføre opgaven rigtigt i stedet for at simulere et svar.';setTimeout(()=>{$('chat').insertAdjacentHTML('beforeend','<div class="msg">'+a+'</div>')},220)}
-function scan(){document.querySelectorAll('#security .security-row b:last-child').forEach(x=>{if(x.classList.contains('warn'))x.textContent='CHECKED'});alert('Scan kørt i prototype. Ingen live netværksdata er hentet.')}
-function saveNote(){let n=$('note').value.trim();if(!n)return;vault.unshift({text:n,time:new Date().toLocaleTimeString('da-DK',{hour:'2-digit',minute:'2-digit'})});localStorage.setItem('bg_vault_v2',JSON.stringify(vault));$('note').value='';renderVault()}
-function renderVault(){let e=$('vaultItems');$('vaultCount').textContent=vault.length+' ITEMS';e.innerHTML=vault.length?vault.map(x=>'<div class="event"><time>'+x.time+'</time><b>'+esc(x.text)+'</b><i>LOCKED</i></div>').join(''):'<div class="sub">Ingen items endnu.</div>'}
-function names(){let s=($('seed').value.trim()||'nordic').toLowerCase().replace(/\s+/g,''),a=[s+'guard',s+'_private',s+'core',s+'vault',s+'shield'];$('names').innerHTML=a.map(x=>'<div class="event"><time>@</time><b>@'+esc(x)+'</b><i>AVAILABLE IDEA</i></div>').join('')}
+const $=id=>document.getElementById(id);
+let vault=JSON.parse(localStorage.getItem("db_vault")||"[]");
+let wallets=JSON.parse(localStorage.getItem("db_wallets")||"[]");
+
+function showPage(id){
+ document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+ const page=$(id); if(page) page.classList.add("active");
+ document.querySelectorAll(".bottom button").forEach(x=>x.classList.toggle("active",x.dataset.page===id));
+ scrollTo(0,0); if(id==="vault")renderVault(); if(id==="wallet")renderWallets();
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function openChat(){$("chatModal").classList.add("open");setTimeout(()=>$("chatInput").focus(),60)}
+function closeChat(){$("chatModal").classList.remove("open")}
+function sendChat(){
+ const q=$("chatInput").value.trim(); if(!q)return;
+ $("chat").insertAdjacentHTML("beforeend",'<div class="bubble me">'+esc(q)+"</div>"); $("chatInput").value="";
+ let a=/telegram/i.test(q)?"Jeg kan guide dig gennem Telegrams 2FA, aktive sessioner og privatlivsindstillinger.":/vault|note|gem/i.test(q)?"Din Private Vault ligger i Værktøjer og gemmer prototype-data lokalt på enheden.":/vpn/i.test(q)?"VPN-funktionen er en opsætningsguide. Selve VPN-forbindelsen kræver en rigtig VPN-klient.":/wallet|crypto/i.test(q)?"Wallet Bank kan holde styr på dine egne wallet-noter og adresser.": "Jeg kan hjælpe med sikkerhed og Bodyguards værktøjer. Den rigtige AI-forbindelse skal kobles til backend, før jeg kan udføre eksterne handlinger.";
+ setTimeout(()=>$("chat").insertAdjacentHTML("beforeend",'<div class="bubble">'+a+"</div>"),180);
+}
+function runCheck(){$("securityResult").textContent="Kontrollen er kørt i prototype. Der er ikke hentet live netværksdata, så ingen falsk sikkerhedsstatus vises."}
+function saveNote(){const n=$("note").value.trim();if(!n)return;vault.unshift({text:n,time:new Date().toLocaleTimeString("da-DK",{hour:"2-digit",minute:"2-digit"})});localStorage.setItem("db_vault",JSON.stringify(vault));$("note").value="";renderVault()}
+function renderVault(){const box=$("vaultItems");$("vaultCount").textContent=vault.length+" GEMT";box.innerHTML=vault.length?vault.map(x=>'<div class="row"><div><b>'+esc(x.text)+'</b><small>'+x.time+'</small></div><span class="tag ok">LOKAL</span></div>').join(""):'<p class="muted">Din vault er tom.</p>'}
+function generateNames(){const s=($("seed").value.trim()||"nordic").toLowerCase().replace(/\s+/g,"");const arr=[s+"guard",s+"_private",s+"shield",s+"vault",s+"desk",s+"safe"];$("names").innerHTML=arr.map(x=>'<div class="row"><div><b>@'+esc(x)+'</b><small>Forslag — ikke live tilgængelighedstjek.</small></div><span class="tag ok">IDÉ</span></div>').join("")}
+function createDraft(){const t=$("creatorTopic").value.trim()||"dit emne",s=$("creatorText").value.trim();const r=$("creatorResult");r.style.display="block";r.innerHTML="<b>UDKAST</b><br><br>"+esc("DANSK BODYGUARD · "+t)+"<br><br>"+esc(s||"Kort, præcist og klart. Tilføj dine vigtigste pointer her.")+"<br><br>#danskbodyguard #privacy"}
+function saveWallet(){const n=$("walletName").value.trim(),a=$("walletAddress").value.trim();if(!n||!a)return;wallets.unshift({n,a});localStorage.setItem("db_wallets",JSON.stringify(wallets));$("walletName").value="";$("walletAddress").value="";renderWallets()}
+function renderWallets(){const box=$("walletItems");$("walletCount").textContent=wallets.length+" GEMT";box.innerHTML=wallets.length?wallets.map(x=>'<div class="row"><div><b>'+esc(x.n)+'</b><small>'+esc(x.a)+'</small></div><span class="tag ok">LOKAL</span></div>').join(""):'<p class="muted">Ingen wallets endnu.</p>'}
+function confirmPayment(){const r=$("paymentResult");r.className="notice";r.textContent="Betalingsdokumentation registreret lokalt i prototypen. Der er ikke flyttet eller bekræftet penge automatisk."}
+function makeMail(){const to=$("mailTo").value.trim(),sub=$("mailSubject").value.trim(),body=$("mailBody").value.trim();$("mailResult").className="notice";$("mailResult").innerHTML="<b>MAILKLADDE</b><br>"+esc(to)+"<br>"+esc(sub)+"<br><br>"+esc(body)}
+function shortenUrl(){const v=$("urlInput").value.trim();$("urlResult").textContent=v?"Link modtaget: "+v+" — rigtig forkortelse kræver backend.":"Indsæt et link først."}
+$("fileInput").addEventListener("change",e=>{const f=e.target.files[0];$("fileInfo").textContent=f?f.name+" · "+Math.round(f.size/1024)+" KB · "+f.type:"Vælg en fil."})
+function makeQR(){const t=$("qrText").value.trim();const box=$("qrResult");if(!t){box.textContent="Indtast tekst eller URL.";return}box.innerHTML='<img alt="QR-kode" style="width:220px;height:220px;max-width:70%;border:12px solid white" src="https://api.qrserver.com/v1/create-qr-code/?size=440x440&data='+encodeURIComponent(t)+'"><div class="muted" style="margin-top:8px">QR genereres via ekstern tjeneste.</div>'}
 </script>
-</body></html>
+</body>
+</html>
