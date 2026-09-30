@@ -390,7 +390,7 @@ const extraCasinoGames = [
 ];
 
 function gameCardMarkup(g,i,image){
- return `<div data-provider="${g[1]}" data-category="${g[2]||'Slots'}" data-name="${g[0]}" onclick="openCasinoOrgDemo('%24%7BGAME_NAME%7D')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative">
+ return `<div data-provider="${g[1]}" data-category="${g[2]||'Slots'}" data-name="${g[0]}" onclick="openCasinoOrgDemo('${encodeURIComponent(g[0])}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative">
  <button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-gray-300 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
  <div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center">
  ${image ? `<img src="${image}" alt="${g[0]}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">` : `<div class="absolute inset-0 bg-gradient-to-tr ${g[3]}"></div><span class="relative font-black text-white text-sm uppercase text-center px-2">${g[0]}</span>`}
