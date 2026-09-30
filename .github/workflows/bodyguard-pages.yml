@@ -1,10 +1,7 @@
-name: Deploy Bodyguard to GitHub Pages
+name: Deploy NordicPlay to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'bodyguard/**'
-      - '.github/workflows/bodyguard-pages.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,10 +21,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload Bodyguard
+      - name: Upload NordicPlay
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './bodyguard'
+          path: '.'
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
