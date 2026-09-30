@@ -181,14 +181,7 @@
         </div>
 
         <div class="game-frame-wrap" id="gameContainer">
-            <iframe
-                id="gameFrame"
-                src="about:blank"
-                allow="fullscreen"
-                allowfullscreen="true"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true">
-            </iframe>
+            <iframe id="gameFrame" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?lang=da&cur=DKK&gameSymbol=vs20fruitsw" allow="autoplay; fullscreen; screen-wake-lock" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
 
             <button id="fullscreenButton" class="fullscreen-btn" onclick="toggleFullScreen()">
                 <i class="fa-solid fa-expand mr-1"></i> Fuld skærm
@@ -254,31 +247,9 @@
 </footer>
 
     <script>
-        const API_BASE = location.hostname.endsWith('onrender.com') ? '' : 'https://nordicplay-casino-test-api.onrender.com';
-const params = new URLSearchParams(location.search);
-const requestedName = params.get('name') || 'Sweet Bonanza';
-const playerId = localStorage.getItem('nordicplay_player_id') || 'np-test-user';
-const frame = document.getElementById('gameFrame');
-async function launchNordicPlayGame(){
-  try{
-    const catalogRes = await fetch(API_BASE+'/api/games?search='+encodeURIComponent(requestedName));
-    const catalog = await catalogRes.json();
-    if(!catalog.success || !catalog.data?.length) throw new Error(catalog.error?.message || 'Spillet findes ikke i sandbox-kataloget.');
-    const game = catalog.data[0];
-    const launchRes = await fetch(API_BASE+'/api/game-launch',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({game_id:game.id,user_token:playerId,return_url:location.origin+'/casino.html'})
-    });
-    const launch = await launchRes.json();
-    if(!launch.success || !launch.game_url) throw new Error(launch.error?.message || 'Kunne ikke starte spillet.');
-    frame.src=launch.game_url;
-    const title=document.querySelector('.game-frame-wrap')?.parentElement?.querySelector('.text-xs.font-bold');
-    if(title) title.textContent=game.title || game.name;
-  }catch(err){
-    frame.srcdoc='<div style="height:100%;display:grid;place-items:center;background:#050907;color:white;font-family:Arial;padding:30px;text-align:center"><div><b style="color:#00e785;font-size:20px">NordicPlay TEST</b><p style="color:#b6c4be">'+String(err.message).replace(/[&<>]/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[s]))+'</p><small style="color:#7d8b86">Sandbox-provideren skal være konfigureret på NordicPlay API-serveren.</small></div></div>';
-  }
-}
-launchNordicPlayGame();
+        // Midlertidig Sweet Bonanza test fra den tidligere fungerende demo-integration.
+        // Denne version bruger demo-saldoen hos spiludbyderen; NordicPlay-wallet kobles på igen i næste trin.
+
 
 const container = document.getElementById('gameContainer');
         const button = document.getElementById('fullscreenButton');
