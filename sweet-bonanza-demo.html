@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#090b18">
-<title>Sweet Blast — NordicPlay Original Demo</title>
+<title>Jackify Bonanza — NordicPlay Original Demo</title>
 <style>
 :root{
   --green:#23f5a4;--cyan:#65e7ff;--pink:#ff4fa7;--gold:#ffd45c;
@@ -136,6 +136,7 @@ linear-gradient(160deg,#32104c,#090a18)!important;border:2px solid #ff5cb5!impor
 .candy1{right:10px;top:132px;animation:floatc1 5s ease-in-out infinite}.candy2{left:3px;top:300px;font-size:34px;animation:floatc2 6s ease-in-out infinite}.candy3{right:18px;top:510px;font-size:32px;animation:floatc3 4.5s ease-in-out infinite}
 @keyframes floatc1{50%{transform:translate(-9px,20px) rotate(12deg) scale(1.1)}}@keyframes floatc2{50%{transform:translate(12px,-18px) rotate(-14deg)}}@keyframes floatc3{50%{transform:translate(-10px,12px) rotate(15deg) scale(1.12)}}
 </style>
+.autobox{width:min(370px,92vw);padding:20px;border:2px solid #65e7ff66;border-radius:24px;background:radial-gradient(circle at 50% 0,#65e7ff20,transparent 45%),linear-gradient(160deg,#15122c,#080a16);box-shadow:0 0 55px #65e7ff22,0 30px 100px #000;color:#fff}.autobox h2{margin:4px 0;font-size:23px}.autobox p{font-size:9px;color:#98a3b8;margin:0 0 14px}.autoopts{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.autoopts button{height:34px;border:1px solid #ffffff18;background:#111528;border-radius:9px;color:#dce7ee;font-size:9px;font-weight:900}.autoopts button.sel{background:#23f5a4;color:#03140d;border-color:#9affd5}.stops{margin:13px 0;text-align:left}.stops label{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #ffffff0b;font-size:9px;color:#c8d1df}.stops input{accent-color:#23f5a4;width:16px;height:16px}.autostart{width:100%;height:45px;border:1px solid #b4ffe1;border-radius:13px;background:linear-gradient(180deg,#3affb1,#04ad71);font-weight:1000;color:#03140d}.autocancel{margin-top:7px;width:100%;height:38px;border:1px solid #ffffff18;border-radius:11px;background:#111528;color:#fff;font-weight:900}
 </head>
 <body>
 <div class="app">
@@ -151,14 +152,14 @@ linear-gradient(160deg,#32104c,#090a18)!important;border:2px solid #ff5cb5!impor
 
   <div class="floating-candy candy1">🍭</div><div class="floating-candy candy2">🍬</div><div class="floating-candy candy3">🍓</div><section class="hero">
     <div class="eyebrow">NORDICPLAY ORIGINAL DEMO</div>
-    <h1>Sweet Blast</h1>
-    <p>6×5 cascade slot · neon candy universe · demo mode</p>
+    <h1>Jackify Bonanza</h1>
+    <p>6×5 cluster cascade · candy universe · demo mode</p>
     <div class="livepill"><i></i> LIVE ANIMATION ENGINE · <span id="online">1,284</span> PLAYERS</div>
   </section>
 
   <section class="cab">
     <div class="lamps"><i class="lamp"></i><i class="lamp"></i><i class="lamp"></i><i class="lamp"></i><i class="lamp"></i><i class="lamp"></i><i class="lamp"></i><i class="lamp"></i></div>
-    <div class="marquee">✦ TUMBLE · MULTIPLIER · WIN ✦</div>
+    <div class="marquee">✦ CLUSTER · TUMBLE · MULTIPLIER ✦</div>
     <div class="frame">
       <div id="grid" class="grid"></div>
       <div id="meter" class="meter"><b id="multx">×1</b> MULTIPLIER</div>
@@ -177,10 +178,10 @@ linear-gradient(160deg,#32104c,#090a18)!important;border:2px solid #ff5cb5!impor
     </div>
     <div class="quick">
       <button id="betlabel">BET 0.50 kr</button>
-      <button id="auto">AUTOPLAY OFF</button>
+      <button id="auto">AUTO</button>
       <button id="reset">RESET</button>
     </div>
-    <button id="buy" class="buy">⚡ ⚡ BUY BONUS · 10 FREE SPINS ⚡</button>
+    <button id="buy" class="buy">🍭 ✦ BUY FREE SPINS · 10 SPINS ✦ 🍭</button>
     <div id="status" class="status">Tap SPIN to start the demo</div>
   </section>
 
@@ -189,10 +190,10 @@ linear-gradient(160deg,#32104c,#090a18)!important;border:2px solid #ff5cb5!impor
     <div class="stat"><span>Last spin</span><b id="last">—</b></div>
     <div class="stat"><span>Mode</span><b id="mode">BASE GAME</b></div>
   </section>
-  <div class="note">Original NordicPlay prototype. This is an original demo inspired by cascade-slot mechanics; it is not the official Sweet Bonanza game or its assets.</div>
+  <div class="note">Jackify Bonanza · original NordicPlay prototype inspired by the modern candy cluster/cascade slot format.</div>
 </div>
 
-<div id="modal" class="modal">
+<div id="autoModal" class="modal"><div class="autobox"><div style="font-size:36px">⚡</div><h2>Autoplay</h2><p>Choose how many spins to run automatically. You can stop anytime.</p><div class="autoopts"><button data-spins="10" class="sel">10</button><button data-spins="25">25</button><button data-spins="50">50</button><button data-spins="100">100</button><button data-spins="999">∞</button></div><div class="stops"><label>Stop on big win <input id="stopWin" type="checkbox"></label><label>Stop on balance loss <input id="stopLoss" type="checkbox"></label><label>Stop when bonus triggers <input id="stopBonus" type="checkbox"></label></div><button id="startAuto" class="autostart">START AUTOPLAY</button><button id="cancelAuto" class="autocancel">CANCEL</button></div></div><div id="modal" class="modal">
   <div class="modalbox">
     <div class="modalicon">⚡🍬</div>
     <h2>Buy Bonus</h2>
@@ -218,7 +219,7 @@ orange:`<svg class="symbol" viewBox="0 0 100 100"><defs><radialGradient id="o"><
 banana:`<svg class="symbol" viewBox="0 0 100 100"><path d="M17 24c7 43 28 57 61 38 8-5 12-11 14-19-9 9-18 13-28 13-22 0-31-14-33-37z" fill="#ffe05a" stroke="#b98719" stroke-width="4"/><path d="M18 24c-2-7 3-12 10-11 1 5-2 9-10 11zM91 43c4-5 7-4 8 0-2 6-5 8-8 8z" fill="#6f4b25"/></svg>`
 };
 
-let balance=100,bet=.5,busy=false,auto=false,mult=1,freeSpins=0,soundOn=true,audioCtx=null,bonusMode=false;
+let balance=100,bet=.5,busy=false,auto=false,autoRemaining=0,autoStopWin=false,autoStopLoss=false,autoStopBonus=false,autoStartBalance=100,mult=1,freeSpins=0,soundOn=true,audioCtx=null,bonusMode=false;
 const $=id=>document.getElementById(id),grid=$('grid'),money=n=>n.toFixed(2);
 
 function sync(){
@@ -288,19 +289,25 @@ async function spin(isBonus=false){
     await tumble(gs.flat());
   }
   if(total>0){
-    balance+=total;sync();$('last').textContent='+'+money(total)+' kr';$('status').textContent=(c>1?'Cascade win · ':'Win · ')+money(total)+' kr';
+    balance+=total;
+    if(autoStopWin&&total>=bet*10){auto=false;autoRemaining=0;$('auto').textContent='AUTO';}sync();$('last').textContent='+'+money(total)+' kr';$('status').textContent=(c>1?'Cascade win · ':'Win · ')+money(total)+' kr';
     showWin(total,bonusMode?'BONUS WIN':'WIN');winSound(total>bet*12);if(total>bet*12)confetti();toast((bonusMode?'BONUS ':'WIN ')+'+'+money(total)+' kr');
   }else{$('status').textContent=usingBonus?'No bonus win — next spin':'No win — spin again';if(!usingBonus)$('last').textContent='−'+money(bet)+' kr'}
   $('spin').disabled=false;$('buy').disabled=false;busy=false;
+  if(autoStopBonus&&bonusMode&&!isBonus){auto=false;autoRemaining=0;$('auto').textContent='AUTO';}
   if(bonusMode&&freeSpins===0){setBonus(0);$('status').textContent=total>0?'Bonus complete · back to base game':'Bonus complete';toast('BONUS COMPLETE')}
-  if(auto&&balance>=bet&&!bonusMode)setTimeout(spin,650);
+  if(auto&&balance>=bet&&!bonusMode&&autoRemaining!==0&&!bonusMode){if(autoRemaining!==999)autoRemaining--;if(autoStopLoss&&balance<autoStartBalance){auto=false;autoRemaining=0;$('auto').textContent='AUTO';toast('AUTOPLAY STOPPED');}else if(autoRemaining!==0)setTimeout(spin,650);else{auto=false;$('auto').textContent='AUTO';toast('AUTOPLAY COMPLETE')}}
   else if(bonusMode&&freeSpins>0)setTimeout(()=>spin(true),750);
 }
 $('minus').onclick=()=>{bet=Math.max(.1,Math.round((bet-.1)*10)/10);sync()};
 $('plus').onclick=()=>{bet=Math.min(20,Math.round((bet+.1)*10)/10);sync()};
 $('spin').onclick=()=>spin(false);
-$('reset').onclick=()=>{if(busy)return;balance=100;bet=.5;mult=1;setBonus(0);$('multx').textContent='×1';$('last').textContent='—';$('status').textContent='Wallet reset to 100.00 kr';fill();sync();toast('Demo wallet reset')};
-$('auto').onclick=()=>{auto=!auto;$('auto').textContent='AUTOPLAY '+(auto?'ON':'OFF');initAudio();if(auto&&!busy&&!bonusMode)spin()};
+$('reset').onclick=()=>{if(busy)return;balance=100;bet=.5;auto=false;autoRemaining=0;mult=1;setBonus(0);$('auto').textContent='AUTO';$('multx').textContent='×1';$('last').textContent='—';$('status').textContent='Wallet reset to 100.00 kr';fill();sync();toast('Demo wallet reset')};
+$('auto').onclick=()=>{if(busy)return;initAudio();$('autoModal').classList.add('on')};
+document.querySelectorAll('.autoopts button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.autoopts button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');});
+$('startAuto').onclick=()=>{autoRemaining=Number(document.querySelector('.autoopts button.sel').dataset.spins);autoStopWin=$('stopWin').checked;autoStopLoss=$('stopLoss').checked;autoStopBonus=$('stopBonus').checked;autoStartBalance=balance;auto=true;$('auto').textContent='AUTO ON';$('autoModal').classList.remove('on');toast('AUTOPLAY STARTED');if(!busy&&!bonusMode)spin()};
+$('cancelAuto').onclick=()=>{$('autoModal').classList.remove('on')};
+$('autoModal').addEventListener('click',e=>{if(e.target===$('autoModal'))$('autoModal').classList.remove('on')});
 $('sound').onclick=()=>{soundOn=!soundOn;$('sound').textContent=soundOn?'🔊':'🔇';if(soundOn){initAudio();tone(660,.12,'sine',.035)}};
 $('buy').onclick=()=>{if(busy)return;initAudio();$('bonusPrice').textContent=money(bet*10)+' kr';$('modal').classList.add('on');bonusSound()};
 $('cancelBuy').onclick=()=>$('modal').classList.remove('on');
