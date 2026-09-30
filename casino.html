@@ -82,6 +82,25 @@
 .np-group{border:1px solid #176046;border-radius:15px;background:#071b14;margin:9px 0;overflow:hidden}.np-group-title{padding:9px 12px 7px;color:#00e785;font-size:8px;font-weight:950;letter-spacing:.12em;border-bottom:1px solid #153b2e}.np-menu-link{min-height:45px;display:flex;align-items:center;gap:11px;padding:8px 12px;border-bottom:1px solid #12352a;font-size:11px}.np-menu-link:last-child{border-bottom:0}.np-menu-link i:first-child{width:22px;text-align:center;color:#00e785;font-size:15px}.np-menu-link .chev{margin-left:auto;color:#7e9189;font-size:10px}.np-new{margin-left:auto;background:#00e785;color:#04120d;padding:4px 8px;border-radius:999px;font-size:7px;font-weight:950}
 .np-logout{height:50px;border:1px solid #176046;border-radius:14px;background:#071b14;display:flex;align-items:center;gap:12px;padding:0 14px;margin-top:9px;font-size:11px}.np-logout i{font-size:19px}.np-menu-brand{text-align:center;color:#00e785;font-weight:950;font-size:18px;padding:17px 0 4px}
 </style>
+
+<style id="np-slot-demo-style">
+#slot-demo-modal{position:fixed;inset:0;z-index:10050;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px)}
+#slot-demo-modal.np-show{display:flex}
+.np-slot-box{width:min(100%,430px);border:1px solid #245443;border-radius:22px;background:linear-gradient(180deg,#0d211a,#07110d);box-shadow:0 25px 80px rgba(0,0,0,.7);overflow:hidden}
+.np-slot-head{padding:14px 16px;border-bottom:1px solid #1b3b30;display:flex;align-items:center;justify-content:space-between}
+.np-slot-title{font-size:15px;font-weight:900}.np-slot-provider{font-size:9px;color:#00e785;margin-top:2px}
+.np-slot-close{width:34px;height:34px;border:1px solid #27483b;border-radius:10px;background:#10241d;color:#fff}
+.np-slot-demo{margin:12px 16px 0;text-align:center;font-size:8px;letter-spacing:.15em;color:#8ca099}
+.np-reels{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:14px 12px;background:#050b08}
+.np-reel{height:76px;border-radius:10px;border:1px solid #28483c;background:linear-gradient(180deg,#172b23,#0a1712);display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:inset 0 0 18px rgba(0,231,133,.05)}
+.np-reel.np-spin{animation:npReelSpin .11s linear infinite}
+@keyframes npReelSpin{0%{transform:translateY(-4px)}50%{transform:translateY(4px)}100%{transform:translateY(-4px)}}
+.np-slot-info{display:flex;justify-content:space-between;padding:10px 16px;color:#9eaaa5;font-size:10px}
+.np-slot-info strong{color:#fff;font-size:12px}
+.np-spin-btn{width:calc(100% - 32px);margin:4px 16px 16px;height:48px;border:0;border-radius:14px;background:#00e785;color:#06130d;font-weight:950;font-size:14px;box-shadow:0 0 24px rgba(0,231,133,.18)}
+.np-spin-btn:disabled{opacity:.45}
+.np-win{min-height:18px;text-align:center;color:#00e785;font-size:12px;font-weight:900;padding:0 16px 8px}
+</style>
 </head>
 <body class="bg-[#0b1311] text-white min-h-screen pb-28 select-none">
 <header class="sticky top-0 z-50 bg-[#0b1311]/95 backdrop-blur-md border-b border-[#1f3831] px-3 py-2.5 flex items-center justify-between gap-2">
@@ -135,15 +154,15 @@
 <section id="section-live" class="category-grid mt-4 hidden">
     <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-cyan-400">Live Casino</h2></div>
     <div class="grid grid-cols-2 gap-3">
-        <div data-provider="Evolution" data-name="Live Roulette" onclick="alert('Starter spil')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-cyan-950 to-blue-950"></div><span class="relative font-black text-white text-sm uppercase">Live Roulette</span></div><div class="game-meta"><h3 class="text-white">Live Roulette</h3><p class="text-cyan-400">Evolution</p></div></div>
-        <div data-provider="Evolution" data-name="Crazy Time" onclick="alert('Starter spil')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-purple-950 to-indigo-950"></div><span class="relative font-black text-white text-sm uppercase">Crazy Time</span></div><div class="game-meta"><h3 class="text-white">Crazy Time</h3><p class="text-cyan-400">Evolution</p></div></div>
+        <div data-provider="Evolution" data-name="Live Roulette" onclick="openSlotGame('${g[0]}','${g[1]}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-cyan-950 to-blue-950"></div><span class="relative font-black text-white text-sm uppercase">Live Roulette</span></div><div class="game-meta"><h3 class="text-white">Live Roulette</h3><p class="text-cyan-400">Evolution</p></div></div>
+        <div data-provider="Evolution" data-name="Crazy Time" onclick="openSlotGame('${g[0]}','${g[1]}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-purple-950 to-indigo-950"></div><span class="relative font-black text-white text-sm uppercase">Crazy Time</span></div><div class="game-meta"><h3 class="text-white">Crazy Time</h3><p class="text-cyan-400">Evolution</p></div></div>
     </div>
 </section>
 
 <section id="section-roulette" class="category-grid mt-4 hidden">
     <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-yellow-400">Roulette</h2></div>
     <div class="grid grid-cols-2 gap-3">
-        <div data-provider="Live Dealer" data-name="Lightning Roulette" onclick="alert('Starter spil')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-yellow-950 to-amber-950"></div><span class="relative font-black text-white text-sm uppercase">Lightning Roulette</span></div><div class="game-meta"><h3 class="text-white">Lightning Roulette</h3><p class="text-yellow-400">Live Dealer</p></div></div>
+        <div data-provider="Live Dealer" data-name="Lightning Roulette" onclick="openSlotGame('${g[0]}','${g[1]}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-yellow-950 to-amber-950"></div><span class="relative font-black text-white text-sm uppercase">Lightning Roulette</span></div><div class="game-meta"><h3 class="text-white">Lightning Roulette</h3><p class="text-yellow-400">Live Dealer</p></div></div>
     </div>
 </section>
 
@@ -341,6 +360,55 @@ function renderGames(){
 <div class="game-meta"><h3 class="text-white">${g[0]}</h3><p>${g[1]}</p></div>
 </div>`).join('');
 }
+
+const demoSymbols=['🍒','🍋','⭐','💎','7️⃣','🔔','🍀','👑'];
+let demoBalance=1000;
+let demoBusy=false;
+
+function openSlotGame(name,provider){
+ const modal=document.getElementById('slot-demo-modal');
+ if(!modal)return;
+ document.getElementById('slot-demo-title').textContent=name;
+ document.getElementById('slot-demo-provider').textContent=provider+' · Demo';
+ document.getElementById('slot-demo-result').textContent='Tryk SPIN for at spille';
+ document.getElementById('slot-demo-balance').textContent=demoBalance.toLocaleString('da-DK')+' kr.';
+ document.getElementById('slot-demo-reels').innerHTML=demoSymbols.slice(0,5).map(s=>'<div class="np-reel">'+s+'</div>').join('');
+ modal.classList.add('np-show');
+ document.body.style.overflow='hidden';
+}
+function closeSlotGame(){
+ const modal=document.getElementById('slot-demo-modal');
+ if(modal)modal.classList.remove('np-show');
+ document.body.style.overflow='';
+}
+function spinDemoSlot(){
+ if(demoBusy)return;
+ if(demoBalance<10){
+   document.getElementById('slot-demo-result').textContent='Demo saldo er opbrugt';
+   return;
+ }
+ demoBusy=true; demoBalance-=10;
+ const reels=[...document.querySelectorAll('#slot-demo-reels .np-reel')];
+ const btn=document.getElementById('slot-demo-spin');
+ btn.disabled=true;
+ document.getElementById('slot-demo-result').textContent='Spinner…';
+ reels.forEach(r=>r.classList.add('np-spin'));
+ setTimeout(()=>{
+   const result=reels.map(r=>demoSymbols[Math.floor(Math.random()*demoSymbols.length)]);
+   reels.forEach((r,i)=>{r.classList.remove('np-spin');r.textContent=result[i]});
+   const counts={}; result.forEach(s=>counts[s]=(counts[s]||0)+1);
+   const max=Math.max(...Object.values(counts));
+   let win=0;
+   if(max===3)win=30;
+   if(max===4)win=100;
+   if(max===5)win=500;
+   if(win){demoBalance+=win;document.getElementById('slot-demo-result').textContent='🎉 Vundet '+win+' kr. i demo!';}
+   else document.getElementById('slot-demo-result').textContent='Ingen gevinst — prøv igen';
+   document.getElementById('slot-demo-balance').textContent=demoBalance.toLocaleString('da-DK')+' kr.';
+   btn.disabled=false; demoBusy=false;
+ },650);
+}
+
 function switchCategory(cat){document.querySelectorAll('.category-grid').forEach(el=>el.classList.add('hidden'));const target=document.getElementById('section-'+cat);if(target)target.classList.remove('hidden');['all','slots','live','roulette','blackjack'].forEach(c=>{const btn=document.getElementById('cat-'+c);if(btn)btn.className="px-4 py-2 rounded-xl text-xs font-semibold bg-[#12201c] border border-[#1f3831] text-gray-300 hover:text-white flex items-center gap-2 flex-shrink-0 transition"});const activeBtn=document.getElementById('cat-'+cat);if(activeBtn)activeBtn.className="px-4 py-2 rounded-xl text-xs font-bold bg-[#00e785] text-[#0b1311] flex items-center gap-2 shadow-[0_0_12px_rgba(0,231,133,0.3)] flex-shrink-0 transition";window.scrollTo({top:0,behavior:'smooth'})}
 function filterByProvider(provider){const cards=document.querySelectorAll('#games-container .game-card');let count=0;cards.forEach(card=>{const show=provider==='all'||card.dataset.provider===provider;card.style.display=show?'block':'none';if(show)count++});const counter=document.getElementById('game-count');if(counter)counter.textContent='Viser '+count+' spil'}
 function toggleFavorite(btn,name){const icon=btn.querySelector('i');const card=btn.closest('.game-card');const game=name||card?.dataset.name||card?.querySelector('h3')?.textContent?.trim();if(!game)return;let f=JSON.parse(localStorage.getItem('nordicplayFavorites')||'[]');if(f.includes(game)){f=f.filter(x=>x!==game);icon.classList.remove('fa-solid','text-[#00e785]');icon.classList.add('fa-regular')}else{f.push(game);icon.classList.remove('fa-regular');icon.classList.add('fa-solid','text-[#00e785]')}localStorage.setItem('nordicplayFavorites',JSON.stringify(f))}
