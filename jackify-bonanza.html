@@ -125,7 +125,7 @@ filter:drop-shadow(0 5px 0 #3a075d) drop-shadow(0 0 12px #ff54d9)}
 <script>
 const symbols=['heart','green','pink','blue','banana','melon','apple','grapes','plum','candy','lollipop'];
 const weights=[12,12,11,11,10,10,10,9,9,4,2];
-let balance=100,bet=1,grid=[],busy=false,turbo=false,autoLeft=0,autoTimer=null,selectedAuto=10,bonusMode=false,freeSpins=0;
+let balance=100,bet=1,grid=[],busy=false,turbo=false,autoLeft=0,autoTimer=null,selectedAuto=10,bonusMode=false,freeSpins=0; const COLS=7,ROWS=5,TOTAL=35;
 
 function money(n){return n.toFixed(2)+' kr'}
 function renderBalance(){document.getElementById('balance').textContent=money(balance);document.getElementById('bet').textContent=money(bet)}
@@ -136,7 +136,7 @@ function draw(){const el=document.getElementById('grid');el.innerHTML='';grid.fo
 function changeBet(v){if(busy)return;bet=Math.max(.5,Math.min(10,Math.round((bet+v)*2)/2));renderBalance()}
 function toggleTurbo(){turbo=!turbo;document.getElementById('status').textContent=turbo?'TURBO ON · FAST CASCADES':'TURBO OFF · NORMAL SPEED'}
 function quickSpin(){if(!busy)spin(true)}
-function findClusters(){const seen=new Set(),clusters=[];for(let i=0;i<30;i++){if(seen.has(i))continue;const type=grid[i],stack=[i],group=[];seen.add(i);while(stack.length){const x=stack.pop();group.push(x);const row=Math.floor(x/COLS),col=x%COLS;for(const n of [x-1,x+1,x-6,x+6]){if(n<0||n>=TOTAL||seen.has(n))continue;const nr=Math.floor(n/COLS),nc=n%6;if(Math.abs(nr-row)+Math.abs(nc-col)!==1)continue;if(grid[n]===type){seen.add(n);stack.push(n)}}}if(group.length>=5)clusters.push(group)}return clusters}
+function findClusters(){const seen=new Set(),clusters=[];for(let i=0;i<TOTAL;i++){if(seen.has(i))continue;const type=grid[i],stack=[i],group=[];seen.add(i);while(stack.length){const x=stack.pop();group.push(x);const row=Math.floor(x/COLS),col=x%COLS;for(const n of [x-1,x+1,x-COLS,x+COLS]){if(n<0||n>=TOTAL||seen.has(n))continue;const nr=Math.floor(n/COLS),nc=n%COLS;if(Math.abs(nr-row)+Math.abs(nc-col)!==1)continue;if(grid[n]===type){seen.add(n);stack.push(n)}}}if(group.length>=5)clusters.push(group)}return clusters}
 function clusterValue(group){const size=group.length;return bet*(size<6?1.1:size<8?2.2:size<10?4:size<13?8:18)}
 function removeAndFall(indices){const dead=new Set(indices);for(let c=0;c<COLS;c++){const keep=[];for(let r=ROWS-1;r>=0;r--){const i=r*COLS+c;if(!dead.has(i))keep.unshift(grid[i])}while(keep.length<ROWS)keep.unshift(pickSymbol());for(let r=0;r<ROWS;r++)grid[r*COLS+c]=keep[r]}}
 function showToast(amount,mult=1){const t=document.getElementById('toast');document.getElementById('toastBig').textContent=mult>1?'BIG WIN!':'WIN!';document.getElementById('toastSmall').textContent=money(amount)+(mult>1?' · x'+mult:'');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),turbo?650:1000)}
