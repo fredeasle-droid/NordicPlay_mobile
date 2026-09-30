@@ -147,22 +147,22 @@
 </section>
 
 <section id="section-slots" class="category-grid mt-4">
-    <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-white">Alle Slots (40 spil)</h2><span class="text-xs text-gray-400" id="game-count">Viser 40 spil</span></div>
+    <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-white">Alle Slots (100 spil)</h2><span class="text-xs text-gray-400" id="game-count">Viser 40 spil</span></div>
     <div class="grid grid-cols-2 gap-3" id="games-container"></div>
 </section>
 
 <section id="section-live" class="category-grid mt-4 hidden">
     <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-cyan-400">Live Casino</h2></div>
     <div class="grid grid-cols-2 gap-3">
-        <div data-provider="Evolution" data-name="Live Roulette" onclick="openSlotGame('${g[0]}','${g[1]}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-cyan-950 to-blue-950"></div><span class="relative font-black text-white text-sm uppercase">Live Roulette</span></div><div class="game-meta"><h3 class="text-white">Live Roulette</h3><p class="text-cyan-400">Evolution</p></div></div>
-        <div data-provider="Evolution" data-name="Crazy Time" onclick="openSlotGame('${g[0]}','${g[1]}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-purple-950 to-indigo-950"></div><span class="relative font-black text-white text-sm uppercase">Crazy Time</span></div><div class="game-meta"><h3 class="text-white">Crazy Time</h3><p class="text-cyan-400">Evolution</p></div></div>
+        <div data-provider="Evolution" data-name="Live Roulette" onclick="openRealGame(encodeURIComponent('Live Roulette'))" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-cyan-950 to-blue-950"></div><span class="relative font-black text-white text-sm uppercase">Live Roulette</span></div><div class="game-meta"><h3 class="text-white">Live Roulette</h3><p class="text-cyan-400">Evolution</p></div></div>
+        <div data-provider="Evolution" data-name="Crazy Time" onclick="openRealGame(encodeURIComponent('Crazy Time'))" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-purple-950 to-indigo-950"></div><span class="relative font-black text-white text-sm uppercase">Crazy Time</span></div><div class="game-meta"><h3 class="text-white">Crazy Time</h3><p class="text-cyan-400">Evolution</p></div></div>
     </div>
 </section>
 
 <section id="section-roulette" class="category-grid mt-4 hidden">
     <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-yellow-400">Roulette</h2></div>
     <div class="grid grid-cols-2 gap-3">
-        <div data-provider="Live Dealer" data-name="Lightning Roulette" onclick="openSlotGame('${g[0]}','${g[1]}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-yellow-950 to-amber-950"></div><span class="relative font-black text-white text-sm uppercase">Lightning Roulette</span></div><div class="game-meta"><h3 class="text-white">Lightning Roulette</h3><p class="text-yellow-400">Live Dealer</p></div></div>
+        <div data-provider="Live Dealer" data-name="Lightning Roulette" onclick="openRealGame(encodeURIComponent('Lightning Roulette'))" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-yellow-950 to-amber-950"></div><span class="relative font-black text-white text-sm uppercase">Lightning Roulette</span></div><div class="game-meta"><h3 class="text-white">Lightning Roulette</h3><p class="text-yellow-400">Live Dealer</p></div></div>
     </div>
 </section>
 
@@ -308,10 +308,7 @@ const games = [
 ["Big Bass Splash","Pragmatic Play","96.7%","from-blue-900 to-cyan-950"],
 ["Ronin Stackways","Hacksaw Gaming","96.3%","from-red-950 to-neutral-950"],
 ["Temple Tumble Megaways","Relax Gaming","96.2%","from-stone-900 to-orange-950"],
-["Fruit Party","Pragmatic Play","96.5%","from-red-950 to-pink-900"]
-];
-
-
+["Fruit Party","Pragmatic Play","96.5%","from-red-950 to-pink-900"],
 ["Starburst","NetEnt","96.1%","from-violet-950 to-purple-900"],
 ["Gonzo's Quest","NetEnt","96.0%","from-emerald-950 to-teal-950"],
 ["Book of Dead","Play'n GO","96.2%","from-amber-900 to-yellow-950"],
@@ -371,7 +368,7 @@ const games = [
 ["Da Vinci Diamonds","IGT","95.0%","from-blue-950 to-purple-950"],
 ["Cleopatra","IGT","95.0%","from-yellow-950 to-blue-950"],
 ["88 Fortunes","IGT","95.0%","from-red-950 to-yellow-950"],
-["Lucky Larry's Lobstermania 2","IGT","95.0%","from-blue-950 to-cyan-950"],
+["Lucky Larry's Lobstermania 2","IGT","95.0%","from-blue-950 to-cyan-950"]
 ];
 
 const extraCasinoGames = [
@@ -390,7 +387,7 @@ const extraCasinoGames = [
 ];
 
 function gameCardMarkup(g,i,image){
- return `<div data-provider="${g[1]}" data-category="${g[2]||'Slots'}" data-name="${g[0]}" onclick="openCasinoOrgDemo('${encodeURIComponent(g[0])}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative">
+ return `<div data-provider="${g[1]}" data-category="${g[2]||'Slots'}" data-name="${g[0]}" onclick="openRealGame('${encodeURIComponent(g[0])}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative">
  <button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-gray-300 hover:text-[#00e785] transition"><i class="fa-regular fa-heart text-xs"></i></button>
  <div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center">
  ${image ? `<img src="${image}" alt="${g[0]}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">` : `<div class="absolute inset-0 bg-gradient-to-tr ${g[3]}"></div><span class="relative font-black text-white text-sm uppercase text-center px-2">${g[0]}</span>`}
