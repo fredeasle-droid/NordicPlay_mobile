@@ -80,6 +80,61 @@ button:disabled{opacity:.5;cursor:default}
 .modalicon{font-size:42px;filter:drop-shadow(0 0 16px #ff4fa766)}.modal h2{font-size:22px;margin:7px 0 4px}.modal p{font-size:10px;color:#98a3b8;line-height:1.55;margin:0 0 15px}.price{font-size:24px;font-weight:1000;color:var(--gold);margin:5px 0 15px}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.modalactions button{height:43px;border-radius:12px;border:1px solid #ffffff18;background:#111528;color:#fff;font-weight:900}.modalactions .confirm{background:linear-gradient(180deg,#ff66b5,#a42f78);border-color:#ffb1da;color:#fff}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:75;overflow:hidden}.confetti i{position:absolute;width:7px;height:12px;border-radius:2px;animation:conf 900ms ease-out forwards}@keyframes conf{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(90vh) rotate(720deg);opacity:0}}
 @media(max-width:360px){.controls{grid-template-columns:58px 1fr 58px}.hero h1{font-size:28px}}
+
+/* V7 VISUAL OVERHAUL */
+html,body{background:#020006!important}
+.app{max-width:480px!important;background:
+radial-gradient(70% 28% at 50% 8%,#ff2e9c55,transparent 70%),
+radial-gradient(55% 35% at 100% 42%,#00eaff35,transparent 70%),
+radial-gradient(55% 35% at 0% 58%,#9b35ff35,transparent 70%),
+linear-gradient(180deg,#12001f 0%,#210637 30%,#08051a 67%,#02030a 100%)!important}
+.app:after{content:"";position:absolute;z-index:-8;inset:0;background:
+radial-gradient(circle at 8% 18%,#fff 0 1px,transparent 2px),
+radial-gradient(circle at 86% 23%,#fff 0 1px,transparent 2px),
+radial-gradient(circle at 25% 40%,#fff 0 1px,transparent 2px),
+radial-gradient(circle at 73% 52%,#fff 0 1px,transparent 2px),
+radial-gradient(circle at 12% 72%,#fff 0 1px,transparent 2px),
+radial-gradient(circle at 91% 78%,#fff 0 1px,transparent 2px);
+background-size:130px 170px,190px 210px,170px 230px,220px 180px,240px 210px,180px 190px;
+opacity:.45;animation:starfield 12s linear infinite}
+@keyframes starfield{to{background-position:130px 170px,-190px 210px,170px -230px,-220px 180px,240px -210px,-180px 190px}}
+.top{background:#05030ce8!important;border-bottom:1px solid #ff4fa733!important}
+.hero{padding-top:17px!important;padding-bottom:11px!important}
+.hero h1{font-size:39px!important;line-height:.9!important;color:#fff!important;text-shadow:0 3px 0 #8d145f,0 0 12px #ff4fa7,0 0 40px #ff4fa766!important}
+.hero p{font-size:10px!important;color:#d8c9e9!important}
+.livepill{background:linear-gradient(90deg,#0d1d2b,#261033,#0d1d2b)!important;border-color:#65e7ff66!important;box-shadow:0 0 22px #65e7ff18!important}
+.cab{margin:0 4px!important;border-radius:32px!important;padding:10px!important;background:
+linear-gradient(180deg,#3a1255e8 0%,#140c2ce8 34%,#070914f2 100%)!important;
+border:2px solid #ff55b0!important;box-shadow:0 0 0 1px #65e7ff33,0 25px 90px #000f,0 0 55px #ff3fa42b!important}
+.cab:after{content:"";position:absolute;left:-20%;right:-20%;top:18px;height:2px;background:linear-gradient(90deg,transparent,#65e7ff,#fff,#ff4fa7,transparent);filter:blur(2px);animation:laser 2.4s linear infinite;pointer-events:none}
+@keyframes laser{from{transform:translateX(-35%)}to{transform:translateX(35%)}}
+.lamps{margin:1px 18px 10px!important}
+.lamp{width:9px!important;height:9px!important}
+.marquee{font-size:10px!important;color:#fff!important;text-shadow:0 0 12px #ff4fa7}
+.frame{border:3px solid #ff6ab9!important;border-radius:23px!important;padding:8px!important;background:linear-gradient(145deg,#241035,#070812,#190c2b)!important;box-shadow:inset 0 0 30px #000,0 0 40px #ff3fa433,0 7px 0 #5c1e70!important}
+.grid{gap:5px!important;padding:4px!important;border-radius:15px!important;background:radial-gradient(circle,#23163b,#05050c 70%)!important}
+.cell{border-radius:10px!important;background:linear-gradient(145deg,#55416d 0%,#251a39 40%,#0b0a16 100%)!important;box-shadow:inset 0 2px #ffffff28,inset 0 -6px 11px #000d,0 3px 4px #000b!important}
+.cell .symbol{width:88%!important;height:88%!important;filter:drop-shadow(0 5px 4px #000e) drop-shadow(0 0 5px #ffffff18)!important}
+.meter{height:44px!important;font-size:12px!important}.meter b{font-size:23px!important}
+.bonusbar{margin:9px 1px 0!important;padding:10px 12px!important;border:2px solid #42e9ff!important;background:linear-gradient(90deg,#071f32,#28104a,#071f32)!important;box-shadow:0 0 30px #42e9ff33,inset 0 1px #fff2!important}
+.spins{font-size:27px!important}
+.controls{grid-template-columns:68px 1fr 68px!important;gap:8px!important;margin-top:11px!important}
+.betbtn{height:58px!important;background:linear-gradient(180deg,#1c1930,#0b0b16)!important;border-color:#ffffff22!important}
+.spin{height:58px!important;border-radius:17px!important;font-size:22px!important;background:linear-gradient(180deg,#8affc9,#27f39d 45%,#00a96d)!important;box-shadow:0 8px 35px #23f5a466,0 0 28px #23f5a433!important}
+.quick button{height:34px!important;background:#151327!important}
+.buy{height:49px!important;border:2px solid #ffb2db!important;border-radius:15px!important;background:linear-gradient(105deg,#59166f,#ff3fa4 45%,#ff7349 100%)!important;box-shadow:0 0 35px #ff3fa455,0 8px 25px #0008!important;font-size:11px!important;letter-spacing:.04em!important;animation:buyglow 2s ease-in-out infinite}
+@keyframes buyglow{50%{filter:brightness(1.15);box-shadow:0 0 45px #ff3fa477,0 8px 25px #0008}}
+.panel{margin:7px 4px 0!important;background:#080811ee!important;border-color:#ffffff18!important}
+.modalbox{background:
+radial-gradient(circle at 50% 0,#ff3fa733,transparent 45%),
+linear-gradient(160deg,#32104c,#090a18)!important;border:2px solid #ff5cb5!important;box-shadow:0 0 60px #ff3fa444,0 30px 100px #000!important}
+.modalicon{font-size:52px!important;animation:iconpop 1s ease-in-out infinite alternate}
+@keyframes iconpop{to{transform:scale(1.08) rotate(-3deg);filter:drop-shadow(0 0 18px #ff4fa7)}}
+.winpop{font-size:37px!important;text-shadow:0 4px 0 #8a145e,0 0 30px #fff,0 0 50px #ff4fa7!important}
+<style>
+.floating-candy{position:absolute;z-index:-2;font-size:42px;filter:drop-shadow(0 0 18px #ff4fa766);opacity:.72;pointer-events:none}
+.candy1{right:10px;top:132px;animation:floatc1 5s ease-in-out infinite}.candy2{left:3px;top:300px;font-size:34px;animation:floatc2 6s ease-in-out infinite}.candy3{right:18px;top:510px;font-size:32px;animation:floatc3 4.5s ease-in-out infinite}
+@keyframes floatc1{50%{transform:translate(-9px,20px) rotate(12deg) scale(1.1)}}@keyframes floatc2{50%{transform:translate(12px,-18px) rotate(-14deg)}}@keyframes floatc3{50%{transform:translate(-10px,12px) rotate(15deg) scale(1.12)}}
 </style>
 </head>
 <body>
@@ -94,7 +149,7 @@ button:disabled{opacity:.5;cursor:default}
     </div>
   </header>
 
-  <section class="hero">
+  <div class="floating-candy candy1">🍭</div><div class="floating-candy candy2">🍬</div><div class="floating-candy candy3">🍓</div><section class="hero">
     <div class="eyebrow">NORDICPLAY ORIGINAL DEMO</div>
     <h1>Sweet Blast</h1>
     <p>6×5 cascade slot · neon candy universe · demo mode</p>
@@ -125,7 +180,7 @@ button:disabled{opacity:.5;cursor:default}
       <button id="auto">AUTOPLAY OFF</button>
       <button id="reset">RESET</button>
     </div>
-    <button id="buy" class="buy">⚡ BUY BONUS · 10 FREE SPINS</button>
+    <button id="buy" class="buy">⚡ ⚡ BUY BONUS · 10 FREE SPINS ⚡</button>
     <div id="status" class="status">Tap SPIN to start the demo</div>
   </section>
 
