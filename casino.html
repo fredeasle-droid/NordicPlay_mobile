@@ -269,6 +269,7 @@
 
     <!-- JavaScript Application Logic -->\n<script>
 const games = [
+["Jackify Bonanza","NordicPlay Original","96.8%","from-pink-950 to-violet-950"],
 ["Sweet Bonanza","Pragmatic Play","96.5%","from-pink-900/80 to-purple-900/80"],
 ["Gates of Olympus","Pragmatic Play","96.5%","from-yellow-900/80 to-blue-900/80"],
 ["Big Bass Bonanza","Pragmatic Play","96.7%","from-blue-950 to-emerald-900"],
@@ -400,6 +401,7 @@ function gameCardMarkup(g,i,image){
 
 function openRealGame(encodedName){
  const name=decodeURIComponent(encodedName||'');
+ if(name==='Jackify Bonanza'){ window.location.href='jackify-bonanza.html'; return; }
  window.location.href='game.html?name='+encodeURIComponent(name);
 }
 function renderAllGames(){
