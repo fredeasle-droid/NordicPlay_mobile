@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Sweet Blast — NordicPlay Demo</title>
+<style>
+:root{--bg:#07140f;--panel:#0d2119;--green:#00e785;--pink:#ff4fa3;--gold:#ffd45c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#173d2b 0,#07140f 48%,#030806 100%);color:#fff;font-family:Inter,system-ui,sans-serif;min-height:100vh}
+.app{max-width:480px;margin:auto;padding:12px 10px 24px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.brand{font-weight:900;font-size:17px}.brand b{color:var(--green)}.wallet{background:#10291f;border:1px solid #24513d;border-radius:12px;padding:7px 10px;text-align:right}.wallet small{display:block;color:#91a59b;font-size:9px}.wallet strong{font-size:13px;color:var(--green)}
+.title{text-align:center;margin:6px 0 10px}.title h1{margin:0;font-size:25px;letter-spacing:-1px}.title p{margin:3px 0;color:#9eb1a8;font-size:10px}
+.machine{background:linear-gradient(180deg,#32131f,#170c12);border:2px solid #704050;border-radius:20px;padding:10px;box-shadow:0 15px 45px #0008}.badge{text-align:center;color:#ffd1e5;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;background:#0a0709;border:2px solid #d09b43;border-radius:12px;padding:6px;min-height:350px}.cell{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-radius:9px;background:linear-gradient(145deg,#fff8,#fff0);font-size:35px;filter:drop-shadow(0 4px 3px #0008);transition:.18s}.cell.win{animation:pop .45s ease}.cell.empty{opacity:0}@keyframes pop{50%{transform:scale(1.25);filter:drop-shadow(0 0 12px #fff)}100%{transform:scale(.7);opacity:.2}}
+.mult{min-height:23px;text-align:center;font-size:12px;font-weight:900;color:var(--gold);padding:5px}.controls{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:7px;margin-top:9px}.ctrl{background:#102219;border:1px solid #28523f;color:#fff;border-radius:11px;padding:9px 6px;text-align:center}.ctrl small{display:block;color:#8ca097;font-size:8px}.ctrl strong{font-size:13px}.spin{background:linear-gradient(180deg,#00f29a,#00a968);border:0;color:#032015;font-weight:1000;border-radius:12px;font-size:18px;box-shadow:0 5px 20px #00e78544}.spin:active{transform:scale(.97)}.bar{display:flex;gap:6px;margin-top:8px}.bar button{flex:1;background:#0c1b15;color:#c7d5cf;border:1px solid #1f4132;border-radius:9px;padding:7px;font-size:9px}.msg{text-align:center;min-height:22px;color:#d8e5df;font-size:11px;font-weight:700;margin-top:8px}.history{margin-top:10px;background:#091811;border:1px solid #173a2b;border-radius:13px;padding:10px}.history h3{margin:0 0 7px;font-size:11px}.row{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid #153025;font-size:9px;color:#91a39b}.wintext{color:var(--green)}.note{text-align:center;color:#62756c;font-size:8px;margin-top:10px;line-height:1.4}
+</style>
+</head>
+<body><div class="app">
+<div class="top"><div class="brand">NORDIC<span><b>PLAY</b></span></div><div class="wallet"><small>DEMO WALLET · USDT</small><strong id="balance">10,000.00</strong></div></div>
+<div class="title"><h1>Sweet Blast</h1><p>Original NordicPlay demo · cascade candy slot</p></div>
+<div class="machine"><div class="badge">6 × 5 · tumble · demo</div><div id="grid" class="grid"></div><div id="mult" class="mult">Multiplier ×1</div></div>
+<div class="controls"><button class="ctrl" id="minus"><small>BET</small><strong>−</strong></button><button class="spin" id="spin">SPIN</button><button class="ctrl" id="plus"><small>BET</small><strong>+</strong></button></div>
+<div class="bar"><button id="reset">Reset wallet</button><button id="autoplay">Autoplay: OFF</button></div>
+<div id="msg" class="msg">Good luck!</div>
+<div class="history"><h3>DEMO TRANSACTIONS</h3><div id="history"></div></div>
+<div class="note">Demo only. This is an original NordicPlay prototype inspired by the cascade-slot format; it is not the official Sweet Bonanza game.</div>
+</div>
+<script>
+const symbols=['🍭','🍬','🍉','🍇','🍊','🍓','🥝','🍒','🍌','🍋'];let balance=10000,bet=.5,mult=1,busy=false,auto=false;
+const $=id=>document.getElementById(id), grid=$('grid');
+function money(n){return n.toFixed(2)} function update(){ $('balance').textContent=money(balance); }
+function makeGrid(){grid.innerHTML='';for(let i=0;i<30;i++){const d=document.createElement('div');d.className='cell';d.textContent=symbols[Math.floor(Math.random()*symbols.length)];grid.appendChild(d)}}
+function history(type,amount){const r=document.createElement('div');r.className='row';r.innerHTML='<span>'+type+'</span><span class="'+(amount>0?'wintext':'')+'">'+(amount>0?'+':'')+money(amount)+' USDT</span>'; $('history').prepend(r);while($('history').children.length>5)$('history').lastChild.remove()}
+function evaluate(){const cells=[...grid.children];let counts={};cells.forEach(c=>counts[c.textContent]=(counts[c.textContent]||0)+1);let groups=Object.entries(counts).filter(x=>x[1]>=8);if(!groups.length)return 0;let base=groups.reduce((s,x)=>s+(x[1]-7)*bet*.8,0);return base*mult}
+async function spin(){if(busy||balance<bet)return;busy=true;balance-=bet;history('Bet',-bet);update();$('msg').textContent='Spinning…';$('spin').disabled=true;mult=1;$('mult').textContent='Multiplier ×1';makeGrid();await new Promise(r=>setTimeout(r,500));let win=evaluate();if(win>0){const m=Math.random()<.18?2:1;mult=m;$('mult').textContent='Multiplier ×'+m;win*=m;balance+=win;history('Win',win);$('msg').textContent='Win '+money(win)+' USDT';[...grid.children].forEach(c=>c.classList.add('win'));}else $('msg').textContent='No win — tumble again!';update();$('spin').disabled=false;busy=false;if(auto&&balance>=bet)setTimeout(spin,650)}
+$('minus').onclick=()=>{bet=Math.max(.1,Math.round((bet-.1)*10)/10);$('minus').querySelector('strong').textContent='− '+bet.toFixed(2)};$('plus').onclick=()=>{bet=Math.min(100,Math.round((bet+.1)*10)/10);$('plus').querySelector('strong').textContent='+ '+bet.toFixed(2)};
+$('spin').onclick=spin;$('reset').onclick=()=>{balance=10000;update();$('history').innerHTML='';$('msg').textContent='Wallet reset to 10,000.00 USDT'};$('autoplay').onclick=()=>{auto=!auto;$('autoplay').textContent='Autoplay: '+(auto?'ON':'OFF');if(auto&&!busy)spin()};makeGrid();update();$('minus').querySelector('strong').textContent='− 0.50';$('plus').querySelector('strong').textContent='+ 0.50';
+</script></body></html>
