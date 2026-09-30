@@ -169,7 +169,7 @@
 <section id="section-blackjack" class="category-grid mt-4 hidden">
     <div class="flex items-center justify-between mb-3"><h2 class="font-bold text-sm tracking-wide text-emerald-400">Blackjack</h2></div>
     <div class="grid grid-cols-2 gap-3">
-        <div data-provider="Live Dealer" data-name="Infinite Blackjack" onclick="openCasinoOrgDemo('%24%7BGAME_NAME%7D')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-emerald-950 to-teal-950"></div><span class="relative font-black text-white text-sm uppercase">Infinite Blackjack</span></div><div class="game-meta"><h3 class="text-white">Infinite Blackjack</h3><p class="text-emerald-400">Live Dealer</p></div></div>
+        <div data-provider="Live Dealer" data-name="Infinite Blackjack" onclick="openCasinoOrgDemo('\${encodeURIComponent(g[0])}')" class="game-card casino-full-card bg-[#12201c] border border-[#1f3831] rounded-xl overflow-hidden cursor-pointer hover:border-[#00e785] transition group relative"><button onclick="event.stopPropagation();toggleFavorite(this)" class="absolute top-2 right-2 z-20 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-gray-300"><i class="fa-regular fa-heart text-xs"></i></button><div class="game-art bg-gray-900 overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-tr from-emerald-950 to-teal-950"></div><span class="relative font-black text-white text-sm uppercase">Infinite Blackjack</span></div><div class="game-meta"><h3 class="text-white">Infinite Blackjack</h3><p class="text-emerald-400">Live Dealer</p></div></div>
     </div>
 </section>
 </main>
@@ -372,7 +372,6 @@ const games = [
 ["Cleopatra","IGT","95.0%","from-yellow-950 to-blue-950"],
 ["88 Fortunes","IGT","95.0%","from-red-950 to-yellow-950"],
 ["Lucky Larry's Lobstermania 2","IGT","95.0%","from-blue-950 to-cyan-950"],
-["Triple Red Hot 777","IGT","95.0%","from-red-950 to-black"],
 ];
 
 const extraCasinoGames = [
